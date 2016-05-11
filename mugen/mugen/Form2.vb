@@ -394,4 +394,58 @@
 
         End If
     End Sub
+
+    Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) 
+
+    End Sub
+
+    Private Sub Button21_Click(sender As Object, e As EventArgs) Handles Button21.Click
+        DataGridView1.Item(0, 0).Value = "hola"
+    End Sub
+
+
+    Private Sub DataGridView1_CellEndEdit(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellEndEdit
+        Dim cod As String
+        Dim i As Integer
+        Dim curen As Integer
+        Dim suma As Integer
+
+        curen = DataGridView1.CurrentRow.Index
+        suma = 0
+
+        If (DataGridView1.Item(0, curen).Value = "") Then
+
+        Else
+            cod = DataGridView1.Item(0, curen).Value
+
+            For i = 0 To DataSet1.Tables("producto").Rows.Count - 1
+
+
+                If cod = DataSet1.Tables("producto").Rows(i).Item("codigo") Then
+
+                    DataGridView1.Item(1, curen).Value = DataSet1.Tables("producto").Rows(i).Item("descripcion")
+                    DataGridView1.Item(2, curen).Value = DataSet1.Tables("producto").Rows(i).Item("precio_venta")
+
+
+
+
+                End If
+
+            Next
+        End If
+
+        If DataGridView1.Item(3, curen).Value = "" Then
+
+        Else
+            DataGridView1.Item(4, curen).Value = DataGridView1.Item(3, curen).Value * DataGridView1.Item(2, curen).Value
+            For i = 0 To DataGridView1.RowCount - 1
+                suma = suma + DataGridView1.Item(4, i).Value
+                text_total.Text = suma.ToString
+
+
+
+            Next
+
+        End If
+    End Sub
 End Class

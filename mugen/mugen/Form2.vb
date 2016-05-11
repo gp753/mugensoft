@@ -1,5 +1,5 @@
 ﻿Public Class Form2
-    Private Sub Association_1BindingNavigatorSaveItem_Click(sender As Object, e As EventArgs) Handles Association_1BindingNavigatorSaveItem.Click
+    Private Sub Association_1BindingNavigatorSaveItem_Click(sender As Object, e As EventArgs)
         Me.Validate()
         Me.Association_1BindingSource.EndEdit()
         Me.TableAdapterManager.UpdateAll(Me.DataSet1)
@@ -15,6 +15,7 @@
         Me.ProveedorTableAdapter.Fill(Me.DataSet1.proveedor)
         'TODO: This line of code loads data into the 'DataSet1.producto' table. You can move, or remove it, as needed.
         Me.ProductoTableAdapter.Fill(Me.DataSet1.producto)
+
         'TODO: This line of code loads data into the 'DataSet1.pedido' table. You can move, or remove it, as needed.
         Me.PedidoTableAdapter.Fill(Me.DataSet1.pedido)
         'TODO: This line of code loads data into the 'DataSet1.ingreso_producto' table. You can move, or remove it, as needed.

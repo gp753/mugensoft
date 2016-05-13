@@ -313,6 +313,7 @@ Partial Class Form2
         Me.Label42 = New System.Windows.Forms.Label()
         Me.Label41 = New System.Windows.Forms.Label()
         Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
+        Me.Label64 = New System.Windows.Forms.Label()
         CType(Me.Ingreso_productoBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Contabilidad2BindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -2085,6 +2086,7 @@ Partial Class Form2
         'PanelTrabajosPendientes
         '
         Me.PanelTrabajosPendientes.AutoScroll = True
+        Me.PanelTrabajosPendientes.Controls.Add(Me.Label64)
         Me.PanelTrabajosPendientes.Controls.Add(Me.graficoPagados)
         Me.PanelTrabajosPendientes.Controls.Add(Me.graficoTrabajos)
         Me.PanelTrabajosPendientes.Controls.Add(Me.pedidoGridView)
@@ -2747,6 +2749,15 @@ Partial Class Form2
         Me.Label41.TabIndex = 0
         Me.Label41.Text = "Trabajos Pendientes"
         '
+        'Label64
+        '
+        Me.Label64.AutoSize = True
+        Me.Label64.Location = New System.Drawing.Point(591, 34)
+        Me.Label64.Name = "Label64"
+        Me.Label64.Size = New System.Drawing.Size(45, 13)
+        Me.Label64.TabIndex = 42
+        Me.Label64.Text = "Label64"
+        '
         'Form2
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -3103,4 +3114,5 @@ Partial Class Form2
     Friend WithEvents Label42 As Label
     Friend WithEvents Label41 As Label
     Friend WithEvents SaveFileDialog1 As SaveFileDialog
+    Friend WithEvents Label64 As Label
 End Class

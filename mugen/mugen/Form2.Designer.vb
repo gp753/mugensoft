@@ -33,7 +33,6 @@ Partial Class Form2
         Dim RucLabel As System.Windows.Forms.Label
         Dim ApellidoLabel As System.Windows.Forms.Label
         Dim NombreLabel As System.Windows.Forms.Label
-        Dim NombreLabel2 As System.Windows.Forms.Label
         Me.Ingreso_productoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DataSet1 = New mugen.DataSet1()
         Me.Contabilidad2BindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -78,14 +77,12 @@ Partial Class Form2
         Me.Button11 = New System.Windows.Forms.Button()
         Me.Button8 = New System.Windows.Forms.Button()
         Me.GroupBoxModificarCliente = New System.Windows.Forms.GroupBox()
-        Me.Label71 = New System.Windows.Forms.Label()
         Me.MailTextBox1 = New System.Windows.Forms.TextBox()
         Me.NumeroTextBox1 = New System.Windows.Forms.TextBox()
         Me.ApellidoTextBox1 = New System.Windows.Forms.TextBox()
         Me.NombreTextBox1 = New System.Windows.Forms.TextBox()
         Me.RucTextBox1 = New System.Windows.Forms.TextBox()
         Me.CheckBoxClientePrioritario1 = New System.Windows.Forms.CheckBox()
-        Me.Button15 = New System.Windows.Forms.Button()
         Me.Button10 = New System.Windows.Forms.Button()
         Me.Button25 = New System.Windows.Forms.Button()
         Me.Button24 = New System.Windows.Forms.Button()
@@ -176,7 +173,8 @@ Partial Class Form2
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
-        Me.NombreTextBox2 = New System.Windows.Forms.TextBox()
+        Me.Button15 = New System.Windows.Forms.Button()
+        Me.Label1 = New System.Windows.Forms.Label()
         MailLabel1 = New System.Windows.Forms.Label()
         NumeroLabel1 = New System.Windows.Forms.Label()
         ApellidoLabel1 = New System.Windows.Forms.Label()
@@ -187,7 +185,6 @@ Partial Class Form2
         RucLabel = New System.Windows.Forms.Label()
         ApellidoLabel = New System.Windows.Forms.Label()
         NombreLabel = New System.Windows.Forms.Label()
-        NombreLabel2 = New System.Windows.Forms.Label()
         CType(Me.Ingreso_productoBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Contabilidad2BindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -401,8 +398,7 @@ Partial Class Form2
         '
         'PanelClientes
         '
-        Me.PanelClientes.Controls.Add(NombreLabel2)
-        Me.PanelClientes.Controls.Add(Me.NombreTextBox2)
+        Me.PanelClientes.Controls.Add(Me.Label1)
         Me.PanelClientes.Controls.Add(Me.ClienteDataGridView1)
         Me.PanelClientes.Controls.Add(Me.GroupBoxCrearCliente)
         Me.PanelClientes.Controls.Add(Me.GroupBoxEstadisticasdelCliente)
@@ -649,14 +645,13 @@ Partial Class Form2
         '
         'GroupBoxModificarCliente
         '
-        Me.GroupBoxModificarCliente.Controls.Add(Me.Label71)
+        Me.GroupBoxModificarCliente.Controls.Add(Me.Button15)
         Me.GroupBoxModificarCliente.Controls.Add(Me.MailTextBox1)
         Me.GroupBoxModificarCliente.Controls.Add(Me.NumeroTextBox1)
         Me.GroupBoxModificarCliente.Controls.Add(Me.ApellidoTextBox1)
         Me.GroupBoxModificarCliente.Controls.Add(Me.NombreTextBox1)
         Me.GroupBoxModificarCliente.Controls.Add(Me.RucTextBox1)
         Me.GroupBoxModificarCliente.Controls.Add(Me.CheckBoxClientePrioritario1)
-        Me.GroupBoxModificarCliente.Controls.Add(Me.Button15)
         Me.GroupBoxModificarCliente.Controls.Add(Me.Button10)
         Me.GroupBoxModificarCliente.Controls.Add(Me.Button25)
         Me.GroupBoxModificarCliente.Controls.Add(Me.Button24)
@@ -672,16 +667,6 @@ Partial Class Form2
         Me.GroupBoxModificarCliente.TabStop = False
         Me.GroupBoxModificarCliente.Text = "Modificar Cliente"
         Me.GroupBoxModificarCliente.Visible = False
-        '
-        'Label71
-        '
-        Me.Label71.AutoSize = True
-        Me.Label71.Location = New System.Drawing.Point(94, 237)
-        Me.Label71.Name = "Label71"
-        Me.Label71.Size = New System.Drawing.Size(45, 13)
-        Me.Label71.TabIndex = 12
-        Me.Label71.Text = "Label71"
-        Me.Label71.Visible = False
         '
         'MailTextBox1
         '
@@ -731,15 +716,6 @@ Partial Class Form2
         Me.CheckBoxClientePrioritario1.TabIndex = 15
         Me.CheckBoxClientePrioritario1.Text = "Cliente Prioritario"
         Me.CheckBoxClientePrioritario1.UseVisualStyleBackColor = True
-        '
-        'Button15
-        '
-        Me.Button15.Location = New System.Drawing.Point(253, 41)
-        Me.Button15.Name = "Button15"
-        Me.Button15.Size = New System.Drawing.Size(57, 23)
-        Me.Button15.TabIndex = 14
-        Me.Button15.Text = "Buscar"
-        Me.Button15.UseVisualStyleBackColor = True
         '
         'Button10
         '
@@ -1355,22 +1331,23 @@ Partial Class Form2
         Me.Button1.Text = "Cargar Presupuesto"
         Me.Button1.UseVisualStyleBackColor = True
         '
-        'NombreLabel2
+        'Button15
         '
-        NombreLabel2.AutoSize = True
-        NombreLabel2.Location = New System.Drawing.Point(693, 25)
-        NombreLabel2.Name = "NombreLabel2"
-        NombreLabel2.Size = New System.Drawing.Size(45, 13)
-        NombreLabel2.TabIndex = 21
-        NombreLabel2.Text = "nombre:"
+        Me.Button15.Location = New System.Drawing.Point(249, 39)
+        Me.Button15.Name = "Button15"
+        Me.Button15.Size = New System.Drawing.Size(75, 23)
+        Me.Button15.TabIndex = 22
+        Me.Button15.Text = "Button15"
+        Me.Button15.UseVisualStyleBackColor = True
         '
-        'NombreTextBox2
+        'Label1
         '
-        Me.NombreTextBox2.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ClienteBindingSource, "nombre", True))
-        Me.NombreTextBox2.Location = New System.Drawing.Point(744, 22)
-        Me.NombreTextBox2.Name = "NombreTextBox2"
-        Me.NombreTextBox2.Size = New System.Drawing.Size(100, 20)
-        Me.NombreTextBox2.TabIndex = 22
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(644, 420)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(39, 13)
+        Me.Label1.TabIndex = 22
+        Me.Label1.Text = "Label1"
         '
         'Form2
         '
@@ -1524,7 +1501,6 @@ Partial Class Form2
     Friend WithEvents PanelClientes As Panel
     Friend WithEvents Button8 As Button
     Friend WithEvents GroupBoxModificarCliente As GroupBox
-    Friend WithEvents Label71 As Label
     Friend WithEvents Button25 As Button
     Friend WithEvents Button24 As Button
     Friend WithEvents GroupBoxCrearCliente As GroupBox
@@ -1539,7 +1515,6 @@ Partial Class Form2
     Friend WithEvents Button12 As Button
     Friend WithEvents Button11 As Button
     Friend WithEvents Button10 As Button
-    Friend WithEvents Button15 As Button
     Friend WithEvents Button16 As Button
     Friend WithEvents CheckBoxClientePrioritario As CheckBox
     Friend WithEvents CheckBoxClientePrioritario1 As CheckBox
@@ -1563,5 +1538,6 @@ Partial Class Form2
     Friend WithEvents ApellidoTextBox1 As TextBox
     Friend WithEvents NombreTextBox1 As TextBox
     Friend WithEvents RucTextBox1 As TextBox
-    Friend WithEvents NombreTextBox2 As TextBox
+    Friend WithEvents Button15 As Button
+    Friend WithEvents Label1 As Label
 End Class

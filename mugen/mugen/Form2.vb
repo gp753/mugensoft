@@ -243,11 +243,14 @@
 
     End Sub
 
-    Private Sub Button15_Click(sender As Object, e As EventArgs) Handles Button15.Click
+    Private Sub Button15_Click(sender As Object, e As EventArgs)
         Dim cantidad_de_clientes As Integer
         cantidad_de_clientes = DataSet1.Tables("cliente").Rows.Count
         Dim ban_ruc_existe As Integer
         ban_ruc_existe = 0
+
+        Label1.Text = "entre"
+        Label1.Show()
 
         For i As Integer = 0 To (cantidad_de_clientes - 1)
             'Si el RUC ingresado existe'
@@ -283,9 +286,73 @@
 
         If ban_ruc_existe = 0 Then
             'Si el ruc ingresado NO existe
-            Label71.Show()
-            Label71.Text = "RUC no registrado"
-            Label71.ForeColor = Color.Red
+            Label1.Show()
+            Label1.Text = "RUC no registrado"
+            Label1.ForeColor = Color.Red
+
+            RucTextBox.Text = ""
+            RucTextBox.Focus()
+
+            NombreTextBox1.Text = ""
+            ApellidoTextBox1.Text = ""
+            NumeroTextBox1.Text = ""
+            MailTextBox1.Text = ""
+            CheckBoxClientePrioritario1.Checked = False
+
+            NombreTextBox1.ReadOnly = True
+            ApellidoTextBox1.ReadOnly = True
+            NumeroTextBox1.ReadOnly = True
+            MailTextBox1.ReadOnly = True
+        End If
+
+    End Sub
+
+    Private Sub Button15_Click_1(sender As Object, e As EventArgs) Handles Button15.Click
+        Dim cantidad_de_clientes As Integer
+        cantidad_de_clientes = DataSet1.Tables("cliente").Rows.Count
+        Dim ban_ruc_existe As Integer
+        ban_ruc_existe = 0
+
+        Label1.Text = "entre"
+        Label1.Show()
+
+        For i As Integer = 0 To (cantidad_de_clientes - 1)
+            'Si el RUC ingresado existe'
+            If DataSet1.Tables("cliente").Rows(i).Item("ruc") = RucTextBox1.Text Then
+                'Si el cliente está habilitado (no está "borrado)
+                If DataSet1.Tables("cliente").Rows(i).Item("estado_cliente") = True Then
+                    Label71.Hide()
+
+                    RucTextBox.Text = ""
+                    RucTextBox.Focus()
+
+                    NombreTextBox1.ReadOnly = False
+                    ApellidoTextBox1.ReadOnly = False
+                    NumeroTextBox1.ReadOnly = False
+                    MailTextBox1.ReadOnly = False
+
+                    NombreTextBox1.Text = DataSet1.Tables("cliente").Rows(i).Item("nombre")
+                    ApellidoTextBox1.Text = DataSet1.Tables("cliente").Rows(i).Item("apellido")
+                    NumeroTextBox1.Text = DataSet1.Tables("cliente").Rows(i).Item("numero")
+                    MailTextBox1.Text = DataSet1.Tables("cliente").Rows(i).Item("mail")
+
+                    If DataSet1.Tables("cliente").Rows(i).Item("cliente_prioritario") = True Then
+                        CheckBoxClientePrioritario1.Checked = True
+                    Else
+                        CheckBoxClientePrioritario1.Checked = False
+                    End If
+                End If
+                i = cantidad_de_clientes - 1 'Para cortar el FOR, ya que se encontró RUC repetido
+
+                ban_ruc_existe = 1
+            End If
+        Next
+
+        If ban_ruc_existe = 0 Then
+            'Si el ruc ingresado NO existe
+            Label1.Show()
+            Label1.Text = "RUC no registrado"
+            Label1.ForeColor = Color.Red
 
             RucTextBox.Text = ""
             RucTextBox.Focus()

@@ -225,12 +225,12 @@ Partial Class Form2
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.label_ruc_venta = New System.Windows.Forms.Label()
         Me.text_total = New System.Windows.Forms.TextBox()
-        Me.Label46 = New System.Windows.Forms.Label()
+        Me.label_total = New System.Windows.Forms.Label()
         Me.text_iva = New System.Windows.Forms.TextBox()
-        Me.Label45 = New System.Windows.Forms.Label()
+        Me.label_iva = New System.Windows.Forms.Label()
         Me.text_sub_total = New System.Windows.Forms.TextBox()
-        Me.Label44 = New System.Windows.Forms.Label()
-        Me.Button21 = New System.Windows.Forms.Button()
+        Me.label_subtotal = New System.Windows.Forms.Label()
+        Me.venta_guardar = New System.Windows.Forms.Button()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.Codigo = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Producto = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -238,11 +238,11 @@ Partial Class Form2
         Me.cant = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Importe = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TextBox17 = New System.Windows.Forms.TextBox()
-        Me.Label43 = New System.Windows.Forms.Label()
+        Me.label_fecha = New System.Windows.Forms.Label()
         Me.TextBox16 = New System.Windows.Forms.TextBox()
-        Me.Label42 = New System.Windows.Forms.Label()
+        Me.label_venta_cliente = New System.Windows.Forms.Label()
         Me.text_ruc_venta = New System.Windows.Forms.TextBox()
-        Me.Label41 = New System.Windows.Forms.Label()
+        Me.label_ruc = New System.Windows.Forms.Label()
         CType(Me.Ingreso_productoBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Contabilidad2BindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -1866,23 +1866,24 @@ Partial Class Form2
         '
         Me.Panel2.Controls.Add(Me.label_ruc_venta)
         Me.Panel2.Controls.Add(Me.text_total)
-        Me.Panel2.Controls.Add(Me.Label46)
+        Me.Panel2.Controls.Add(Me.label_total)
         Me.Panel2.Controls.Add(Me.text_iva)
-        Me.Panel2.Controls.Add(Me.Label45)
+        Me.Panel2.Controls.Add(Me.label_iva)
         Me.Panel2.Controls.Add(Me.text_sub_total)
-        Me.Panel2.Controls.Add(Me.Label44)
-        Me.Panel2.Controls.Add(Me.Button21)
+        Me.Panel2.Controls.Add(Me.label_subtotal)
+        Me.Panel2.Controls.Add(Me.venta_guardar)
         Me.Panel2.Controls.Add(Me.DataGridView1)
         Me.Panel2.Controls.Add(Me.TextBox17)
-        Me.Panel2.Controls.Add(Me.Label43)
+        Me.Panel2.Controls.Add(Me.label_fecha)
         Me.Panel2.Controls.Add(Me.TextBox16)
-        Me.Panel2.Controls.Add(Me.Label42)
+        Me.Panel2.Controls.Add(Me.label_venta_cliente)
         Me.Panel2.Controls.Add(Me.text_ruc_venta)
-        Me.Panel2.Controls.Add(Me.Label41)
+        Me.Panel2.Controls.Add(Me.label_ruc)
         Me.Panel2.Location = New System.Drawing.Point(12, 96)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(1319, 478)
         Me.Panel2.TabIndex = 26
+        Me.Panel2.Visible = False
         '
         'label_ruc_venta
         '
@@ -1901,14 +1902,14 @@ Partial Class Form2
         Me.text_total.Size = New System.Drawing.Size(100, 20)
         Me.text_total.TabIndex = 13
         '
-        'Label46
+        'label_total
         '
-        Me.Label46.AutoSize = True
-        Me.Label46.Location = New System.Drawing.Point(370, 383)
-        Me.Label46.Name = "Label46"
-        Me.Label46.Size = New System.Drawing.Size(42, 13)
-        Me.Label46.TabIndex = 12
-        Me.Label46.Text = "TOTAL"
+        Me.label_total.AutoSize = True
+        Me.label_total.Location = New System.Drawing.Point(370, 383)
+        Me.label_total.Name = "label_total"
+        Me.label_total.Size = New System.Drawing.Size(42, 13)
+        Me.label_total.TabIndex = 12
+        Me.label_total.Text = "TOTAL"
         '
         'text_iva
         '
@@ -1918,14 +1919,14 @@ Partial Class Form2
         Me.text_iva.Size = New System.Drawing.Size(100, 20)
         Me.text_iva.TabIndex = 11
         '
-        'Label45
+        'label_iva
         '
-        Me.Label45.AutoSize = True
-        Me.Label45.Location = New System.Drawing.Point(371, 347)
-        Me.Label45.Name = "Label45"
-        Me.Label45.Size = New System.Drawing.Size(24, 13)
-        Me.Label45.TabIndex = 10
-        Me.Label45.Text = "IVA"
+        Me.label_iva.AutoSize = True
+        Me.label_iva.Location = New System.Drawing.Point(371, 347)
+        Me.label_iva.Name = "label_iva"
+        Me.label_iva.Size = New System.Drawing.Size(24, 13)
+        Me.label_iva.TabIndex = 10
+        Me.label_iva.Text = "IVA"
         '
         'text_sub_total
         '
@@ -1937,23 +1938,23 @@ Partial Class Form2
         Me.text_sub_total.TabIndex = 9
         Me.text_sub_total.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
-        'Label44
+        'label_subtotal
         '
-        Me.Label44.AutoSize = True
-        Me.Label44.Location = New System.Drawing.Point(371, 309)
-        Me.Label44.Name = "Label44"
-        Me.Label44.Size = New System.Drawing.Size(67, 13)
-        Me.Label44.TabIndex = 8
-        Me.Label44.Text = "SUB TOTAL"
+        Me.label_subtotal.AutoSize = True
+        Me.label_subtotal.Location = New System.Drawing.Point(371, 309)
+        Me.label_subtotal.Name = "label_subtotal"
+        Me.label_subtotal.Size = New System.Drawing.Size(67, 13)
+        Me.label_subtotal.TabIndex = 8
+        Me.label_subtotal.Text = "SUB TOTAL"
         '
-        'Button21
+        'venta_guardar
         '
-        Me.Button21.Location = New System.Drawing.Point(29, 421)
-        Me.Button21.Name = "Button21"
-        Me.Button21.Size = New System.Drawing.Size(75, 23)
-        Me.Button21.TabIndex = 7
-        Me.Button21.Text = "Button21"
-        Me.Button21.UseVisualStyleBackColor = True
+        Me.venta_guardar.Location = New System.Drawing.Point(29, 421)
+        Me.venta_guardar.Name = "venta_guardar"
+        Me.venta_guardar.Size = New System.Drawing.Size(75, 23)
+        Me.venta_guardar.TabIndex = 7
+        Me.venta_guardar.Text = "Button21"
+        Me.venta_guardar.UseVisualStyleBackColor = True
         '
         'DataGridView1
         '
@@ -2001,14 +2002,14 @@ Partial Class Form2
         Me.TextBox17.Size = New System.Drawing.Size(109, 20)
         Me.TextBox17.TabIndex = 5
         '
-        'Label43
+        'label_fecha
         '
-        Me.Label43.AutoSize = True
-        Me.Label43.Location = New System.Drawing.Point(468, 5)
-        Me.Label43.Name = "Label43"
-        Me.Label43.Size = New System.Drawing.Size(37, 13)
-        Me.Label43.TabIndex = 4
-        Me.Label43.Text = "Fecha"
+        Me.label_fecha.AutoSize = True
+        Me.label_fecha.Location = New System.Drawing.Point(468, 5)
+        Me.label_fecha.Name = "label_fecha"
+        Me.label_fecha.Size = New System.Drawing.Size(37, 13)
+        Me.label_fecha.TabIndex = 4
+        Me.label_fecha.Text = "Fecha"
         '
         'TextBox16
         '
@@ -2017,14 +2018,14 @@ Partial Class Form2
         Me.TextBox16.Size = New System.Drawing.Size(335, 20)
         Me.TextBox16.TabIndex = 3
         '
-        'Label42
+        'label_venta_cliente
         '
-        Me.Label42.AutoSize = True
-        Me.Label42.Location = New System.Drawing.Point(26, 48)
-        Me.Label42.Name = "Label42"
-        Me.Label42.Size = New System.Drawing.Size(39, 13)
-        Me.Label42.TabIndex = 2
-        Me.Label42.Text = "Cliente"
+        Me.label_venta_cliente.AutoSize = True
+        Me.label_venta_cliente.Location = New System.Drawing.Point(26, 48)
+        Me.label_venta_cliente.Name = "label_venta_cliente"
+        Me.label_venta_cliente.Size = New System.Drawing.Size(39, 13)
+        Me.label_venta_cliente.TabIndex = 2
+        Me.label_venta_cliente.Text = "Cliente"
         '
         'text_ruc_venta
         '
@@ -2033,14 +2034,14 @@ Partial Class Form2
         Me.text_ruc_venta.Size = New System.Drawing.Size(100, 20)
         Me.text_ruc_venta.TabIndex = 1
         '
-        'Label41
+        'label_ruc
         '
-        Me.Label41.AutoSize = True
-        Me.Label41.Location = New System.Drawing.Point(26, 8)
-        Me.Label41.Name = "Label41"
-        Me.Label41.Size = New System.Drawing.Size(30, 13)
-        Me.Label41.TabIndex = 0
-        Me.Label41.Text = "RUC"
+        Me.label_ruc.AutoSize = True
+        Me.label_ruc.Location = New System.Drawing.Point(26, 8)
+        Me.label_ruc.Name = "label_ruc"
+        Me.label_ruc.Size = New System.Drawing.Size(30, 13)
+        Me.label_ruc.TabIndex = 0
+        Me.label_ruc.Text = "RUC"
         '
         'Form2
         '
@@ -2307,23 +2308,23 @@ Partial Class Form2
     Friend WithEvents boton_servicios As Button
     Friend WithEvents Panel2 As Panel
     Friend WithEvents TextBox17 As TextBox
-    Friend WithEvents Label43 As Label
+    Friend WithEvents label_fecha As Label
     Friend WithEvents TextBox16 As TextBox
-    Friend WithEvents Label42 As Label
+    Friend WithEvents label_venta_cliente As Label
     Friend WithEvents text_ruc_venta As TextBox
-    Friend WithEvents Label41 As Label
+    Friend WithEvents label_ruc As Label
     Friend WithEvents DataGridView1 As DataGridView
-    Friend WithEvents Button21 As Button
+    Friend WithEvents venta_guardar As Button
     Friend WithEvents Importe As DataGridViewTextBoxColumn
     Friend WithEvents cant As DataGridViewTextBoxColumn
     Friend WithEvents Punit As DataGridViewTextBoxColumn
     Friend WithEvents Producto As DataGridViewTextBoxColumn
     Friend WithEvents Codigo As DataGridViewTextBoxColumn
     Friend WithEvents text_sub_total As TextBox
-    Friend WithEvents Label44 As Label
+    Friend WithEvents label_subtotal As Label
     Friend WithEvents text_total As TextBox
-    Friend WithEvents Label46 As Label
+    Friend WithEvents label_total As Label
     Friend WithEvents text_iva As TextBox
-    Friend WithEvents Label45 As Label
+    Friend WithEvents label_iva As Label
     Friend WithEvents label_ruc_venta As Label
 End Class

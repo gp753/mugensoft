@@ -399,7 +399,7 @@
 
     End Sub
 
-    Private Sub Button21_Click(sender As Object, e As EventArgs) Handles Button21.Click
+    Private Sub Button21_Click(sender As Object, e As EventArgs) Handles venta_guardar.Click
         DataGridView1.Item(0, 0).Value = "hola"
     End Sub
 

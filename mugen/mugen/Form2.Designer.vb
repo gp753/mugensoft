@@ -49,16 +49,6 @@ Partial Class Form2
         Me.PedidoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.PanelClientes = New System.Windows.Forms.Panel()
-        Me.ClienteDataGridView1ModificarCliente = New System.Windows.Forms.DataGridView()
-        Me.DataGridViewTextBoxColumn61 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn62 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn63 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn64 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn65 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn66 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn67 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn68 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn69 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.GroupBoxCrearClienteasd = New System.Windows.Forms.GroupBox()
         Me.Label72CrearCliente = New System.Windows.Forms.Label()
         Me.MailTextBoxCrearCliente = New System.Windows.Forms.TextBox()
@@ -195,7 +185,6 @@ Partial Class Form2
         CType(Me.PedidoBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         Me.PanelClientes.SuspendLayout()
-        CType(Me.ClienteDataGridView1ModificarCliente, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBoxCrearClienteasd.SuspendLayout()
         Me.GroupBoxEstadisticasdelCliente.SuspendLayout()
         Me.GroupBoxModificarClienteasd.SuspendLayout()
@@ -400,7 +389,6 @@ Partial Class Form2
         'PanelClientes
         '
         Me.PanelClientes.Controls.Add(Me.btn)
-        Me.PanelClientes.Controls.Add(Me.ClienteDataGridView1ModificarCliente)
         Me.PanelClientes.Controls.Add(Me.EstadisticasDeClienteBoton)
         Me.PanelClientes.Controls.Add(Me.GroupBoxModificarClienteasd)
         Me.PanelClientes.Controls.Add(Me.ModificarClienteBoton)
@@ -412,72 +400,6 @@ Partial Class Form2
         Me.PanelClientes.Size = New System.Drawing.Size(1341, 605)
         Me.PanelClientes.TabIndex = 39
         Me.PanelClientes.Visible = False
-        '
-        'ClienteDataGridView1ModificarCliente
-        '
-        Me.ClienteDataGridView1ModificarCliente.AutoGenerateColumns = False
-        Me.ClienteDataGridView1ModificarCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.ClienteDataGridView1ModificarCliente.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn61, Me.DataGridViewTextBoxColumn62, Me.DataGridViewTextBoxColumn63, Me.DataGridViewTextBoxColumn64, Me.DataGridViewTextBoxColumn65, Me.DataGridViewTextBoxColumn66, Me.DataGridViewTextBoxColumn67, Me.DataGridViewTextBoxColumn68, Me.DataGridViewTextBoxColumn69})
-        Me.ClienteDataGridView1ModificarCliente.DataSource = Me.ClienteBindingSource
-        Me.ClienteDataGridView1ModificarCliente.Location = New System.Drawing.Point(869, 68)
-        Me.ClienteDataGridView1ModificarCliente.Name = "ClienteDataGridView1ModificarCliente"
-        Me.ClienteDataGridView1ModificarCliente.Size = New System.Drawing.Size(452, 220)
-        Me.ClienteDataGridView1ModificarCliente.TabIndex = 21
-        Me.ClienteDataGridView1ModificarCliente.Visible = False
-        '
-        'DataGridViewTextBoxColumn61
-        '
-        Me.DataGridViewTextBoxColumn61.DataPropertyName = "id_cliente"
-        Me.DataGridViewTextBoxColumn61.HeaderText = "id_cliente"
-        Me.DataGridViewTextBoxColumn61.Name = "DataGridViewTextBoxColumn61"
-        '
-        'DataGridViewTextBoxColumn62
-        '
-        Me.DataGridViewTextBoxColumn62.DataPropertyName = "nombre"
-        Me.DataGridViewTextBoxColumn62.HeaderText = "nombre"
-        Me.DataGridViewTextBoxColumn62.Name = "DataGridViewTextBoxColumn62"
-        '
-        'DataGridViewTextBoxColumn63
-        '
-        Me.DataGridViewTextBoxColumn63.DataPropertyName = "apellido"
-        Me.DataGridViewTextBoxColumn63.HeaderText = "apellido"
-        Me.DataGridViewTextBoxColumn63.Name = "DataGridViewTextBoxColumn63"
-        '
-        'DataGridViewTextBoxColumn64
-        '
-        Me.DataGridViewTextBoxColumn64.DataPropertyName = "ruc"
-        Me.DataGridViewTextBoxColumn64.HeaderText = "ruc"
-        Me.DataGridViewTextBoxColumn64.Name = "DataGridViewTextBoxColumn64"
-        '
-        'DataGridViewTextBoxColumn65
-        '
-        Me.DataGridViewTextBoxColumn65.DataPropertyName = "numero"
-        Me.DataGridViewTextBoxColumn65.HeaderText = "numero"
-        Me.DataGridViewTextBoxColumn65.Name = "DataGridViewTextBoxColumn65"
-        '
-        'DataGridViewTextBoxColumn66
-        '
-        Me.DataGridViewTextBoxColumn66.DataPropertyName = "mail"
-        Me.DataGridViewTextBoxColumn66.HeaderText = "mail"
-        Me.DataGridViewTextBoxColumn66.Name = "DataGridViewTextBoxColumn66"
-        '
-        'DataGridViewTextBoxColumn67
-        '
-        Me.DataGridViewTextBoxColumn67.DataPropertyName = "estado_cliente"
-        Me.DataGridViewTextBoxColumn67.HeaderText = "estado_cliente"
-        Me.DataGridViewTextBoxColumn67.Name = "DataGridViewTextBoxColumn67"
-        '
-        'DataGridViewTextBoxColumn68
-        '
-        Me.DataGridViewTextBoxColumn68.DataPropertyName = "deuda"
-        Me.DataGridViewTextBoxColumn68.HeaderText = "deuda"
-        Me.DataGridViewTextBoxColumn68.Name = "DataGridViewTextBoxColumn68"
-        '
-        'DataGridViewTextBoxColumn69
-        '
-        Me.DataGridViewTextBoxColumn69.DataPropertyName = "cliente_prioritario"
-        Me.DataGridViewTextBoxColumn69.HeaderText = "cliente_prioritario"
-        Me.DataGridViewTextBoxColumn69.Name = "DataGridViewTextBoxColumn69"
         '
         'GroupBoxCrearClienteasd
         '
@@ -1387,7 +1309,6 @@ Partial Class Form2
         CType(Me.PedidoBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
         Me.PanelClientes.ResumeLayout(False)
-        CType(Me.ClienteDataGridView1ModificarCliente, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBoxCrearClienteasd.ResumeLayout(False)
         Me.GroupBoxCrearClienteasd.PerformLayout()
         Me.GroupBoxEstadisticasdelCliente.ResumeLayout(False)
@@ -1535,16 +1456,6 @@ Partial Class Form2
     Friend WithEvents RucTextBoxCrearCliente As TextBox
     Friend WithEvents ApellidoTextBoxCrearCliente As TextBox
     Friend WithEvents NombreTextBoxCrearCliente As TextBox
-    Friend WithEvents ClienteDataGridView1ModificarCliente As DataGridView
-    Friend WithEvents DataGridViewTextBoxColumn61 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn62 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn63 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn64 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn65 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn66 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn67 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn68 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn69 As DataGridViewTextBoxColumn
     Friend WithEvents MailTextBox1ModificarCliente As TextBox
     Friend WithEvents NumeroTextBox1ModificarCliente As TextBox
     Friend WithEvents ApellidoTextBox1ModificarCliente As TextBox

@@ -23,12 +23,12 @@ Partial Class Form2
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim ChartArea2 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend2 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series2 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea3 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend3 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series3 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea4 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend4 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series4 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Me.Ingreso_productoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DataSet1 = New mugen.DataSet1()
         Me.Contabilidad2BindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -2116,24 +2116,24 @@ Partial Class Form2
         Me.PanelTrabajosPendientes.Controls.Add(Me.TextCliente)
         Me.PanelTrabajosPendientes.Controls.Add(Me.Label42)
         Me.PanelTrabajosPendientes.Controls.Add(Me.Label41)
-        Me.PanelTrabajosPendientes.Location = New System.Drawing.Point(12, 41)
+        Me.PanelTrabajosPendientes.Location = New System.Drawing.Point(12, 65)
         Me.PanelTrabajosPendientes.Name = "PanelTrabajosPendientes"
-        Me.PanelTrabajosPendientes.Size = New System.Drawing.Size(1478, 563)
+        Me.PanelTrabajosPendientes.Size = New System.Drawing.Size(1478, 539)
         Me.PanelTrabajosPendientes.TabIndex = 22
         Me.PanelTrabajosPendientes.Visible = False
         '
         'graficoPagados
         '
-        ChartArea1.Name = "ChartArea1"
-        Me.graficoPagados.ChartAreas.Add(ChartArea1)
-        Legend1.Name = "Legend1"
-        Me.graficoPagados.Legends.Add(Legend1)
+        ChartArea3.Name = "ChartArea1"
+        Me.graficoPagados.ChartAreas.Add(ChartArea3)
+        Legend3.Name = "Legend1"
+        Me.graficoPagados.Legends.Add(Legend3)
         Me.graficoPagados.Location = New System.Drawing.Point(653, 55)
         Me.graficoPagados.Name = "graficoPagados"
-        Series1.ChartArea = "ChartArea1"
-        Series1.Legend = "Legend1"
-        Series1.Name = "Series1"
-        Me.graficoPagados.Series.Add(Series1)
+        Series3.ChartArea = "ChartArea1"
+        Series3.Legend = "Legend1"
+        Series3.Name = "Series1"
+        Me.graficoPagados.Series.Add(Series3)
         Me.graficoPagados.Size = New System.Drawing.Size(300, 300)
         Me.graficoPagados.TabIndex = 41
         Me.graficoPagados.Text = "Chart2"
@@ -2141,16 +2141,16 @@ Partial Class Form2
         '
         'graficoTrabajos
         '
-        ChartArea2.Name = "ChartArea1"
-        Me.graficoTrabajos.ChartAreas.Add(ChartArea2)
-        Legend2.Name = "Legend1"
-        Me.graficoTrabajos.Legends.Add(Legend2)
+        ChartArea4.Name = "ChartArea1"
+        Me.graficoTrabajos.ChartAreas.Add(ChartArea4)
+        Legend4.Name = "Legend1"
+        Me.graficoTrabajos.Legends.Add(Legend4)
         Me.graficoTrabajos.Location = New System.Drawing.Point(130, 28)
         Me.graficoTrabajos.Name = "graficoTrabajos"
-        Series2.ChartArea = "ChartArea1"
-        Series2.Legend = "Legend1"
-        Series2.Name = "Series1"
-        Me.graficoTrabajos.Series.Add(Series2)
+        Series4.ChartArea = "ChartArea1"
+        Series4.Legend = "Legend1"
+        Series4.Name = "Series1"
+        Me.graficoTrabajos.Series.Add(Series4)
         Me.graficoTrabajos.Size = New System.Drawing.Size(300, 300)
         Me.graficoTrabajos.TabIndex = 40
         Me.graficoTrabajos.Text = "Chart1"

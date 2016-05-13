@@ -409,6 +409,8 @@
         Dim i As Integer
         Dim curen As Integer
         Dim suma As Integer
+        Dim iva As Integer
+        Dim total As Integer
 
         curen = DataGridView1.CurrentRow.Index
         suma = 0
@@ -426,9 +428,6 @@
                     DataGridView1.Item(1, curen).Value = DataSet1.Tables("producto").Rows(i).Item("descripcion")
                     DataGridView1.Item(2, curen).Value = DataSet1.Tables("producto").Rows(i).Item("precio_venta")
 
-
-
-
                 End If
 
             Next
@@ -438,14 +437,61 @@
 
         Else
             DataGridView1.Item(4, curen).Value = DataGridView1.Item(3, curen).Value * DataGridView1.Item(2, curen).Value
+            suma = 0
             For i = 0 To DataGridView1.RowCount - 1
                 suma = suma + DataGridView1.Item(4, i).Value
-                text_total.Text = suma.ToString
+                text_sub_total.Text = suma.ToString
+                iva = suma * 0.1
+                text_iva.Text = iva.ToString
+                total = suma + iva
 
-
+                text_total.Text = total.ToString
 
             Next
 
         End If
+    End Sub
+
+    Private Sub TextBox15_TextChanged(sender As Object, e As EventArgs) Handles text_ruc_venta.TextChanged
+
+    End Sub
+
+    Private Function funcion_buscar_cliente(ruc As String)
+
+        Dim cantidad_clientes As Integer
+        Dim i As Integer
+        Dim salida As Integer
+        Dim bandera_salida As Integer
+
+        bandera_salida = 0
+        cantidad_clientes = DataSet1.Tables("cliente").Rows.Count
+        cantidad_clientes = cantidad_clientes - 1
+
+        For i = 0 To cantidad_clientes
+            If ruc = DataSet1.Tables("cliente").Rows(i).Item("ruc") Then
+                bandera_salida = 1
+                salida = i
+            End If
+        Next
+
+        If bandera_salida = 0 Then
+            salida = -1
+        End If
+
+        Return i
+
+    End Function
+
+    Private Sub TextBox15_LostFocus(sender As Object, e As EventArgs) Handles text_ruc_venta.LostFocus
+        Dim ruc As String
+        ruc = funcion_buscar_cliente(text_ruc_venta.Text)
+
+        If ruc < 0 Then
+            label_ruc_venta.Text = "no se econtro cliente"
+
+        End If
+
+
+        label_ruc_venta.Text = funcion_buscar_cliente("hola")
     End Sub
 End Class

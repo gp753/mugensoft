@@ -175,6 +175,7 @@ Partial Class Form2
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
+        Me.btn = New System.Windows.Forms.Button()
         MailLabel1M = New System.Windows.Forms.Label()
         NumeroLabel1N = New System.Windows.Forms.Label()
         ApellidoLabel1A = New System.Windows.Forms.Label()
@@ -398,6 +399,7 @@ Partial Class Form2
         '
         'PanelClientes
         '
+        Me.PanelClientes.Controls.Add(Me.btn)
         Me.PanelClientes.Controls.Add(Me.ClienteDataGridView1ModificarCliente)
         Me.PanelClientes.Controls.Add(Me.EstadisticasDeClienteBoton)
         Me.PanelClientes.Controls.Add(Me.GroupBoxModificarClienteasd)
@@ -1351,6 +1353,15 @@ Partial Class Form2
         Me.Button1.Text = "Cargar Presupuesto"
         Me.Button1.UseVisualStyleBackColor = True
         '
+        'btn
+        '
+        Me.btn.Location = New System.Drawing.Point(360, 4)
+        Me.btn.Name = "btn"
+        Me.btn.Size = New System.Drawing.Size(75, 23)
+        Me.btn.TabIndex = 22
+        Me.btn.Text = "Button8"
+        Me.btn.UseVisualStyleBackColor = True
+        '
         'Form2
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1541,4 +1552,5 @@ Partial Class Form2
     Friend WithEvents RucTextBox1ModificarCliente As TextBox
     Friend WithEvents Button15ModificarCliente As Button
     Friend WithEvents Label1ModificarCliente As Label
+    Friend WithEvents btn As Button
 End Class

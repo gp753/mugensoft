@@ -49,6 +49,7 @@ Partial Class Form2
         Me.PedidoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.PanelClientes = New System.Windows.Forms.Panel()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.ClienteDataGridView1 = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn61 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn62 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -77,6 +78,7 @@ Partial Class Form2
         Me.Button11 = New System.Windows.Forms.Button()
         Me.Button8 = New System.Windows.Forms.Button()
         Me.GroupBoxModificarCliente = New System.Windows.Forms.GroupBox()
+        Me.Button15 = New System.Windows.Forms.Button()
         Me.MailTextBox1 = New System.Windows.Forms.TextBox()
         Me.NumeroTextBox1 = New System.Windows.Forms.TextBox()
         Me.ApellidoTextBox1 = New System.Windows.Forms.TextBox()
@@ -173,8 +175,6 @@ Partial Class Form2
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
-        Me.Button15 = New System.Windows.Forms.Button()
-        Me.Label1 = New System.Windows.Forms.Label()
         MailLabel1 = New System.Windows.Forms.Label()
         NumeroLabel1 = New System.Windows.Forms.Label()
         ApellidoLabel1 = New System.Windows.Forms.Label()
@@ -398,7 +398,6 @@ Partial Class Form2
         '
         'PanelClientes
         '
-        Me.PanelClientes.Controls.Add(Me.Label1)
         Me.PanelClientes.Controls.Add(Me.ClienteDataGridView1)
         Me.PanelClientes.Controls.Add(Me.GroupBoxCrearCliente)
         Me.PanelClientes.Controls.Add(Me.GroupBoxEstadisticasdelCliente)
@@ -411,6 +410,16 @@ Partial Class Form2
         Me.PanelClientes.Size = New System.Drawing.Size(1341, 605)
         Me.PanelClientes.TabIndex = 39
         Me.PanelClientes.Visible = False
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(70, 241)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(39, 13)
+        Me.Label1.TabIndex = 22
+        Me.Label1.Text = "Label1"
+        Me.Label1.Visible = False
         '
         'ClienteDataGridView1
         '
@@ -645,6 +654,7 @@ Partial Class Form2
         '
         'GroupBoxModificarCliente
         '
+        Me.GroupBoxModificarCliente.Controls.Add(Me.Label1)
         Me.GroupBoxModificarCliente.Controls.Add(Me.Button15)
         Me.GroupBoxModificarCliente.Controls.Add(Me.MailTextBox1)
         Me.GroupBoxModificarCliente.Controls.Add(Me.NumeroTextBox1)
@@ -667,6 +677,15 @@ Partial Class Form2
         Me.GroupBoxModificarCliente.TabStop = False
         Me.GroupBoxModificarCliente.Text = "Modificar Cliente"
         Me.GroupBoxModificarCliente.Visible = False
+        '
+        'Button15
+        '
+        Me.Button15.Location = New System.Drawing.Point(252, 41)
+        Me.Button15.Name = "Button15"
+        Me.Button15.Size = New System.Drawing.Size(57, 23)
+        Me.Button15.TabIndex = 22
+        Me.Button15.Text = "Buscar"
+        Me.Button15.UseVisualStyleBackColor = True
         '
         'MailTextBox1
         '
@@ -1331,24 +1350,6 @@ Partial Class Form2
         Me.Button1.Text = "Cargar Presupuesto"
         Me.Button1.UseVisualStyleBackColor = True
         '
-        'Button15
-        '
-        Me.Button15.Location = New System.Drawing.Point(249, 39)
-        Me.Button15.Name = "Button15"
-        Me.Button15.Size = New System.Drawing.Size(75, 23)
-        Me.Button15.TabIndex = 22
-        Me.Button15.Text = "Button15"
-        Me.Button15.UseVisualStyleBackColor = True
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(644, 420)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(39, 13)
-        Me.Label1.TabIndex = 22
-        Me.Label1.Text = "Label1"
-        '
         'Form2
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1374,7 +1375,6 @@ Partial Class Form2
         CType(Me.PedidoBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
         Me.PanelClientes.ResumeLayout(False)
-        Me.PanelClientes.PerformLayout()
         CType(Me.ClienteDataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBoxCrearCliente.ResumeLayout(False)
         Me.GroupBoxCrearCliente.PerformLayout()

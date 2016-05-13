@@ -31,29 +31,29 @@
 
     End Sub
 
-    Private Sub Button8_Click(sender As Object, e As EventArgs) Handles Button8.Click
-        GroupBoxCrearCliente.Hide()
-        GroupBoxModificarCliente.Hide()
+    Private Sub Button8_Click(sender As Object, e As EventArgs) Handles EstadisticasDeClienteBoton.Click
+        GroupBoxCrearClienteasd.Hide()
+        GroupBoxModificarClienteasd.Hide()
         GroupBoxEstadisticasdelCliente.Show()
     End Sub
 
-    Private Sub CrearCliente_Click(sender As Object, e As EventArgs) Handles CrearCliente.Click
-        GroupBoxCrearCliente.Show()
-        GroupBoxModificarCliente.Hide()
+    Private Sub CrearCliente_Click(sender As Object, e As EventArgs) Handles CrearClienteBoton.Click
+        GroupBoxCrearClienteasd.Show()
+        GroupBoxModificarClienteasd.Hide()
         GroupBoxEstadisticasdelCliente.Hide()
 
-        NombreTextBox.Clear()
-        ApellidoTextBox.Clear()
-        RucTextBox.Clear()
-        NumeroTextBox.Clear()
-        MailTextBox.Clear()
+        NombreTextBoxCrearCliente.Clear()
+        ApellidoTextBoxCrearCliente.Clear()
+        RucTextBoxCrearCliente.Clear()
+        NumeroTextBoxCrearCliente.Clear()
+        MailTextBoxCrearCliente.Clear()
     End Sub
 
-    Private Sub Button24_Click(sender As Object, e As EventArgs) Handles Button24.Click
-        Label1.Hide()
+    Private Sub Button24_Click(sender As Object, e As EventArgs) Handles Button24ModificarCliente.Click
+        Label1ModificarCliente.Hide()
 
 
-        If NombreTextBox1.Text <> "" And ApellidoTextBox1.Text <> "" And RucTextBox1.Text <> "" And NumeroTextBox1.Text <> "" And MailTextBox1.Text <> "" Then
+        If NombreTextBox1ModificarCliente.Text <> "" And ApellidoTextBox1ModificarCliente.Text <> "" And RucTextBox1ModificarCliente.Text <> "" And NumeroTextBox1ModificarCliente.Text <> "" And MailTextBox1ModificarCliente.Text <> "" Then
 
 
             Dim nuevo_cliente As DataRow = DataSet1.Tables("cliente").NewRow()
@@ -62,13 +62,13 @@
             cantidad_de_clientes = DataSet1.Tables("cliente").Rows.Count
 
             For i As Integer = 0 To (cantidad_de_clientes - 1)
-                If DataSet1.Tables("cliente").Rows(i).Item("ruc") = RucTextBox1.Text Then
+                If DataSet1.Tables("cliente").Rows(i).Item("ruc") = RucTextBox1ModificarCliente.Text Then
 
-                    DataSet1.Tables("cliente").Rows(i).Item("nombre") = NombreTextBox1.Text
-                    DataSet1.Tables("cliente").Rows(i).Item("apellido") = ApellidoTextBox1.Text
-                    DataSet1.Tables("cliente").Rows(i).Item("numero") = NumeroTextBox1.Text
-                    DataSet1.Tables("cliente").Rows(i).Item("mail") = MailTextBox1.Text
-                    If CheckBoxClientePrioritario1.Checked Then
+                    DataSet1.Tables("cliente").Rows(i).Item("nombre") = NombreTextBox1ModificarCliente.Text
+                    DataSet1.Tables("cliente").Rows(i).Item("apellido") = ApellidoTextBox1ModificarCliente.Text
+                    DataSet1.Tables("cliente").Rows(i).Item("numero") = NumeroTextBox1ModificarCliente.Text
+                    DataSet1.Tables("cliente").Rows(i).Item("mail") = MailTextBox1ModificarCliente.Text
+                    If CheckBoxClientePrioritario1ModificarCliente.Checked Then
                         DataSet1.Tables("cliente").Rows(i).Item("cliente_prioritario") = True
                     Else
                         DataSet1.Tables("cliente").Rows(i).Item("cliente_prioritario") = False
@@ -83,10 +83,14 @@
             UsuarioBindingSource.EndEdit()
             ClienteTableAdapter.Update(DataSet1.cliente)
 
+            Label1ModificarCliente.Show()
+            Label1ModificarCliente.Text = "Cliente Modificado"
+            Label1ModificarCliente.ForeColor = Color.Green
+
         Else
-            Label1.Show()
-            Label1.Text = "Complete los campos vacíos"
-            Label1.ForeColor = Color.Red
+            Label1ModificarCliente.Show()
+            Label1ModificarCliente.Text = "Complete los campos vacíos"
+            Label1ModificarCliente.ForeColor = Color.Red
         End If
     End Sub
 
@@ -111,54 +115,54 @@
 
     End Sub
 
-    Private Sub Button27_Click(sender As Object, e As EventArgs) Handles Button27.Click
-        GroupBoxCrearCliente.Hide()
-        GroupBoxModificarCliente.Show()
+    Private Sub Button27_Click(sender As Object, e As EventArgs) Handles ModificarClienteBoton.Click
+        GroupBoxCrearClienteasd.Hide()
+        GroupBoxModificarClienteasd.Show()
         GroupBoxEstadisticasdelCliente.Hide()
 
-        NombreTextBox1.Clear()
-        ApellidoTextBox1.Clear()
-        RucTextBox1.Clear()
-        NumeroTextBox1.Clear()
-        MailTextBox1.Clear()
+        NombreTextBox1ModificarCliente.Clear()
+        ApellidoTextBox1ModificarCliente.Clear()
+        RucTextBox1ModificarCliente.Clear()
+        NumeroTextBox1ModificarCliente.Clear()
+        MailTextBox1ModificarCliente.Clear()
     End Sub
 
-    Private Sub Button9_Click(sender As Object, e As EventArgs) Handles Button9.Click
-        GroupBoxCrearCliente.Hide()
-
-    End Sub
-
-    Private Sub Button10_Click(sender As Object, e As EventArgs) Handles Button10.Click
-
-        GroupBoxModificarCliente.Hide()
+    Private Sub Button9_Click(sender As Object, e As EventArgs) Handles Button9CrearCliente.Click
+        GroupBoxCrearClienteasd.Hide()
 
     End Sub
 
-    Private Sub Button16_Click(sender As Object, e As EventArgs) Handles Button16.Click
+    Private Sub Button10_Click(sender As Object, e As EventArgs) Handles Button10ModificarCliente.Click
+
+        GroupBoxModificarClienteasd.Hide()
+
+    End Sub
+
+    Private Sub Button16_Click(sender As Object, e As EventArgs) Handles Button16Estadisticas.Click
         GroupBoxEstadisticasdelCliente.Hide()
 
     End Sub
 
-    Private Sub GroupBoxCrearCliente_Enter(sender As Object, e As EventArgs) Handles GroupBoxCrearCliente.Enter
+    Private Sub GroupBoxCrearCliente_Enter(sender As Object, e As EventArgs) Handles GroupBoxCrearClienteasd.Enter
 
     End Sub
 
-    Private Sub Button26_Click(sender As Object, e As EventArgs) Handles Button26.Click
-        Label72.Hide()
+    Private Sub Button26_Click(sender As Object, e As EventArgs) Handles CrearClienteBotonCrearCliente.Click
+        Label72CrearCliente.Hide()
 
 
-        If NombreTextBox.Text <> "" And ApellidoTextBox.Text <> "" And RucTextBox.Text <> "" And NumeroTextBox.Text <> "" And MailTextBox.Text <> "" Then
+        If NombreTextBoxCrearCliente.Text <> "" And ApellidoTextBoxCrearCliente.Text <> "" And RucTextBoxCrearCliente.Text <> "" And NumeroTextBoxCrearCliente.Text <> "" And MailTextBoxCrearCliente.Text <> "" Then
 
 
             Dim nuevo_cliente As DataRow = DataSet1.Tables("cliente").NewRow()
 
-            nuevo_cliente("nombre") = NombreTextBox.Text
-            nuevo_cliente("apellido") = ApellidoTextBox.Text
-            nuevo_cliente("ruc") = RucTextBox.Text
-            nuevo_cliente("numero") = NumeroTextBox.Text
-            nuevo_cliente("mail") = MailTextBox.Text
+            nuevo_cliente("nombre") = NombreTextBoxCrearCliente.Text
+            nuevo_cliente("apellido") = ApellidoTextBoxCrearCliente.Text
+            nuevo_cliente("ruc") = RucTextBoxCrearCliente.Text
+            nuevo_cliente("numero") = NumeroTextBoxCrearCliente.Text
+            nuevo_cliente("mail") = MailTextBoxCrearCliente.Text
             nuevo_cliente("estado_cliente") = True
-            If CheckBoxClientePrioritario.Checked Then
+            If CheckBoxClientePrioritarioCrearCliente.Checked Then
                 nuevo_cliente("cliente_prioritario") = True
             Else
                 nuevo_cliente("cliente_prioritario") = False
@@ -173,14 +177,17 @@
             UsuarioBindingSource.EndEdit()
             ClienteTableAdapter.Update(DataSet1.cliente)
 
+            Label72CrearCliente.Show()
+            Label72CrearCliente.Text = "Cliente creado"
+            Label72CrearCliente.ForeColor = Color.Green
 
 
 
 
         Else
-            Label72.Show()
-            Label72.Text = "Complete los campos vacíos"
-            Label72.ForeColor = Color.Red
+            Label72CrearCliente.Show()
+            Label72CrearCliente.Text = "Complete los campos vacíos"
+            Label72CrearCliente.ForeColor = Color.Red
         End If
     End Sub
 
@@ -190,26 +197,26 @@
 
 
 
-    Private Sub RucTextBox_TextChanged_1(sender As Object, e As EventArgs) Handles RucTextBox.TextChanged
+    Private Sub RucTextBox_TextChanged_1(sender As Object, e As EventArgs) Handles RucTextBoxCrearCliente.TextChanged
 
     End Sub
 
-    Private Sub RucTextBox_LostFocus(sender As Object, e As EventArgs) Handles RucTextBox.LostFocus
+    Private Sub RucTextBox_LostFocus(sender As Object, e As EventArgs) Handles RucTextBoxCrearCliente.LostFocus
         Dim cantidad_de_clientes As Integer
         cantidad_de_clientes = DataSet1.Tables("cliente").Rows.Count
 
         For i As Integer = 0 To (cantidad_de_clientes - 1)
             'Si el RUC ingresado ya esta registrado'
-            If DataSet1.Tables("cliente").Rows(i).Item("ruc") = RucTextBox.Text Then
+            If DataSet1.Tables("cliente").Rows(i).Item("ruc") = RucTextBoxCrearCliente.Text Then
 
                 'Si el cliente está habilitado (no está "borrado)
                 If DataSet1.Tables("cliente").Rows(i).Item("estado_cliente") = 1 Then
-                    Label72.Show()
-                    Label72.Text = "RUC ya registrado"
-                    Label72.ForeColor = Color.Red
+                    Label72CrearCliente.Show()
+                    Label72CrearCliente.Text = "RUC ya registrado"
+                    Label72CrearCliente.ForeColor = Color.Red
 
-                    RucTextBox.Text = ""
-                    RucTextBox.Focus()
+                    RucTextBoxCrearCliente.Text = ""
+                    RucTextBoxCrearCliente.Focus()
                 Else
                     MsgBox("El RUC seleccionado pertenece a una cuenta anteriormente eliminada, la misma se ha vuelto a habilitar. Ve a MODIFICAR CLIENTE para cambiar los detalles.")
                     DataSet1.Tables("cliente").Rows(i).Item("estado_cliente") = 1
@@ -224,9 +231,9 @@
 
 
                 i = cantidad_de_clientes - 1 'Para cortar el FOR, ya que se encontró RUC repetido
-                Else
-                    Label72.Hide()
-                End If
+            Else
+                Label72CrearCliente.Hide()
+            End If
         Next
 
     End Sub
@@ -237,33 +244,33 @@
         Dim ban_ruc_existe As Integer
         ban_ruc_existe = 0
 
-        Label1.Text = "entre"
-        Label1.Show()
+        Label1ModificarCliente.Text = "entre"
+        Label1ModificarCliente.Show()
 
         For i As Integer = 0 To (cantidad_de_clientes - 1)
             'Si el RUC ingresado existe'
-            If DataSet1.Tables("cliente").Rows(i).Item("ruc") = RucTextBox1.Text Then
+            If DataSet1.Tables("cliente").Rows(i).Item("ruc") = RucTextBox1ModificarCliente.Text Then
                 'Si el cliente está habilitado (no está "borrado)
-                    If DataSet1.Tables("cliente").Rows(i).Item("estado_cliente") = True Then
-                    Label1.Hide()
+                If DataSet1.Tables("cliente").Rows(i).Item("estado_cliente") = True Then
+                    Label1ModificarCliente.Hide()
 
-                    RucTextBox.Text = ""
-                    RucTextBox.Focus()
+                    RucTextBoxCrearCliente.Text = ""
+                    RucTextBoxCrearCliente.Focus()
 
-                    NombreTextBox1.ReadOnly = False
-                    ApellidoTextBox1.ReadOnly = False
-                    NumeroTextBox1.ReadOnly = False
-                    MailTextBox1.ReadOnly = False
+                    NombreTextBox1ModificarCliente.ReadOnly = False
+                    ApellidoTextBox1ModificarCliente.ReadOnly = False
+                    NumeroTextBox1ModificarCliente.ReadOnly = False
+                    MailTextBox1ModificarCliente.ReadOnly = False
 
-                    NombreTextBox1.Text = DataSet1.Tables("cliente").Rows(i).Item("nombre")
-                    ApellidoTextBox1.Text = DataSet1.Tables("cliente").Rows(i).Item("apellido")
-                    NumeroTextBox1.Text = DataSet1.Tables("cliente").Rows(i).Item("numero")
-                    MailTextBox1.Text = DataSet1.Tables("cliente").Rows(i).Item("mail")
+                    NombreTextBox1ModificarCliente.Text = DataSet1.Tables("cliente").Rows(i).Item("nombre")
+                    ApellidoTextBox1ModificarCliente.Text = DataSet1.Tables("cliente").Rows(i).Item("apellido")
+                    NumeroTextBox1ModificarCliente.Text = DataSet1.Tables("cliente").Rows(i).Item("numero")
+                    MailTextBox1ModificarCliente.Text = DataSet1.Tables("cliente").Rows(i).Item("mail")
 
                     If DataSet1.Tables("cliente").Rows(i).Item("cliente_prioritario") = True Then
-                        CheckBoxClientePrioritario1.Checked = True
+                        CheckBoxClientePrioritario1ModificarCliente.Checked = True
                     Else
-                        CheckBoxClientePrioritario1.Checked = False
+                        CheckBoxClientePrioritario1ModificarCliente.Checked = False
                     End If
                 End If
                 i = cantidad_de_clientes - 1 'Para cortar el FOR, ya que se encontró RUC repetido
@@ -274,28 +281,28 @@
 
         If ban_ruc_existe = 0 Then
             'Si el ruc ingresado NO existe
-            Label1.Show()
-            Label1.Text = "RUC no registrado"
-            Label1.ForeColor = Color.Red
+            Label1ModificarCliente.Show()
+            Label1ModificarCliente.Text = "RUC no registrado"
+            Label1ModificarCliente.ForeColor = Color.Red
 
-            RucTextBox.Text = ""
-            RucTextBox.Focus()
+            RucTextBoxCrearCliente.Text = ""
+            RucTextBoxCrearCliente.Focus()
 
-            NombreTextBox1.Text = ""
-            ApellidoTextBox1.Text = ""
-            NumeroTextBox1.Text = ""
-            MailTextBox1.Text = ""
-            CheckBoxClientePrioritario1.Checked = False
+            NombreTextBox1ModificarCliente.Text = ""
+            ApellidoTextBox1ModificarCliente.Text = ""
+            NumeroTextBox1ModificarCliente.Text = ""
+            MailTextBox1ModificarCliente.Text = ""
+            CheckBoxClientePrioritario1ModificarCliente.Checked = False
 
-            NombreTextBox1.ReadOnly = True
-            ApellidoTextBox1.ReadOnly = True
-            NumeroTextBox1.ReadOnly = True
-            MailTextBox1.ReadOnly = True
+            NombreTextBox1ModificarCliente.ReadOnly = True
+            ApellidoTextBox1ModificarCliente.ReadOnly = True
+            NumeroTextBox1ModificarCliente.ReadOnly = True
+            MailTextBox1ModificarCliente.ReadOnly = True
         End If
 
     End Sub
 
-    Private Sub Button15_Click_1(sender As Object, e As EventArgs) Handles Button15.Click
+    Private Sub Button15_Click_1(sender As Object, e As EventArgs) Handles Button15ModificarCliente.Click
         Dim cantidad_de_clientes As Integer
         cantidad_de_clientes = DataSet1.Tables("cliente").Rows.Count
         Dim ban_ruc_existe As Integer
@@ -303,45 +310,45 @@
 
         For i As Integer = 0 To (cantidad_de_clientes - 1)
             'Si el RUC ingresado existe'
-            If DataSet1.Tables("cliente").Rows(i).Item("ruc") = RucTextBox1.Text Then
+            If DataSet1.Tables("cliente").Rows(i).Item("ruc") = RucTextBox1ModificarCliente.Text Then
                 'Si el cliente está habilitado (no está "borrado)
                 If DataSet1.Tables("cliente").Rows(i).Item("estado_cliente") = 1 Then
 
-                    Label1.Hide()
+                    Label1ModificarCliente.Hide()
 
-                    RucTextBox.Text = ""
-                    RucTextBox.Focus()
+                    RucTextBoxCrearCliente.Text = ""
+                    RucTextBoxCrearCliente.Focus()
 
-                    NombreTextBox1.ReadOnly = False
-                    ApellidoTextBox1.ReadOnly = False
-                    NumeroTextBox1.ReadOnly = False
-                    MailTextBox1.ReadOnly = False
+                    NombreTextBox1ModificarCliente.ReadOnly = False
+                    ApellidoTextBox1ModificarCliente.ReadOnly = False
+                    NumeroTextBox1ModificarCliente.ReadOnly = False
+                    MailTextBox1ModificarCliente.ReadOnly = False
 
-                    NombreTextBox1.Text = DataSet1.Tables("cliente").Rows(i).Item("nombre")
-                    ApellidoTextBox1.Text = DataSet1.Tables("cliente").Rows(i).Item("apellido")
-                    NumeroTextBox1.Text = DataSet1.Tables("cliente").Rows(i).Item("numero")
-                    MailTextBox1.Text = DataSet1.Tables("cliente").Rows(i).Item("mail")
+                    NombreTextBox1ModificarCliente.Text = DataSet1.Tables("cliente").Rows(i).Item("nombre")
+                    ApellidoTextBox1ModificarCliente.Text = DataSet1.Tables("cliente").Rows(i).Item("apellido")
+                    NumeroTextBox1ModificarCliente.Text = DataSet1.Tables("cliente").Rows(i).Item("numero")
+                    MailTextBox1ModificarCliente.Text = DataSet1.Tables("cliente").Rows(i).Item("mail")
 
                     If DataSet1.Tables("cliente").Rows(i).Item("cliente_prioritario") = True Then
-                        CheckBoxClientePrioritario1.Checked = True
+                        CheckBoxClientePrioritario1ModificarCliente.Checked = True
                     Else
-                        CheckBoxClientePrioritario1.Checked = False
+                        CheckBoxClientePrioritario1ModificarCliente.Checked = False
                     End If
                 Else
-                    Label1.Show()
-                    Label1.Text = "EL CLIENTE NO ESTA HABILITADO"
-                    Label1.ForeColor = Color.Red
+                    Label1ModificarCliente.Show()
+                    Label1ModificarCliente.Text = "EL CLIENTE NO ESTA HABILITADO"
+                    Label1ModificarCliente.ForeColor = Color.Red
 
-                    NombreTextBox1.Text = ""
-                    ApellidoTextBox1.Text = ""
-                    NumeroTextBox1.Text = ""
-                    MailTextBox1.Text = ""
-                    CheckBoxClientePrioritario1.Checked = False
+                    NombreTextBox1ModificarCliente.Text = ""
+                    ApellidoTextBox1ModificarCliente.Text = ""
+                    NumeroTextBox1ModificarCliente.Text = ""
+                    MailTextBox1ModificarCliente.Text = ""
+                    CheckBoxClientePrioritario1ModificarCliente.Checked = False
 
-                    NombreTextBox1.ReadOnly = True
-                    ApellidoTextBox1.ReadOnly = True
-                    NumeroTextBox1.ReadOnly = True
-                    MailTextBox1.ReadOnly = True
+                    NombreTextBox1ModificarCliente.ReadOnly = True
+                    ApellidoTextBox1ModificarCliente.ReadOnly = True
+                    NumeroTextBox1ModificarCliente.ReadOnly = True
+                    MailTextBox1ModificarCliente.ReadOnly = True
                 End If
                 i = cantidad_de_clientes - 1 'Para cortar el FOR, ya que se encontró RUC repetido
 
@@ -351,55 +358,59 @@
 
         If ban_ruc_existe = 0 Then
             'Si el ruc ingresado NO existe
-            Label1.Show()
-            Label1.Text = "RUC no registrado"
-            Label1.ForeColor = Color.Red
+            Label1ModificarCliente.Show()
+            Label1ModificarCliente.Text = "RUC no registrado"
+            Label1ModificarCliente.ForeColor = Color.Red
 
-            RucTextBox.Text = ""
-            RucTextBox.Focus()
+            RucTextBoxCrearCliente.Text = ""
+            RucTextBoxCrearCliente.Focus()
 
-            NombreTextBox1.Text = ""
-            ApellidoTextBox1.Text = ""
-            NumeroTextBox1.Text = ""
-            MailTextBox1.Text = ""
-            CheckBoxClientePrioritario1.Checked = False
+            NombreTextBox1ModificarCliente.Text = ""
+            ApellidoTextBox1ModificarCliente.Text = ""
+            NumeroTextBox1ModificarCliente.Text = ""
+            MailTextBox1ModificarCliente.Text = ""
+            CheckBoxClientePrioritario1ModificarCliente.Checked = False
 
-            NombreTextBox1.ReadOnly = True
-            ApellidoTextBox1.ReadOnly = True
-            NumeroTextBox1.ReadOnly = True
-            MailTextBox1.ReadOnly = True
+            NombreTextBox1ModificarCliente.ReadOnly = True
+            ApellidoTextBox1ModificarCliente.ReadOnly = True
+            NumeroTextBox1ModificarCliente.ReadOnly = True
+            MailTextBox1ModificarCliente.ReadOnly = True
         End If
 
     End Sub
 
-    Private Sub Button25_Click(sender As Object, e As EventArgs) Handles Button25.Click
+    Private Sub Button25_Click(sender As Object, e As EventArgs) Handles Button25ModificarCliente.Click
         Dim cantidad_de_clientes As Integer
         cantidad_de_clientes = DataSet1.Tables("cliente").Rows.Count
 
         For i As Integer = 0 To (cantidad_de_clientes - 1)
             'Si el RUC ingresado existe'
-            If DataSet1.Tables("cliente").Rows(i).Item("ruc") = RucTextBox1.Text Then
+            If DataSet1.Tables("cliente").Rows(i).Item("ruc") = RucTextBox1ModificarCliente.Text Then
                 DataSet1.Tables("cliente").Rows(i).Item("estado_cliente") = 0
             End If
         Next
 
-        Label1.Show()
-        Label1.Text = "Cliente Borrado"
-        Label1.ForeColor = Color.Red
+        Label1ModificarCliente.Show()
+        Label1ModificarCliente.Text = "Cliente Borrado"
+        Label1ModificarCliente.ForeColor = Color.Red
 
-        NombreTextBox1.Text = ""
-        ApellidoTextBox1.Text = ""
-        NumeroTextBox1.Text = ""
-        MailTextBox1.Text = ""
-        CheckBoxClientePrioritario1.Checked = False
+        NombreTextBox1ModificarCliente.Text = ""
+        ApellidoTextBox1ModificarCliente.Text = ""
+        NumeroTextBox1ModificarCliente.Text = ""
+        MailTextBox1ModificarCliente.Text = ""
+        CheckBoxClientePrioritario1ModificarCliente.Checked = False
 
-        NombreTextBox1.ReadOnly = True
-        ApellidoTextBox1.ReadOnly = True
-        NumeroTextBox1.ReadOnly = True
-        MailTextBox1.ReadOnly = True
+        NombreTextBox1ModificarCliente.ReadOnly = True
+        ApellidoTextBox1ModificarCliente.ReadOnly = True
+        NumeroTextBox1ModificarCliente.ReadOnly = True
+        MailTextBox1ModificarCliente.ReadOnly = True
 
         Validate()
         UsuarioBindingSource.EndEdit()
         ClienteTableAdapter.Update(DataSet1.cliente)
+    End Sub
+
+    Private Sub Button14_Click(sender As Object, e As EventArgs) Handles Button14Estadisticas.Click
+
     End Sub
 End Class

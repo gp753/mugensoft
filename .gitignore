@@ -221,6 +221,10 @@ FakesAssemblies/
 # Visual Studio 6 workspace options file
 *.opt
 
+#los dll
+/bibliotecas/*.dll
+/bibliotecas/*.xml
+
 # Visual Studio LightSwitch build output
 **/*.HTMLClient/GeneratedArtifacts
 **/*.DesktopClient/GeneratedArtifacts
@@ -235,6 +239,3 @@ _Pvt_Extensions
 # FAKE - F# Make
 .fake/
 
-#los dll
-bibliotecas/*.dll
-bibliotecas/*.xml

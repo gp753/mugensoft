@@ -138,7 +138,7 @@
 
     End Sub
 
-    Private Sub Button16_Click(sender As Object, e As EventArgs) Handles Button16.Click
+    Private Sub Button16_Click(sender As Object, e As EventArgs) Handles Button16Estadisticas.Click
         GroupBoxEstadisticasdelCliente.Hide()
 
     End Sub
@@ -408,5 +408,9 @@
         Validate()
         UsuarioBindingSource.EndEdit()
         ClienteTableAdapter.Update(DataSet1.cliente)
+    End Sub
+
+    Private Sub Button14_Click(sender As Object, e As EventArgs) Handles Button14Estadisticas.Click
+
     End Sub
 End Class

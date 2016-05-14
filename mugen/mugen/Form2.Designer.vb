@@ -295,6 +295,47 @@ Partial Class Form2
         Me.Button24ModificarCliente = New System.Windows.Forms.Button()
         Me.ModificarClienteBoton = New System.Windows.Forms.Button()
         Me.CrearClienteBoton = New System.Windows.Forms.Button()
+        Me.GroupBox4Stock = New System.Windows.Forms.GroupBox()
+        Me.GroupBoxModificarProducto = New System.Windows.Forms.GroupBox()
+        Me.LabelModificarProducto = New System.Windows.Forms.Label()
+        Me.ButtonCerrar3 = New System.Windows.Forms.Button()
+        Me.ButtonModificarProducto = New System.Windows.Forms.Button()
+        Me.TextBoxPrecio2 = New System.Windows.Forms.TextBox()
+        Me.LabelPrecio = New System.Windows.Forms.Label()
+        Me.TextBoxDescripcion2 = New System.Windows.Forms.TextBox()
+        Me.LabelDescripcion = New System.Windows.Forms.Label()
+        Me.TextBoxCodigo2 = New System.Windows.Forms.TextBox()
+        Me.LabelCodigo = New System.Windows.Forms.Label()
+        Me.GroupBoxIngresodeProducto = New System.Windows.Forms.GroupBox()
+        Me.LabelIngresoProducto = New System.Windows.Forms.Label()
+        Me.ButtonCerrar2 = New System.Windows.Forms.Button()
+        Me.ButtonInsertarProducto = New System.Windows.Forms.Button()
+        Me.TextBoxIVA = New System.Windows.Forms.TextBox()
+        Me.TextBoxPreciodeCompra = New System.Windows.Forms.TextBox()
+        Me.TextBoxProveedor = New System.Windows.Forms.TextBox()
+        Me.TextBoxFacturaNro = New System.Windows.Forms.TextBox()
+        Me.TextBoxSeleccionarCantidad = New System.Windows.Forms.TextBox()
+        Me.TextBoxSeleccionarProducto = New System.Windows.Forms.TextBox()
+        Me.Label45 = New System.Windows.Forms.Label()
+        Me.Label46 = New System.Windows.Forms.Label()
+        Me.Label43 = New System.Windows.Forms.Label()
+        Me.Label44 = New System.Windows.Forms.Label()
+        Me.Label42 = New System.Windows.Forms.Label()
+        Me.Label41 = New System.Windows.Forms.Label()
+        Me.GroupBoxNuevoProducto = New System.Windows.Forms.GroupBox()
+        Me.LabelNuevoProducto = New System.Windows.Forms.Label()
+        Me.ButtonCerrar1 = New System.Windows.Forms.Button()
+        Me.ButtonCrearProducto = New System.Windows.Forms.Button()
+        Me.TextBoxPrecio = New System.Windows.Forms.TextBox()
+        Me.TextBoxDescripcion = New System.Windows.Forms.TextBox()
+        Me.TextBoxCodigo = New System.Windows.Forms.TextBox()
+        Me.Label43d = New System.Windows.Forms.Label()
+        Me.Label42s = New System.Windows.Forms.Label()
+        Me.Label41a = New System.Windows.Forms.Label()
+        Me.Button27 = New System.Windows.Forms.Button()
+        Me.Button26 = New System.Windows.Forms.Button()
+        Me.Button25 = New System.Windows.Forms.Button()
+        Me.Button24NuevoProducto = New System.Windows.Forms.Button()
         MailLabelM = New System.Windows.Forms.Label()
         NumeroLabelN = New System.Windows.Forms.Label()
         RucLabelR = New System.Windows.Forms.Label()
@@ -343,6 +384,10 @@ Partial Class Form2
         Me.GroupBoxCrearClienteasd.SuspendLayout()
         Me.GroupBoxEstadisticasdelCliente.SuspendLayout()
         Me.GroupBoxModificarClienteasd.SuspendLayout()
+        Me.GroupBox4Stock.SuspendLayout()
+        Me.GroupBoxModificarProducto.SuspendLayout()
+        Me.GroupBoxIngresodeProducto.SuspendLayout()
+        Me.GroupBoxNuevoProducto.SuspendLayout()
         Me.SuspendLayout()
         '
         'MailLabelM
@@ -2586,11 +2631,403 @@ Partial Class Form2
         Me.CrearClienteBoton.Text = "Crear Cliente"
         Me.CrearClienteBoton.UseVisualStyleBackColor = True
         '
+        'GroupBox4Stock
+        '
+        Me.GroupBox4Stock.Controls.Add(Me.GroupBoxModificarProducto)
+        Me.GroupBox4Stock.Controls.Add(Me.GroupBoxIngresodeProducto)
+        Me.GroupBox4Stock.Controls.Add(Me.GroupBoxNuevoProducto)
+        Me.GroupBox4Stock.Controls.Add(Me.Button27)
+        Me.GroupBox4Stock.Controls.Add(Me.Button26)
+        Me.GroupBox4Stock.Controls.Add(Me.Button25)
+        Me.GroupBox4Stock.Controls.Add(Me.Button24NuevoProducto)
+        Me.GroupBox4Stock.Location = New System.Drawing.Point(39, 73)
+        Me.GroupBox4Stock.Name = "GroupBox4Stock"
+        Me.GroupBox4Stock.Size = New System.Drawing.Size(1317, 605)
+        Me.GroupBox4Stock.TabIndex = 41
+        Me.GroupBox4Stock.TabStop = False
+        Me.GroupBox4Stock.Text = "Stock"
+        '
+        'GroupBoxModificarProducto
+        '
+        Me.GroupBoxModificarProducto.Controls.Add(Me.LabelModificarProducto)
+        Me.GroupBoxModificarProducto.Controls.Add(Me.ButtonCerrar3)
+        Me.GroupBoxModificarProducto.Controls.Add(Me.ButtonModificarProducto)
+        Me.GroupBoxModificarProducto.Controls.Add(Me.TextBoxPrecio2)
+        Me.GroupBoxModificarProducto.Controls.Add(Me.LabelPrecio)
+        Me.GroupBoxModificarProducto.Controls.Add(Me.TextBoxDescripcion2)
+        Me.GroupBoxModificarProducto.Controls.Add(Me.LabelDescripcion)
+        Me.GroupBoxModificarProducto.Controls.Add(Me.TextBoxCodigo2)
+        Me.GroupBoxModificarProducto.Controls.Add(Me.LabelCodigo)
+        Me.GroupBoxModificarProducto.Location = New System.Drawing.Point(896, 48)
+        Me.GroupBoxModificarProducto.Name = "GroupBoxModificarProducto"
+        Me.GroupBoxModificarProducto.Size = New System.Drawing.Size(321, 359)
+        Me.GroupBoxModificarProducto.TabIndex = 0
+        Me.GroupBoxModificarProducto.TabStop = False
+        Me.GroupBoxModificarProducto.Text = "Modificar Producto"
+        Me.GroupBoxModificarProducto.Visible = False
+        '
+        'LabelModificarProducto
+        '
+        Me.LabelModificarProducto.AutoSize = True
+        Me.LabelModificarProducto.Location = New System.Drawing.Point(59, 241)
+        Me.LabelModificarProducto.Name = "LabelModificarProducto"
+        Me.LabelModificarProducto.Size = New System.Drawing.Size(119, 13)
+        Me.LabelModificarProducto.TabIndex = 14
+        Me.LabelModificarProducto.Text = "LabelModificarProducto"
+        Me.LabelModificarProducto.Visible = False
+        '
+        'ButtonCerrar3
+        '
+        Me.ButtonCerrar3.Location = New System.Drawing.Point(185, 294)
+        Me.ButtonCerrar3.Name = "ButtonCerrar3"
+        Me.ButtonCerrar3.Size = New System.Drawing.Size(106, 23)
+        Me.ButtonCerrar3.TabIndex = 10
+        Me.ButtonCerrar3.Text = "Cerrar"
+        Me.ButtonCerrar3.UseVisualStyleBackColor = True
+        '
+        'ButtonModificarProducto
+        '
+        Me.ButtonModificarProducto.Location = New System.Drawing.Point(34, 294)
+        Me.ButtonModificarProducto.Name = "ButtonModificarProducto"
+        Me.ButtonModificarProducto.Size = New System.Drawing.Size(106, 23)
+        Me.ButtonModificarProducto.TabIndex = 9
+        Me.ButtonModificarProducto.Text = "Modificar Producto"
+        Me.ButtonModificarProducto.UseVisualStyleBackColor = True
+        '
+        'TextBoxPrecio2
+        '
+        Me.TextBoxPrecio2.Location = New System.Drawing.Point(131, 118)
+        Me.TextBoxPrecio2.Name = "TextBoxPrecio2"
+        Me.TextBoxPrecio2.Size = New System.Drawing.Size(161, 20)
+        Me.TextBoxPrecio2.TabIndex = 8
+        '
+        'LabelPrecio
+        '
+        Me.LabelPrecio.AutoSize = True
+        Me.LabelPrecio.Location = New System.Drawing.Point(40, 121)
+        Me.LabelPrecio.Name = "LabelPrecio"
+        Me.LabelPrecio.Size = New System.Drawing.Size(85, 13)
+        Me.LabelPrecio.TabIndex = 5
+        Me.LabelPrecio.Text = "Precio de venta:"
+        '
+        'TextBoxDescripcion2
+        '
+        Me.TextBoxDescripcion2.Location = New System.Drawing.Point(131, 83)
+        Me.TextBoxDescripcion2.Name = "TextBoxDescripcion2"
+        Me.TextBoxDescripcion2.Size = New System.Drawing.Size(161, 20)
+        Me.TextBoxDescripcion2.TabIndex = 7
+        '
+        'LabelDescripcion
+        '
+        Me.LabelDescripcion.AutoSize = True
+        Me.LabelDescripcion.Location = New System.Drawing.Point(59, 86)
+        Me.LabelDescripcion.Name = "LabelDescripcion"
+        Me.LabelDescripcion.Size = New System.Drawing.Size(66, 13)
+        Me.LabelDescripcion.TabIndex = 4
+        Me.LabelDescripcion.Text = "Descripción:"
+        '
+        'TextBoxCodigo2
+        '
+        Me.TextBoxCodigo2.Location = New System.Drawing.Point(131, 48)
+        Me.TextBoxCodigo2.Name = "TextBoxCodigo2"
+        Me.TextBoxCodigo2.Size = New System.Drawing.Size(161, 20)
+        Me.TextBoxCodigo2.TabIndex = 6
+        '
+        'LabelCodigo
+        '
+        Me.LabelCodigo.AutoSize = True
+        Me.LabelCodigo.Location = New System.Drawing.Point(82, 51)
+        Me.LabelCodigo.Name = "LabelCodigo"
+        Me.LabelCodigo.Size = New System.Drawing.Size(43, 13)
+        Me.LabelCodigo.TabIndex = 3
+        Me.LabelCodigo.Text = "Código:"
+        '
+        'GroupBoxIngresodeProducto
+        '
+        Me.GroupBoxIngresodeProducto.Controls.Add(Me.LabelIngresoProducto)
+        Me.GroupBoxIngresodeProducto.Controls.Add(Me.ButtonCerrar2)
+        Me.GroupBoxIngresodeProducto.Controls.Add(Me.ButtonInsertarProducto)
+        Me.GroupBoxIngresodeProducto.Controls.Add(Me.TextBoxIVA)
+        Me.GroupBoxIngresodeProducto.Controls.Add(Me.TextBoxPreciodeCompra)
+        Me.GroupBoxIngresodeProducto.Controls.Add(Me.TextBoxProveedor)
+        Me.GroupBoxIngresodeProducto.Controls.Add(Me.TextBoxFacturaNro)
+        Me.GroupBoxIngresodeProducto.Controls.Add(Me.TextBoxSeleccionarCantidad)
+        Me.GroupBoxIngresodeProducto.Controls.Add(Me.TextBoxSeleccionarProducto)
+        Me.GroupBoxIngresodeProducto.Controls.Add(Me.Label45)
+        Me.GroupBoxIngresodeProducto.Controls.Add(Me.Label46)
+        Me.GroupBoxIngresodeProducto.Controls.Add(Me.Label43)
+        Me.GroupBoxIngresodeProducto.Controls.Add(Me.Label44)
+        Me.GroupBoxIngresodeProducto.Controls.Add(Me.Label42)
+        Me.GroupBoxIngresodeProducto.Controls.Add(Me.Label41)
+        Me.GroupBoxIngresodeProducto.Location = New System.Drawing.Point(543, 48)
+        Me.GroupBoxIngresodeProducto.Name = "GroupBoxIngresodeProducto"
+        Me.GroupBoxIngresodeProducto.Size = New System.Drawing.Size(321, 359)
+        Me.GroupBoxIngresodeProducto.TabIndex = 5
+        Me.GroupBoxIngresodeProducto.TabStop = False
+        Me.GroupBoxIngresodeProducto.Text = "Ingreso de Producto"
+        Me.GroupBoxIngresodeProducto.Visible = False
+        '
+        'LabelIngresoProducto
+        '
+        Me.LabelIngresoProducto.AutoSize = True
+        Me.LabelIngresoProducto.Location = New System.Drawing.Point(71, 262)
+        Me.LabelIngresoProducto.Name = "LabelIngresoProducto"
+        Me.LabelIngresoProducto.Size = New System.Drawing.Size(111, 13)
+        Me.LabelIngresoProducto.TabIndex = 9
+        Me.LabelIngresoProducto.Text = "LabelIngresoProducto"
+        Me.LabelIngresoProducto.Visible = False
+        '
+        'ButtonCerrar2
+        '
+        Me.ButtonCerrar2.Location = New System.Drawing.Point(181, 294)
+        Me.ButtonCerrar2.Name = "ButtonCerrar2"
+        Me.ButtonCerrar2.Size = New System.Drawing.Size(106, 23)
+        Me.ButtonCerrar2.TabIndex = 13
+        Me.ButtonCerrar2.Text = "Cerrar"
+        Me.ButtonCerrar2.UseVisualStyleBackColor = True
+        '
+        'ButtonInsertarProducto
+        '
+        Me.ButtonInsertarProducto.Location = New System.Drawing.Point(35, 294)
+        Me.ButtonInsertarProducto.Name = "ButtonInsertarProducto"
+        Me.ButtonInsertarProducto.Size = New System.Drawing.Size(106, 23)
+        Me.ButtonInsertarProducto.TabIndex = 12
+        Me.ButtonInsertarProducto.Text = "Insertar Producto"
+        Me.ButtonInsertarProducto.UseVisualStyleBackColor = True
+        '
+        'TextBoxIVA
+        '
+        Me.TextBoxIVA.Location = New System.Drawing.Point(135, 219)
+        Me.TextBoxIVA.Name = "TextBoxIVA"
+        Me.TextBoxIVA.Size = New System.Drawing.Size(169, 20)
+        Me.TextBoxIVA.TabIndex = 11
+        '
+        'TextBoxPreciodeCompra
+        '
+        Me.TextBoxPreciodeCompra.Location = New System.Drawing.Point(135, 185)
+        Me.TextBoxPreciodeCompra.Name = "TextBoxPreciodeCompra"
+        Me.TextBoxPreciodeCompra.Size = New System.Drawing.Size(169, 20)
+        Me.TextBoxPreciodeCompra.TabIndex = 10
+        '
+        'TextBoxProveedor
+        '
+        Me.TextBoxProveedor.Location = New System.Drawing.Point(135, 151)
+        Me.TextBoxProveedor.Name = "TextBoxProveedor"
+        Me.TextBoxProveedor.Size = New System.Drawing.Size(169, 20)
+        Me.TextBoxProveedor.TabIndex = 9
+        '
+        'TextBoxFacturaNro
+        '
+        Me.TextBoxFacturaNro.Location = New System.Drawing.Point(135, 117)
+        Me.TextBoxFacturaNro.Name = "TextBoxFacturaNro"
+        Me.TextBoxFacturaNro.Size = New System.Drawing.Size(169, 20)
+        Me.TextBoxFacturaNro.TabIndex = 8
+        '
+        'TextBoxSeleccionarCantidad
+        '
+        Me.TextBoxSeleccionarCantidad.Location = New System.Drawing.Point(135, 83)
+        Me.TextBoxSeleccionarCantidad.Name = "TextBoxSeleccionarCantidad"
+        Me.TextBoxSeleccionarCantidad.Size = New System.Drawing.Size(169, 20)
+        Me.TextBoxSeleccionarCantidad.TabIndex = 7
+        '
+        'TextBoxSeleccionarProducto
+        '
+        Me.TextBoxSeleccionarProducto.Location = New System.Drawing.Point(135, 49)
+        Me.TextBoxSeleccionarProducto.Name = "TextBoxSeleccionarProducto"
+        Me.TextBoxSeleccionarProducto.Size = New System.Drawing.Size(169, 20)
+        Me.TextBoxSeleccionarProducto.TabIndex = 6
+        '
+        'Label45
+        '
+        Me.Label45.AutoSize = True
+        Me.Label45.Location = New System.Drawing.Point(101, 223)
+        Me.Label45.Name = "Label45"
+        Me.Label45.Size = New System.Drawing.Size(27, 13)
+        Me.Label45.TabIndex = 5
+        Me.Label45.Text = "IVA:"
+        '
+        'Label46
+        '
+        Me.Label46.AutoSize = True
+        Me.Label46.Location = New System.Drawing.Point(34, 189)
+        Me.Label46.Name = "Label46"
+        Me.Label46.Size = New System.Drawing.Size(94, 13)
+        Me.Label46.TabIndex = 4
+        Me.Label46.Text = "Precio de Compra:"
+        '
+        'Label43
+        '
+        Me.Label43.AutoSize = True
+        Me.Label43.Location = New System.Drawing.Point(69, 155)
+        Me.Label43.Name = "Label43"
+        Me.Label43.Size = New System.Drawing.Size(59, 13)
+        Me.Label43.TabIndex = 3
+        Me.Label43.Text = "Proveedor:"
+        '
+        'Label44
+        '
+        Me.Label44.AutoSize = True
+        Me.Label44.Location = New System.Drawing.Point(62, 121)
+        Me.Label44.Name = "Label44"
+        Me.Label44.Size = New System.Drawing.Size(66, 13)
+        Me.Label44.TabIndex = 2
+        Me.Label44.Text = "Factura Nro:"
+        '
+        'Label42
+        '
+        Me.Label42.AutoSize = True
+        Me.Label42.Location = New System.Drawing.Point(76, 87)
+        Me.Label42.Name = "Label42"
+        Me.Label42.Size = New System.Drawing.Size(52, 13)
+        Me.Label42.TabIndex = 1
+        Me.Label42.Text = "Cantidad:"
+        '
+        'Label41
+        '
+        Me.Label41.AutoSize = True
+        Me.Label41.Location = New System.Drawing.Point(16, 53)
+        Me.Label41.Name = "Label41"
+        Me.Label41.Size = New System.Drawing.Size(112, 13)
+        Me.Label41.TabIndex = 0
+        Me.Label41.Text = "Seleccionar Producto:"
+        '
+        'GroupBoxNuevoProducto
+        '
+        Me.GroupBoxNuevoProducto.Controls.Add(Me.LabelNuevoProducto)
+        Me.GroupBoxNuevoProducto.Controls.Add(Me.ButtonCerrar1)
+        Me.GroupBoxNuevoProducto.Controls.Add(Me.ButtonCrearProducto)
+        Me.GroupBoxNuevoProducto.Controls.Add(Me.TextBoxPrecio)
+        Me.GroupBoxNuevoProducto.Controls.Add(Me.TextBoxDescripcion)
+        Me.GroupBoxNuevoProducto.Controls.Add(Me.TextBoxCodigo)
+        Me.GroupBoxNuevoProducto.Controls.Add(Me.Label43d)
+        Me.GroupBoxNuevoProducto.Controls.Add(Me.Label42s)
+        Me.GroupBoxNuevoProducto.Controls.Add(Me.Label41a)
+        Me.GroupBoxNuevoProducto.Location = New System.Drawing.Point(190, 48)
+        Me.GroupBoxNuevoProducto.Name = "GroupBoxNuevoProducto"
+        Me.GroupBoxNuevoProducto.Size = New System.Drawing.Size(321, 359)
+        Me.GroupBoxNuevoProducto.TabIndex = 4
+        Me.GroupBoxNuevoProducto.TabStop = False
+        Me.GroupBoxNuevoProducto.Text = "Nuevo Producto"
+        Me.GroupBoxNuevoProducto.Visible = False
+        '
+        'LabelNuevoProducto
+        '
+        Me.LabelNuevoProducto.AutoSize = True
+        Me.LabelNuevoProducto.Location = New System.Drawing.Point(66, 220)
+        Me.LabelNuevoProducto.Name = "LabelNuevoProducto"
+        Me.LabelNuevoProducto.Size = New System.Drawing.Size(108, 13)
+        Me.LabelNuevoProducto.TabIndex = 8
+        Me.LabelNuevoProducto.Text = "LabelNuevoProducto"
+        Me.LabelNuevoProducto.Visible = False
+        '
+        'ButtonCerrar1
+        '
+        Me.ButtonCerrar1.Location = New System.Drawing.Point(175, 294)
+        Me.ButtonCerrar1.Name = "ButtonCerrar1"
+        Me.ButtonCerrar1.Size = New System.Drawing.Size(106, 23)
+        Me.ButtonCerrar1.TabIndex = 7
+        Me.ButtonCerrar1.Text = "Cerrar"
+        Me.ButtonCerrar1.UseVisualStyleBackColor = True
+        '
+        'ButtonCrearProducto
+        '
+        Me.ButtonCrearProducto.Location = New System.Drawing.Point(30, 294)
+        Me.ButtonCrearProducto.Name = "ButtonCrearProducto"
+        Me.ButtonCrearProducto.Size = New System.Drawing.Size(106, 23)
+        Me.ButtonCrearProducto.TabIndex = 6
+        Me.ButtonCrearProducto.Text = "Crear Producto"
+        Me.ButtonCrearProducto.UseVisualStyleBackColor = True
+        '
+        'TextBoxPrecio
+        '
+        Me.TextBoxPrecio.Location = New System.Drawing.Point(108, 116)
+        Me.TextBoxPrecio.Name = "TextBoxPrecio"
+        Me.TextBoxPrecio.Size = New System.Drawing.Size(161, 20)
+        Me.TextBoxPrecio.TabIndex = 5
+        '
+        'TextBoxDescripcion
+        '
+        Me.TextBoxDescripcion.Location = New System.Drawing.Point(108, 81)
+        Me.TextBoxDescripcion.Name = "TextBoxDescripcion"
+        Me.TextBoxDescripcion.Size = New System.Drawing.Size(161, 20)
+        Me.TextBoxDescripcion.TabIndex = 4
+        '
+        'TextBoxCodigo
+        '
+        Me.TextBoxCodigo.Location = New System.Drawing.Point(108, 46)
+        Me.TextBoxCodigo.Name = "TextBoxCodigo"
+        Me.TextBoxCodigo.Size = New System.Drawing.Size(161, 20)
+        Me.TextBoxCodigo.TabIndex = 3
+        '
+        'Label43d
+        '
+        Me.Label43d.AutoSize = True
+        Me.Label43d.Location = New System.Drawing.Point(19, 120)
+        Me.Label43d.Name = "Label43d"
+        Me.Label43d.Size = New System.Drawing.Size(85, 13)
+        Me.Label43d.TabIndex = 2
+        Me.Label43d.Text = "Precio de venta:"
+        '
+        'Label42s
+        '
+        Me.Label42s.AutoSize = True
+        Me.Label42s.Location = New System.Drawing.Point(38, 85)
+        Me.Label42s.Name = "Label42s"
+        Me.Label42s.Size = New System.Drawing.Size(66, 13)
+        Me.Label42s.TabIndex = 1
+        Me.Label42s.Text = "Descripción:"
+        '
+        'Label41a
+        '
+        Me.Label41a.AutoSize = True
+        Me.Label41a.Location = New System.Drawing.Point(61, 50)
+        Me.Label41a.Name = "Label41a"
+        Me.Label41a.Size = New System.Drawing.Size(43, 13)
+        Me.Label41a.TabIndex = 0
+        Me.Label41a.Text = "Código:"
+        '
+        'Button27
+        '
+        Me.Button27.Location = New System.Drawing.Point(26, 188)
+        Me.Button27.Name = "Button27"
+        Me.Button27.Size = New System.Drawing.Size(124, 23)
+        Me.Button27.TabIndex = 3
+        Me.Button27.Text = "Estado de Stock"
+        Me.Button27.UseVisualStyleBackColor = True
+        '
+        'Button26
+        '
+        Me.Button26.Location = New System.Drawing.Point(26, 143)
+        Me.Button26.Name = "Button26"
+        Me.Button26.Size = New System.Drawing.Size(124, 23)
+        Me.Button26.TabIndex = 2
+        Me.Button26.Text = "Modificar Producto"
+        Me.Button26.UseVisualStyleBackColor = True
+        '
+        'Button25
+        '
+        Me.Button25.Location = New System.Drawing.Point(26, 98)
+        Me.Button25.Name = "Button25"
+        Me.Button25.Size = New System.Drawing.Size(124, 23)
+        Me.Button25.TabIndex = 1
+        Me.Button25.Text = "Ingreso de Producto"
+        Me.Button25.UseVisualStyleBackColor = True
+        '
+        'Button24NuevoProducto
+        '
+        Me.Button24NuevoProducto.Location = New System.Drawing.Point(26, 53)
+        Me.Button24NuevoProducto.Name = "Button24NuevoProducto"
+        Me.Button24NuevoProducto.Size = New System.Drawing.Size(124, 23)
+        Me.Button24NuevoProducto.TabIndex = 0
+        Me.Button24NuevoProducto.Text = "Nuevo Producto"
+        Me.Button24NuevoProducto.UseVisualStyleBackColor = True
+        '
         'Form2
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1353, 711)
+        Me.Controls.Add(Me.GroupBox4Stock)
         Me.Controls.Add(Me.PanelClientes)
         Me.Controls.Add(Me.panel_vender)
         Me.Controls.Add(Me.boton_servicios)
@@ -2655,6 +3092,13 @@ Partial Class Form2
         Me.GroupBoxEstadisticasdelCliente.ResumeLayout(False)
         Me.GroupBoxModificarClienteasd.ResumeLayout(False)
         Me.GroupBoxModificarClienteasd.PerformLayout()
+        Me.GroupBox4Stock.ResumeLayout(False)
+        Me.GroupBoxModificarProducto.ResumeLayout(False)
+        Me.GroupBoxModificarProducto.PerformLayout()
+        Me.GroupBoxIngresodeProducto.ResumeLayout(False)
+        Me.GroupBoxIngresodeProducto.PerformLayout()
+        Me.GroupBoxNuevoProducto.ResumeLayout(False)
+        Me.GroupBoxNuevoProducto.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -2920,4 +3364,45 @@ Partial Class Form2
     Friend WithEvents Button24ModificarCliente As Button
     Friend WithEvents ModificarClienteBoton As Button
     Friend WithEvents CrearClienteBoton As Button
+    Friend WithEvents GroupBox4Stock As GroupBox
+    Friend WithEvents Button27 As Button
+    Friend WithEvents Button26 As Button
+    Friend WithEvents Button25 As Button
+    Friend WithEvents Button24NuevoProducto As Button
+    Friend WithEvents GroupBoxModificarProducto As GroupBox
+    Friend WithEvents GroupBoxIngresodeProducto As GroupBox
+    Friend WithEvents TextBoxIVA As TextBox
+    Friend WithEvents TextBoxPreciodeCompra As TextBox
+    Friend WithEvents TextBoxProveedor As TextBox
+    Friend WithEvents TextBoxFacturaNro As TextBox
+    Friend WithEvents TextBoxSeleccionarCantidad As TextBox
+    Friend WithEvents TextBoxSeleccionarProducto As TextBox
+    Friend WithEvents Label45 As Label
+    Friend WithEvents Label46 As Label
+    Friend WithEvents Label43 As Label
+    Friend WithEvents Label44 As Label
+    Friend WithEvents Label42 As Label
+    Friend WithEvents Label41 As Label
+    Friend WithEvents GroupBoxNuevoProducto As GroupBox
+    Friend WithEvents TextBoxPrecio As TextBox
+    Friend WithEvents TextBoxDescripcion As TextBox
+    Friend WithEvents TextBoxCodigo As TextBox
+    Friend WithEvents Label43d As Label
+    Friend WithEvents Label42s As Label
+    Friend WithEvents Label41a As Label
+    Friend WithEvents TextBoxPrecio2 As TextBox
+    Friend WithEvents LabelPrecio As Label
+    Friend WithEvents TextBoxDescripcion2 As TextBox
+    Friend WithEvents LabelDescripcion As Label
+    Friend WithEvents TextBoxCodigo2 As TextBox
+    Friend WithEvents LabelCodigo As Label
+    Friend WithEvents ButtonCerrar3 As Button
+    Friend WithEvents ButtonModificarProducto As Button
+    Friend WithEvents ButtonCerrar2 As Button
+    Friend WithEvents ButtonInsertarProducto As Button
+    Friend WithEvents ButtonCerrar1 As Button
+    Friend WithEvents ButtonCrearProducto As Button
+    Friend WithEvents LabelModificarProducto As Label
+    Friend WithEvents LabelIngresoProducto As Label
+    Friend WithEvents LabelNuevoProducto As Label
 End Class

@@ -782,4 +782,116 @@
             MailTextBox1ModificarCliente.ReadOnly = True
         End If
     End Sub
+
+    Private Sub TextBox23_TextChanged(sender As Object, e As EventArgs) Handles TextBoxPreciodeCompra.TextChanged
+
+    End Sub
+
+    Private Sub Button32_Click(sender As Object, e As EventArgs) Handles ButtonCerrar3.Click
+
+        GroupBoxModificarProducto.Hide()
+    End Sub
+
+    Private Sub TextBoxCodigo_TextChanged(sender As Object, e As EventArgs) Handles TextBoxCodigo.TextChanged
+
+    End Sub
+
+    Private Sub TextBoxCodigo_LostFocus(sender As Object, e As EventArgs) Handles TextBoxCodigo.LostFocus
+        Dim cantidad_de_productos As Integer
+        cantidad_de_productos = DataSet1.Tables("producto").Rows.Count
+        If cantidad_de_productos > 0 Then
+            For i As Integer = 0 To (cantidad_de_productos - 1)
+                'Si el (CÓDIGO DE) PRODUCTO ya esta registrado'
+                If DataSet1.Tables("producto").Rows(i).Item("codigo") = TextBoxCodigo.Text Then
+
+                    LabelNuevoProducto.Show()
+                    LabelNuevoProducto.Text = "El código de producto ya está registrado"
+                    LabelNuevoProducto.ForeColor = Color.Red
+
+                    TextBoxCodigo.Text = ""
+                    TextBoxCodigo.Focus()
+
+                    i = cantidad_de_productos - 1 'Para cortar el FOR, ya que se encontró RUC repetido
+                Else
+                    LabelNuevoProducto.Hide()
+                End If
+            Next
+        End If
+    End Sub
+
+    Private Sub Button24NuevoProducto_Click(sender As Object, e As EventArgs) Handles Button24NuevoProducto.Click
+        GroupBoxNuevoProducto.Show()
+        GroupBoxIngresodeProducto.Hide()
+        GroupBoxModificarProducto.Hide()
+
+        GroupBoxNuevoProducto.Text = ""
+        GroupBoxIngresodeProducto.Text = ""
+        GroupBoxModificarProducto.Text = ""
+
+    End Sub
+
+    Private Sub Button25_Click(sender As Object, e As EventArgs) Handles Button25.Click
+        GroupBoxNuevoProducto.Hide()
+        GroupBoxIngresodeProducto.Show()
+        GroupBoxModificarProducto.Hide()
+    End Sub
+
+    Private Sub Button26_Click(sender As Object, e As EventArgs) Handles Button26.Click
+        GroupBoxNuevoProducto.Hide()
+        GroupBoxIngresodeProducto.Hide()
+        GroupBoxModificarProducto.Show()
+    End Sub
+
+    Private Sub ButtonCerrar1_Click(sender As Object, e As EventArgs) Handles ButtonCerrar1.Click
+        GroupBoxNuevoProducto.Hide()
+
+    End Sub
+
+    Private Sub ButtonCerrar2_Click(sender As Object, e As EventArgs) Handles ButtonCerrar2.Click
+        GroupBoxIngresodeProducto.Hide()
+
+    End Sub
+
+    Private Sub ButtonCrearProducto_Click(sender As Object, e As EventArgs) Handles ButtonCrearProducto.Click
+        LabelNuevoProducto.Hide()
+
+        If TextBoxCodigo.Text <> "" And TextBoxDescripcion.Text <> "" And TextBoxPrecio.Text <> "" Then
+            Dim nuevo_producto As DataRow = DataSet1.Tables("producto").NewRow()
+
+            nuevo_producto("codigo") = TextBoxCodigo.Text
+            nuevo_producto("descripcion") = TextBoxDescripcion.Text
+            nuevo_producto("precio_venta") = TextBoxPrecio.Text
+
+            DataSet1.Tables("producto").Rows.Add(nuevo_producto)
+
+            Validate()
+            UsuarioBindingSource.EndEdit()
+            ProductoTableAdapter.Update(DataSet1.producto)
+
+            LabelNuevoProducto.Show()
+            LabelNuevoProducto.Text = "Producto creado"
+            LabelNuevoProducto.ForeColor = Color.Green
+
+
+        Else
+            LabelNuevoProducto.Show()
+            LabelNuevoProducto.Text = "Complete los campos vacíos"
+            LabelNuevoProducto.ForeColor = Color.Red
+        End If
+    End Sub
+
+    Private Sub TextBoxPrecio_TextChanged(sender As Object, e As EventArgs) Handles TextBoxPrecio.TextChanged
+
+    End Sub
+
+    Private Sub TextBoxPrecio_LostFocus(sender As Object, e As EventArgs) Handles TextBoxPrecio.LostFocus
+        If IsNumeric(TextBoxPrecio) = False Then
+            TextBoxPrecio.Text = ""
+            TextBoxPrecio.Focus()
+
+            LabelNuevoProducto.Show()
+            LabelNuevoProducto.Text = "Rellene el campo sólo con números"
+            LabelNuevoProducto.ForeColor = Color.Red
+        End If
+    End Sub
 End Class

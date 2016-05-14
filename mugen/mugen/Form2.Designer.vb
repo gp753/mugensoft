@@ -23,6 +23,16 @@ Partial Class Form2
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim MailLabel1M As System.Windows.Forms.Label
+        Dim NumeroLabel1N As System.Windows.Forms.Label
+        Dim ApellidoLabel1A As System.Windows.Forms.Label
+        Dim NombreLabel1N As System.Windows.Forms.Label
+        Dim RucLabel1R As System.Windows.Forms.Label
+        Dim MailLabelM As System.Windows.Forms.Label
+        Dim NumeroLabelN As System.Windows.Forms.Label
+        Dim RucLabelR As System.Windows.Forms.Label
+        Dim ApellidoLabelA As System.Windows.Forms.Label
+        Dim NombreLabelN As System.Windows.Forms.Label
         Me.Ingreso_productoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DataSet1 = New mugen.DataSet1()
         Me.Contabilidad2BindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -38,6 +48,49 @@ Partial Class Form2
         Me.PedidoTableAdapter = New mugen.DataSet1TableAdapters.pedidoTableAdapter()
         Me.PedidoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.PanelClientes = New System.Windows.Forms.Panel()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.ClienteDataGridView1ModificarCliente = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewTextBoxColumn61 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn62 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn63 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn64 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn65 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn66 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn67 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn68 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn69 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.GroupBoxCrearClienteasd = New System.Windows.Forms.GroupBox()
+        Me.Label72CrearCliente = New System.Windows.Forms.Label()
+        Me.MailTextBoxCrearCliente = New System.Windows.Forms.TextBox()
+        Me.NumeroTextBoxCrearCliente = New System.Windows.Forms.TextBox()
+        Me.RucTextBoxCrearCliente = New System.Windows.Forms.TextBox()
+        Me.ApellidoTextBoxCrearCliente = New System.Windows.Forms.TextBox()
+        Me.NombreTextBoxCrearCliente = New System.Windows.Forms.TextBox()
+        Me.CheckBoxClientePrioritarioCrearCliente = New System.Windows.Forms.CheckBox()
+        Me.Button9CrearCliente = New System.Windows.Forms.Button()
+        Me.CrearClienteBotonCrearCliente = New System.Windows.Forms.Button()
+        Me.GroupBoxEstadisticasdelCliente = New System.Windows.Forms.GroupBox()
+        Me.Button16 = New System.Windows.Forms.Button()
+        Me.Button14 = New System.Windows.Forms.Button()
+        Me.Button13 = New System.Windows.Forms.Button()
+        Me.Button12 = New System.Windows.Forms.Button()
+        Me.Button11 = New System.Windows.Forms.Button()
+        Me.EstadisticasDeClienteBoton = New System.Windows.Forms.Button()
+        Me.GroupBoxModificarClienteasd = New System.Windows.Forms.GroupBox()
+        Me.Label1ModificarCliente = New System.Windows.Forms.Label()
+        Me.Button15ModificarCliente = New System.Windows.Forms.Button()
+        Me.MailTextBox1ModificarCliente = New System.Windows.Forms.TextBox()
+        Me.NumeroTextBox1ModificarCliente = New System.Windows.Forms.TextBox()
+        Me.ApellidoTextBox1ModificarCliente = New System.Windows.Forms.TextBox()
+        Me.NombreTextBox1ModificarCliente = New System.Windows.Forms.TextBox()
+        Me.RucTextBox1ModificarCliente = New System.Windows.Forms.TextBox()
+        Me.CheckBoxClientePrioritario1ModificarCliente = New System.Windows.Forms.CheckBox()
+        Me.Button10ModificarCliente = New System.Windows.Forms.Button()
+        Me.Button25ModificarCliente = New System.Windows.Forms.Button()
+        Me.Button24ModificarCliente = New System.Windows.Forms.Button()
+        Me.ModificarClienteBoton = New System.Windows.Forms.Button()
+        Me.CrearClienteBoton = New System.Windows.Forms.Button()
         Me.Venta_productoDataGridView = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn56 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn57 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -123,126 +176,16 @@ Partial Class Form2
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
-        Me.panel_cuentas = New System.Windows.Forms.Panel()
-        Me.panel_crear_usuarios = New System.Windows.Forms.Panel()
-        Me.label_error_crear = New System.Windows.Forms.Label()
-        Me.Button11 = New System.Windows.Forms.Button()
-        Me.Button10 = New System.Windows.Forms.Button()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        Me.textbox_mail = New System.Windows.Forms.TextBox()
-        Me.textbox_numero = New System.Windows.Forms.TextBox()
-        Me.textbox_apellido = New System.Windows.Forms.TextBox()
-        Me.textbox_nombre = New System.Windows.Forms.TextBox()
-        Me.textbox_rep_pass = New System.Windows.Forms.TextBox()
-        Me.textbox_pass = New System.Windows.Forms.TextBox()
-        Me.textbox_cuenta = New System.Windows.Forms.TextBox()
-        Me.Label10 = New System.Windows.Forms.Label()
-        Me.Label9 = New System.Windows.Forms.Label()
-        Me.Label8 = New System.Windows.Forms.Label()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.Button9 = New System.Windows.Forms.Button()
-        Me.Button8 = New System.Windows.Forms.Button()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.Panel_mod_user = New System.Windows.Forms.Panel()
-        Me.Label21 = New System.Windows.Forms.Label()
-        Me.RichTextBox1 = New System.Windows.Forms.RichTextBox()
-        Me.panel_mod_cuenta = New System.Windows.Forms.Panel()
-        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.Label23 = New System.Windows.Forms.Label()
-        Me.Button16 = New System.Windows.Forms.Button()
-        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.Label20 = New System.Windows.Forms.Label()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.Label19 = New System.Windows.Forms.Label()
-        Me.Label18 = New System.Windows.Forms.Label()
-        Me.TextBox4 = New System.Windows.Forms.TextBox()
-        Me.Label17 = New System.Windows.Forms.Label()
-        Me.Label16 = New System.Windows.Forms.Label()
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.Label22 = New System.Windows.Forms.Label()
-        Me.Button13 = New System.Windows.Forms.Button()
-        Me.texbox_nueva_pass_rep = New System.Windows.Forms.TextBox()
-        Me.Label15 = New System.Windows.Forms.Label()
-        Me.textbox_nueva_pass = New System.Windows.Forms.TextBox()
-        Me.Label14 = New System.Windows.Forms.Label()
-        Me.Button12 = New System.Windows.Forms.Button()
-        Me.textbox_mod_pass = New System.Windows.Forms.TextBox()
-        Me.textbox_mod_cuenta = New System.Windows.Forms.TextBox()
-        Me.Label13 = New System.Windows.Forms.Label()
-        Me.Label12 = New System.Windows.Forms.Label()
-        Me.Label11 = New System.Windows.Forms.Label()
-        Me.panel_carga_presupuesto = New System.Windows.Forms.Panel()
-        Me.Label70 = New System.Windows.Forms.Label()
-        Me.TextBox22 = New System.Windows.Forms.TextBox()
-        Me.Label69 = New System.Windows.Forms.Label()
-        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.Label40 = New System.Windows.Forms.Label()
-        Me.Label39 = New System.Windows.Forms.Label()
-        Me.Label38 = New System.Windows.Forms.Label()
-        Me.Label37 = New System.Windows.Forms.Label()
-        Me.TextBox14 = New System.Windows.Forms.TextBox()
-        Me.TextBox13 = New System.Windows.Forms.TextBox()
-        Me.TextBox12 = New System.Windows.Forms.TextBox()
-        Me.TextBox11 = New System.Windows.Forms.TextBox()
-        Me.TextBox10 = New System.Windows.Forms.TextBox()
-        Me.TextBox9 = New System.Windows.Forms.TextBox()
-        Me.Button19 = New System.Windows.Forms.Button()
-        Me.Button18 = New System.Windows.Forms.Button()
-        Me.Label36 = New System.Windows.Forms.Label()
-        Me.Label35 = New System.Windows.Forms.Label()
-        Me.Label34 = New System.Windows.Forms.Label()
-        Me.Label33 = New System.Windows.Forms.Label()
-        Me.Label32 = New System.Windows.Forms.Label()
-        Me.Label31 = New System.Windows.Forms.Label()
-        Me.Label30 = New System.Windows.Forms.Label()
-        Me.ComboBox3 = New System.Windows.Forms.ComboBox()
-        Me.Button17 = New System.Windows.Forms.Button()
-        Me.MonthCalendar1 = New System.Windows.Forms.MonthCalendar()
-        Me.Button15 = New System.Windows.Forms.Button()
-        Me.Button14 = New System.Windows.Forms.Button()
-        Me.TextBox8 = New System.Windows.Forms.TextBox()
-        Me.RichTextBox2 = New System.Windows.Forms.RichTextBox()
-        Me.TextBox7 = New System.Windows.Forms.TextBox()
-        Me.TextBox6 = New System.Windows.Forms.TextBox()
-        Me.TextBox5 = New System.Windows.Forms.TextBox()
-        Me.Label29 = New System.Windows.Forms.Label()
-        Me.Label28 = New System.Windows.Forms.Label()
-        Me.Label27 = New System.Windows.Forms.Label()
-        Me.Label26 = New System.Windows.Forms.Label()
-        Me.Label25 = New System.Windows.Forms.Label()
-        Me.Label24 = New System.Windows.Forms.Label()
-        Me.panel_botones_mugen = New System.Windows.Forms.Panel()
-        Me.Button20 = New System.Windows.Forms.Button()
-        Me.boton_vender = New System.Windows.Forms.Button()
-        Me.boton_servicios = New System.Windows.Forms.Button()
-        Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.label_ruc_venta = New System.Windows.Forms.Label()
-        Me.text_total = New System.Windows.Forms.TextBox()
-        Me.label_total = New System.Windows.Forms.Label()
-        Me.text_iva = New System.Windows.Forms.TextBox()
-        Me.label_iva = New System.Windows.Forms.Label()
-        Me.text_sub_total = New System.Windows.Forms.TextBox()
-        Me.label_subtotal = New System.Windows.Forms.Label()
-        Me.venta_guardar = New System.Windows.Forms.Button()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.Codigo = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Producto = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Punit = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.cant = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Importe = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.TextBox17 = New System.Windows.Forms.TextBox()
-        Me.label_fecha = New System.Windows.Forms.Label()
-        Me.TextBox16 = New System.Windows.Forms.TextBox()
-        Me.label_venta_cliente = New System.Windows.Forms.Label()
-        Me.text_ruc_venta = New System.Windows.Forms.TextBox()
-        Me.label_ruc = New System.Windows.Forms.Label()
+        MailLabel1M = New System.Windows.Forms.Label()
+        NumeroLabel1N = New System.Windows.Forms.Label()
+        ApellidoLabel1A = New System.Windows.Forms.Label()
+        NombreLabel1N = New System.Windows.Forms.Label()
+        RucLabel1R = New System.Windows.Forms.Label()
+        MailLabelM = New System.Windows.Forms.Label()
+        NumeroLabelN = New System.Windows.Forms.Label()
+        RucLabelR = New System.Windows.Forms.Label()
+        ApellidoLabelA = New System.Windows.Forms.Label()
+        NombreLabelN = New System.Windows.Forms.Label()
         CType(Me.Ingreso_productoBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Contabilidad2BindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -251,6 +194,11 @@ Partial Class Form2
         CType(Me.Association_1BindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PedidoBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
+        Me.PanelClientes.SuspendLayout()
+        CType(Me.ClienteDataGridView1ModificarCliente, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBoxCrearClienteasd.SuspendLayout()
+        Me.GroupBoxEstadisticasdelCliente.SuspendLayout()
+        Me.GroupBoxModificarClienteasd.SuspendLayout()
         CType(Me.Venta_productoDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Venta_productoBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.UsuarioDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -265,18 +213,97 @@ Partial Class Form2
         CType(Me.ContabilidadDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ClienteDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Association_1DataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.panel_cuentas.SuspendLayout()
-        Me.panel_crear_usuarios.SuspendLayout()
-        Me.Panel_mod_user.SuspendLayout()
-        Me.panel_mod_cuenta.SuspendLayout()
-        Me.GroupBox2.SuspendLayout()
-        Me.GroupBox1.SuspendLayout()
-        Me.panel_carga_presupuesto.SuspendLayout()
-        Me.GroupBox3.SuspendLayout()
-        Me.panel_botones_mugen.SuspendLayout()
-        Me.Panel2.SuspendLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
+        '
+        'MailLabel1M
+        '
+        MailLabel1M.AutoSize = True
+        MailLabel1M.Location = New System.Drawing.Point(39, 170)
+        MailLabel1M.Name = "MailLabel1M"
+        MailLabel1M.Size = New System.Drawing.Size(29, 13)
+        MailLabel1M.TabIndex = 8
+        MailLabel1M.Text = "Mail:"
+        '
+        'NumeroLabel1N
+        '
+        NumeroLabel1N.AutoSize = True
+        NumeroLabel1N.Location = New System.Drawing.Point(22, 139)
+        NumeroLabel1N.Name = "NumeroLabel1N"
+        NumeroLabel1N.Size = New System.Drawing.Size(47, 13)
+        NumeroLabel1N.TabIndex = 6
+        NumeroLabel1N.Text = "Número:"
+        '
+        'ApellidoLabel1A
+        '
+        ApellidoLabel1A.AutoSize = True
+        ApellidoLabel1A.Location = New System.Drawing.Point(21, 108)
+        ApellidoLabel1A.Name = "ApellidoLabel1A"
+        ApellidoLabel1A.Size = New System.Drawing.Size(47, 13)
+        ApellidoLabel1A.TabIndex = 4
+        ApellidoLabel1A.Text = "Apellido:"
+        '
+        'NombreLabel1N
+        '
+        NombreLabel1N.AutoSize = True
+        NombreLabel1N.Location = New System.Drawing.Point(22, 77)
+        NombreLabel1N.Name = "NombreLabel1N"
+        NombreLabel1N.Size = New System.Drawing.Size(47, 13)
+        NombreLabel1N.TabIndex = 2
+        NombreLabel1N.Text = "Nombre:"
+        '
+        'RucLabel1R
+        '
+        RucLabel1R.AutoSize = True
+        RucLabel1R.Location = New System.Drawing.Point(42, 46)
+        RucLabel1R.Name = "RucLabel1R"
+        RucLabel1R.Size = New System.Drawing.Size(33, 13)
+        RucLabel1R.TabIndex = 0
+        RucLabel1R.Text = "RUC:"
+        '
+        'MailLabelM
+        '
+        MailLabelM.AutoSize = True
+        MailLabelM.Location = New System.Drawing.Point(63, 168)
+        MailLabelM.Name = "MailLabelM"
+        MailLabelM.Size = New System.Drawing.Size(29, 13)
+        MailLabelM.TabIndex = 8
+        MailLabelM.Text = "Mail:"
+        '
+        'NumeroLabelN
+        '
+        NumeroLabelN.AutoSize = True
+        NumeroLabelN.Location = New System.Drawing.Point(45, 140)
+        NumeroLabelN.Name = "NumeroLabelN"
+        NumeroLabelN.Size = New System.Drawing.Size(47, 13)
+        NumeroLabelN.TabIndex = 6
+        NumeroLabelN.Text = "Número:"
+        '
+        'RucLabelR
+        '
+        RucLabelR.AutoSize = True
+        RucLabelR.Location = New System.Drawing.Point(59, 112)
+        RucLabelR.Name = "RucLabelR"
+        RucLabelR.Size = New System.Drawing.Size(33, 13)
+        RucLabelR.TabIndex = 4
+        RucLabelR.Text = "RUC:"
+        '
+        'ApellidoLabelA
+        '
+        ApellidoLabelA.AutoSize = True
+        ApellidoLabelA.Location = New System.Drawing.Point(45, 84)
+        ApellidoLabelA.Name = "ApellidoLabelA"
+        ApellidoLabelA.Size = New System.Drawing.Size(47, 13)
+        ApellidoLabelA.TabIndex = 2
+        ApellidoLabelA.Text = "Apellido:"
+        '
+        'NombreLabelN
+        '
+        NombreLabelN.AutoSize = True
+        NombreLabelN.Location = New System.Drawing.Point(45, 56)
+        NombreLabelN.Name = "NombreLabelN"
+        NombreLabelN.Size = New System.Drawing.Size(47, 13)
+        NombreLabelN.TabIndex = 0
+        NombreLabelN.Text = "Nombre:"
         '
         'Ingreso_productoBindingSource
         '
@@ -354,6 +381,7 @@ Partial Class Form2
         '
         'Panel1
         '
+        Me.Panel1.Controls.Add(Me.PanelClientes)
         Me.Panel1.Controls.Add(Me.Venta_productoDataGridView)
         Me.Panel1.Controls.Add(Me.UsuarioDataGridView)
         Me.Panel1.Controls.Add(Me.ProveedorDataGridView)
@@ -366,8 +394,404 @@ Partial Class Form2
         Me.Panel1.Controls.Add(Me.Association_1DataGridView)
         Me.Panel1.Location = New System.Drawing.Point(90, 93)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1194, 605)
+        Me.Panel1.Size = New System.Drawing.Size(1341, 605)
         Me.Panel1.TabIndex = 0
+        '
+        'PanelClientes
+        '
+        Me.PanelClientes.Controls.Add(Me.Label1)
+        Me.PanelClientes.Controls.Add(Me.ClienteDataGridView1ModificarCliente)
+        Me.PanelClientes.Controls.Add(Me.GroupBoxCrearClienteasd)
+        Me.PanelClientes.Controls.Add(Me.GroupBoxEstadisticasdelCliente)
+        Me.PanelClientes.Controls.Add(Me.EstadisticasDeClienteBoton)
+        Me.PanelClientes.Controls.Add(Me.GroupBoxModificarClienteasd)
+        Me.PanelClientes.Controls.Add(Me.ModificarClienteBoton)
+        Me.PanelClientes.Controls.Add(Me.CrearClienteBoton)
+        Me.PanelClientes.Location = New System.Drawing.Point(0, 0)
+        Me.PanelClientes.Name = "PanelClientes"
+        Me.PanelClientes.Size = New System.Drawing.Size(1341, 605)
+        Me.PanelClientes.TabIndex = 39
+        Me.PanelClientes.Visible = False
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(320, 19)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(39, 13)
+        Me.Label1.TabIndex = 22
+        Me.Label1.Text = "Label1"
+        '
+        'ClienteDataGridView1ModificarCliente
+        '
+        Me.ClienteDataGridView1ModificarCliente.AutoGenerateColumns = False
+        Me.ClienteDataGridView1ModificarCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.ClienteDataGridView1ModificarCliente.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn61, Me.DataGridViewTextBoxColumn62, Me.DataGridViewTextBoxColumn63, Me.DataGridViewTextBoxColumn64, Me.DataGridViewTextBoxColumn65, Me.DataGridViewTextBoxColumn66, Me.DataGridViewTextBoxColumn67, Me.DataGridViewTextBoxColumn68, Me.DataGridViewTextBoxColumn69})
+        Me.ClienteDataGridView1ModificarCliente.DataSource = Me.ClienteBindingSource
+        Me.ClienteDataGridView1ModificarCliente.Location = New System.Drawing.Point(869, 68)
+        Me.ClienteDataGridView1ModificarCliente.Name = "ClienteDataGridView1ModificarCliente"
+        Me.ClienteDataGridView1ModificarCliente.Size = New System.Drawing.Size(452, 220)
+        Me.ClienteDataGridView1ModificarCliente.TabIndex = 21
+        Me.ClienteDataGridView1ModificarCliente.Visible = False
+        '
+        'DataGridViewTextBoxColumn61
+        '
+        Me.DataGridViewTextBoxColumn61.DataPropertyName = "id_cliente"
+        Me.DataGridViewTextBoxColumn61.HeaderText = "id_cliente"
+        Me.DataGridViewTextBoxColumn61.Name = "DataGridViewTextBoxColumn61"
+        '
+        'DataGridViewTextBoxColumn62
+        '
+        Me.DataGridViewTextBoxColumn62.DataPropertyName = "nombre"
+        Me.DataGridViewTextBoxColumn62.HeaderText = "nombre"
+        Me.DataGridViewTextBoxColumn62.Name = "DataGridViewTextBoxColumn62"
+        '
+        'DataGridViewTextBoxColumn63
+        '
+        Me.DataGridViewTextBoxColumn63.DataPropertyName = "apellido"
+        Me.DataGridViewTextBoxColumn63.HeaderText = "apellido"
+        Me.DataGridViewTextBoxColumn63.Name = "DataGridViewTextBoxColumn63"
+        '
+        'DataGridViewTextBoxColumn64
+        '
+        Me.DataGridViewTextBoxColumn64.DataPropertyName = "ruc"
+        Me.DataGridViewTextBoxColumn64.HeaderText = "ruc"
+        Me.DataGridViewTextBoxColumn64.Name = "DataGridViewTextBoxColumn64"
+        '
+        'DataGridViewTextBoxColumn65
+        '
+        Me.DataGridViewTextBoxColumn65.DataPropertyName = "numero"
+        Me.DataGridViewTextBoxColumn65.HeaderText = "numero"
+        Me.DataGridViewTextBoxColumn65.Name = "DataGridViewTextBoxColumn65"
+        '
+        'DataGridViewTextBoxColumn66
+        '
+        Me.DataGridViewTextBoxColumn66.DataPropertyName = "mail"
+        Me.DataGridViewTextBoxColumn66.HeaderText = "mail"
+        Me.DataGridViewTextBoxColumn66.Name = "DataGridViewTextBoxColumn66"
+        '
+        'DataGridViewTextBoxColumn67
+        '
+        Me.DataGridViewTextBoxColumn67.DataPropertyName = "estado_cliente"
+        Me.DataGridViewTextBoxColumn67.HeaderText = "estado_cliente"
+        Me.DataGridViewTextBoxColumn67.Name = "DataGridViewTextBoxColumn67"
+        '
+        'DataGridViewTextBoxColumn68
+        '
+        Me.DataGridViewTextBoxColumn68.DataPropertyName = "deuda"
+        Me.DataGridViewTextBoxColumn68.HeaderText = "deuda"
+        Me.DataGridViewTextBoxColumn68.Name = "DataGridViewTextBoxColumn68"
+        '
+        'DataGridViewTextBoxColumn69
+        '
+        Me.DataGridViewTextBoxColumn69.DataPropertyName = "cliente_prioritario"
+        Me.DataGridViewTextBoxColumn69.HeaderText = "cliente_prioritario"
+        Me.DataGridViewTextBoxColumn69.Name = "DataGridViewTextBoxColumn69"
+        '
+        'GroupBoxCrearClienteasd
+        '
+        Me.GroupBoxCrearClienteasd.Controls.Add(Me.Label72CrearCliente)
+        Me.GroupBoxCrearClienteasd.Controls.Add(Me.MailTextBoxCrearCliente)
+        Me.GroupBoxCrearClienteasd.Controls.Add(Me.NumeroTextBoxCrearCliente)
+        Me.GroupBoxCrearClienteasd.Controls.Add(Me.RucTextBoxCrearCliente)
+        Me.GroupBoxCrearClienteasd.Controls.Add(Me.ApellidoTextBoxCrearCliente)
+        Me.GroupBoxCrearClienteasd.Controls.Add(Me.NombreTextBoxCrearCliente)
+        Me.GroupBoxCrearClienteasd.Controls.Add(Me.CheckBoxClientePrioritarioCrearCliente)
+        Me.GroupBoxCrearClienteasd.Controls.Add(Me.Button9CrearCliente)
+        Me.GroupBoxCrearClienteasd.Controls.Add(Me.CrearClienteBotonCrearCliente)
+        Me.GroupBoxCrearClienteasd.Controls.Add(MailLabelM)
+        Me.GroupBoxCrearClienteasd.Controls.Add(NumeroLabelN)
+        Me.GroupBoxCrearClienteasd.Controls.Add(RucLabelR)
+        Me.GroupBoxCrearClienteasd.Controls.Add(ApellidoLabelA)
+        Me.GroupBoxCrearClienteasd.Controls.Add(NombreLabelN)
+        Me.GroupBoxCrearClienteasd.Location = New System.Drawing.Point(194, 38)
+        Me.GroupBoxCrearClienteasd.Name = "GroupBoxCrearClienteasd"
+        Me.GroupBoxCrearClienteasd.Size = New System.Drawing.Size(319, 361)
+        Me.GroupBoxCrearClienteasd.TabIndex = 2
+        Me.GroupBoxCrearClienteasd.TabStop = False
+        Me.GroupBoxCrearClienteasd.Text = "Crear Cliente"
+        Me.GroupBoxCrearClienteasd.Visible = False
+        '
+        'Label72CrearCliente
+        '
+        Me.Label72CrearCliente.AutoSize = True
+        Me.Label72CrearCliente.Location = New System.Drawing.Point(94, 241)
+        Me.Label72CrearCliente.Name = "Label72CrearCliente"
+        Me.Label72CrearCliente.Size = New System.Drawing.Size(45, 13)
+        Me.Label72CrearCliente.TabIndex = 11
+        Me.Label72CrearCliente.Text = "Label72"
+        Me.Label72CrearCliente.Visible = False
+        '
+        'MailTextBoxCrearCliente
+        '
+        Me.MailTextBoxCrearCliente.Location = New System.Drawing.Point(97, 164)
+        Me.MailTextBoxCrearCliente.Name = "MailTextBoxCrearCliente"
+        Me.MailTextBoxCrearCliente.Size = New System.Drawing.Size(169, 20)
+        Me.MailTextBoxCrearCliente.TabIndex = 20
+        '
+        'NumeroTextBoxCrearCliente
+        '
+        Me.NumeroTextBoxCrearCliente.Location = New System.Drawing.Point(97, 136)
+        Me.NumeroTextBoxCrearCliente.Name = "NumeroTextBoxCrearCliente"
+        Me.NumeroTextBoxCrearCliente.Size = New System.Drawing.Size(169, 20)
+        Me.NumeroTextBoxCrearCliente.TabIndex = 19
+        '
+        'RucTextBoxCrearCliente
+        '
+        Me.RucTextBoxCrearCliente.Location = New System.Drawing.Point(97, 108)
+        Me.RucTextBoxCrearCliente.Name = "RucTextBoxCrearCliente"
+        Me.RucTextBoxCrearCliente.Size = New System.Drawing.Size(169, 20)
+        Me.RucTextBoxCrearCliente.TabIndex = 18
+        '
+        'ApellidoTextBoxCrearCliente
+        '
+        Me.ApellidoTextBoxCrearCliente.Location = New System.Drawing.Point(97, 80)
+        Me.ApellidoTextBoxCrearCliente.Name = "ApellidoTextBoxCrearCliente"
+        Me.ApellidoTextBoxCrearCliente.Size = New System.Drawing.Size(169, 20)
+        Me.ApellidoTextBoxCrearCliente.TabIndex = 17
+        '
+        'NombreTextBoxCrearCliente
+        '
+        Me.NombreTextBoxCrearCliente.Location = New System.Drawing.Point(97, 52)
+        Me.NombreTextBoxCrearCliente.Name = "NombreTextBoxCrearCliente"
+        Me.NombreTextBoxCrearCliente.Size = New System.Drawing.Size(169, 20)
+        Me.NombreTextBoxCrearCliente.TabIndex = 16
+        '
+        'CheckBoxClientePrioritarioCrearCliente
+        '
+        Me.CheckBoxClientePrioritarioCrearCliente.AutoSize = True
+        Me.CheckBoxClientePrioritarioCrearCliente.Location = New System.Drawing.Point(129, 198)
+        Me.CheckBoxClientePrioritarioCrearCliente.Name = "CheckBoxClientePrioritarioCrearCliente"
+        Me.CheckBoxClientePrioritarioCrearCliente.Size = New System.Drawing.Size(104, 17)
+        Me.CheckBoxClientePrioritarioCrearCliente.TabIndex = 15
+        Me.CheckBoxClientePrioritarioCrearCliente.Text = "Cliente Prioritario"
+        Me.CheckBoxClientePrioritarioCrearCliente.UseVisualStyleBackColor = True
+        '
+        'Button9CrearCliente
+        '
+        Me.Button9CrearCliente.Location = New System.Drawing.Point(166, 263)
+        Me.Button9CrearCliente.Name = "Button9CrearCliente"
+        Me.Button9CrearCliente.Size = New System.Drawing.Size(75, 23)
+        Me.Button9CrearCliente.TabIndex = 12
+        Me.Button9CrearCliente.Text = "Cerrar"
+        Me.Button9CrearCliente.UseVisualStyleBackColor = True
+        '
+        'CrearClienteBotonCrearCliente
+        '
+        Me.CrearClienteBotonCrearCliente.Location = New System.Drawing.Point(45, 263)
+        Me.CrearClienteBotonCrearCliente.Name = "CrearClienteBotonCrearCliente"
+        Me.CrearClienteBotonCrearCliente.Size = New System.Drawing.Size(75, 23)
+        Me.CrearClienteBotonCrearCliente.TabIndex = 10
+        Me.CrearClienteBotonCrearCliente.Text = "Crear Cliente"
+        Me.CrearClienteBotonCrearCliente.UseVisualStyleBackColor = True
+        '
+        'GroupBoxEstadisticasdelCliente
+        '
+        Me.GroupBoxEstadisticasdelCliente.Controls.Add(Me.Button16)
+        Me.GroupBoxEstadisticasdelCliente.Controls.Add(Me.Button14)
+        Me.GroupBoxEstadisticasdelCliente.Controls.Add(Me.Button13)
+        Me.GroupBoxEstadisticasdelCliente.Controls.Add(Me.Button12)
+        Me.GroupBoxEstadisticasdelCliente.Controls.Add(Me.Button11)
+        Me.GroupBoxEstadisticasdelCliente.Location = New System.Drawing.Point(225, 38)
+        Me.GroupBoxEstadisticasdelCliente.Name = "GroupBoxEstadisticasdelCliente"
+        Me.GroupBoxEstadisticasdelCliente.Size = New System.Drawing.Size(286, 361)
+        Me.GroupBoxEstadisticasdelCliente.TabIndex = 5
+        Me.GroupBoxEstadisticasdelCliente.TabStop = False
+        Me.GroupBoxEstadisticasdelCliente.Text = "Estadísticas de Cliente"
+        Me.GroupBoxEstadisticasdelCliente.Visible = False
+        '
+        'Button16
+        '
+        Me.Button16.Location = New System.Drawing.Point(98, 273)
+        Me.Button16.Name = "Button16"
+        Me.Button16.Size = New System.Drawing.Size(75, 23)
+        Me.Button16.TabIndex = 4
+        Me.Button16.Text = "Cerrar"
+        Me.Button16.UseVisualStyleBackColor = True
+        '
+        'Button14
+        '
+        Me.Button14.Location = New System.Drawing.Point(54, 194)
+        Me.Button14.Name = "Button14"
+        Me.Button14.Size = New System.Drawing.Size(181, 23)
+        Me.Button14.TabIndex = 3
+        Me.Button14.Text = "Gráficas estadísticas del Cliente"
+        Me.Button14.UseVisualStyleBackColor = True
+        '
+        'Button13
+        '
+        Me.Button13.Location = New System.Drawing.Point(54, 150)
+        Me.Button13.Name = "Button13"
+        Me.Button13.Size = New System.Drawing.Size(181, 23)
+        Me.Button13.TabIndex = 2
+        Me.Button13.Text = "Deudas del Cliente"
+        Me.Button13.UseVisualStyleBackColor = True
+        '
+        'Button12
+        '
+        Me.Button12.Location = New System.Drawing.Point(54, 106)
+        Me.Button12.Name = "Button12"
+        Me.Button12.Size = New System.Drawing.Size(181, 23)
+        Me.Button12.TabIndex = 1
+        Me.Button12.Text = "Pedidos pendientes del Cliente"
+        Me.Button12.UseVisualStyleBackColor = True
+        '
+        'Button11
+        '
+        Me.Button11.Location = New System.Drawing.Point(54, 62)
+        Me.Button11.Name = "Button11"
+        Me.Button11.Size = New System.Drawing.Size(181, 23)
+        Me.Button11.TabIndex = 0
+        Me.Button11.Text = "Datos de Cliente"
+        Me.Button11.UseVisualStyleBackColor = True
+        '
+        'EstadisticasDeClienteBoton
+        '
+        Me.EstadisticasDeClienteBoton.Location = New System.Drawing.Point(26, 120)
+        Me.EstadisticasDeClienteBoton.Name = "EstadisticasDeClienteBoton"
+        Me.EstadisticasDeClienteBoton.Size = New System.Drawing.Size(125, 22)
+        Me.EstadisticasDeClienteBoton.TabIndex = 4
+        Me.EstadisticasDeClienteBoton.Text = "Estadísticas de Cliente"
+        Me.EstadisticasDeClienteBoton.UseVisualStyleBackColor = True
+        '
+        'GroupBoxModificarClienteasd
+        '
+        Me.GroupBoxModificarClienteasd.Controls.Add(Me.Label1ModificarCliente)
+        Me.GroupBoxModificarClienteasd.Controls.Add(Me.Button15ModificarCliente)
+        Me.GroupBoxModificarClienteasd.Controls.Add(Me.MailTextBox1ModificarCliente)
+        Me.GroupBoxModificarClienteasd.Controls.Add(Me.NumeroTextBox1ModificarCliente)
+        Me.GroupBoxModificarClienteasd.Controls.Add(Me.ApellidoTextBox1ModificarCliente)
+        Me.GroupBoxModificarClienteasd.Controls.Add(Me.NombreTextBox1ModificarCliente)
+        Me.GroupBoxModificarClienteasd.Controls.Add(Me.RucTextBox1ModificarCliente)
+        Me.GroupBoxModificarClienteasd.Controls.Add(Me.CheckBoxClientePrioritario1ModificarCliente)
+        Me.GroupBoxModificarClienteasd.Controls.Add(Me.Button10ModificarCliente)
+        Me.GroupBoxModificarClienteasd.Controls.Add(Me.Button25ModificarCliente)
+        Me.GroupBoxModificarClienteasd.Controls.Add(Me.Button24ModificarCliente)
+        Me.GroupBoxModificarClienteasd.Controls.Add(MailLabel1M)
+        Me.GroupBoxModificarClienteasd.Controls.Add(NumeroLabel1N)
+        Me.GroupBoxModificarClienteasd.Controls.Add(ApellidoLabel1A)
+        Me.GroupBoxModificarClienteasd.Controls.Add(NombreLabel1N)
+        Me.GroupBoxModificarClienteasd.Controls.Add(RucLabel1R)
+        Me.GroupBoxModificarClienteasd.Location = New System.Drawing.Point(533, 38)
+        Me.GroupBoxModificarClienteasd.Name = "GroupBoxModificarClienteasd"
+        Me.GroupBoxModificarClienteasd.Size = New System.Drawing.Size(330, 361)
+        Me.GroupBoxModificarClienteasd.TabIndex = 3
+        Me.GroupBoxModificarClienteasd.TabStop = False
+        Me.GroupBoxModificarClienteasd.Text = "Modificar Cliente"
+        Me.GroupBoxModificarClienteasd.Visible = False
+        '
+        'Label1ModificarCliente
+        '
+        Me.Label1ModificarCliente.AutoSize = True
+        Me.Label1ModificarCliente.Location = New System.Drawing.Point(70, 241)
+        Me.Label1ModificarCliente.Name = "Label1ModificarCliente"
+        Me.Label1ModificarCliente.Size = New System.Drawing.Size(39, 13)
+        Me.Label1ModificarCliente.TabIndex = 22
+        Me.Label1ModificarCliente.Text = "Label1"
+        Me.Label1ModificarCliente.Visible = False
+        '
+        'Button15ModificarCliente
+        '
+        Me.Button15ModificarCliente.Location = New System.Drawing.Point(252, 41)
+        Me.Button15ModificarCliente.Name = "Button15ModificarCliente"
+        Me.Button15ModificarCliente.Size = New System.Drawing.Size(57, 23)
+        Me.Button15ModificarCliente.TabIndex = 22
+        Me.Button15ModificarCliente.Text = "Buscar"
+        Me.Button15ModificarCliente.UseVisualStyleBackColor = True
+        '
+        'MailTextBox1ModificarCliente
+        '
+        Me.MailTextBox1ModificarCliente.Location = New System.Drawing.Point(73, 166)
+        Me.MailTextBox1ModificarCliente.Name = "MailTextBox1ModificarCliente"
+        Me.MailTextBox1ModificarCliente.ReadOnly = True
+        Me.MailTextBox1ModificarCliente.Size = New System.Drawing.Size(236, 20)
+        Me.MailTextBox1ModificarCliente.TabIndex = 20
+        '
+        'NumeroTextBox1ModificarCliente
+        '
+        Me.NumeroTextBox1ModificarCliente.Location = New System.Drawing.Point(73, 135)
+        Me.NumeroTextBox1ModificarCliente.Name = "NumeroTextBox1ModificarCliente"
+        Me.NumeroTextBox1ModificarCliente.ReadOnly = True
+        Me.NumeroTextBox1ModificarCliente.Size = New System.Drawing.Size(236, 20)
+        Me.NumeroTextBox1ModificarCliente.TabIndex = 19
+        '
+        'ApellidoTextBox1ModificarCliente
+        '
+        Me.ApellidoTextBox1ModificarCliente.Location = New System.Drawing.Point(73, 104)
+        Me.ApellidoTextBox1ModificarCliente.Name = "ApellidoTextBox1ModificarCliente"
+        Me.ApellidoTextBox1ModificarCliente.ReadOnly = True
+        Me.ApellidoTextBox1ModificarCliente.Size = New System.Drawing.Size(236, 20)
+        Me.ApellidoTextBox1ModificarCliente.TabIndex = 18
+        '
+        'NombreTextBox1ModificarCliente
+        '
+        Me.NombreTextBox1ModificarCliente.Location = New System.Drawing.Point(73, 73)
+        Me.NombreTextBox1ModificarCliente.Name = "NombreTextBox1ModificarCliente"
+        Me.NombreTextBox1ModificarCliente.ReadOnly = True
+        Me.NombreTextBox1ModificarCliente.Size = New System.Drawing.Size(236, 20)
+        Me.NombreTextBox1ModificarCliente.TabIndex = 17
+        '
+        'RucTextBox1ModificarCliente
+        '
+        Me.RucTextBox1ModificarCliente.Location = New System.Drawing.Point(73, 42)
+        Me.RucTextBox1ModificarCliente.Name = "RucTextBox1ModificarCliente"
+        Me.RucTextBox1ModificarCliente.Size = New System.Drawing.Size(173, 20)
+        Me.RucTextBox1ModificarCliente.TabIndex = 16
+        '
+        'CheckBoxClientePrioritario1ModificarCliente
+        '
+        Me.CheckBoxClientePrioritario1ModificarCliente.AutoSize = True
+        Me.CheckBoxClientePrioritario1ModificarCliente.Location = New System.Drawing.Point(156, 207)
+        Me.CheckBoxClientePrioritario1ModificarCliente.Name = "CheckBoxClientePrioritario1ModificarCliente"
+        Me.CheckBoxClientePrioritario1ModificarCliente.Size = New System.Drawing.Size(104, 17)
+        Me.CheckBoxClientePrioritario1ModificarCliente.TabIndex = 15
+        Me.CheckBoxClientePrioritario1ModificarCliente.Text = "Cliente Prioritario"
+        Me.CheckBoxClientePrioritario1ModificarCliente.UseVisualStyleBackColor = True
+        '
+        'Button10ModificarCliente
+        '
+        Me.Button10ModificarCliente.Location = New System.Drawing.Point(131, 305)
+        Me.Button10ModificarCliente.Name = "Button10ModificarCliente"
+        Me.Button10ModificarCliente.Size = New System.Drawing.Size(75, 23)
+        Me.Button10ModificarCliente.TabIndex = 13
+        Me.Button10ModificarCliente.Text = "Cerrar"
+        Me.Button10ModificarCliente.UseVisualStyleBackColor = True
+        '
+        'Button25ModificarCliente
+        '
+        Me.Button25ModificarCliente.Location = New System.Drawing.Point(185, 259)
+        Me.Button25ModificarCliente.Name = "Button25ModificarCliente"
+        Me.Button25ModificarCliente.Size = New System.Drawing.Size(94, 23)
+        Me.Button25ModificarCliente.TabIndex = 11
+        Me.Button25ModificarCliente.Text = "Borrar Cliente"
+        Me.Button25ModificarCliente.UseVisualStyleBackColor = True
+        '
+        'Button24ModificarCliente
+        '
+        Me.Button24ModificarCliente.Location = New System.Drawing.Point(62, 259)
+        Me.Button24ModificarCliente.Name = "Button24ModificarCliente"
+        Me.Button24ModificarCliente.Size = New System.Drawing.Size(94, 23)
+        Me.Button24ModificarCliente.TabIndex = 10
+        Me.Button24ModificarCliente.Text = "Modificar Cliente"
+        Me.Button24ModificarCliente.UseVisualStyleBackColor = True
+        '
+        'ModificarClienteBoton
+        '
+        Me.ModificarClienteBoton.Location = New System.Drawing.Point(26, 81)
+        Me.ModificarClienteBoton.Name = "ModificarClienteBoton"
+        Me.ModificarClienteBoton.Size = New System.Drawing.Size(125, 22)
+        Me.ModificarClienteBoton.TabIndex = 1
+        Me.ModificarClienteBoton.Text = "Modificar Cliente"
+        Me.ModificarClienteBoton.UseVisualStyleBackColor = True
+        '
+        'CrearClienteBoton
+        '
+        Me.CrearClienteBoton.Location = New System.Drawing.Point(26, 42)
+        Me.CrearClienteBoton.Name = "CrearClienteBoton"
+        Me.CrearClienteBoton.Size = New System.Drawing.Size(125, 22)
+        Me.CrearClienteBoton.TabIndex = 0
+        Me.CrearClienteBoton.Text = "Crear Cliente"
+        Me.CrearClienteBoton.UseVisualStyleBackColor = True
         '
         'Venta_productoDataGridView
         '
@@ -877,7 +1301,7 @@ Partial Class Form2
         '
         'Button7
         '
-        Me.Button7.Location = New System.Drawing.Point(1180, 11)
+        Me.Button7.Location = New System.Drawing.Point(1013, 12)
         Me.Button7.Name = "Button7"
         Me.Button7.Size = New System.Drawing.Size(161, 23)
         Me.Button7.TabIndex = 21
@@ -938,1121 +1362,12 @@ Partial Class Form2
         Me.Button1.Text = "Cargar Presupuesto"
         Me.Button1.UseVisualStyleBackColor = True
         '
-        'panel_cuentas
-        '
-        Me.panel_cuentas.Controls.Add(Me.panel_crear_usuarios)
-        Me.panel_cuentas.Controls.Add(Me.Button9)
-        Me.panel_cuentas.Controls.Add(Me.Button8)
-        Me.panel_cuentas.Controls.Add(Me.Label1)
-        Me.panel_cuentas.Controls.Add(Me.Panel_mod_user)
-        Me.panel_cuentas.Location = New System.Drawing.Point(21, 88)
-        Me.panel_cuentas.Name = "panel_cuentas"
-        Me.panel_cuentas.Size = New System.Drawing.Size(1167, 684)
-        Me.panel_cuentas.TabIndex = 22
-        Me.panel_cuentas.Visible = False
-        '
-        'panel_crear_usuarios
-        '
-        Me.panel_crear_usuarios.Controls.Add(Me.label_error_crear)
-        Me.panel_crear_usuarios.Controls.Add(Me.Button11)
-        Me.panel_crear_usuarios.Controls.Add(Me.Button10)
-        Me.panel_crear_usuarios.Controls.Add(Me.ComboBox1)
-        Me.panel_crear_usuarios.Controls.Add(Me.textbox_mail)
-        Me.panel_crear_usuarios.Controls.Add(Me.textbox_numero)
-        Me.panel_crear_usuarios.Controls.Add(Me.textbox_apellido)
-        Me.panel_crear_usuarios.Controls.Add(Me.textbox_nombre)
-        Me.panel_crear_usuarios.Controls.Add(Me.textbox_rep_pass)
-        Me.panel_crear_usuarios.Controls.Add(Me.textbox_pass)
-        Me.panel_crear_usuarios.Controls.Add(Me.textbox_cuenta)
-        Me.panel_crear_usuarios.Controls.Add(Me.Label10)
-        Me.panel_crear_usuarios.Controls.Add(Me.Label9)
-        Me.panel_crear_usuarios.Controls.Add(Me.Label8)
-        Me.panel_crear_usuarios.Controls.Add(Me.Label7)
-        Me.panel_crear_usuarios.Controls.Add(Me.Label6)
-        Me.panel_crear_usuarios.Controls.Add(Me.Label4)
-        Me.panel_crear_usuarios.Controls.Add(Me.Label3)
-        Me.panel_crear_usuarios.Controls.Add(Me.Label5)
-        Me.panel_crear_usuarios.Controls.Add(Me.Label2)
-        Me.panel_crear_usuarios.Location = New System.Drawing.Point(190, 51)
-        Me.panel_crear_usuarios.Name = "panel_crear_usuarios"
-        Me.panel_crear_usuarios.Size = New System.Drawing.Size(314, 303)
-        Me.panel_crear_usuarios.TabIndex = 3
-        Me.panel_crear_usuarios.Visible = False
-        '
-        'label_error_crear
-        '
-        Me.label_error_crear.AutoSize = True
-        Me.label_error_crear.Location = New System.Drawing.Point(81, 222)
-        Me.label_error_crear.Name = "label_error_crear"
-        Me.label_error_crear.Size = New System.Drawing.Size(0, 13)
-        Me.label_error_crear.TabIndex = 19
-        '
-        'Button11
-        '
-        Me.Button11.Location = New System.Drawing.Point(217, 266)
-        Me.Button11.Name = "Button11"
-        Me.Button11.Size = New System.Drawing.Size(75, 23)
-        Me.Button11.TabIndex = 18
-        Me.Button11.Text = "Cerrar"
-        Me.Button11.UseVisualStyleBackColor = True
-        '
-        'Button10
-        '
-        Me.Button10.Location = New System.Drawing.Point(135, 267)
-        Me.Button10.Name = "Button10"
-        Me.Button10.Size = New System.Drawing.Size(75, 23)
-        Me.Button10.TabIndex = 17
-        Me.Button10.Text = "Aceptar"
-        Me.Button10.UseVisualStyleBackColor = True
-        '
-        'ComboBox1
-        '
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Items.AddRange(New Object() {"Administrador", "Usuario Normal"})
-        Me.ComboBox1.Location = New System.Drawing.Point(145, 191)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(147, 21)
-        Me.ComboBox1.TabIndex = 16
-        '
-        'textbox_mail
-        '
-        Me.textbox_mail.Location = New System.Drawing.Point(145, 169)
-        Me.textbox_mail.Name = "textbox_mail"
-        Me.textbox_mail.Size = New System.Drawing.Size(147, 20)
-        Me.textbox_mail.TabIndex = 15
-        '
-        'textbox_numero
-        '
-        Me.textbox_numero.Location = New System.Drawing.Point(145, 147)
-        Me.textbox_numero.Name = "textbox_numero"
-        Me.textbox_numero.Size = New System.Drawing.Size(147, 20)
-        Me.textbox_numero.TabIndex = 14
-        '
-        'textbox_apellido
-        '
-        Me.textbox_apellido.Location = New System.Drawing.Point(145, 126)
-        Me.textbox_apellido.Name = "textbox_apellido"
-        Me.textbox_apellido.Size = New System.Drawing.Size(147, 20)
-        Me.textbox_apellido.TabIndex = 13
-        '
-        'textbox_nombre
-        '
-        Me.textbox_nombre.Location = New System.Drawing.Point(145, 105)
-        Me.textbox_nombre.Name = "textbox_nombre"
-        Me.textbox_nombre.Size = New System.Drawing.Size(147, 20)
-        Me.textbox_nombre.TabIndex = 12
-        '
-        'textbox_rep_pass
-        '
-        Me.textbox_rep_pass.Location = New System.Drawing.Point(145, 82)
-        Me.textbox_rep_pass.Name = "textbox_rep_pass"
-        Me.textbox_rep_pass.Size = New System.Drawing.Size(147, 20)
-        Me.textbox_rep_pass.TabIndex = 11
-        '
-        'textbox_pass
-        '
-        Me.textbox_pass.Location = New System.Drawing.Point(145, 60)
-        Me.textbox_pass.Name = "textbox_pass"
-        Me.textbox_pass.Size = New System.Drawing.Size(147, 20)
-        Me.textbox_pass.TabIndex = 10
-        '
-        'textbox_cuenta
-        '
-        Me.textbox_cuenta.Location = New System.Drawing.Point(145, 36)
-        Me.textbox_cuenta.Name = "textbox_cuenta"
-        Me.textbox_cuenta.Size = New System.Drawing.Size(147, 20)
-        Me.textbox_cuenta.TabIndex = 9
-        '
-        'Label10
-        '
-        Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(7, 200)
-        Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(31, 13)
-        Me.Label10.TabIndex = 8
-        Me.Label10.Text = "Nivel"
-        '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(7, 177)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(26, 13)
-        Me.Label9.TabIndex = 7
-        Me.Label9.Text = "Mail"
-        '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(7, 155)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(44, 13)
-        Me.Label8.TabIndex = 6
-        Me.Label8.Text = "Numero"
-        '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(7, 134)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(44, 13)
-        Me.Label7.TabIndex = 5
-        Me.Label7.Text = "Apellido"
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(7, 113)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(44, 13)
-        Me.Label6.TabIndex = 4
-        Me.Label6.Text = "Nombre"
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(7, 68)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(61, 13)
-        Me.Label4.TabIndex = 2
-        Me.Label4.Text = "Contraseña"
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(7, 41)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(41, 13)
-        Me.Label3.TabIndex = 1
-        Me.Label3.Text = "Cuenta"
-        '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(7, 90)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(98, 13)
-        Me.Label5.TabIndex = 3
-        Me.Label5.Text = "Repetir Contraseña"
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(4, 9)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(71, 13)
-        Me.Label2.TabIndex = 0
-        Me.Label2.Text = "Crear Usuario"
-        '
-        'Button9
-        '
-        Me.Button9.Location = New System.Drawing.Point(29, 81)
-        Me.Button9.Name = "Button9"
-        Me.Button9.Size = New System.Drawing.Size(124, 23)
-        Me.Button9.TabIndex = 2
-        Me.Button9.Text = "Modificar Usuario"
-        Me.Button9.UseVisualStyleBackColor = True
-        '
-        'Button8
-        '
-        Me.Button8.Location = New System.Drawing.Point(29, 51)
-        Me.Button8.Name = "Button8"
-        Me.Button8.Size = New System.Drawing.Size(124, 23)
-        Me.Button8.TabIndex = 1
-        Me.Button8.Text = "Crear Usuario"
-        Me.Button8.UseVisualStyleBackColor = True
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(26, 16)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(127, 13)
-        Me.Label1.TabIndex = 0
-        Me.Label1.Text = "Administrador de usuarios"
-        '
-        'Panel_mod_user
-        '
-        Me.Panel_mod_user.Controls.Add(Me.Label21)
-        Me.Panel_mod_user.Controls.Add(Me.RichTextBox1)
-        Me.Panel_mod_user.Controls.Add(Me.panel_mod_cuenta)
-        Me.Panel_mod_user.Controls.Add(Me.Button12)
-        Me.Panel_mod_user.Controls.Add(Me.textbox_mod_pass)
-        Me.Panel_mod_user.Controls.Add(Me.textbox_mod_cuenta)
-        Me.Panel_mod_user.Controls.Add(Me.Label13)
-        Me.Panel_mod_user.Controls.Add(Me.Label12)
-        Me.Panel_mod_user.Controls.Add(Me.Label11)
-        Me.Panel_mod_user.Location = New System.Drawing.Point(510, 51)
-        Me.Panel_mod_user.Name = "Panel_mod_user"
-        Me.Panel_mod_user.Size = New System.Drawing.Size(637, 487)
-        Me.Panel_mod_user.TabIndex = 4
-        Me.Panel_mod_user.Visible = False
-        '
-        'Label21
-        '
-        Me.Label21.AutoSize = True
-        Me.Label21.Location = New System.Drawing.Point(32, 126)
-        Me.Label21.Name = "Label21"
-        Me.Label21.Size = New System.Drawing.Size(0, 13)
-        Me.Label21.TabIndex = 36
-        '
-        'RichTextBox1
-        '
-        Me.RichTextBox1.Location = New System.Drawing.Point(299, 17)
-        Me.RichTextBox1.Name = "RichTextBox1"
-        Me.RichTextBox1.ReadOnly = True
-        Me.RichTextBox1.Size = New System.Drawing.Size(322, 96)
-        Me.RichTextBox1.TabIndex = 35
-        Me.RichTextBox1.Text = "Escriba la cuenta y la contraseña del usuario que desee modificar"
-        Me.RichTextBox1.ZoomFactor = 2.0!
-        '
-        'panel_mod_cuenta
-        '
-        Me.panel_mod_cuenta.Controls.Add(Me.GroupBox2)
-        Me.panel_mod_cuenta.Controls.Add(Me.GroupBox1)
-        Me.panel_mod_cuenta.Location = New System.Drawing.Point(23, 155)
-        Me.panel_mod_cuenta.Name = "panel_mod_cuenta"
-        Me.panel_mod_cuenta.Size = New System.Drawing.Size(598, 308)
-        Me.panel_mod_cuenta.TabIndex = 23
-        Me.panel_mod_cuenta.Visible = False
-        '
-        'GroupBox2
-        '
-        Me.GroupBox2.Controls.Add(Me.Label23)
-        Me.GroupBox2.Controls.Add(Me.Button16)
-        Me.GroupBox2.Controls.Add(Me.ComboBox2)
-        Me.GroupBox2.Controls.Add(Me.TextBox3)
-        Me.GroupBox2.Controls.Add(Me.TextBox1)
-        Me.GroupBox2.Controls.Add(Me.Label20)
-        Me.GroupBox2.Controls.Add(Me.TextBox2)
-        Me.GroupBox2.Controls.Add(Me.Label19)
-        Me.GroupBox2.Controls.Add(Me.Label18)
-        Me.GroupBox2.Controls.Add(Me.TextBox4)
-        Me.GroupBox2.Controls.Add(Me.Label17)
-        Me.GroupBox2.Controls.Add(Me.Label16)
-        Me.GroupBox2.Location = New System.Drawing.Point(294, 22)
-        Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(287, 289)
-        Me.GroupBox2.TabIndex = 1
-        Me.GroupBox2.TabStop = False
-        Me.GroupBox2.Text = "Modificar Datos"
-        '
-        'Label23
-        '
-        Me.Label23.AutoSize = True
-        Me.Label23.Location = New System.Drawing.Point(8, 151)
-        Me.Label23.Name = "Label23"
-        Me.Label23.Size = New System.Drawing.Size(0, 13)
-        Me.Label23.TabIndex = 29
-        '
-        'Button16
-        '
-        Me.Button16.Location = New System.Drawing.Point(178, 201)
-        Me.Button16.Name = "Button16"
-        Me.Button16.Size = New System.Drawing.Size(75, 23)
-        Me.Button16.TabIndex = 23
-        Me.Button16.Text = "Aceptar"
-        Me.Button16.UseVisualStyleBackColor = True
-        '
-        'ComboBox2
-        '
-        Me.ComboBox2.FormattingEnabled = True
-        Me.ComboBox2.Items.AddRange(New Object() {"Administrador", "Usuario Normal"})
-        Me.ComboBox2.Location = New System.Drawing.Point(106, 103)
-        Me.ComboBox2.Name = "ComboBox2"
-        Me.ComboBox2.Size = New System.Drawing.Size(147, 21)
-        Me.ComboBox2.TabIndex = 28
-        '
-        'TextBox3
-        '
-        Me.TextBox3.Location = New System.Drawing.Point(106, 38)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(147, 20)
-        Me.TextBox3.TabIndex = 25
-        '
-        'TextBox1
-        '
-        Me.TextBox1.Location = New System.Drawing.Point(106, 81)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(147, 20)
-        Me.TextBox1.TabIndex = 27
-        '
-        'Label20
-        '
-        Me.Label20.AutoSize = True
-        Me.Label20.Location = New System.Drawing.Point(8, 25)
-        Me.Label20.Name = "Label20"
-        Me.Label20.Size = New System.Drawing.Size(44, 13)
-        Me.Label20.TabIndex = 19
-        Me.Label20.Text = "Nombre"
-        '
-        'TextBox2
-        '
-        Me.TextBox2.Location = New System.Drawing.Point(106, 59)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(147, 20)
-        Me.TextBox2.TabIndex = 26
-        '
-        'Label19
-        '
-        Me.Label19.AutoSize = True
-        Me.Label19.Location = New System.Drawing.Point(8, 46)
-        Me.Label19.Name = "Label19"
-        Me.Label19.Size = New System.Drawing.Size(44, 13)
-        Me.Label19.TabIndex = 20
-        Me.Label19.Text = "Apellido"
-        '
-        'Label18
-        '
-        Me.Label18.AutoSize = True
-        Me.Label18.Location = New System.Drawing.Point(8, 67)
-        Me.Label18.Name = "Label18"
-        Me.Label18.Size = New System.Drawing.Size(44, 13)
-        Me.Label18.TabIndex = 21
-        Me.Label18.Text = "Numero"
-        '
-        'TextBox4
-        '
-        Me.TextBox4.Location = New System.Drawing.Point(106, 17)
-        Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.Size = New System.Drawing.Size(147, 20)
-        Me.TextBox4.TabIndex = 24
-        '
-        'Label17
-        '
-        Me.Label17.AutoSize = True
-        Me.Label17.Location = New System.Drawing.Point(8, 89)
-        Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(26, 13)
-        Me.Label17.TabIndex = 22
-        Me.Label17.Text = "Mail"
-        '
-        'Label16
-        '
-        Me.Label16.AutoSize = True
-        Me.Label16.Location = New System.Drawing.Point(8, 112)
-        Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(31, 13)
-        Me.Label16.TabIndex = 23
-        Me.Label16.Text = "Nivel"
-        '
-        'GroupBox1
-        '
-        Me.GroupBox1.Controls.Add(Me.Label22)
-        Me.GroupBox1.Controls.Add(Me.Button13)
-        Me.GroupBox1.Controls.Add(Me.texbox_nueva_pass_rep)
-        Me.GroupBox1.Controls.Add(Me.Label15)
-        Me.GroupBox1.Controls.Add(Me.textbox_nueva_pass)
-        Me.GroupBox1.Controls.Add(Me.Label14)
-        Me.GroupBox1.Location = New System.Drawing.Point(9, 19)
-        Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(261, 156)
-        Me.GroupBox1.TabIndex = 0
-        Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "Cambiar Contraseña"
-        '
-        'Label22
-        '
-        Me.Label22.AutoSize = True
-        Me.Label22.Location = New System.Drawing.Point(19, 75)
-        Me.Label22.Name = "Label22"
-        Me.Label22.Size = New System.Drawing.Size(0, 13)
-        Me.Label22.TabIndex = 23
-        '
-        'Button13
-        '
-        Me.Button13.Location = New System.Drawing.Point(169, 106)
-        Me.Button13.Name = "Button13"
-        Me.Button13.Size = New System.Drawing.Size(75, 23)
-        Me.Button13.TabIndex = 21
-        Me.Button13.Text = "Aceptar"
-        Me.Button13.UseVisualStyleBackColor = True
-        '
-        'texbox_nueva_pass_rep
-        '
-        Me.texbox_nueva_pass_rep.Location = New System.Drawing.Point(145, 36)
-        Me.texbox_nueva_pass_rep.Name = "texbox_nueva_pass_rep"
-        Me.texbox_nueva_pass_rep.Size = New System.Drawing.Size(100, 20)
-        Me.texbox_nueva_pass_rep.TabIndex = 20
-        '
-        'Label15
-        '
-        Me.Label15.AutoSize = True
-        Me.Label15.Location = New System.Drawing.Point(16, 44)
-        Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(98, 13)
-        Me.Label15.TabIndex = 19
-        Me.Label15.Text = "Repetir Contraseña"
-        '
-        'textbox_nueva_pass
-        '
-        Me.textbox_nueva_pass.Location = New System.Drawing.Point(145, 14)
-        Me.textbox_nueva_pass.Name = "textbox_nueva_pass"
-        Me.textbox_nueva_pass.Size = New System.Drawing.Size(100, 20)
-        Me.textbox_nueva_pass.TabIndex = 1
-        '
-        'Label14
-        '
-        Me.Label14.AutoSize = True
-        Me.Label14.Location = New System.Drawing.Point(16, 22)
-        Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(96, 13)
-        Me.Label14.TabIndex = 0
-        Me.Label14.Text = "Nueva Contraseña"
-        '
-        'Button12
-        '
-        Me.Button12.Location = New System.Drawing.Point(161, 90)
-        Me.Button12.Name = "Button12"
-        Me.Button12.Size = New System.Drawing.Size(115, 23)
-        Me.Button12.TabIndex = 22
-        Me.Button12.Text = "Modificar Cuenta"
-        Me.Button12.UseVisualStyleBackColor = True
-        '
-        'textbox_mod_pass
-        '
-        Me.textbox_mod_pass.Location = New System.Drawing.Point(160, 60)
-        Me.textbox_mod_pass.Name = "textbox_mod_pass"
-        Me.textbox_mod_pass.Size = New System.Drawing.Size(116, 20)
-        Me.textbox_mod_pass.TabIndex = 21
-        '
-        'textbox_mod_cuenta
-        '
-        Me.textbox_mod_cuenta.Location = New System.Drawing.Point(160, 32)
-        Me.textbox_mod_cuenta.Name = "textbox_mod_cuenta"
-        Me.textbox_mod_cuenta.Size = New System.Drawing.Size(116, 20)
-        Me.textbox_mod_cuenta.TabIndex = 20
-        '
-        'Label13
-        '
-        Me.Label13.AutoSize = True
-        Me.Label13.Location = New System.Drawing.Point(20, 68)
-        Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(61, 13)
-        Me.Label13.TabIndex = 19
-        Me.Label13.Text = "Contraseña"
-        '
-        'Label12
-        '
-        Me.Label12.AutoSize = True
-        Me.Label12.Location = New System.Drawing.Point(20, 41)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(41, 13)
-        Me.Label12.TabIndex = 2
-        Me.Label12.Text = "Cuenta"
-        '
-        'Label11
-        '
-        Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(20, 9)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(89, 13)
-        Me.Label11.TabIndex = 0
-        Me.Label11.Text = "Modificar Usuario"
-        '
-        'panel_carga_presupuesto
-        '
-        Me.panel_carga_presupuesto.Controls.Add(Me.Label70)
-        Me.panel_carga_presupuesto.Controls.Add(Me.TextBox22)
-        Me.panel_carga_presupuesto.Controls.Add(Me.Label69)
-        Me.panel_carga_presupuesto.Controls.Add(Me.GroupBox3)
-        Me.panel_carga_presupuesto.Controls.Add(Me.Label30)
-        Me.panel_carga_presupuesto.Controls.Add(Me.ComboBox3)
-        Me.panel_carga_presupuesto.Controls.Add(Me.Button17)
-        Me.panel_carga_presupuesto.Controls.Add(Me.MonthCalendar1)
-        Me.panel_carga_presupuesto.Controls.Add(Me.Button15)
-        Me.panel_carga_presupuesto.Controls.Add(Me.Button14)
-        Me.panel_carga_presupuesto.Controls.Add(Me.TextBox8)
-        Me.panel_carga_presupuesto.Controls.Add(Me.RichTextBox2)
-        Me.panel_carga_presupuesto.Controls.Add(Me.TextBox7)
-        Me.panel_carga_presupuesto.Controls.Add(Me.TextBox6)
-        Me.panel_carga_presupuesto.Controls.Add(Me.TextBox5)
-        Me.panel_carga_presupuesto.Controls.Add(Me.Label29)
-        Me.panel_carga_presupuesto.Controls.Add(Me.Label28)
-        Me.panel_carga_presupuesto.Controls.Add(Me.Label27)
-        Me.panel_carga_presupuesto.Controls.Add(Me.Label26)
-        Me.panel_carga_presupuesto.Controls.Add(Me.Label25)
-        Me.panel_carga_presupuesto.Controls.Add(Me.Label24)
-        Me.panel_carga_presupuesto.Location = New System.Drawing.Point(18, 93)
-        Me.panel_carga_presupuesto.Name = "panel_carga_presupuesto"
-        Me.panel_carga_presupuesto.Size = New System.Drawing.Size(1167, 783)
-        Me.panel_carga_presupuesto.TabIndex = 23
-        Me.panel_carga_presupuesto.Visible = False
-        '
-        'Label70
-        '
-        Me.Label70.AutoSize = True
-        Me.Label70.Location = New System.Drawing.Point(197, 365)
-        Me.Label70.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.Label70.Name = "Label70"
-        Me.Label70.Size = New System.Drawing.Size(45, 13)
-        Me.Label70.TabIndex = 23
-        Me.Label70.Text = "Label70"
-        Me.Label70.Visible = False
-        '
-        'TextBox22
-        '
-        Me.TextBox22.Location = New System.Drawing.Point(199, 75)
-        Me.TextBox22.Margin = New System.Windows.Forms.Padding(2)
-        Me.TextBox22.Name = "TextBox22"
-        Me.TextBox22.Size = New System.Drawing.Size(283, 20)
-        Me.TextBox22.TabIndex = 22
-        '
-        'Label69
-        '
-        Me.Label69.AutoSize = True
-        Me.Label69.Location = New System.Drawing.Point(29, 77)
-        Me.Label69.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.Label69.Name = "Label69"
-        Me.Label69.Size = New System.Drawing.Size(33, 13)
-        Me.Label69.TabIndex = 21
-        Me.Label69.Text = "Titulo"
-        '
-        'GroupBox3
-        '
-        Me.GroupBox3.Controls.Add(Me.Label40)
-        Me.GroupBox3.Controls.Add(Me.Label39)
-        Me.GroupBox3.Controls.Add(Me.Label38)
-        Me.GroupBox3.Controls.Add(Me.Label37)
-        Me.GroupBox3.Controls.Add(Me.TextBox14)
-        Me.GroupBox3.Controls.Add(Me.TextBox13)
-        Me.GroupBox3.Controls.Add(Me.TextBox12)
-        Me.GroupBox3.Controls.Add(Me.TextBox11)
-        Me.GroupBox3.Controls.Add(Me.TextBox10)
-        Me.GroupBox3.Controls.Add(Me.TextBox9)
-        Me.GroupBox3.Controls.Add(Me.Button19)
-        Me.GroupBox3.Controls.Add(Me.Button18)
-        Me.GroupBox3.Controls.Add(Me.Label36)
-        Me.GroupBox3.Controls.Add(Me.Label35)
-        Me.GroupBox3.Controls.Add(Me.Label34)
-        Me.GroupBox3.Controls.Add(Me.Label33)
-        Me.GroupBox3.Controls.Add(Me.Label32)
-        Me.GroupBox3.Controls.Add(Me.Label31)
-        Me.GroupBox3.Location = New System.Drawing.Point(533, 231)
-        Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(611, 422)
-        Me.GroupBox3.TabIndex = 17
-        Me.GroupBox3.TabStop = False
-        Me.GroupBox3.Text = "Agregar Cliente"
-        Me.GroupBox3.Visible = False
-        '
-        'Label40
-        '
-        Me.Label40.AutoSize = True
-        Me.Label40.Location = New System.Drawing.Point(369, 66)
-        Me.Label40.Name = "Label40"
-        Me.Label40.Size = New System.Drawing.Size(0, 13)
-        Me.Label40.TabIndex = 17
-        Me.Label40.Visible = False
-        '
-        'Label39
-        '
-        Me.Label39.AutoSize = True
-        Me.Label39.Location = New System.Drawing.Point(369, 33)
-        Me.Label39.Name = "Label39"
-        Me.Label39.Size = New System.Drawing.Size(0, 13)
-        Me.Label39.TabIndex = 16
-        Me.Label39.Visible = False
-        '
-        'Label38
-        '
-        Me.Label38.AutoSize = True
-        Me.Label38.Location = New System.Drawing.Point(154, 237)
-        Me.Label38.Name = "Label38"
-        Me.Label38.Size = New System.Drawing.Size(0, 13)
-        Me.Label38.TabIndex = 15
-        Me.Label38.Visible = False
-        '
-        'Label37
-        '
-        Me.Label37.AutoSize = True
-        Me.Label37.Location = New System.Drawing.Point(369, 134)
-        Me.Label37.Name = "Label37"
-        Me.Label37.Size = New System.Drawing.Size(0, 13)
-        Me.Label37.TabIndex = 14
-        Me.Label37.Visible = False
-        '
-        'TextBox14
-        '
-        Me.TextBox14.Location = New System.Drawing.Point(154, 199)
-        Me.TextBox14.Name = "TextBox14"
-        Me.TextBox14.Size = New System.Drawing.Size(192, 20)
-        Me.TextBox14.TabIndex = 13
-        '
-        'TextBox13
-        '
-        Me.TextBox13.Location = New System.Drawing.Point(153, 161)
-        Me.TextBox13.Name = "TextBox13"
-        Me.TextBox13.Size = New System.Drawing.Size(193, 20)
-        Me.TextBox13.TabIndex = 12
-        '
-        'TextBox12
-        '
-        Me.TextBox12.Location = New System.Drawing.Point(153, 127)
-        Me.TextBox12.Name = "TextBox12"
-        Me.TextBox12.Size = New System.Drawing.Size(193, 20)
-        Me.TextBox12.TabIndex = 11
-        '
-        'TextBox11
-        '
-        Me.TextBox11.Location = New System.Drawing.Point(153, 91)
-        Me.TextBox11.Name = "TextBox11"
-        Me.TextBox11.Size = New System.Drawing.Size(193, 20)
-        Me.TextBox11.TabIndex = 10
-        '
-        'TextBox10
-        '
-        Me.TextBox10.Location = New System.Drawing.Point(153, 59)
-        Me.TextBox10.Name = "TextBox10"
-        Me.TextBox10.Size = New System.Drawing.Size(193, 20)
-        Me.TextBox10.TabIndex = 9
-        '
-        'TextBox9
-        '
-        Me.TextBox9.Location = New System.Drawing.Point(153, 30)
-        Me.TextBox9.Name = "TextBox9"
-        Me.TextBox9.Size = New System.Drawing.Size(193, 20)
-        Me.TextBox9.TabIndex = 8
-        '
-        'Button19
-        '
-        Me.Button19.Location = New System.Drawing.Point(271, 288)
-        Me.Button19.Name = "Button19"
-        Me.Button19.Size = New System.Drawing.Size(75, 23)
-        Me.Button19.TabIndex = 7
-        Me.Button19.Text = "Cancelar"
-        Me.Button19.UseVisualStyleBackColor = True
-        '
-        'Button18
-        '
-        Me.Button18.Location = New System.Drawing.Point(154, 288)
-        Me.Button18.Name = "Button18"
-        Me.Button18.Size = New System.Drawing.Size(75, 23)
-        Me.Button18.TabIndex = 6
-        Me.Button18.Text = "Aceptar"
-        Me.Button18.UseVisualStyleBackColor = True
-        '
-        'Label36
-        '
-        Me.Label36.AutoSize = True
-        Me.Label36.Location = New System.Drawing.Point(34, 207)
-        Me.Label36.Name = "Label36"
-        Me.Label36.Size = New System.Drawing.Size(26, 13)
-        Me.Label36.TabIndex = 5
-        Me.Label36.Text = "Mail"
-        '
-        'Label35
-        '
-        Me.Label35.AutoSize = True
-        Me.Label35.Location = New System.Drawing.Point(31, 169)
-        Me.Label35.Name = "Label35"
-        Me.Label35.Size = New System.Drawing.Size(44, 13)
-        Me.Label35.TabIndex = 4
-        Me.Label35.Text = "Numero"
-        '
-        'Label34
-        '
-        Me.Label34.AutoSize = True
-        Me.Label34.Location = New System.Drawing.Point(31, 134)
-        Me.Label34.Name = "Label34"
-        Me.Label34.Size = New System.Drawing.Size(30, 13)
-        Me.Label34.TabIndex = 3
-        Me.Label34.Text = "RUC"
-        '
-        'Label33
-        '
-        Me.Label33.AutoSize = True
-        Me.Label33.Location = New System.Drawing.Point(31, 100)
-        Me.Label33.Name = "Label33"
-        Me.Label33.Size = New System.Drawing.Size(23, 13)
-        Me.Label33.TabIndex = 2
-        Me.Label33.Text = "C.I."
-        '
-        'Label32
-        '
-        Me.Label32.AutoSize = True
-        Me.Label32.Location = New System.Drawing.Point(31, 67)
-        Me.Label32.Name = "Label32"
-        Me.Label32.Size = New System.Drawing.Size(44, 13)
-        Me.Label32.TabIndex = 1
-        Me.Label32.Text = "Apellido"
-        '
-        'Label31
-        '
-        Me.Label31.AutoSize = True
-        Me.Label31.Location = New System.Drawing.Point(31, 33)
-        Me.Label31.Name = "Label31"
-        Me.Label31.Size = New System.Drawing.Size(44, 13)
-        Me.Label31.TabIndex = 0
-        Me.Label31.Text = "Nombre"
-        '
-        'Label30
-        '
-        Me.Label30.AutoSize = True
-        Me.Label30.Location = New System.Drawing.Point(489, 62)
-        Me.Label30.Name = "Label30"
-        Me.Label30.Size = New System.Drawing.Size(0, 13)
-        Me.Label30.TabIndex = 16
-        '
-        'ComboBox3
-        '
-        Me.ComboBox3.FormattingEnabled = True
-        Me.ComboBox3.Items.AddRange(New Object() {"PYG", "USD"})
-        Me.ComboBox3.Location = New System.Drawing.Point(408, 322)
-        Me.ComboBox3.Name = "ComboBox3"
-        Me.ComboBox3.Size = New System.Drawing.Size(74, 21)
-        Me.ComboBox3.TabIndex = 15
-        '
-        'Button17
-        '
-        Me.Button17.Location = New System.Drawing.Point(899, 196)
-        Me.Button17.Name = "Button17"
-        Me.Button17.Size = New System.Drawing.Size(248, 23)
-        Me.Button17.TabIndex = 14
-        Me.Button17.Text = "Agregar Cliente"
-        Me.Button17.UseVisualStyleBackColor = True
-        '
-        'MonthCalendar1
-        '
-        Me.MonthCalendar1.Location = New System.Drawing.Point(899, 27)
-        Me.MonthCalendar1.Name = "MonthCalendar1"
-        Me.MonthCalendar1.TabIndex = 13
-        '
-        'Button15
-        '
-        Me.Button15.Location = New System.Drawing.Point(406, 405)
-        Me.Button15.Name = "Button15"
-        Me.Button15.Size = New System.Drawing.Size(75, 23)
-        Me.Button15.TabIndex = 12
-        Me.Button15.Text = "Cancelar"
-        Me.Button15.UseVisualStyleBackColor = True
-        '
-        'Button14
-        '
-        Me.Button14.Location = New System.Drawing.Point(200, 406)
-        Me.Button14.Name = "Button14"
-        Me.Button14.Size = New System.Drawing.Size(75, 23)
-        Me.Button14.TabIndex = 11
-        Me.Button14.Text = "Aceptar"
-        Me.Button14.UseVisualStyleBackColor = True
-        '
-        'TextBox8
-        '
-        Me.TextBox8.Location = New System.Drawing.Point(200, 323)
-        Me.TextBox8.Name = "TextBox8"
-        Me.TextBox8.Size = New System.Drawing.Size(200, 20)
-        Me.TextBox8.TabIndex = 10
-        '
-        'RichTextBox2
-        '
-        Me.RichTextBox2.Location = New System.Drawing.Point(200, 247)
-        Me.RichTextBox2.Name = "RichTextBox2"
-        Me.RichTextBox2.Size = New System.Drawing.Size(282, 61)
-        Me.RichTextBox2.TabIndex = 9
-        Me.RichTextBox2.Text = ""
-        '
-        'TextBox7
-        '
-        Me.TextBox7.Location = New System.Drawing.Point(200, 193)
-        Me.TextBox7.Name = "TextBox7"
-        Me.TextBox7.Size = New System.Drawing.Size(282, 20)
-        Me.TextBox7.TabIndex = 8
-        '
-        'TextBox6
-        '
-        Me.TextBox6.Location = New System.Drawing.Point(200, 149)
-        Me.TextBox6.Name = "TextBox6"
-        Me.TextBox6.Size = New System.Drawing.Size(282, 20)
-        Me.TextBox6.TabIndex = 7
-        '
-        'TextBox5
-        '
-        Me.TextBox5.Location = New System.Drawing.Point(200, 113)
-        Me.TextBox5.Name = "TextBox5"
-        Me.TextBox5.Size = New System.Drawing.Size(282, 20)
-        Me.TextBox5.TabIndex = 6
-        '
-        'Label29
-        '
-        Me.Label29.AutoSize = True
-        Me.Label29.Location = New System.Drawing.Point(29, 331)
-        Me.Label29.Name = "Label29"
-        Me.Label29.Size = New System.Drawing.Size(37, 13)
-        Me.Label29.TabIndex = 5
-        Me.Label29.Text = "Precio"
-        '
-        'Label28
-        '
-        Me.Label28.AutoSize = True
-        Me.Label28.Location = New System.Drawing.Point(29, 247)
-        Me.Label28.Name = "Label28"
-        Me.Label28.Size = New System.Drawing.Size(36, 13)
-        Me.Label28.TabIndex = 4
-        Me.Label28.Text = "Oferta"
-        '
-        'Label27
-        '
-        Me.Label27.AutoSize = True
-        Me.Label27.Location = New System.Drawing.Point(29, 201)
-        Me.Label27.Name = "Label27"
-        Me.Label27.Size = New System.Drawing.Size(95, 13)
-        Me.Label27.TabIndex = 3
-        Me.Label27.Text = "Plazo de cobranza"
-        '
-        'Label26
-        '
-        Me.Label26.AutoSize = True
-        Me.Label26.Location = New System.Drawing.Point(29, 157)
-        Me.Label26.Name = "Label26"
-        Me.Label26.Size = New System.Drawing.Size(87, 13)
-        Me.Label26.TabIndex = 2
-        Me.Label26.Text = "Plazo de entrega"
-        '
-        'Label25
-        '
-        Me.Label25.AutoSize = True
-        Me.Label25.Location = New System.Drawing.Point(29, 116)
-        Me.Label25.Name = "Label25"
-        Me.Label25.Size = New System.Drawing.Size(39, 13)
-        Me.Label25.TabIndex = 1
-        Me.Label25.Text = "Cliente"
-        '
-        'Label24
-        '
-        Me.Label24.AutoSize = True
-        Me.Label24.Location = New System.Drawing.Point(15, 11)
-        Me.Label24.Name = "Label24"
-        Me.Label24.Size = New System.Drawing.Size(117, 13)
-        Me.Label24.TabIndex = 0
-        Me.Label24.Text = "Carga de Presupuestos"
-        '
-        'panel_botones_mugen
-        '
-        Me.panel_botones_mugen.Controls.Add(Me.Button20)
-        Me.panel_botones_mugen.Controls.Add(Me.boton_vender)
-        Me.panel_botones_mugen.Location = New System.Drawing.Point(9, 41)
-        Me.panel_botones_mugen.Name = "panel_botones_mugen"
-        Me.panel_botones_mugen.Size = New System.Drawing.Size(1165, 26)
-        Me.panel_botones_mugen.TabIndex = 24
-        '
-        'Button20
-        '
-        Me.Button20.Location = New System.Drawing.Point(168, 0)
-        Me.Button20.Name = "Button20"
-        Me.Button20.Size = New System.Drawing.Size(161, 23)
-        Me.Button20.TabIndex = 1
-        Me.Button20.Text = "Stock"
-        Me.Button20.UseVisualStyleBackColor = True
-        '
-        'boton_vender
-        '
-        Me.boton_vender.Location = New System.Drawing.Point(0, 0)
-        Me.boton_vender.Name = "boton_vender"
-        Me.boton_vender.Size = New System.Drawing.Size(162, 23)
-        Me.boton_vender.TabIndex = 0
-        Me.boton_vender.Text = "Vender"
-        Me.boton_vender.UseVisualStyleBackColor = True
-        '
-        'boton_servicios
-        '
-        Me.boton_servicios.Location = New System.Drawing.Point(1014, 11)
-        Me.boton_servicios.Name = "boton_servicios"
-        Me.boton_servicios.Size = New System.Drawing.Size(160, 24)
-        Me.boton_servicios.TabIndex = 25
-        Me.boton_servicios.Text = "Servicios"
-        Me.boton_servicios.UseVisualStyleBackColor = True
-        '
-        'Panel2
-        '
-        Me.Panel2.Controls.Add(Me.label_ruc_venta)
-        Me.Panel2.Controls.Add(Me.text_total)
-        Me.Panel2.Controls.Add(Me.label_total)
-        Me.Panel2.Controls.Add(Me.text_iva)
-        Me.Panel2.Controls.Add(Me.label_iva)
-        Me.Panel2.Controls.Add(Me.text_sub_total)
-        Me.Panel2.Controls.Add(Me.label_subtotal)
-        Me.Panel2.Controls.Add(Me.venta_guardar)
-        Me.Panel2.Controls.Add(Me.DataGridView1)
-        Me.Panel2.Controls.Add(Me.TextBox17)
-        Me.Panel2.Controls.Add(Me.label_fecha)
-        Me.Panel2.Controls.Add(Me.TextBox16)
-        Me.Panel2.Controls.Add(Me.label_venta_cliente)
-        Me.Panel2.Controls.Add(Me.text_ruc_venta)
-        Me.Panel2.Controls.Add(Me.label_ruc)
-        Me.Panel2.Location = New System.Drawing.Point(12, 96)
-        Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(1319, 478)
-        Me.Panel2.TabIndex = 26
-        Me.Panel2.Visible = False
-        '
-        'label_ruc_venta
-        '
-        Me.label_ruc_venta.AutoSize = True
-        Me.label_ruc_venta.Location = New System.Drawing.Point(179, 6)
-        Me.label_ruc_venta.Name = "label_ruc_venta"
-        Me.label_ruc_venta.Size = New System.Drawing.Size(83, 13)
-        Me.label_ruc_venta.TabIndex = 14
-        Me.label_ruc_venta.Text = "label_ruc_venta"
-        '
-        'text_total
-        '
-        Me.text_total.Location = New System.Drawing.Point(471, 376)
-        Me.text_total.Name = "text_total"
-        Me.text_total.ReadOnly = True
-        Me.text_total.Size = New System.Drawing.Size(100, 20)
-        Me.text_total.TabIndex = 13
-        '
-        'label_total
-        '
-        Me.label_total.AutoSize = True
-        Me.label_total.Location = New System.Drawing.Point(370, 383)
-        Me.label_total.Name = "label_total"
-        Me.label_total.Size = New System.Drawing.Size(42, 13)
-        Me.label_total.TabIndex = 12
-        Me.label_total.Text = "TOTAL"
-        '
-        'text_iva
-        '
-        Me.text_iva.Location = New System.Drawing.Point(471, 340)
-        Me.text_iva.Name = "text_iva"
-        Me.text_iva.ReadOnly = True
-        Me.text_iva.Size = New System.Drawing.Size(100, 20)
-        Me.text_iva.TabIndex = 11
-        '
-        'label_iva
-        '
-        Me.label_iva.AutoSize = True
-        Me.label_iva.Location = New System.Drawing.Point(371, 347)
-        Me.label_iva.Name = "label_iva"
-        Me.label_iva.Size = New System.Drawing.Size(24, 13)
-        Me.label_iva.TabIndex = 10
-        Me.label_iva.Text = "IVA"
-        '
-        'text_sub_total
-        '
-        Me.text_sub_total.Location = New System.Drawing.Point(471, 301)
-        Me.text_sub_total.Name = "text_sub_total"
-        Me.text_sub_total.ReadOnly = True
-        Me.text_sub_total.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.text_sub_total.Size = New System.Drawing.Size(100, 20)
-        Me.text_sub_total.TabIndex = 9
-        Me.text_sub_total.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'label_subtotal
-        '
-        Me.label_subtotal.AutoSize = True
-        Me.label_subtotal.Location = New System.Drawing.Point(371, 309)
-        Me.label_subtotal.Name = "label_subtotal"
-        Me.label_subtotal.Size = New System.Drawing.Size(67, 13)
-        Me.label_subtotal.TabIndex = 8
-        Me.label_subtotal.Text = "SUB TOTAL"
-        '
-        'venta_guardar
-        '
-        Me.venta_guardar.Location = New System.Drawing.Point(29, 421)
-        Me.venta_guardar.Name = "venta_guardar"
-        Me.venta_guardar.Size = New System.Drawing.Size(75, 23)
-        Me.venta_guardar.TabIndex = 7
-        Me.venta_guardar.Text = "Button21"
-        Me.venta_guardar.UseVisualStyleBackColor = True
-        '
-        'DataGridView1
-        '
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Codigo, Me.Producto, Me.Punit, Me.cant, Me.Importe})
-        Me.DataGridView1.Location = New System.Drawing.Point(29, 133)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(564, 150)
-        Me.DataGridView1.TabIndex = 6
-        '
-        'Codigo
-        '
-        Me.Codigo.Frozen = True
-        Me.Codigo.HeaderText = "Codigo"
-        Me.Codigo.Name = "Codigo"
-        '
-        'Producto
-        '
-        Me.Producto.Frozen = True
-        Me.Producto.HeaderText = "Producto"
-        Me.Producto.Name = "Producto"
-        Me.Producto.ReadOnly = True
-        '
-        'Punit
-        '
-        Me.Punit.HeaderText = "P/unid"
-        Me.Punit.Name = "Punit"
-        Me.Punit.ReadOnly = True
-        '
-        'cant
-        '
-        Me.cant.HeaderText = "Cant"
-        Me.cant.Name = "cant"
-        '
-        'Importe
-        '
-        Me.Importe.HeaderText = "Importe"
-        Me.Importe.Name = "Importe"
-        Me.Importe.ReadOnly = True
-        '
-        'TextBox17
-        '
-        Me.TextBox17.Location = New System.Drawing.Point(519, 0)
-        Me.TextBox17.Name = "TextBox17"
-        Me.TextBox17.Size = New System.Drawing.Size(109, 20)
-        Me.TextBox17.TabIndex = 5
-        '
-        'label_fecha
-        '
-        Me.label_fecha.AutoSize = True
-        Me.label_fecha.Location = New System.Drawing.Point(468, 5)
-        Me.label_fecha.Name = "label_fecha"
-        Me.label_fecha.Size = New System.Drawing.Size(37, 13)
-        Me.label_fecha.TabIndex = 4
-        Me.label_fecha.Text = "Fecha"
-        '
-        'TextBox16
-        '
-        Me.TextBox16.Location = New System.Drawing.Point(71, 43)
-        Me.TextBox16.Name = "TextBox16"
-        Me.TextBox16.Size = New System.Drawing.Size(335, 20)
-        Me.TextBox16.TabIndex = 3
-        '
-        'label_venta_cliente
-        '
-        Me.label_venta_cliente.AutoSize = True
-        Me.label_venta_cliente.Location = New System.Drawing.Point(26, 48)
-        Me.label_venta_cliente.Name = "label_venta_cliente"
-        Me.label_venta_cliente.Size = New System.Drawing.Size(39, 13)
-        Me.label_venta_cliente.TabIndex = 2
-        Me.label_venta_cliente.Text = "Cliente"
-        '
-        'text_ruc_venta
-        '
-        Me.text_ruc_venta.Location = New System.Drawing.Point(62, 3)
-        Me.text_ruc_venta.Name = "text_ruc_venta"
-        Me.text_ruc_venta.Size = New System.Drawing.Size(100, 20)
-        Me.text_ruc_venta.TabIndex = 1
-        '
-        'label_ruc
-        '
-        Me.label_ruc.AutoSize = True
-        Me.label_ruc.Location = New System.Drawing.Point(26, 8)
-        Me.label_ruc.Name = "label_ruc"
-        Me.label_ruc.Size = New System.Drawing.Size(30, 13)
-        Me.label_ruc.TabIndex = 0
-        Me.label_ruc.Text = "RUC"
-        '
         'Form2
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1353, 711)
-        Me.Controls.Add(Me.Panel2)
-        Me.Controls.Add(Me.boton_servicios)
-        Me.Controls.Add(Me.panel_botones_mugen)
-        Me.Controls.Add(Me.panel_carga_presupuesto)
-        Me.Controls.Add(Me.panel_cuentas)
+        Me.AutoScroll = True
+        Me.ClientSize = New System.Drawing.Size(1354, 750)
         Me.Controls.Add(Me.Button7)
         Me.Controls.Add(Me.Button6)
         Me.Controls.Add(Me.Button5)
@@ -2071,6 +1386,14 @@ Partial Class Form2
         CType(Me.Association_1BindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PedidoBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
+        Me.PanelClientes.ResumeLayout(False)
+        Me.PanelClientes.PerformLayout()
+        CType(Me.ClienteDataGridView1ModificarCliente, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBoxCrearClienteasd.ResumeLayout(False)
+        Me.GroupBoxCrearClienteasd.PerformLayout()
+        Me.GroupBoxEstadisticasdelCliente.ResumeLayout(False)
+        Me.GroupBoxModificarClienteasd.ResumeLayout(False)
+        Me.GroupBoxModificarClienteasd.PerformLayout()
         CType(Me.Venta_productoDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Venta_productoBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.UsuarioDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
@@ -2085,25 +1408,6 @@ Partial Class Form2
         CType(Me.ContabilidadDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ClienteDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Association_1DataGridView, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.panel_cuentas.ResumeLayout(False)
-        Me.panel_cuentas.PerformLayout()
-        Me.panel_crear_usuarios.ResumeLayout(False)
-        Me.panel_crear_usuarios.PerformLayout()
-        Me.Panel_mod_user.ResumeLayout(False)
-        Me.Panel_mod_user.PerformLayout()
-        Me.panel_mod_cuenta.ResumeLayout(False)
-        Me.GroupBox2.ResumeLayout(False)
-        Me.GroupBox2.PerformLayout()
-        Me.GroupBox1.ResumeLayout(False)
-        Me.GroupBox1.PerformLayout()
-        Me.panel_carga_presupuesto.ResumeLayout(False)
-        Me.panel_carga_presupuesto.PerformLayout()
-        Me.GroupBox3.ResumeLayout(False)
-        Me.GroupBox3.PerformLayout()
-        Me.panel_botones_mugen.ResumeLayout(False)
-        Me.Panel2.ResumeLayout(False)
-        Me.Panel2.PerformLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -2207,124 +1511,47 @@ Partial Class Form2
     Friend WithEvents Button3 As Button
     Friend WithEvents Button2 As Button
     Friend WithEvents Button1 As Button
-    Friend WithEvents panel_cuentas As Panel
-    Friend WithEvents panel_crear_usuarios As Panel
-    Friend WithEvents label_error_crear As Label
-    Friend WithEvents Button11 As Button
-    Friend WithEvents Button10 As Button
-    Friend WithEvents ComboBox1 As ComboBox
-    Friend WithEvents textbox_mail As TextBox
-    Friend WithEvents textbox_numero As TextBox
-    Friend WithEvents textbox_apellido As TextBox
-    Friend WithEvents textbox_nombre As TextBox
-    Friend WithEvents textbox_rep_pass As TextBox
-    Friend WithEvents textbox_pass As TextBox
-    Friend WithEvents textbox_cuenta As TextBox
-    Friend WithEvents Label10 As Label
-    Friend WithEvents Label9 As Label
-    Friend WithEvents Label8 As Label
-    Friend WithEvents Label7 As Label
-    Friend WithEvents Label6 As Label
-    Friend WithEvents Label4 As Label
-    Friend WithEvents Label3 As Label
-    Friend WithEvents Label5 As Label
-    Friend WithEvents Label2 As Label
-    Friend WithEvents Button9 As Button
-    Friend WithEvents Button8 As Button
-    Friend WithEvents Label1 As Label
-    Friend WithEvents Panel_mod_user As Panel
-    Friend WithEvents Label21 As Label
-    Friend WithEvents RichTextBox1 As RichTextBox
-    Friend WithEvents panel_mod_cuenta As Panel
-    Friend WithEvents GroupBox2 As GroupBox
-    Friend WithEvents Label23 As Label
-    Friend WithEvents Button16 As Button
-    Friend WithEvents ComboBox2 As ComboBox
-    Friend WithEvents TextBox3 As TextBox
-    Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents Label20 As Label
-    Friend WithEvents TextBox2 As TextBox
-    Friend WithEvents Label19 As Label
-    Friend WithEvents Label18 As Label
-    Friend WithEvents TextBox4 As TextBox
-    Friend WithEvents Label17 As Label
-    Friend WithEvents Label16 As Label
-    Friend WithEvents GroupBox1 As GroupBox
-    Friend WithEvents Label22 As Label
-    Friend WithEvents Button13 As Button
-    Friend WithEvents texbox_nueva_pass_rep As TextBox
-    Friend WithEvents Label15 As Label
-    Friend WithEvents textbox_nueva_pass As TextBox
-    Friend WithEvents Label14 As Label
-    Friend WithEvents Button12 As Button
-    Friend WithEvents textbox_mod_pass As TextBox
-    Friend WithEvents textbox_mod_cuenta As TextBox
-    Friend WithEvents Label13 As Label
-    Friend WithEvents Label12 As Label
-    Friend WithEvents Label11 As Label
-    Friend WithEvents panel_carga_presupuesto As Panel
-    Friend WithEvents Label70 As Label
-    Friend WithEvents TextBox22 As TextBox
-    Friend WithEvents Label69 As Label
-    Friend WithEvents GroupBox3 As GroupBox
-    Friend WithEvents Label40 As Label
-    Friend WithEvents Label39 As Label
-    Friend WithEvents Label38 As Label
-    Friend WithEvents Label37 As Label
-    Friend WithEvents TextBox14 As TextBox
-    Friend WithEvents TextBox13 As TextBox
-    Friend WithEvents TextBox12 As TextBox
-    Friend WithEvents TextBox11 As TextBox
-    Friend WithEvents TextBox10 As TextBox
-    Friend WithEvents TextBox9 As TextBox
-    Friend WithEvents Button19 As Button
-    Friend WithEvents Button18 As Button
-    Friend WithEvents Label36 As Label
-    Friend WithEvents Label35 As Label
-    Friend WithEvents Label34 As Label
-    Friend WithEvents Label33 As Label
-    Friend WithEvents Label32 As Label
-    Friend WithEvents Label31 As Label
-    Friend WithEvents Label30 As Label
-    Friend WithEvents ComboBox3 As ComboBox
-    Friend WithEvents Button17 As Button
-    Friend WithEvents MonthCalendar1 As MonthCalendar
-    Friend WithEvents Button15 As Button
+    Friend WithEvents PanelClientes As Panel
+    Friend WithEvents EstadisticasDeClienteBoton As Button
+    Friend WithEvents GroupBoxModificarClienteasd As GroupBox
+    Friend WithEvents Button25ModificarCliente As Button
+    Friend WithEvents Button24ModificarCliente As Button
+    Friend WithEvents GroupBoxCrearClienteasd As GroupBox
+    Friend WithEvents Label72CrearCliente As Label
+    Friend WithEvents CrearClienteBotonCrearCliente As Button
+    Friend WithEvents ModificarClienteBoton As Button
+    Friend WithEvents CrearClienteBoton As Button
+    Friend WithEvents GroupBoxEstadisticasdelCliente As GroupBox
+    Friend WithEvents Button9CrearCliente As Button
     Friend WithEvents Button14 As Button
-    Friend WithEvents TextBox8 As TextBox
-    Friend WithEvents RichTextBox2 As RichTextBox
-    Friend WithEvents TextBox7 As TextBox
-    Friend WithEvents TextBox6 As TextBox
-    Friend WithEvents TextBox5 As TextBox
-    Friend WithEvents Label29 As Label
-    Friend WithEvents Label28 As Label
-    Friend WithEvents Label27 As Label
-    Friend WithEvents Label26 As Label
-    Friend WithEvents Label25 As Label
-    Friend WithEvents Label24 As Label
-    Friend WithEvents panel_botones_mugen As Panel
-    Friend WithEvents Button20 As Button
-    Friend WithEvents boton_vender As Button
-    Friend WithEvents boton_servicios As Button
-    Friend WithEvents Panel2 As Panel
-    Friend WithEvents TextBox17 As TextBox
-    Friend WithEvents label_fecha As Label
-    Friend WithEvents TextBox16 As TextBox
-    Friend WithEvents label_venta_cliente As Label
-    Friend WithEvents text_ruc_venta As TextBox
-    Friend WithEvents label_ruc As Label
-    Friend WithEvents DataGridView1 As DataGridView
-    Friend WithEvents venta_guardar As Button
-    Friend WithEvents Importe As DataGridViewTextBoxColumn
-    Friend WithEvents cant As DataGridViewTextBoxColumn
-    Friend WithEvents Punit As DataGridViewTextBoxColumn
-    Friend WithEvents Producto As DataGridViewTextBoxColumn
-    Friend WithEvents Codigo As DataGridViewTextBoxColumn
-    Friend WithEvents text_sub_total As TextBox
-    Friend WithEvents label_subtotal As Label
-    Friend WithEvents text_total As TextBox
-    Friend WithEvents label_total As Label
-    Friend WithEvents text_iva As TextBox
-    Friend WithEvents label_iva As Label
-    Friend WithEvents label_ruc_venta As Label
+    Friend WithEvents Button13 As Button
+    Friend WithEvents Button12 As Button
+    Friend WithEvents Button11 As Button
+    Friend WithEvents Button10ModificarCliente As Button
+    Friend WithEvents Button16 As Button
+    Friend WithEvents CheckBoxClientePrioritarioCrearCliente As CheckBox
+    Friend WithEvents CheckBoxClientePrioritario1ModificarCliente As CheckBox
+    Friend WithEvents MailTextBoxCrearCliente As TextBox
+    Friend WithEvents NumeroTextBoxCrearCliente As TextBox
+    Friend WithEvents RucTextBoxCrearCliente As TextBox
+    Friend WithEvents ApellidoTextBoxCrearCliente As TextBox
+    Friend WithEvents NombreTextBoxCrearCliente As TextBox
+    Friend WithEvents ClienteDataGridView1ModificarCliente As DataGridView
+    Friend WithEvents DataGridViewTextBoxColumn61 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn62 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn63 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn64 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn65 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn66 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn67 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn68 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn69 As DataGridViewTextBoxColumn
+    Friend WithEvents MailTextBox1ModificarCliente As TextBox
+    Friend WithEvents NumeroTextBox1ModificarCliente As TextBox
+    Friend WithEvents ApellidoTextBox1ModificarCliente As TextBox
+    Friend WithEvents NombreTextBox1ModificarCliente As TextBox
+    Friend WithEvents RucTextBox1ModificarCliente As TextBox
+    Friend WithEvents Button15ModificarCliente As Button
+    Friend WithEvents Label1ModificarCliente As Label
+    Friend WithEvents Label1 As Label
 End Class

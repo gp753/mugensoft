@@ -206,7 +206,7 @@ Partial Class Form2
         Me.Button17 = New System.Windows.Forms.Button()
         Me.MonthCalendar1 = New System.Windows.Forms.MonthCalendar()
         Me.Button15 = New System.Windows.Forms.Button()
-        Me.Button14 = New System.Windows.Forms.Button()
+        Me.aceptar_carga_presupuesto = New System.Windows.Forms.Button()
         Me.TextBox8 = New System.Windows.Forms.TextBox()
         Me.RichTextBox2 = New System.Windows.Forms.RichTextBox()
         Me.TextBox7 = New System.Windows.Forms.TextBox()
@@ -219,7 +219,7 @@ Partial Class Form2
         Me.Label25 = New System.Windows.Forms.Label()
         Me.Label24 = New System.Windows.Forms.Label()
         Me.panel_botones_mugen = New System.Windows.Forms.Panel()
-        Me.Button20 = New System.Windows.Forms.Button()
+        Me.boton_stock = New System.Windows.Forms.Button()
         Me.boton_vender = New System.Windows.Forms.Button()
         Me.boton_servicios = New System.Windows.Forms.Button()
         Me.Panel2 = New System.Windows.Forms.Panel()
@@ -1461,7 +1461,7 @@ Partial Class Form2
         Me.panel_carga_presupuesto.Controls.Add(Me.Button17)
         Me.panel_carga_presupuesto.Controls.Add(Me.MonthCalendar1)
         Me.panel_carga_presupuesto.Controls.Add(Me.Button15)
-        Me.panel_carga_presupuesto.Controls.Add(Me.Button14)
+        Me.panel_carga_presupuesto.Controls.Add(Me.aceptar_carga_presupuesto)
         Me.panel_carga_presupuesto.Controls.Add(Me.TextBox8)
         Me.panel_carga_presupuesto.Controls.Add(Me.RichTextBox2)
         Me.panel_carga_presupuesto.Controls.Add(Me.TextBox7)
@@ -1727,14 +1727,14 @@ Partial Class Form2
         Me.Button15.Text = "Cancelar"
         Me.Button15.UseVisualStyleBackColor = True
         '
-        'Button14
+        'aceptar_carga_presupuesto
         '
-        Me.Button14.Location = New System.Drawing.Point(200, 406)
-        Me.Button14.Name = "Button14"
-        Me.Button14.Size = New System.Drawing.Size(75, 23)
-        Me.Button14.TabIndex = 11
-        Me.Button14.Text = "Aceptar"
-        Me.Button14.UseVisualStyleBackColor = True
+        Me.aceptar_carga_presupuesto.Location = New System.Drawing.Point(200, 406)
+        Me.aceptar_carga_presupuesto.Name = "aceptar_carga_presupuesto"
+        Me.aceptar_carga_presupuesto.Size = New System.Drawing.Size(75, 23)
+        Me.aceptar_carga_presupuesto.TabIndex = 11
+        Me.aceptar_carga_presupuesto.Text = "Aceptar"
+        Me.aceptar_carga_presupuesto.UseVisualStyleBackColor = True
         '
         'TextBox8
         '
@@ -1828,21 +1828,21 @@ Partial Class Form2
         '
         'panel_botones_mugen
         '
-        Me.panel_botones_mugen.Controls.Add(Me.Button20)
+        Me.panel_botones_mugen.Controls.Add(Me.boton_stock)
         Me.panel_botones_mugen.Controls.Add(Me.boton_vender)
         Me.panel_botones_mugen.Location = New System.Drawing.Point(9, 41)
         Me.panel_botones_mugen.Name = "panel_botones_mugen"
         Me.panel_botones_mugen.Size = New System.Drawing.Size(1165, 26)
         Me.panel_botones_mugen.TabIndex = 24
         '
-        'Button20
+        'boton_stock
         '
-        Me.Button20.Location = New System.Drawing.Point(168, 0)
-        Me.Button20.Name = "Button20"
-        Me.Button20.Size = New System.Drawing.Size(161, 23)
-        Me.Button20.TabIndex = 1
-        Me.Button20.Text = "Stock"
-        Me.Button20.UseVisualStyleBackColor = True
+        Me.boton_stock.Location = New System.Drawing.Point(168, 0)
+        Me.boton_stock.Name = "boton_stock"
+        Me.boton_stock.Size = New System.Drawing.Size(161, 23)
+        Me.boton_stock.TabIndex = 1
+        Me.boton_stock.Text = "Stock"
+        Me.boton_stock.UseVisualStyleBackColor = True
         '
         'boton_vender
         '
@@ -2048,7 +2048,6 @@ Partial Class Form2
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1353, 711)
-        Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.boton_servicios)
         Me.Controls.Add(Me.panel_botones_mugen)
         Me.Controls.Add(Me.panel_carga_presupuesto)
@@ -2061,6 +2060,7 @@ Partial Class Form2
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Panel1)
+        Me.Controls.Add(Me.Panel2)
         Me.Name = "Form2"
         Me.Text = "Form2"
         CType(Me.Ingreso_productoBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
@@ -2290,7 +2290,7 @@ Partial Class Form2
     Friend WithEvents Button17 As Button
     Friend WithEvents MonthCalendar1 As MonthCalendar
     Friend WithEvents Button15 As Button
-    Friend WithEvents Button14 As Button
+    Friend WithEvents aceptar_carga_presupuesto As Button
     Friend WithEvents TextBox8 As TextBox
     Friend WithEvents RichTextBox2 As RichTextBox
     Friend WithEvents TextBox7 As TextBox
@@ -2303,7 +2303,7 @@ Partial Class Form2
     Friend WithEvents Label25 As Label
     Friend WithEvents Label24 As Label
     Friend WithEvents panel_botones_mugen As Panel
-    Friend WithEvents Button20 As Button
+    Friend WithEvents boton_stock As Button
     Friend WithEvents boton_vender As Button
     Friend WithEvents boton_servicios As Button
     Friend WithEvents Panel2 As Panel

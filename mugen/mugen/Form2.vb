@@ -249,7 +249,7 @@
 
 
 
-    Private Sub Button14_Click(sender As Object, e As EventArgs) Handles Button14.Click
+    Private Sub Button14_Click(sender As Object, e As EventArgs) Handles aceptar_carga_presupuesto.Click
 
         Dim ban_cliente As Integer
         Dim cantidad_clientes As Integer

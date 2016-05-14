@@ -2038,7 +2038,7 @@ Partial Class Form2
         Me.panel_vender.Controls.Add(Me.label_ruc)
         Me.panel_vender.Location = New System.Drawing.Point(12, 96)
         Me.panel_vender.Name = "panel_vender"
-        Me.panel_vender.Size = New System.Drawing.Size(1319, 478)
+        Me.panel_vender.Size = New System.Drawing.Size(1319, 530)
         Me.panel_vender.TabIndex = 26
         Me.panel_vender.Visible = False
         '
@@ -2053,7 +2053,7 @@ Partial Class Form2
         '
         'text_total
         '
-        Me.text_total.Location = New System.Drawing.Point(471, 376)
+        Me.text_total.Location = New System.Drawing.Point(471, 438)
         Me.text_total.Name = "text_total"
         Me.text_total.ReadOnly = True
         Me.text_total.Size = New System.Drawing.Size(100, 20)
@@ -2062,7 +2062,7 @@ Partial Class Form2
         'label_total
         '
         Me.label_total.AutoSize = True
-        Me.label_total.Location = New System.Drawing.Point(370, 383)
+        Me.label_total.Location = New System.Drawing.Point(370, 445)
         Me.label_total.Name = "label_total"
         Me.label_total.Size = New System.Drawing.Size(42, 13)
         Me.label_total.TabIndex = 12
@@ -2070,7 +2070,7 @@ Partial Class Form2
         '
         'text_iva
         '
-        Me.text_iva.Location = New System.Drawing.Point(471, 340)
+        Me.text_iva.Location = New System.Drawing.Point(471, 402)
         Me.text_iva.Name = "text_iva"
         Me.text_iva.ReadOnly = True
         Me.text_iva.Size = New System.Drawing.Size(100, 20)
@@ -2079,7 +2079,7 @@ Partial Class Form2
         'label_iva
         '
         Me.label_iva.AutoSize = True
-        Me.label_iva.Location = New System.Drawing.Point(371, 347)
+        Me.label_iva.Location = New System.Drawing.Point(371, 409)
         Me.label_iva.Name = "label_iva"
         Me.label_iva.Size = New System.Drawing.Size(24, 13)
         Me.label_iva.TabIndex = 10
@@ -2087,7 +2087,7 @@ Partial Class Form2
         '
         'text_sub_total
         '
-        Me.text_sub_total.Location = New System.Drawing.Point(471, 301)
+        Me.text_sub_total.Location = New System.Drawing.Point(471, 363)
         Me.text_sub_total.Name = "text_sub_total"
         Me.text_sub_total.ReadOnly = True
         Me.text_sub_total.RightToLeft = System.Windows.Forms.RightToLeft.No
@@ -2098,7 +2098,7 @@ Partial Class Form2
         'label_subtotal
         '
         Me.label_subtotal.AutoSize = True
-        Me.label_subtotal.Location = New System.Drawing.Point(371, 309)
+        Me.label_subtotal.Location = New System.Drawing.Point(371, 371)
         Me.label_subtotal.Name = "label_subtotal"
         Me.label_subtotal.Size = New System.Drawing.Size(67, 13)
         Me.label_subtotal.TabIndex = 8
@@ -2106,7 +2106,7 @@ Partial Class Form2
         '
         'venta_guardar
         '
-        Me.venta_guardar.Location = New System.Drawing.Point(29, 421)
+        Me.venta_guardar.Location = New System.Drawing.Point(29, 483)
         Me.venta_guardar.Name = "venta_guardar"
         Me.venta_guardar.Size = New System.Drawing.Size(75, 23)
         Me.venta_guardar.TabIndex = 7
@@ -2119,7 +2119,7 @@ Partial Class Form2
         Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Codigo, Me.Producto, Me.Punit, Me.cant, Me.Importe})
         Me.DataGridView1.Location = New System.Drawing.Point(29, 133)
         Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(564, 150)
+        Me.DataGridView1.Size = New System.Drawing.Size(543, 206)
         Me.DataGridView1.TabIndex = 6
         '
         'Codigo
@@ -2591,7 +2591,6 @@ Partial Class Form2
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1353, 711)
-        Me.Controls.Add(Me.PanelClientes)
         Me.Controls.Add(Me.panel_vender)
         Me.Controls.Add(Me.boton_servicios)
         Me.Controls.Add(Me.panel_botones_mugen)
@@ -2605,6 +2604,7 @@ Partial Class Form2
         Me.Controls.Add(Me.panel_carga_presupuesto)
         Me.Controls.Add(Me.panel_cuentas)
         Me.Controls.Add(Me.Panel1)
+        Me.Controls.Add(Me.PanelClientes)
         Me.Name = "Form2"
         Me.Text = "Form2"
         CType(Me.Ingreso_productoBindingSource, System.ComponentModel.ISupportInitialize).EndInit()

@@ -395,12 +395,125 @@
         End If
     End Sub
 
-    Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) 
+    Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs)
 
     End Sub
 
+    Private Function buscar_en_tablas(tabla As String, columna As String, buscado As String)
+
+        'buscar 
+        Dim i As Integer
+        Dim cantidad As Integer
+        Dim posicion As Integer
+        Dim ban As Integer
+        ban = 0
+        cantidad = DataSet1.Tables(tabla).Rows.Count
+        cantidad = cantidad - 1
+        For i = 0 To cantidad
+            If buscado = DataSet1.Tables(tabla).Rows(i).Item(columna) Then
+
+                posicion = i
+                ban = 1
+            End If
+        Next
+
+        If ban = 0 Then
+            posicion = -1 'no se encontro el registro
+        End If
+        Return posicion
+
+
+    End Function
+
+    Private Function cargar_venta(code As String, client As String, fecha As String, cantidad As Integer)
+
+
+
+
+        Dim nueva_venta As DataRow = DataSet1.Tables("venta_producto").NewRow
+        Dim idproducto As Integer
+        idproducto = DataSet1.Tables("producto").Rows(buscar_en_tablas("producto", "codigo", code)).Item("id_stock_mugen")
+
+        nueva_venta("id_stock_mugen") = idproducto
+        nueva_venta("id_cliente") = client
+        nueva_venta("fecha_venta") = fecha
+        nueva_venta("cantidad") = cantidad
+
+
+        DataSet1.Tables("venta_producto").Rows.Add(nueva_venta)
+        Validate()
+        Venta_productoBindingSource.EndEdit()
+        Venta_productoTableAdapter.Update(DataSet1.venta_producto)
+
+
+
+    End Function
+
     Private Sub Button21_Click(sender As Object, e As EventArgs) Handles venta_guardar.Click
-        DataGridView1.Item(0, 0).Value = "hola"
+
+        Dim ban = 0
+        'comprobar existencia del cliente
+
+        Dim ruc_cliente As Integer
+        ruc_cliente = buscar_en_tablas("cliente", "ruc", text_ruc_venta.Text)
+        If ruc_cliente < 0 Then
+            ban = 1
+            MsgBox("Cliente sin registrar!")
+        End If
+
+
+
+
+        'comprobar existencia del producto
+        Dim i As Integer
+
+        For i = 0 To DataGridView1.RowCount - 1
+
+            If DataGridView1.Item(0, i).Value IsNot "" Then
+                If DataGridView1.Item(3, i).Value = "" Then
+
+                Else
+                    If DataGridView1.Item(3, i).Value IsNot "0" Then
+
+                        cargar_venta(DataGridView1.Item(0, i).Value, ruc_cliente, TextBox17.Text, DataGridView1.Item(3, i).Value)
+
+
+                    End If
+                End If
+            End If
+
+        Next
+
+
+
+
+
+
+        'salida de productos
+        'Dim nuevo_cliente As DataRow = DataSet1.Tables("cliente").NewRow()
+
+
+        'nuevo_cliente("nombre") = TextBox9.Text
+        'nuevo_cliente("apellido") = TextBox10.Text
+
+        'nuevo_cliente("ruc") = TextBox12.Text
+        'nuevo_cliente("numero") = TextBox13.Text
+        'nuevo_cliente("mail") = TextBox14.Text
+
+        'DataSet1.Tables("cliente").Rows.Add(nuevo_cliente)
+
+        'Validate()
+        'UsuarioBindingSource.EndEdit()
+        'ClienteBindingSource.EndEdit()
+
+        'ClienteTableAdapter.Update(DataSet1.cliente)
+
+        Dim nueva_venta As DataRow = DataSet1.Tables("contabilidad").NewRow
+
+
+
+
+
     End Sub
 
 
@@ -427,7 +540,10 @@
 
                     DataGridView1.Item(1, curen).Value = DataSet1.Tables("producto").Rows(i).Item("descripcion")
                     DataGridView1.Item(2, curen).Value = DataSet1.Tables("producto").Rows(i).Item("precio_venta")
+                Else
+                    DataGridView1.Item(0, curen).Value = ""
 
+                    MsgBox("Codigo de producto no existe!")
                 End If
 
             Next
@@ -439,17 +555,41 @@
             DataGridView1.Item(4, curen).Value = DataGridView1.Item(3, curen).Value * DataGridView1.Item(2, curen).Value
             suma = 0
             For i = 0 To DataGridView1.RowCount - 1
-                suma = suma + DataGridView1.Item(4, i).Value
-                text_sub_total.Text = suma.ToString
-                iva = suma * 0.1
-                text_iva.Text = iva.ToString
-                total = suma + iva
+                If DataGridView1.Item(4, i).Value IsNot "" Then
+                    suma = suma + DataGridView1.Item(4, i).Value
+                    text_sub_total.Text = suma.ToString
+                    iva = suma * 0.1
+                    text_iva.Text = iva.ToString
+                    total = suma + iva
 
-                text_total.Text = total.ToString
+                    text_total.Text = total.ToString
+                End If
+
 
             Next
 
         End If
+
+        'ordenar los los grid
+        Dim j, k As Integer
+        For k = 0 To DataGridView1.RowCount
+            For i = 0 To DataGridView1.RowCount - 1
+                If DataGridView1.Item(0, i).Value = "" Then
+                    If i + 1 < DataGridView1.RowCount Then
+
+                        If DataGridView1.Item(0, i + 1).Value IsNot "" Then
+                            For j = 0 To 4
+                                DataGridView1.Item(j, i).Value = DataGridView1.Item(j, i + 1).Value
+                                DataGridView1.Item(j, i + 1).Value = ""
+                            Next
+                        End If
+                    End If
+                End If
+
+            Next
+        Next
+
+
     End Sub
 
     Private Sub TextBox15_TextChanged(sender As Object, e As EventArgs) Handles text_ruc_venta.TextChanged
@@ -476,23 +616,35 @@
 
         If bandera_salida = 0 Then
             salida = -1
+
         End If
 
-        Return i
+        Return salida
 
     End Function
 
     Private Sub TextBox15_LostFocus(sender As Object, e As EventArgs) Handles text_ruc_venta.LostFocus
-        Dim ruc As String
+        Dim ruc As Integer
+
         ruc = funcion_buscar_cliente(text_ruc_venta.Text)
+
 
         If ruc < 0 Then
             label_ruc_venta.Text = "no se econtro cliente"
+            label_ruc_venta.ForeColor = Color.Red
+            label_ruc_venta.Visible = True
+
+
+
+        Else
+            label_ruc_venta.Visible = False
+            TextBox16.Text = DataSet1.Tables("cliente").Rows(ruc).Item("nombre") + " " + DataSet1.Tables("cliente").Rows(ruc).Item("apellido")
+            TextBox17.Text = Date.Now.Date
 
         End If
 
 
-        label_ruc_venta.Text = funcion_buscar_cliente("hola")
+
     End Sub
 
     Private Sub boton_vender_Click(sender As Object, e As EventArgs) Handles boton_vender.Click
@@ -679,7 +831,7 @@
             If DataSet1.Tables("cliente").Rows(i).Item("ruc") = RucTextBoxCrearCliente.Text Then
 
                 'Si el cliente está habilitado (no está "borrado)
-                If DataSet1.Tables("cliente").Rows(i).Item("estado_cliente") = 1 Then
+        If DataSet1.Tables("cliente").Rows(i).Item("estado_cliente") = 1 Then
                     Label72CrearCliente.Show()
                     Label72CrearCliente.Text = "RUC ya registrado"
                     Label72CrearCliente.ForeColor = Color.Red
@@ -781,5 +933,9 @@
             NumeroTextBox1ModificarCliente.ReadOnly = True
             MailTextBox1ModificarCliente.ReadOnly = True
         End If
+    End Sub
+
+    Private Sub DataGridView1_CellContentClick_1(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
+
     End Sub
 End Class

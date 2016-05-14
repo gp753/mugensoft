@@ -175,6 +175,7 @@ Partial Class Form2
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
+        Me.Label1 = New System.Windows.Forms.Label()
         MailLabel1M = New System.Windows.Forms.Label()
         NumeroLabel1N = New System.Windows.Forms.Label()
         ApellidoLabel1A = New System.Windows.Forms.Label()
@@ -398,6 +399,7 @@ Partial Class Form2
         '
         'PanelClientes
         '
+        Me.PanelClientes.Controls.Add(Me.Label1)
         Me.PanelClientes.Controls.Add(Me.ClienteDataGridView1ModificarCliente)
         Me.PanelClientes.Controls.Add(Me.GroupBoxCrearClienteasd)
         Me.PanelClientes.Controls.Add(Me.GroupBoxEstadisticasdelCliente)
@@ -1351,12 +1353,21 @@ Partial Class Form2
         Me.Button1.Text = "Cargar Presupuesto"
         Me.Button1.UseVisualStyleBackColor = True
         '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(320, 19)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(39, 13)
+        Me.Label1.TabIndex = 22
+        Me.Label1.Text = "Label1"
+        '
         'Form2
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoScroll = True
-        Me.ClientSize = New System.Drawing.Size(1354, 733)
+        Me.ClientSize = New System.Drawing.Size(1354, 750)
         Me.Controls.Add(Me.Button7)
         Me.Controls.Add(Me.Button6)
         Me.Controls.Add(Me.Button5)
@@ -1376,6 +1387,7 @@ Partial Class Form2
         CType(Me.PedidoBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
         Me.PanelClientes.ResumeLayout(False)
+        Me.PanelClientes.PerformLayout()
         CType(Me.ClienteDataGridView1ModificarCliente, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBoxCrearClienteasd.ResumeLayout(False)
         Me.GroupBoxCrearClienteasd.PerformLayout()
@@ -1541,4 +1553,5 @@ Partial Class Form2
     Friend WithEvents RucTextBox1ModificarCliente As TextBox
     Friend WithEvents Button15ModificarCliente As Button
     Friend WithEvents Label1ModificarCliente As Label
+    Friend WithEvents Label1 As Label
 End Class

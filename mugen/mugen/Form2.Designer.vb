@@ -295,6 +295,7 @@ Partial Class Form2
         Me.Button24ModificarCliente = New System.Windows.Forms.Button()
         Me.ModificarClienteBoton = New System.Windows.Forms.Button()
         Me.CrearClienteBoton = New System.Windows.Forms.Button()
+        Me.Button24 = New System.Windows.Forms.Button()
         MailLabelM = New System.Windows.Forms.Label()
         NumeroLabelN = New System.Windows.Forms.Label()
         RucLabelR = New System.Windows.Forms.Label()
@@ -1632,7 +1633,7 @@ Partial Class Form2
         Me.panel_carga_presupuesto.Controls.Add(Me.Label24)
         Me.panel_carga_presupuesto.Location = New System.Drawing.Point(18, 93)
         Me.panel_carga_presupuesto.Name = "panel_carga_presupuesto"
-        Me.panel_carga_presupuesto.Size = New System.Drawing.Size(1167, 783)
+        Me.panel_carga_presupuesto.Size = New System.Drawing.Size(1167, 606)
         Me.panel_carga_presupuesto.TabIndex = 23
         Me.panel_carga_presupuesto.Visible = False
         '
@@ -2021,6 +2022,7 @@ Partial Class Form2
         '
         'panel_vender
         '
+        Me.panel_vender.Controls.Add(Me.Button24)
         Me.panel_vender.Controls.Add(Me.label_ruc_venta)
         Me.panel_vender.Controls.Add(Me.text_total)
         Me.panel_vender.Controls.Add(Me.label_total)
@@ -2110,7 +2112,7 @@ Partial Class Form2
         Me.venta_guardar.Name = "venta_guardar"
         Me.venta_guardar.Size = New System.Drawing.Size(75, 23)
         Me.venta_guardar.TabIndex = 7
-        Me.venta_guardar.Text = "Button21"
+        Me.venta_guardar.Text = "Guardar"
         Me.venta_guardar.UseVisualStyleBackColor = True
         '
         'DataGridView1
@@ -2586,6 +2588,15 @@ Partial Class Form2
         Me.CrearClienteBoton.Text = "Crear Cliente"
         Me.CrearClienteBoton.UseVisualStyleBackColor = True
         '
+        'Button24
+        '
+        Me.Button24.Location = New System.Drawing.Point(110, 483)
+        Me.Button24.Name = "Button24"
+        Me.Button24.Size = New System.Drawing.Size(75, 23)
+        Me.Button24.TabIndex = 15
+        Me.Button24.Text = "Nuevo"
+        Me.Button24.UseVisualStyleBackColor = True
+        '
         'Form2
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -2920,4 +2931,5 @@ Partial Class Form2
     Friend WithEvents Button24ModificarCliente As Button
     Friend WithEvents ModificarClienteBoton As Button
     Friend WithEvents CrearClienteBoton As Button
+    Friend WithEvents Button24 As Button
 End Class

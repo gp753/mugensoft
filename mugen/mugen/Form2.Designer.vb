@@ -307,6 +307,8 @@ Partial Class Form2
         Me.TextBoxCodigo2 = New System.Windows.Forms.TextBox()
         Me.LabelCodigo = New System.Windows.Forms.Label()
         Me.GroupBoxIngresodeProducto = New System.Windows.Forms.GroupBox()
+        Me.TextBoxDeshabilitado2 = New System.Windows.Forms.TextBox()
+        Me.TextBoxDeshabilitado = New System.Windows.Forms.TextBox()
         Me.LabelIngresoProducto = New System.Windows.Forms.Label()
         Me.ButtonCerrar2 = New System.Windows.Forms.Button()
         Me.ButtonInsertarProducto = New System.Windows.Forms.Button()
@@ -2646,6 +2648,7 @@ Partial Class Form2
         Me.GroupBox4Stock.TabIndex = 41
         Me.GroupBox4Stock.TabStop = False
         Me.GroupBox4Stock.Text = "Stock"
+        Me.GroupBox4Stock.Visible = False
         '
         'GroupBoxModificarProducto
         '
@@ -2744,6 +2747,8 @@ Partial Class Form2
         '
         'GroupBoxIngresodeProducto
         '
+        Me.GroupBoxIngresodeProducto.Controls.Add(Me.TextBoxDeshabilitado2)
+        Me.GroupBoxIngresodeProducto.Controls.Add(Me.TextBoxDeshabilitado)
         Me.GroupBoxIngresodeProducto.Controls.Add(Me.LabelIngresoProducto)
         Me.GroupBoxIngresodeProducto.Controls.Add(Me.ButtonCerrar2)
         Me.GroupBoxIngresodeProducto.Controls.Add(Me.ButtonInsertarProducto)
@@ -2766,6 +2771,22 @@ Partial Class Form2
         Me.GroupBoxIngresodeProducto.TabStop = False
         Me.GroupBoxIngresodeProducto.Text = "Ingreso de Producto"
         Me.GroupBoxIngresodeProducto.Visible = False
+        '
+        'TextBoxDeshabilitado2
+        '
+        Me.TextBoxDeshabilitado2.Location = New System.Drawing.Point(211, 151)
+        Me.TextBoxDeshabilitado2.Name = "TextBoxDeshabilitado2"
+        Me.TextBoxDeshabilitado2.ReadOnly = True
+        Me.TextBoxDeshabilitado2.Size = New System.Drawing.Size(93, 20)
+        Me.TextBoxDeshabilitado2.TabIndex = 15
+        '
+        'TextBoxDeshabilitado
+        '
+        Me.TextBoxDeshabilitado.Location = New System.Drawing.Point(135, 30)
+        Me.TextBoxDeshabilitado.Name = "TextBoxDeshabilitado"
+        Me.TextBoxDeshabilitado.ReadOnly = True
+        Me.TextBoxDeshabilitado.Size = New System.Drawing.Size(169, 20)
+        Me.TextBoxDeshabilitado.TabIndex = 14
         '
         'LabelIngresoProducto
         '
@@ -2813,7 +2834,7 @@ Partial Class Form2
         '
         Me.TextBoxProveedor.Location = New System.Drawing.Point(135, 151)
         Me.TextBoxProveedor.Name = "TextBoxProveedor"
-        Me.TextBoxProveedor.Size = New System.Drawing.Size(169, 20)
+        Me.TextBoxProveedor.Size = New System.Drawing.Size(77, 20)
         Me.TextBoxProveedor.TabIndex = 9
         '
         'TextBoxFacturaNro
@@ -3405,4 +3426,6 @@ Partial Class Form2
     Friend WithEvents LabelModificarProducto As Label
     Friend WithEvents LabelIngresoProducto As Label
     Friend WithEvents LabelNuevoProducto As Label
+    Friend WithEvents TextBoxDeshabilitado As TextBox
+    Friend WithEvents TextBoxDeshabilitado2 As TextBox
 End Class

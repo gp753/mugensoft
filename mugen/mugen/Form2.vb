@@ -589,6 +589,12 @@
             cantidad_product = cantidad_producto_disponible(idproducto)
             If cantidad_product - DataGridView1.Item(3, curen).Value < 0 Then
                 MsgBox("cantidad supera stock")
+                DataGridView1.CurrentCell.Value = 0
+
+
+
+
+
             End If
             DataGridView1.Item(4, curen).Value = DataGridView1.Item(3, curen).Value * DataGridView1.Item(2, curen).Value
             suma = 0

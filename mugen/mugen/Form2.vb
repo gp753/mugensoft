@@ -556,6 +556,7 @@
         Dim total As Integer
         Dim idproducto As Integer
         Dim cantidad_product As Integer
+        Dim ban As Integer
 
 
         curen = DataGridView1.CurrentRow.Index
@@ -587,12 +588,24 @@
 
         Else
             cantidad_product = cantidad_producto_disponible(idproducto)
+            For i = 0 To DataGridView1.RowCount - 1
+                If DataGridView1.Item(0, i).Value = 0 Then
+                    suma = suma + DataGridView1.Item(4, i).Value
+                    text_sub_total.Text = suma.ToString
+                    iva = suma * 0.1
+                    text_iva.Text = iva.ToString
+                    total = suma + iva
+
+                    text_total.Text = total.ToString
+                End If
+
+
+            Next
+
+
             If cantidad_product - DataGridView1.Item(3, curen).Value < 0 Then
-                MsgBox("cantidad supera stock")
+                MsgBox("cantidad de " + DataGridView1.Item(1, curen).Value.ToString + " supera stock: " + cantidad_product.ToString)
                 DataGridView1.CurrentCell.Value = 0
-
-
-
 
 
             End If
@@ -632,6 +645,8 @@
 
             Next
         Next
+
+
 
 
     End Sub

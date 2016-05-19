@@ -33,6 +33,13 @@ Partial Class Form2
         Dim ApellidoLabel1A As System.Windows.Forms.Label
         Dim NombreLabel1N As System.Windows.Forms.Label
         Dim RucLabel1R As System.Windows.Forms.Label
+        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea2 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend2 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series2 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form2))
         Me.Ingreso_productoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DataSet1 = New mugen.DataSet1()
         Me.Contabilidad2BindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -233,6 +240,7 @@ Partial Class Form2
         Me.boton_vender = New System.Windows.Forms.Button()
         Me.boton_servicios = New System.Windows.Forms.Button()
         Me.panel_vender = New System.Windows.Forms.Panel()
+        Me.Button24 = New System.Windows.Forms.Button()
         Me.label_ruc_venta = New System.Windows.Forms.Label()
         Me.text_total = New System.Windows.Forms.TextBox()
         Me.label_total = New System.Windows.Forms.Label()
@@ -295,7 +303,142 @@ Partial Class Form2
         Me.Button24ModificarCliente = New System.Windows.Forms.Button()
         Me.ModificarClienteBoton = New System.Windows.Forms.Button()
         Me.CrearClienteBoton = New System.Windows.Forms.Button()
-        Me.Button24 = New System.Windows.Forms.Button()
+        Me.PanelTrabajosPendientes = New System.Windows.Forms.Panel()
+        Me.pedidoGridView = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewTextBoxColumn88 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn89 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn90 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn91 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn92 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn93 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn94 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn95 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn96 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.UsuarioDataGrid = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewTextBoxColumn79 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn80 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn81 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn82 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn83 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn84 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn85 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn86 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn87 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ClienteGridView = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewTextBoxColumn70 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn71 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn72 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn73 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn74 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn75 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn76 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn77 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn78 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.graficoTrabajos = New System.Windows.Forms.DataVisualization.Charting.Chart()
+        Me.graficoPagados = New System.Windows.Forms.DataVisualization.Charting.Chart()
+        Me.btpGenerar = New System.Windows.Forms.Button()
+        Me.BindingNavigator1 = New System.Windows.Forms.BindingNavigator(Me.components)
+        Me.BindingNavigatorAddNewItem1 = New System.Windows.Forms.ToolStripButton()
+        Me.BindingNavigatorCountItem1 = New System.Windows.Forms.ToolStripLabel()
+        Me.BindingNavigatorDeleteItem1 = New System.Windows.Forms.ToolStripButton()
+        Me.BindingNavigatorMoveFirstItem1 = New System.Windows.Forms.ToolStripButton()
+        Me.BindingNavigatorMovePreviousItem1 = New System.Windows.Forms.ToolStripButton()
+        Me.BindingNavigatorSeparator3 = New System.Windows.Forms.ToolStripSeparator()
+        Me.BindingNavigatorPositionItem1 = New System.Windows.Forms.ToolStripTextBox()
+        Me.BindingNavigatorSeparator4 = New System.Windows.Forms.ToolStripSeparator()
+        Me.BindingNavigatorMoveNextItem1 = New System.Windows.Forms.ToolStripButton()
+        Me.BindingNavigatorMoveLastItem1 = New System.Windows.Forms.ToolStripButton()
+        Me.BindingNavigatorSeparator5 = New System.Windows.Forms.ToolStripSeparator()
+        Me.idClientesAux = New System.Windows.Forms.ListBox()
+        Me.pbBorrar = New System.Windows.Forms.Button()
+        Me.pbCambiar = New System.Windows.Forms.Button()
+        Me.label47 = New System.Windows.Forms.Label()
+        Me.pcEstado = New System.Windows.Forms.ComboBox()
+        Me.idClienteActual = New System.Windows.Forms.Label()
+        Me.noHayPendientes = New System.Windows.Forms.Label()
+        Me.noExiste = New System.Windows.Forms.Label()
+        Me.sinDatos = New System.Windows.Forms.Label()
+        Me.Label55 = New System.Windows.Forms.Label()
+        Me.TextIden = New System.Windows.Forms.TextBox()
+        Me.Label54 = New System.Windows.Forms.Label()
+        Me.TextApellido = New System.Windows.Forms.TextBox()
+        Me.Label53 = New System.Windows.Forms.Label()
+        Me.calendarioCobro = New System.Windows.Forms.MonthCalendar()
+        Me.Label52 = New System.Windows.Forms.Label()
+        Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
+        Me.Label51 = New System.Windows.Forms.Label()
+        Me.Label50 = New System.Windows.Forms.Label()
+        Me.Label49 = New System.Windows.Forms.Label()
+        Me.Label56 = New System.Windows.Forms.Label()
+        Me.labelRuc = New System.Windows.Forms.Label()
+        Me.Label58 = New System.Windows.Forms.Label()
+        Me.pcProyecto = New System.Windows.Forms.ComboBox()
+        Me.ptNombre = New System.Windows.Forms.TextBox()
+        Me.ptApellido = New System.Windows.Forms.TextBox()
+        Me.ptRuc = New System.Windows.Forms.TextBox()
+        Me.ptDescrip = New System.Windows.Forms.TextBox()
+        Me.ptEntrega = New System.Windows.Forms.TextBox()
+        Me.ptCobro = New System.Windows.Forms.TextBox()
+        Me.Label48 = New System.Windows.Forms.Label()
+        Me.ptPrecio = New System.Windows.Forms.TextBox()
+        Me.Label45 = New System.Windows.Forms.Label()
+        Me.Label46 = New System.Windows.Forms.Label()
+        Me.lbEstado = New System.Windows.Forms.Label()
+        Me.botonBuscar = New System.Windows.Forms.Button()
+        Me.calendarioEntregas = New System.Windows.Forms.MonthCalendar()
+        Me.resultadosPedidos = New System.Windows.Forms.ListBox()
+        Me.Label44 = New System.Windows.Forms.Label()
+        Me.Label43 = New System.Windows.Forms.Label()
+        Me.TextCliente = New System.Windows.Forms.TextBox()
+        Me.Label42 = New System.Windows.Forms.Label()
+        Me.Label41 = New System.Windows.Forms.Label()
+        Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
+        Me.GroupBox4Stock = New System.Windows.Forms.GroupBox()
+        Me.GroupBoxModificarProducto = New System.Windows.Forms.GroupBox()
+        Me.LabelModificarProducto = New System.Windows.Forms.Label()
+        Me.ButtonCerrar3 = New System.Windows.Forms.Button()
+        Me.ButtonModificarProducto = New System.Windows.Forms.Button()
+        Me.TextBoxPrecio2 = New System.Windows.Forms.TextBox()
+        Me.LabelPrecio = New System.Windows.Forms.Label()
+        Me.TextBoxDescripcion2 = New System.Windows.Forms.TextBox()
+        Me.LabelDescripcion = New System.Windows.Forms.Label()
+        Me.TextBoxCodigo2 = New System.Windows.Forms.TextBox()
+        Me.LabelCodigo = New System.Windows.Forms.Label()
+        Me.GroupBoxIngresodeProducto = New System.Windows.Forms.GroupBox()
+        Me.TextBox18 = New System.Windows.Forms.TextBox()
+        Me.TextBox15 = New System.Windows.Forms.TextBox()
+        Me.Label57 = New System.Windows.Forms.Label()
+        Me.TextBoxDeshabilitado2 = New System.Windows.Forms.TextBox()
+        Me.TextBoxDeshabilitado = New System.Windows.Forms.TextBox()
+        Me.LabelIngresoProducto = New System.Windows.Forms.Label()
+        Me.ButtonCerrar2 = New System.Windows.Forms.Button()
+        Me.ButtonInsertarProducto = New System.Windows.Forms.Button()
+        Me.TextBoxIVA = New System.Windows.Forms.TextBox()
+        Me.TextBoxPreciodeCompra = New System.Windows.Forms.TextBox()
+        Me.TextBoxProveedor = New System.Windows.Forms.TextBox()
+        Me.TextBoxFacturaNro = New System.Windows.Forms.TextBox()
+        Me.TextBoxSeleccionarCantidad = New System.Windows.Forms.TextBox()
+        Me.TextBoxSeleccionarProducto = New System.Windows.Forms.TextBox()
+        Me.Label59 = New System.Windows.Forms.Label()
+        Me.Label60 = New System.Windows.Forms.Label()
+        Me.Label61 = New System.Windows.Forms.Label()
+        Me.Label62 = New System.Windows.Forms.Label()
+        Me.Label63 = New System.Windows.Forms.Label()
+        Me.Label64 = New System.Windows.Forms.Label()
+        Me.GroupBoxNuevoProducto = New System.Windows.Forms.GroupBox()
+        Me.LabelNuevoProducto = New System.Windows.Forms.Label()
+        Me.ButtonCerrar1 = New System.Windows.Forms.Button()
+        Me.ButtonCrearProducto = New System.Windows.Forms.Button()
+        Me.TextBoxPrecio = New System.Windows.Forms.TextBox()
+        Me.TextBoxDescripcion = New System.Windows.Forms.TextBox()
+        Me.TextBoxCodigo = New System.Windows.Forms.TextBox()
+        Me.Label43d = New System.Windows.Forms.Label()
+        Me.Label42s = New System.Windows.Forms.Label()
+        Me.Label41a = New System.Windows.Forms.Label()
+        Me.Button27 = New System.Windows.Forms.Button()
+        Me.Button26 = New System.Windows.Forms.Button()
+        Me.Button25 = New System.Windows.Forms.Button()
+        Me.Button24NuevoProducto = New System.Windows.Forms.Button()
         MailLabelM = New System.Windows.Forms.Label()
         NumeroLabelN = New System.Windows.Forms.Label()
         RucLabelR = New System.Windows.Forms.Label()
@@ -344,6 +487,19 @@ Partial Class Form2
         Me.GroupBoxCrearClienteasd.SuspendLayout()
         Me.GroupBoxEstadisticasdelCliente.SuspendLayout()
         Me.GroupBoxModificarClienteasd.SuspendLayout()
+        Me.PanelTrabajosPendientes.SuspendLayout()
+        CType(Me.pedidoGridView, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.UsuarioDataGrid, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ClienteGridView, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.graficoTrabajos, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.graficoPagados, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.BindingNavigator1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.BindingNavigator1.SuspendLayout()
+        Me.TableLayoutPanel1.SuspendLayout()
+        Me.GroupBox4Stock.SuspendLayout()
+        Me.GroupBoxModificarProducto.SuspendLayout()
+        Me.GroupBoxIngresodeProducto.SuspendLayout()
+        Me.GroupBoxNuevoProducto.SuspendLayout()
         Me.SuspendLayout()
         '
         'MailLabelM
@@ -2044,6 +2200,15 @@ Partial Class Form2
         Me.panel_vender.TabIndex = 26
         Me.panel_vender.Visible = False
         '
+        'Button24
+        '
+        Me.Button24.Location = New System.Drawing.Point(110, 483)
+        Me.Button24.Name = "Button24"
+        Me.Button24.Size = New System.Drawing.Size(75, 23)
+        Me.Button24.TabIndex = 15
+        Me.Button24.Text = "Nuevo"
+        Me.Button24.UseVisualStyleBackColor = True
+        '
         'label_ruc_venta
         '
         Me.label_ruc_venta.AutoSize = True
@@ -2588,20 +2753,1255 @@ Partial Class Form2
         Me.CrearClienteBoton.Text = "Crear Cliente"
         Me.CrearClienteBoton.UseVisualStyleBackColor = True
         '
-        'Button24
+        'PanelTrabajosPendientes
         '
-        Me.Button24.Location = New System.Drawing.Point(110, 483)
-        Me.Button24.Name = "Button24"
-        Me.Button24.Size = New System.Drawing.Size(75, 23)
-        Me.Button24.TabIndex = 15
-        Me.Button24.Text = "Nuevo"
-        Me.Button24.UseVisualStyleBackColor = True
+        Me.PanelTrabajosPendientes.AutoScroll = True
+        Me.PanelTrabajosPendientes.Controls.Add(Me.pedidoGridView)
+        Me.PanelTrabajosPendientes.Controls.Add(Me.UsuarioDataGrid)
+        Me.PanelTrabajosPendientes.Controls.Add(Me.ClienteGridView)
+        Me.PanelTrabajosPendientes.Controls.Add(Me.graficoTrabajos)
+        Me.PanelTrabajosPendientes.Controls.Add(Me.graficoPagados)
+        Me.PanelTrabajosPendientes.Controls.Add(Me.btpGenerar)
+        Me.PanelTrabajosPendientes.Controls.Add(Me.BindingNavigator1)
+        Me.PanelTrabajosPendientes.Controls.Add(Me.idClientesAux)
+        Me.PanelTrabajosPendientes.Controls.Add(Me.pbBorrar)
+        Me.PanelTrabajosPendientes.Controls.Add(Me.pbCambiar)
+        Me.PanelTrabajosPendientes.Controls.Add(Me.label47)
+        Me.PanelTrabajosPendientes.Controls.Add(Me.pcEstado)
+        Me.PanelTrabajosPendientes.Controls.Add(Me.idClienteActual)
+        Me.PanelTrabajosPendientes.Controls.Add(Me.noHayPendientes)
+        Me.PanelTrabajosPendientes.Controls.Add(Me.noExiste)
+        Me.PanelTrabajosPendientes.Controls.Add(Me.sinDatos)
+        Me.PanelTrabajosPendientes.Controls.Add(Me.Label55)
+        Me.PanelTrabajosPendientes.Controls.Add(Me.TextIden)
+        Me.PanelTrabajosPendientes.Controls.Add(Me.Label54)
+        Me.PanelTrabajosPendientes.Controls.Add(Me.TextApellido)
+        Me.PanelTrabajosPendientes.Controls.Add(Me.Label53)
+        Me.PanelTrabajosPendientes.Controls.Add(Me.calendarioCobro)
+        Me.PanelTrabajosPendientes.Controls.Add(Me.Label52)
+        Me.PanelTrabajosPendientes.Controls.Add(Me.TableLayoutPanel1)
+        Me.PanelTrabajosPendientes.Controls.Add(Me.botonBuscar)
+        Me.PanelTrabajosPendientes.Controls.Add(Me.calendarioEntregas)
+        Me.PanelTrabajosPendientes.Controls.Add(Me.resultadosPedidos)
+        Me.PanelTrabajosPendientes.Controls.Add(Me.Label44)
+        Me.PanelTrabajosPendientes.Controls.Add(Me.Label43)
+        Me.PanelTrabajosPendientes.Controls.Add(Me.TextCliente)
+        Me.PanelTrabajosPendientes.Controls.Add(Me.Label42)
+        Me.PanelTrabajosPendientes.Controls.Add(Me.Label41)
+        Me.PanelTrabajosPendientes.Location = New System.Drawing.Point(9, 84)
+        Me.PanelTrabajosPendientes.Name = "PanelTrabajosPendientes"
+        Me.PanelTrabajosPendientes.Size = New System.Drawing.Size(1517, 563)
+        Me.PanelTrabajosPendientes.TabIndex = 41
+        Me.PanelTrabajosPendientes.Visible = False
+        '
+        'pedidoGridView
+        '
+        Me.pedidoGridView.AutoGenerateColumns = False
+        Me.pedidoGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.pedidoGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn88, Me.DataGridViewTextBoxColumn89, Me.DataGridViewTextBoxColumn90, Me.DataGridViewTextBoxColumn91, Me.DataGridViewTextBoxColumn92, Me.DataGridViewTextBoxColumn93, Me.DataGridViewTextBoxColumn94, Me.DataGridViewTextBoxColumn95, Me.DataGridViewTextBoxColumn96})
+        Me.pedidoGridView.DataSource = Me.PedidoBindingSource
+        Me.pedidoGridView.Location = New System.Drawing.Point(1149, 7)
+        Me.pedidoGridView.Name = "pedidoGridView"
+        Me.pedidoGridView.Size = New System.Drawing.Size(114, 138)
+        Me.pedidoGridView.TabIndex = 41
+        Me.pedidoGridView.Visible = False
+        '
+        'DataGridViewTextBoxColumn88
+        '
+        Me.DataGridViewTextBoxColumn88.DataPropertyName = "id_pedido"
+        Me.DataGridViewTextBoxColumn88.HeaderText = "id_pedido"
+        Me.DataGridViewTextBoxColumn88.Name = "DataGridViewTextBoxColumn88"
+        '
+        'DataGridViewTextBoxColumn89
+        '
+        Me.DataGridViewTextBoxColumn89.DataPropertyName = "id_cliente"
+        Me.DataGridViewTextBoxColumn89.HeaderText = "id_cliente"
+        Me.DataGridViewTextBoxColumn89.Name = "DataGridViewTextBoxColumn89"
+        '
+        'DataGridViewTextBoxColumn90
+        '
+        Me.DataGridViewTextBoxColumn90.DataPropertyName = "id_usuario"
+        Me.DataGridViewTextBoxColumn90.HeaderText = "id_usuario"
+        Me.DataGridViewTextBoxColumn90.Name = "DataGridViewTextBoxColumn90"
+        '
+        'DataGridViewTextBoxColumn91
+        '
+        Me.DataGridViewTextBoxColumn91.DataPropertyName = "plazo_entrega"
+        Me.DataGridViewTextBoxColumn91.HeaderText = "plazo_entrega"
+        Me.DataGridViewTextBoxColumn91.Name = "DataGridViewTextBoxColumn91"
+        '
+        'DataGridViewTextBoxColumn92
+        '
+        Me.DataGridViewTextBoxColumn92.DataPropertyName = "plazo_cobro"
+        Me.DataGridViewTextBoxColumn92.HeaderText = "plazo_cobro"
+        Me.DataGridViewTextBoxColumn92.Name = "DataGridViewTextBoxColumn92"
+        '
+        'DataGridViewTextBoxColumn93
+        '
+        Me.DataGridViewTextBoxColumn93.DataPropertyName = "oferta"
+        Me.DataGridViewTextBoxColumn93.HeaderText = "oferta"
+        Me.DataGridViewTextBoxColumn93.Name = "DataGridViewTextBoxColumn93"
+        '
+        'DataGridViewTextBoxColumn94
+        '
+        Me.DataGridViewTextBoxColumn94.DataPropertyName = "precio"
+        Me.DataGridViewTextBoxColumn94.HeaderText = "precio"
+        Me.DataGridViewTextBoxColumn94.Name = "DataGridViewTextBoxColumn94"
+        '
+        'DataGridViewTextBoxColumn95
+        '
+        Me.DataGridViewTextBoxColumn95.DataPropertyName = "estado"
+        Me.DataGridViewTextBoxColumn95.HeaderText = "estado"
+        Me.DataGridViewTextBoxColumn95.Name = "DataGridViewTextBoxColumn95"
+        '
+        'DataGridViewTextBoxColumn96
+        '
+        Me.DataGridViewTextBoxColumn96.DataPropertyName = "nombre_pedido"
+        Me.DataGridViewTextBoxColumn96.HeaderText = "nombre_pedido"
+        Me.DataGridViewTextBoxColumn96.Name = "DataGridViewTextBoxColumn96"
+        '
+        'UsuarioDataGrid
+        '
+        Me.UsuarioDataGrid.AutoGenerateColumns = False
+        Me.UsuarioDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.UsuarioDataGrid.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn79, Me.DataGridViewTextBoxColumn80, Me.DataGridViewTextBoxColumn81, Me.DataGridViewTextBoxColumn82, Me.DataGridViewTextBoxColumn83, Me.DataGridViewTextBoxColumn84, Me.DataGridViewTextBoxColumn85, Me.DataGridViewTextBoxColumn86, Me.DataGridViewTextBoxColumn87})
+        Me.UsuarioDataGrid.DataSource = Me.UsuarioBindingSource
+        Me.UsuarioDataGrid.Location = New System.Drawing.Point(995, 136)
+        Me.UsuarioDataGrid.Name = "UsuarioDataGrid"
+        Me.UsuarioDataGrid.Size = New System.Drawing.Size(130, 125)
+        Me.UsuarioDataGrid.TabIndex = 41
+        Me.UsuarioDataGrid.Visible = False
+        '
+        'DataGridViewTextBoxColumn79
+        '
+        Me.DataGridViewTextBoxColumn79.DataPropertyName = "id_usuario"
+        Me.DataGridViewTextBoxColumn79.HeaderText = "id_usuario"
+        Me.DataGridViewTextBoxColumn79.Name = "DataGridViewTextBoxColumn79"
+        '
+        'DataGridViewTextBoxColumn80
+        '
+        Me.DataGridViewTextBoxColumn80.DataPropertyName = "cuenta"
+        Me.DataGridViewTextBoxColumn80.HeaderText = "cuenta"
+        Me.DataGridViewTextBoxColumn80.Name = "DataGridViewTextBoxColumn80"
+        '
+        'DataGridViewTextBoxColumn81
+        '
+        Me.DataGridViewTextBoxColumn81.DataPropertyName = "pass"
+        Me.DataGridViewTextBoxColumn81.HeaderText = "pass"
+        Me.DataGridViewTextBoxColumn81.Name = "DataGridViewTextBoxColumn81"
+        '
+        'DataGridViewTextBoxColumn82
+        '
+        Me.DataGridViewTextBoxColumn82.DataPropertyName = "nivel"
+        Me.DataGridViewTextBoxColumn82.HeaderText = "nivel"
+        Me.DataGridViewTextBoxColumn82.Name = "DataGridViewTextBoxColumn82"
+        '
+        'DataGridViewTextBoxColumn83
+        '
+        Me.DataGridViewTextBoxColumn83.DataPropertyName = "estado_usuario"
+        Me.DataGridViewTextBoxColumn83.HeaderText = "estado_usuario"
+        Me.DataGridViewTextBoxColumn83.Name = "DataGridViewTextBoxColumn83"
+        '
+        'DataGridViewTextBoxColumn84
+        '
+        Me.DataGridViewTextBoxColumn84.DataPropertyName = "nombre_usuario"
+        Me.DataGridViewTextBoxColumn84.HeaderText = "nombre_usuario"
+        Me.DataGridViewTextBoxColumn84.Name = "DataGridViewTextBoxColumn84"
+        '
+        'DataGridViewTextBoxColumn85
+        '
+        Me.DataGridViewTextBoxColumn85.DataPropertyName = "apellido_usuario"
+        Me.DataGridViewTextBoxColumn85.HeaderText = "apellido_usuario"
+        Me.DataGridViewTextBoxColumn85.Name = "DataGridViewTextBoxColumn85"
+        '
+        'DataGridViewTextBoxColumn86
+        '
+        Me.DataGridViewTextBoxColumn86.DataPropertyName = "numero_usuario"
+        Me.DataGridViewTextBoxColumn86.HeaderText = "numero_usuario"
+        Me.DataGridViewTextBoxColumn86.Name = "DataGridViewTextBoxColumn86"
+        '
+        'DataGridViewTextBoxColumn87
+        '
+        Me.DataGridViewTextBoxColumn87.DataPropertyName = "mail_usuario"
+        Me.DataGridViewTextBoxColumn87.HeaderText = "mail_usuario"
+        Me.DataGridViewTextBoxColumn87.Name = "DataGridViewTextBoxColumn87"
+        '
+        'ClienteGridView
+        '
+        Me.ClienteGridView.AutoGenerateColumns = False
+        Me.ClienteGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.ClienteGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn70, Me.DataGridViewTextBoxColumn71, Me.DataGridViewTextBoxColumn72, Me.DataGridViewTextBoxColumn73, Me.DataGridViewTextBoxColumn74, Me.DataGridViewTextBoxColumn75, Me.DataGridViewTextBoxColumn76, Me.DataGridViewTextBoxColumn77, Me.DataGridViewTextBoxColumn78})
+        Me.ClienteGridView.DataSource = Me.ClienteBindingSource
+        Me.ClienteGridView.Location = New System.Drawing.Point(972, 4)
+        Me.ClienteGridView.Name = "ClienteGridView"
+        Me.ClienteGridView.Size = New System.Drawing.Size(154, 116)
+        Me.ClienteGridView.TabIndex = 41
+        Me.ClienteGridView.Visible = False
+        '
+        'DataGridViewTextBoxColumn70
+        '
+        Me.DataGridViewTextBoxColumn70.DataPropertyName = "id_cliente"
+        Me.DataGridViewTextBoxColumn70.HeaderText = "id_cliente"
+        Me.DataGridViewTextBoxColumn70.Name = "DataGridViewTextBoxColumn70"
+        '
+        'DataGridViewTextBoxColumn71
+        '
+        Me.DataGridViewTextBoxColumn71.DataPropertyName = "nombre"
+        Me.DataGridViewTextBoxColumn71.HeaderText = "nombre"
+        Me.DataGridViewTextBoxColumn71.Name = "DataGridViewTextBoxColumn71"
+        '
+        'DataGridViewTextBoxColumn72
+        '
+        Me.DataGridViewTextBoxColumn72.DataPropertyName = "apellido"
+        Me.DataGridViewTextBoxColumn72.HeaderText = "apellido"
+        Me.DataGridViewTextBoxColumn72.Name = "DataGridViewTextBoxColumn72"
+        '
+        'DataGridViewTextBoxColumn73
+        '
+        Me.DataGridViewTextBoxColumn73.DataPropertyName = "ruc"
+        Me.DataGridViewTextBoxColumn73.HeaderText = "ruc"
+        Me.DataGridViewTextBoxColumn73.Name = "DataGridViewTextBoxColumn73"
+        '
+        'DataGridViewTextBoxColumn74
+        '
+        Me.DataGridViewTextBoxColumn74.DataPropertyName = "numero"
+        Me.DataGridViewTextBoxColumn74.HeaderText = "numero"
+        Me.DataGridViewTextBoxColumn74.Name = "DataGridViewTextBoxColumn74"
+        '
+        'DataGridViewTextBoxColumn75
+        '
+        Me.DataGridViewTextBoxColumn75.DataPropertyName = "mail"
+        Me.DataGridViewTextBoxColumn75.HeaderText = "mail"
+        Me.DataGridViewTextBoxColumn75.Name = "DataGridViewTextBoxColumn75"
+        '
+        'DataGridViewTextBoxColumn76
+        '
+        Me.DataGridViewTextBoxColumn76.DataPropertyName = "estado_cliente"
+        Me.DataGridViewTextBoxColumn76.HeaderText = "estado_cliente"
+        Me.DataGridViewTextBoxColumn76.Name = "DataGridViewTextBoxColumn76"
+        '
+        'DataGridViewTextBoxColumn77
+        '
+        Me.DataGridViewTextBoxColumn77.DataPropertyName = "deuda"
+        Me.DataGridViewTextBoxColumn77.HeaderText = "deuda"
+        Me.DataGridViewTextBoxColumn77.Name = "DataGridViewTextBoxColumn77"
+        '
+        'DataGridViewTextBoxColumn78
+        '
+        Me.DataGridViewTextBoxColumn78.DataPropertyName = "cliente_prioritario"
+        Me.DataGridViewTextBoxColumn78.HeaderText = "cliente_prioritario"
+        Me.DataGridViewTextBoxColumn78.Name = "DataGridViewTextBoxColumn78"
+        '
+        'graficoTrabajos
+        '
+        ChartArea1.Name = "ChartArea1"
+        Me.graficoTrabajos.ChartAreas.Add(ChartArea1)
+        Legend1.Name = "Legend1"
+        Me.graficoTrabajos.Legends.Add(Legend1)
+        Me.graficoTrabajos.Location = New System.Drawing.Point(573, 145)
+        Me.graficoTrabajos.Name = "graficoTrabajos"
+        Series1.ChartArea = "ChartArea1"
+        Series1.Legend = "Legend1"
+        Series1.Name = "Series1"
+        Me.graficoTrabajos.Series.Add(Series1)
+        Me.graficoTrabajos.Size = New System.Drawing.Size(416, 244)
+        Me.graficoTrabajos.TabIndex = 41
+        Me.graficoTrabajos.Text = "Chart2"
+        Me.graficoTrabajos.Visible = False
+        '
+        'graficoPagados
+        '
+        ChartArea2.Name = "ChartArea1"
+        Me.graficoPagados.ChartAreas.Add(ChartArea2)
+        Legend2.Name = "Legend1"
+        Me.graficoPagados.Legends.Add(Legend2)
+        Me.graficoPagados.Location = New System.Drawing.Point(369, 143)
+        Me.graficoPagados.Name = "graficoPagados"
+        Series2.ChartArea = "ChartArea1"
+        Series2.Legend = "Legend1"
+        Series2.Name = "Series1"
+        Me.graficoPagados.Series.Add(Series2)
+        Me.graficoPagados.Size = New System.Drawing.Size(416, 244)
+        Me.graficoPagados.TabIndex = 40
+        Me.graficoPagados.Text = "Chart1"
+        Me.graficoPagados.Visible = False
+        '
+        'btpGenerar
+        '
+        Me.btpGenerar.Location = New System.Drawing.Point(513, 206)
+        Me.btpGenerar.Name = "btpGenerar"
+        Me.btpGenerar.Size = New System.Drawing.Size(194, 23)
+        Me.btpGenerar.TabIndex = 39
+        Me.btpGenerar.Text = "Generar Resumen"
+        Me.btpGenerar.UseVisualStyleBackColor = True
+        '
+        'BindingNavigator1
+        '
+        Me.BindingNavigator1.AddNewItem = Me.BindingNavigatorAddNewItem1
+        Me.BindingNavigator1.CountItem = Me.BindingNavigatorCountItem1
+        Me.BindingNavigator1.DeleteItem = Me.BindingNavigatorDeleteItem1
+        Me.BindingNavigator1.ImageScalingSize = New System.Drawing.Size(20, 20)
+        Me.BindingNavigator1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BindingNavigatorMoveFirstItem1, Me.BindingNavigatorMovePreviousItem1, Me.BindingNavigatorSeparator3, Me.BindingNavigatorPositionItem1, Me.BindingNavigatorCountItem1, Me.BindingNavigatorSeparator4, Me.BindingNavigatorMoveNextItem1, Me.BindingNavigatorMoveLastItem1, Me.BindingNavigatorSeparator5, Me.BindingNavigatorAddNewItem1, Me.BindingNavigatorDeleteItem1})
+        Me.BindingNavigator1.Location = New System.Drawing.Point(0, 0)
+        Me.BindingNavigator1.MoveFirstItem = Me.BindingNavigatorMoveFirstItem1
+        Me.BindingNavigator1.MoveLastItem = Me.BindingNavigatorMoveLastItem1
+        Me.BindingNavigator1.MoveNextItem = Me.BindingNavigatorMoveNextItem1
+        Me.BindingNavigator1.MovePreviousItem = Me.BindingNavigatorMovePreviousItem1
+        Me.BindingNavigator1.Name = "BindingNavigator1"
+        Me.BindingNavigator1.PositionItem = Me.BindingNavigatorPositionItem1
+        Me.BindingNavigator1.Size = New System.Drawing.Size(1517, 27)
+        Me.BindingNavigator1.TabIndex = 38
+        Me.BindingNavigator1.Text = "BindingNavigator1"
+        '
+        'BindingNavigatorAddNewItem1
+        '
+        Me.BindingNavigatorAddNewItem1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.BindingNavigatorAddNewItem1.Image = CType(resources.GetObject("BindingNavigatorAddNewItem1.Image"), System.Drawing.Image)
+        Me.BindingNavigatorAddNewItem1.Name = "BindingNavigatorAddNewItem1"
+        Me.BindingNavigatorAddNewItem1.RightToLeftAutoMirrorImage = True
+        Me.BindingNavigatorAddNewItem1.Size = New System.Drawing.Size(24, 24)
+        Me.BindingNavigatorAddNewItem1.Text = "Add new"
+        '
+        'BindingNavigatorCountItem1
+        '
+        Me.BindingNavigatorCountItem1.Name = "BindingNavigatorCountItem1"
+        Me.BindingNavigatorCountItem1.Size = New System.Drawing.Size(37, 24)
+        Me.BindingNavigatorCountItem1.Text = "de {0}"
+        Me.BindingNavigatorCountItem1.ToolTipText = "Total number of items"
+        '
+        'BindingNavigatorDeleteItem1
+        '
+        Me.BindingNavigatorDeleteItem1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.BindingNavigatorDeleteItem1.Image = CType(resources.GetObject("BindingNavigatorDeleteItem1.Image"), System.Drawing.Image)
+        Me.BindingNavigatorDeleteItem1.Name = "BindingNavigatorDeleteItem1"
+        Me.BindingNavigatorDeleteItem1.RightToLeftAutoMirrorImage = True
+        Me.BindingNavigatorDeleteItem1.Size = New System.Drawing.Size(24, 24)
+        Me.BindingNavigatorDeleteItem1.Text = "Delete"
+        '
+        'BindingNavigatorMoveFirstItem1
+        '
+        Me.BindingNavigatorMoveFirstItem1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.BindingNavigatorMoveFirstItem1.Image = CType(resources.GetObject("BindingNavigatorMoveFirstItem1.Image"), System.Drawing.Image)
+        Me.BindingNavigatorMoveFirstItem1.Name = "BindingNavigatorMoveFirstItem1"
+        Me.BindingNavigatorMoveFirstItem1.RightToLeftAutoMirrorImage = True
+        Me.BindingNavigatorMoveFirstItem1.Size = New System.Drawing.Size(24, 24)
+        Me.BindingNavigatorMoveFirstItem1.Text = "Move first"
+        '
+        'BindingNavigatorMovePreviousItem1
+        '
+        Me.BindingNavigatorMovePreviousItem1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.BindingNavigatorMovePreviousItem1.Image = CType(resources.GetObject("BindingNavigatorMovePreviousItem1.Image"), System.Drawing.Image)
+        Me.BindingNavigatorMovePreviousItem1.Name = "BindingNavigatorMovePreviousItem1"
+        Me.BindingNavigatorMovePreviousItem1.RightToLeftAutoMirrorImage = True
+        Me.BindingNavigatorMovePreviousItem1.Size = New System.Drawing.Size(24, 24)
+        Me.BindingNavigatorMovePreviousItem1.Text = "Move previous"
+        '
+        'BindingNavigatorSeparator3
+        '
+        Me.BindingNavigatorSeparator3.Name = "BindingNavigatorSeparator3"
+        Me.BindingNavigatorSeparator3.Size = New System.Drawing.Size(6, 27)
+        '
+        'BindingNavigatorPositionItem1
+        '
+        Me.BindingNavigatorPositionItem1.AccessibleName = "Position"
+        Me.BindingNavigatorPositionItem1.AutoSize = False
+        Me.BindingNavigatorPositionItem1.Name = "BindingNavigatorPositionItem1"
+        Me.BindingNavigatorPositionItem1.Size = New System.Drawing.Size(38, 23)
+        Me.BindingNavigatorPositionItem1.Text = "0"
+        Me.BindingNavigatorPositionItem1.ToolTipText = "Current position"
+        '
+        'BindingNavigatorSeparator4
+        '
+        Me.BindingNavigatorSeparator4.Name = "BindingNavigatorSeparator4"
+        Me.BindingNavigatorSeparator4.Size = New System.Drawing.Size(6, 27)
+        '
+        'BindingNavigatorMoveNextItem1
+        '
+        Me.BindingNavigatorMoveNextItem1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.BindingNavigatorMoveNextItem1.Image = CType(resources.GetObject("BindingNavigatorMoveNextItem1.Image"), System.Drawing.Image)
+        Me.BindingNavigatorMoveNextItem1.Name = "BindingNavigatorMoveNextItem1"
+        Me.BindingNavigatorMoveNextItem1.RightToLeftAutoMirrorImage = True
+        Me.BindingNavigatorMoveNextItem1.Size = New System.Drawing.Size(24, 24)
+        Me.BindingNavigatorMoveNextItem1.Text = "Move next"
+        '
+        'BindingNavigatorMoveLastItem1
+        '
+        Me.BindingNavigatorMoveLastItem1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.BindingNavigatorMoveLastItem1.Image = CType(resources.GetObject("BindingNavigatorMoveLastItem1.Image"), System.Drawing.Image)
+        Me.BindingNavigatorMoveLastItem1.Name = "BindingNavigatorMoveLastItem1"
+        Me.BindingNavigatorMoveLastItem1.RightToLeftAutoMirrorImage = True
+        Me.BindingNavigatorMoveLastItem1.Size = New System.Drawing.Size(24, 24)
+        Me.BindingNavigatorMoveLastItem1.Text = "Move last"
+        '
+        'BindingNavigatorSeparator5
+        '
+        Me.BindingNavigatorSeparator5.Name = "BindingNavigatorSeparator5"
+        Me.BindingNavigatorSeparator5.Size = New System.Drawing.Size(6, 27)
+        '
+        'idClientesAux
+        '
+        Me.idClientesAux.FormattingEnabled = True
+        Me.idClientesAux.Location = New System.Drawing.Point(626, 71)
+        Me.idClientesAux.Name = "idClientesAux"
+        Me.idClientesAux.Size = New System.Drawing.Size(40, 69)
+        Me.idClientesAux.TabIndex = 35
+        Me.idClientesAux.Visible = False
+        '
+        'pbBorrar
+        '
+        Me.pbBorrar.Location = New System.Drawing.Point(117, 164)
+        Me.pbBorrar.Margin = New System.Windows.Forms.Padding(2)
+        Me.pbBorrar.Name = "pbBorrar"
+        Me.pbBorrar.Size = New System.Drawing.Size(60, 24)
+        Me.pbBorrar.TabIndex = 34
+        Me.pbBorrar.Text = "Borrar"
+        Me.pbBorrar.UseVisualStyleBackColor = True
+        '
+        'pbCambiar
+        '
+        Me.pbCambiar.Location = New System.Drawing.Point(478, 496)
+        Me.pbCambiar.Margin = New System.Windows.Forms.Padding(2)
+        Me.pbCambiar.Name = "pbCambiar"
+        Me.pbCambiar.Size = New System.Drawing.Size(64, 21)
+        Me.pbCambiar.TabIndex = 33
+        Me.pbCambiar.Text = "Cambiar"
+        Me.pbCambiar.UseVisualStyleBackColor = True
+        '
+        'label47
+        '
+        Me.label47.AutoSize = True
+        Me.label47.Location = New System.Drawing.Point(279, 503)
+        Me.label47.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.label47.Name = "label47"
+        Me.label47.Size = New System.Drawing.Size(107, 13)
+        Me.label47.TabIndex = 31
+        Me.label47.Text = "Cambiar de estado a:"
+        '
+        'pcEstado
+        '
+        Me.pcEstado.FormattingEnabled = True
+        Me.pcEstado.Location = New System.Drawing.Point(388, 496)
+        Me.pcEstado.Margin = New System.Windows.Forms.Padding(2)
+        Me.pcEstado.Name = "pcEstado"
+        Me.pcEstado.Size = New System.Drawing.Size(82, 21)
+        Me.pcEstado.TabIndex = 32
+        '
+        'idClienteActual
+        '
+        Me.idClienteActual.AutoSize = True
+        Me.idClienteActual.Location = New System.Drawing.Point(8, 175)
+        Me.idClienteActual.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.idClienteActual.Name = "idClienteActual"
+        Me.idClienteActual.Size = New System.Drawing.Size(0, 13)
+        Me.idClienteActual.TabIndex = 30
+        Me.idClienteActual.Visible = False
+        '
+        'noHayPendientes
+        '
+        Me.noHayPendientes.AutoSize = True
+        Me.noHayPendientes.ForeColor = System.Drawing.Color.Red
+        Me.noHayPendientes.Location = New System.Drawing.Point(6, 143)
+        Me.noHayPendientes.Name = "noHayPendientes"
+        Me.noHayPendientes.Size = New System.Drawing.Size(219, 13)
+        Me.noHayPendientes.TabIndex = 29
+        Me.noHayPendientes.Text = "No existe trabajos cargados para este cliente"
+        Me.noHayPendientes.Visible = False
+        '
+        'noExiste
+        '
+        Me.noExiste.AutoSize = True
+        Me.noExiste.ForeColor = System.Drawing.Color.Red
+        Me.noExiste.Location = New System.Drawing.Point(6, 145)
+        Me.noExiste.Name = "noExiste"
+        Me.noExiste.Size = New System.Drawing.Size(96, 13)
+        Me.noExiste.TabIndex = 28
+        Me.noExiste.Text = "No existe el cliente"
+        Me.noExiste.Visible = False
+        '
+        'sinDatos
+        '
+        Me.sinDatos.AutoSize = True
+        Me.sinDatos.ForeColor = System.Drawing.Color.Red
+        Me.sinDatos.Location = New System.Drawing.Point(7, 145)
+        Me.sinDatos.Name = "sinDatos"
+        Me.sinDatos.Size = New System.Drawing.Size(146, 13)
+        Me.sinDatos.TabIndex = 27
+        Me.sinDatos.Text = "Complete al menos un campo"
+        Me.sinDatos.Visible = False
+        '
+        'Label55
+        '
+        Me.Label55.AutoSize = True
+        Me.Label55.Location = New System.Drawing.Point(5, 121)
+        Me.Label55.Name = "Label55"
+        Me.Label55.Size = New System.Drawing.Size(108, 13)
+        Me.Label55.TabIndex = 26
+        Me.Label55.Text = "Identificacion o RUC:"
+        '
+        'TextIden
+        '
+        Me.TextIden.Location = New System.Drawing.Point(117, 119)
+        Me.TextIden.Name = "TextIden"
+        Me.TextIden.Size = New System.Drawing.Size(142, 20)
+        Me.TextIden.TabIndex = 25
+        Me.TextIden.Tag = ""
+        '
+        'Label54
+        '
+        Me.Label54.AutoSize = True
+        Me.Label54.Location = New System.Drawing.Point(5, 98)
+        Me.Label54.Name = "Label54"
+        Me.Label54.Size = New System.Drawing.Size(98, 13)
+        Me.Label54.TabIndex = 24
+        Me.Label54.Text = "Apellido del cliente:"
+        '
+        'TextApellido
+        '
+        Me.TextApellido.Location = New System.Drawing.Point(117, 95)
+        Me.TextApellido.Name = "TextApellido"
+        Me.TextApellido.Size = New System.Drawing.Size(142, 20)
+        Me.TextApellido.TabIndex = 23
+        Me.TextApellido.Tag = ""
+        '
+        'Label53
+        '
+        Me.Label53.AutoSize = True
+        Me.Label53.Location = New System.Drawing.Point(702, 0)
+        Me.Label53.Name = "Label53"
+        Me.Label53.Size = New System.Drawing.Size(252, 13)
+        Me.Label53.TabIndex = 19
+        Me.Label53.Text = "Trabajos pendientes agendados por fecha de cobro"
+        '
+        'calendarioCobro
+        '
+        Me.calendarioCobro.ForeColor = System.Drawing.SystemColors.Highlight
+        Me.calendarioCobro.Location = New System.Drawing.Point(705, 28)
+        Me.calendarioCobro.Name = "calendarioCobro"
+        Me.calendarioCobro.TabIndex = 18
+        '
+        'Label52
+        '
+        Me.Label52.AutoSize = True
+        Me.Label52.Location = New System.Drawing.Point(338, 0)
+        Me.Label52.Name = "Label52"
+        Me.Label52.Size = New System.Drawing.Size(261, 13)
+        Me.Label52.TabIndex = 17
+        Me.Label52.Text = "Trabajos pendientes agendados por fecha de entrega"
+        '
+        'TableLayoutPanel1
+        '
+        Me.TableLayoutPanel1.ColumnCount = 7
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 14.0!))
+        Me.TableLayoutPanel1.Controls.Add(Me.Label51, 6, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.Label50, 5, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.Label49, 4, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.Label56, 1, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.labelRuc, 2, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.Label58, 3, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.pcProyecto, 3, 1)
+        Me.TableLayoutPanel1.Controls.Add(Me.ptNombre, 0, 1)
+        Me.TableLayoutPanel1.Controls.Add(Me.ptApellido, 1, 1)
+        Me.TableLayoutPanel1.Controls.Add(Me.ptRuc, 2, 1)
+        Me.TableLayoutPanel1.Controls.Add(Me.ptDescrip, 6, 1)
+        Me.TableLayoutPanel1.Controls.Add(Me.ptEntrega, 4, 1)
+        Me.TableLayoutPanel1.Controls.Add(Me.ptCobro, 5, 1)
+        Me.TableLayoutPanel1.Controls.Add(Me.Label48, 0, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.ptPrecio, 6, 3)
+        Me.TableLayoutPanel1.Controls.Add(Me.Label45, 6, 2)
+        Me.TableLayoutPanel1.Controls.Add(Me.Label46, 0, 3)
+        Me.TableLayoutPanel1.Controls.Add(Me.lbEstado, 1, 3)
+        Me.TableLayoutPanel1.Location = New System.Drawing.Point(280, 294)
+        Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
+        Me.TableLayoutPanel1.RowCount = 4
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.542713!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 91.45728!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 16.0!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24.0!))
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(848, 197)
+        Me.TableLayoutPanel1.TabIndex = 15
+        '
+        'Label51
+        '
+        Me.Label51.AutoSize = True
+        Me.Label51.Location = New System.Drawing.Point(646, 0)
+        Me.Label51.Name = "Label51"
+        Me.Label51.Size = New System.Drawing.Size(63, 13)
+        Me.Label51.TabIndex = 10
+        Me.Label51.Text = "Descripcion"
+        '
+        'Label50
+        '
+        Me.Label50.AutoSize = True
+        Me.Label50.Location = New System.Drawing.Point(530, 0)
+        Me.Label50.Name = "Label50"
+        Me.Label50.Size = New System.Drawing.Size(78, 13)
+        Me.Label50.TabIndex = 9
+        Me.Label50.Text = "Plazo de cobro"
+        '
+        'Label49
+        '
+        Me.Label49.AutoSize = True
+        Me.Label49.Location = New System.Drawing.Point(423, 0)
+        Me.Label49.Name = "Label49"
+        Me.Label49.Size = New System.Drawing.Size(87, 13)
+        Me.Label49.TabIndex = 8
+        Me.Label49.Text = "Plazo de entrega"
+        '
+        'Label56
+        '
+        Me.Label56.AutoSize = True
+        Me.Label56.Location = New System.Drawing.Point(104, 0)
+        Me.Label56.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label56.Name = "Label56"
+        Me.Label56.Size = New System.Drawing.Size(44, 13)
+        Me.Label56.TabIndex = 12
+        Me.Label56.Text = "Apellido"
+        '
+        'labelRuc
+        '
+        Me.labelRuc.AutoSize = True
+        Me.labelRuc.Location = New System.Drawing.Point(202, 0)
+        Me.labelRuc.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.labelRuc.Name = "labelRuc"
+        Me.labelRuc.Size = New System.Drawing.Size(30, 13)
+        Me.labelRuc.TabIndex = 13
+        Me.labelRuc.Text = "RUC"
+        '
+        'Label58
+        '
+        Me.Label58.AutoSize = True
+        Me.Label58.Location = New System.Drawing.Point(308, 0)
+        Me.Label58.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label58.Name = "Label58"
+        Me.Label58.Size = New System.Drawing.Size(49, 13)
+        Me.Label58.TabIndex = 14
+        Me.Label58.Text = "Proyecto"
+        '
+        'pcProyecto
+        '
+        Me.pcProyecto.FormattingEnabled = True
+        Me.pcProyecto.Location = New System.Drawing.Point(308, 15)
+        Me.pcProyecto.Margin = New System.Windows.Forms.Padding(2)
+        Me.pcProyecto.Name = "pcProyecto"
+        Me.pcProyecto.Size = New System.Drawing.Size(110, 21)
+        Me.pcProyecto.TabIndex = 17
+        '
+        'ptNombre
+        '
+        Me.ptNombre.Location = New System.Drawing.Point(2, 15)
+        Me.ptNombre.Margin = New System.Windows.Forms.Padding(2)
+        Me.ptNombre.Name = "ptNombre"
+        Me.ptNombre.Size = New System.Drawing.Size(98, 20)
+        Me.ptNombre.TabIndex = 18
+        '
+        'ptApellido
+        '
+        Me.ptApellido.Location = New System.Drawing.Point(104, 15)
+        Me.ptApellido.Margin = New System.Windows.Forms.Padding(2)
+        Me.ptApellido.Name = "ptApellido"
+        Me.ptApellido.Size = New System.Drawing.Size(94, 20)
+        Me.ptApellido.TabIndex = 19
+        '
+        'ptRuc
+        '
+        Me.ptRuc.Location = New System.Drawing.Point(202, 15)
+        Me.ptRuc.Margin = New System.Windows.Forms.Padding(2)
+        Me.ptRuc.Name = "ptRuc"
+        Me.ptRuc.Size = New System.Drawing.Size(102, 20)
+        Me.ptRuc.TabIndex = 20
+        '
+        'ptDescrip
+        '
+        Me.ptDescrip.Location = New System.Drawing.Point(645, 15)
+        Me.ptDescrip.Margin = New System.Windows.Forms.Padding(2)
+        Me.ptDescrip.Multiline = True
+        Me.ptDescrip.Name = "ptDescrip"
+        Me.ptDescrip.Size = New System.Drawing.Size(191, 139)
+        Me.ptDescrip.TabIndex = 21
+        '
+        'ptEntrega
+        '
+        Me.ptEntrega.Location = New System.Drawing.Point(422, 15)
+        Me.ptEntrega.Margin = New System.Windows.Forms.Padding(2)
+        Me.ptEntrega.Name = "ptEntrega"
+        Me.ptEntrega.Size = New System.Drawing.Size(103, 20)
+        Me.ptEntrega.TabIndex = 24
+        '
+        'ptCobro
+        '
+        Me.ptCobro.Location = New System.Drawing.Point(529, 15)
+        Me.ptCobro.Margin = New System.Windows.Forms.Padding(2)
+        Me.ptCobro.Name = "ptCobro"
+        Me.ptCobro.Size = New System.Drawing.Size(112, 20)
+        Me.ptCobro.TabIndex = 25
+        '
+        'Label48
+        '
+        Me.Label48.AutoSize = True
+        Me.Label48.Location = New System.Drawing.Point(3, 0)
+        Me.Label48.Name = "Label48"
+        Me.Label48.Size = New System.Drawing.Size(44, 13)
+        Me.Label48.TabIndex = 7
+        Me.Label48.Text = "Nombre"
+        '
+        'ptPrecio
+        '
+        Me.ptPrecio.Location = New System.Drawing.Point(645, 174)
+        Me.ptPrecio.Margin = New System.Windows.Forms.Padding(2)
+        Me.ptPrecio.Name = "ptPrecio"
+        Me.ptPrecio.Size = New System.Drawing.Size(122, 20)
+        Me.ptPrecio.TabIndex = 29
+        '
+        'Label45
+        '
+        Me.Label45.AutoSize = True
+        Me.Label45.Location = New System.Drawing.Point(645, 156)
+        Me.Label45.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label45.Name = "Label45"
+        Me.Label45.Size = New System.Drawing.Size(37, 13)
+        Me.Label45.TabIndex = 28
+        Me.Label45.Text = "Precio"
+        '
+        'Label46
+        '
+        Me.Label46.AutoSize = True
+        Me.Label46.Location = New System.Drawing.Point(2, 172)
+        Me.Label46.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label46.Name = "Label46"
+        Me.Label46.Size = New System.Drawing.Size(78, 13)
+        Me.Label46.TabIndex = 28
+        Me.Label46.Text = "Estado actual: "
+        '
+        'lbEstado
+        '
+        Me.lbEstado.AutoSize = True
+        Me.lbEstado.Location = New System.Drawing.Point(104, 172)
+        Me.lbEstado.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.lbEstado.Name = "lbEstado"
+        Me.lbEstado.Size = New System.Drawing.Size(51, 13)
+        Me.lbEstado.TabIndex = 29
+        Me.lbEstado.Text = "ESTADO"
+        '
+        'botonBuscar
+        '
+        Me.botonBuscar.Location = New System.Drawing.Point(184, 164)
+        Me.botonBuscar.Name = "botonBuscar"
+        Me.botonBuscar.Size = New System.Drawing.Size(75, 24)
+        Me.botonBuscar.TabIndex = 11
+        Me.botonBuscar.Text = "Buscar"
+        Me.botonBuscar.UseVisualStyleBackColor = True
+        '
+        'calendarioEntregas
+        '
+        Me.calendarioEntregas.BackColor = System.Drawing.SystemColors.Window
+        Me.calendarioEntregas.ForeColor = System.Drawing.SystemColors.Highlight
+        Me.calendarioEntregas.Location = New System.Drawing.Point(341, 28)
+        Me.calendarioEntregas.Name = "calendarioEntregas"
+        Me.calendarioEntregas.TabIndex = 10
+        Me.calendarioEntregas.TrailingForeColor = System.Drawing.SystemColors.Highlight
+        '
+        'resultadosPedidos
+        '
+        Me.resultadosPedidos.FormattingEnabled = True
+        Me.resultadosPedidos.Location = New System.Drawing.Point(10, 197)
+        Me.resultadosPedidos.Name = "resultadosPedidos"
+        Me.resultadosPedidos.Size = New System.Drawing.Size(248, 238)
+        Me.resultadosPedidos.TabIndex = 9
+        '
+        'Label44
+        '
+        Me.Label44.AutoSize = True
+        Me.Label44.Location = New System.Drawing.Point(6, 106)
+        Me.Label44.Name = "Label44"
+        Me.Label44.Size = New System.Drawing.Size(0, 13)
+        Me.Label44.TabIndex = 4
+        '
+        'Label43
+        '
+        Me.Label43.AutoSize = True
+        Me.Label43.Location = New System.Drawing.Point(5, 75)
+        Me.Label43.Name = "Label43"
+        Me.Label43.Size = New System.Drawing.Size(98, 13)
+        Me.Label43.TabIndex = 3
+        Me.Label43.Text = "Nombre del cliente:"
+        '
+        'TextCliente
+        '
+        Me.TextCliente.Location = New System.Drawing.Point(117, 71)
+        Me.TextCliente.Name = "TextCliente"
+        Me.TextCliente.Size = New System.Drawing.Size(142, 20)
+        Me.TextCliente.TabIndex = 2
+        Me.TextCliente.Tag = ""
+        '
+        'Label42
+        '
+        Me.Label42.AutoSize = True
+        Me.Label42.Location = New System.Drawing.Point(6, 49)
+        Me.Label42.Name = "Label42"
+        Me.Label42.Size = New System.Drawing.Size(156, 13)
+        Me.Label42.TabIndex = 1
+        Me.Label42.Text = "Buscar trabajos pendientes por:"
+        '
+        'Label41
+        '
+        Me.Label41.AutoSize = True
+        Me.Label41.Location = New System.Drawing.Point(6, 10)
+        Me.Label41.Name = "Label41"
+        Me.Label41.Size = New System.Drawing.Size(104, 13)
+        Me.Label41.TabIndex = 0
+        Me.Label41.Text = "Trabajos Pendientes"
+        '
+        'GroupBox4Stock
+        '
+        Me.GroupBox4Stock.Controls.Add(Me.GroupBoxModificarProducto)
+        Me.GroupBox4Stock.Controls.Add(Me.GroupBoxIngresodeProducto)
+        Me.GroupBox4Stock.Controls.Add(Me.GroupBoxNuevoProducto)
+        Me.GroupBox4Stock.Controls.Add(Me.Button27)
+        Me.GroupBox4Stock.Controls.Add(Me.Button26)
+        Me.GroupBox4Stock.Controls.Add(Me.Button25)
+        Me.GroupBox4Stock.Controls.Add(Me.Button24NuevoProducto)
+        Me.GroupBox4Stock.Location = New System.Drawing.Point(12, 73)
+        Me.GroupBox4Stock.Name = "GroupBox4Stock"
+        Me.GroupBox4Stock.Size = New System.Drawing.Size(1317, 605)
+        Me.GroupBox4Stock.TabIndex = 42
+        Me.GroupBox4Stock.TabStop = False
+        Me.GroupBox4Stock.Text = "Stock"
+        Me.GroupBox4Stock.Visible = False
+        '
+        'GroupBoxModificarProducto
+        '
+        Me.GroupBoxModificarProducto.Controls.Add(Me.LabelModificarProducto)
+        Me.GroupBoxModificarProducto.Controls.Add(Me.ButtonCerrar3)
+        Me.GroupBoxModificarProducto.Controls.Add(Me.ButtonModificarProducto)
+        Me.GroupBoxModificarProducto.Controls.Add(Me.TextBoxPrecio2)
+        Me.GroupBoxModificarProducto.Controls.Add(Me.LabelPrecio)
+        Me.GroupBoxModificarProducto.Controls.Add(Me.TextBoxDescripcion2)
+        Me.GroupBoxModificarProducto.Controls.Add(Me.LabelDescripcion)
+        Me.GroupBoxModificarProducto.Controls.Add(Me.TextBoxCodigo2)
+        Me.GroupBoxModificarProducto.Controls.Add(Me.LabelCodigo)
+        Me.GroupBoxModificarProducto.Location = New System.Drawing.Point(896, 48)
+        Me.GroupBoxModificarProducto.Name = "GroupBoxModificarProducto"
+        Me.GroupBoxModificarProducto.Size = New System.Drawing.Size(321, 359)
+        Me.GroupBoxModificarProducto.TabIndex = 0
+        Me.GroupBoxModificarProducto.TabStop = False
+        Me.GroupBoxModificarProducto.Text = "Modificar Producto"
+        Me.GroupBoxModificarProducto.Visible = False
+        '
+        'LabelModificarProducto
+        '
+        Me.LabelModificarProducto.AutoSize = True
+        Me.LabelModificarProducto.Location = New System.Drawing.Point(59, 241)
+        Me.LabelModificarProducto.Name = "LabelModificarProducto"
+        Me.LabelModificarProducto.Size = New System.Drawing.Size(119, 13)
+        Me.LabelModificarProducto.TabIndex = 14
+        Me.LabelModificarProducto.Text = "LabelModificarProducto"
+        Me.LabelModificarProducto.Visible = False
+        '
+        'ButtonCerrar3
+        '
+        Me.ButtonCerrar3.Location = New System.Drawing.Point(185, 294)
+        Me.ButtonCerrar3.Name = "ButtonCerrar3"
+        Me.ButtonCerrar3.Size = New System.Drawing.Size(106, 23)
+        Me.ButtonCerrar3.TabIndex = 10
+        Me.ButtonCerrar3.Text = "Cerrar"
+        Me.ButtonCerrar3.UseVisualStyleBackColor = True
+        '
+        'ButtonModificarProducto
+        '
+        Me.ButtonModificarProducto.Location = New System.Drawing.Point(34, 294)
+        Me.ButtonModificarProducto.Name = "ButtonModificarProducto"
+        Me.ButtonModificarProducto.Size = New System.Drawing.Size(106, 23)
+        Me.ButtonModificarProducto.TabIndex = 9
+        Me.ButtonModificarProducto.Text = "Modificar Producto"
+        Me.ButtonModificarProducto.UseVisualStyleBackColor = True
+        '
+        'TextBoxPrecio2
+        '
+        Me.TextBoxPrecio2.Location = New System.Drawing.Point(131, 118)
+        Me.TextBoxPrecio2.Name = "TextBoxPrecio2"
+        Me.TextBoxPrecio2.Size = New System.Drawing.Size(161, 20)
+        Me.TextBoxPrecio2.TabIndex = 8
+        '
+        'LabelPrecio
+        '
+        Me.LabelPrecio.AutoSize = True
+        Me.LabelPrecio.Location = New System.Drawing.Point(40, 121)
+        Me.LabelPrecio.Name = "LabelPrecio"
+        Me.LabelPrecio.Size = New System.Drawing.Size(85, 13)
+        Me.LabelPrecio.TabIndex = 5
+        Me.LabelPrecio.Text = "Precio de venta:"
+        '
+        'TextBoxDescripcion2
+        '
+        Me.TextBoxDescripcion2.Location = New System.Drawing.Point(131, 83)
+        Me.TextBoxDescripcion2.Name = "TextBoxDescripcion2"
+        Me.TextBoxDescripcion2.Size = New System.Drawing.Size(161, 20)
+        Me.TextBoxDescripcion2.TabIndex = 7
+        '
+        'LabelDescripcion
+        '
+        Me.LabelDescripcion.AutoSize = True
+        Me.LabelDescripcion.Location = New System.Drawing.Point(59, 86)
+        Me.LabelDescripcion.Name = "LabelDescripcion"
+        Me.LabelDescripcion.Size = New System.Drawing.Size(66, 13)
+        Me.LabelDescripcion.TabIndex = 4
+        Me.LabelDescripcion.Text = "Descripción:"
+        '
+        'TextBoxCodigo2
+        '
+        Me.TextBoxCodigo2.Location = New System.Drawing.Point(131, 48)
+        Me.TextBoxCodigo2.Name = "TextBoxCodigo2"
+        Me.TextBoxCodigo2.Size = New System.Drawing.Size(161, 20)
+        Me.TextBoxCodigo2.TabIndex = 6
+        '
+        'LabelCodigo
+        '
+        Me.LabelCodigo.AutoSize = True
+        Me.LabelCodigo.Location = New System.Drawing.Point(82, 51)
+        Me.LabelCodigo.Name = "LabelCodigo"
+        Me.LabelCodigo.Size = New System.Drawing.Size(43, 13)
+        Me.LabelCodigo.TabIndex = 3
+        Me.LabelCodigo.Text = "Código:"
+        '
+        'GroupBoxIngresodeProducto
+        '
+        Me.GroupBoxIngresodeProducto.Controls.Add(Me.TextBox18)
+        Me.GroupBoxIngresodeProducto.Controls.Add(Me.TextBox15)
+        Me.GroupBoxIngresodeProducto.Controls.Add(Me.Label57)
+        Me.GroupBoxIngresodeProducto.Controls.Add(Me.TextBoxDeshabilitado2)
+        Me.GroupBoxIngresodeProducto.Controls.Add(Me.TextBoxDeshabilitado)
+        Me.GroupBoxIngresodeProducto.Controls.Add(Me.LabelIngresoProducto)
+        Me.GroupBoxIngresodeProducto.Controls.Add(Me.ButtonCerrar2)
+        Me.GroupBoxIngresodeProducto.Controls.Add(Me.ButtonInsertarProducto)
+        Me.GroupBoxIngresodeProducto.Controls.Add(Me.TextBoxIVA)
+        Me.GroupBoxIngresodeProducto.Controls.Add(Me.TextBoxPreciodeCompra)
+        Me.GroupBoxIngresodeProducto.Controls.Add(Me.TextBoxProveedor)
+        Me.GroupBoxIngresodeProducto.Controls.Add(Me.TextBoxFacturaNro)
+        Me.GroupBoxIngresodeProducto.Controls.Add(Me.TextBoxSeleccionarCantidad)
+        Me.GroupBoxIngresodeProducto.Controls.Add(Me.TextBoxSeleccionarProducto)
+        Me.GroupBoxIngresodeProducto.Controls.Add(Me.Label59)
+        Me.GroupBoxIngresodeProducto.Controls.Add(Me.Label60)
+        Me.GroupBoxIngresodeProducto.Controls.Add(Me.Label61)
+        Me.GroupBoxIngresodeProducto.Controls.Add(Me.Label62)
+        Me.GroupBoxIngresodeProducto.Controls.Add(Me.Label63)
+        Me.GroupBoxIngresodeProducto.Controls.Add(Me.Label64)
+        Me.GroupBoxIngresodeProducto.Location = New System.Drawing.Point(543, 48)
+        Me.GroupBoxIngresodeProducto.Name = "GroupBoxIngresodeProducto"
+        Me.GroupBoxIngresodeProducto.Size = New System.Drawing.Size(321, 359)
+        Me.GroupBoxIngresodeProducto.TabIndex = 5
+        Me.GroupBoxIngresodeProducto.TabStop = False
+        Me.GroupBoxIngresodeProducto.Text = "Ingreso de Producto"
+        Me.GroupBoxIngresodeProducto.Visible = False
+        '
+        'TextBox18
+        '
+        Me.TextBox18.Location = New System.Drawing.Point(220, 66)
+        Me.TextBox18.Name = "TextBox18"
+        Me.TextBox18.ReadOnly = True
+        Me.TextBox18.Size = New System.Drawing.Size(93, 20)
+        Me.TextBox18.TabIndex = 18
+        '
+        'TextBox15
+        '
+        Me.TextBox15.Location = New System.Drawing.Point(144, 236)
+        Me.TextBox15.Name = "TextBox15"
+        Me.TextBox15.Size = New System.Drawing.Size(169, 20)
+        Me.TextBox15.TabIndex = 17
+        '
+        'Label57
+        '
+        Me.Label57.AutoSize = True
+        Me.Label57.Location = New System.Drawing.Point(5, 240)
+        Me.Label57.Name = "Label57"
+        Me.Label57.Size = New System.Drawing.Size(133, 13)
+        Me.Label57.TabIndex = 16
+        Me.Label57.Text = "Precio de Compra Unitario:"
+        '
+        'TextBoxDeshabilitado2
+        '
+        Me.TextBoxDeshabilitado2.Location = New System.Drawing.Point(220, 32)
+        Me.TextBoxDeshabilitado2.Name = "TextBoxDeshabilitado2"
+        Me.TextBoxDeshabilitado2.ReadOnly = True
+        Me.TextBoxDeshabilitado2.Size = New System.Drawing.Size(93, 20)
+        Me.TextBoxDeshabilitado2.TabIndex = 15
+        '
+        'TextBoxDeshabilitado
+        '
+        Me.TextBoxDeshabilitado.Location = New System.Drawing.Point(219, 134)
+        Me.TextBoxDeshabilitado.Name = "TextBoxDeshabilitado"
+        Me.TextBoxDeshabilitado.ReadOnly = True
+        Me.TextBoxDeshabilitado.Size = New System.Drawing.Size(93, 20)
+        Me.TextBoxDeshabilitado.TabIndex = 14
+        '
+        'LabelIngresoProducto
+        '
+        Me.LabelIngresoProducto.AutoSize = True
+        Me.LabelIngresoProducto.Location = New System.Drawing.Point(71, 289)
+        Me.LabelIngresoProducto.Name = "LabelIngresoProducto"
+        Me.LabelIngresoProducto.Size = New System.Drawing.Size(111, 13)
+        Me.LabelIngresoProducto.TabIndex = 9
+        Me.LabelIngresoProducto.Text = "LabelIngresoProducto"
+        Me.LabelIngresoProducto.Visible = False
+        '
+        'ButtonCerrar2
+        '
+        Me.ButtonCerrar2.Location = New System.Drawing.Point(181, 321)
+        Me.ButtonCerrar2.Name = "ButtonCerrar2"
+        Me.ButtonCerrar2.Size = New System.Drawing.Size(106, 23)
+        Me.ButtonCerrar2.TabIndex = 13
+        Me.ButtonCerrar2.Text = "Cerrar"
+        Me.ButtonCerrar2.UseVisualStyleBackColor = True
+        '
+        'ButtonInsertarProducto
+        '
+        Me.ButtonInsertarProducto.Location = New System.Drawing.Point(35, 321)
+        Me.ButtonInsertarProducto.Name = "ButtonInsertarProducto"
+        Me.ButtonInsertarProducto.Size = New System.Drawing.Size(106, 23)
+        Me.ButtonInsertarProducto.TabIndex = 12
+        Me.ButtonInsertarProducto.Text = "Insertar Producto"
+        Me.ButtonInsertarProducto.UseVisualStyleBackColor = True
+        '
+        'TextBoxIVA
+        '
+        Me.TextBoxIVA.Location = New System.Drawing.Point(143, 202)
+        Me.TextBoxIVA.Name = "TextBoxIVA"
+        Me.TextBoxIVA.Size = New System.Drawing.Size(169, 20)
+        Me.TextBoxIVA.TabIndex = 11
+        '
+        'TextBoxPreciodeCompra
+        '
+        Me.TextBoxPreciodeCompra.Location = New System.Drawing.Point(143, 168)
+        Me.TextBoxPreciodeCompra.Name = "TextBoxPreciodeCompra"
+        Me.TextBoxPreciodeCompra.Size = New System.Drawing.Size(169, 20)
+        Me.TextBoxPreciodeCompra.TabIndex = 10
+        '
+        'TextBoxProveedor
+        '
+        Me.TextBoxProveedor.Location = New System.Drawing.Point(144, 32)
+        Me.TextBoxProveedor.Name = "TextBoxProveedor"
+        Me.TextBoxProveedor.Size = New System.Drawing.Size(77, 20)
+        Me.TextBoxProveedor.TabIndex = 9
+        '
+        'TextBoxFacturaNro
+        '
+        Me.TextBoxFacturaNro.Location = New System.Drawing.Point(143, 100)
+        Me.TextBoxFacturaNro.Name = "TextBoxFacturaNro"
+        Me.TextBoxFacturaNro.Size = New System.Drawing.Size(169, 20)
+        Me.TextBoxFacturaNro.TabIndex = 8
+        '
+        'TextBoxSeleccionarCantidad
+        '
+        Me.TextBoxSeleccionarCantidad.Location = New System.Drawing.Point(143, 66)
+        Me.TextBoxSeleccionarCantidad.Name = "TextBoxSeleccionarCantidad"
+        Me.TextBoxSeleccionarCantidad.Size = New System.Drawing.Size(78, 20)
+        Me.TextBoxSeleccionarCantidad.TabIndex = 7
+        '
+        'TextBoxSeleccionarProducto
+        '
+        Me.TextBoxSeleccionarProducto.Location = New System.Drawing.Point(143, 134)
+        Me.TextBoxSeleccionarProducto.Name = "TextBoxSeleccionarProducto"
+        Me.TextBoxSeleccionarProducto.Size = New System.Drawing.Size(77, 20)
+        Me.TextBoxSeleccionarProducto.TabIndex = 6
+        '
+        'Label59
+        '
+        Me.Label59.AutoSize = True
+        Me.Label59.Location = New System.Drawing.Point(44, 206)
+        Me.Label59.Name = "Label59"
+        Me.Label59.Size = New System.Drawing.Size(94, 13)
+        Me.Label59.TabIndex = 5
+        Me.Label59.Text = "Precio de Compra:"
+        '
+        'Label60
+        '
+        Me.Label60.AutoSize = True
+        Me.Label60.Location = New System.Drawing.Point(86, 172)
+        Me.Label60.Name = "Label60"
+        Me.Label60.Size = New System.Drawing.Size(52, 13)
+        Me.Label60.TabIndex = 4
+        Me.Label60.Text = "Cantidad:"
+        '
+        'Label61
+        '
+        Me.Label61.AutoSize = True
+        Me.Label61.Location = New System.Drawing.Point(79, 36)
+        Me.Label61.Name = "Label61"
+        Me.Label61.Size = New System.Drawing.Size(59, 13)
+        Me.Label61.TabIndex = 3
+        Me.Label61.Text = "Proveedor:"
+        '
+        'Label62
+        '
+        Me.Label62.AutoSize = True
+        Me.Label62.Location = New System.Drawing.Point(45, 104)
+        Me.Label62.Name = "Label62"
+        Me.Label62.Size = New System.Drawing.Size(93, 13)
+        Me.Label62.TabIndex = 2
+        Me.Label62.Text = "Fecha de Ingreso:"
+        '
+        'Label63
+        '
+        Me.Label63.AutoSize = True
+        Me.Label63.Location = New System.Drawing.Point(50, 70)
+        Me.Label63.Name = "Label63"
+        Me.Label63.Size = New System.Drawing.Size(88, 13)
+        Me.Label63.TabIndex = 1
+        Me.Label63.Text = "ID Stock Mugen:"
+        '
+        'Label64
+        '
+        Me.Label64.AutoSize = True
+        Me.Label64.Location = New System.Drawing.Point(69, 138)
+        Me.Label64.Name = "Label64"
+        Me.Label64.Size = New System.Drawing.Size(69, 13)
+        Me.Label64.TabIndex = 0
+        Me.Label64.Text = "Nro. Factura:"
+        '
+        'GroupBoxNuevoProducto
+        '
+        Me.GroupBoxNuevoProducto.Controls.Add(Me.LabelNuevoProducto)
+        Me.GroupBoxNuevoProducto.Controls.Add(Me.ButtonCerrar1)
+        Me.GroupBoxNuevoProducto.Controls.Add(Me.ButtonCrearProducto)
+        Me.GroupBoxNuevoProducto.Controls.Add(Me.TextBoxPrecio)
+        Me.GroupBoxNuevoProducto.Controls.Add(Me.TextBoxDescripcion)
+        Me.GroupBoxNuevoProducto.Controls.Add(Me.TextBoxCodigo)
+        Me.GroupBoxNuevoProducto.Controls.Add(Me.Label43d)
+        Me.GroupBoxNuevoProducto.Controls.Add(Me.Label42s)
+        Me.GroupBoxNuevoProducto.Controls.Add(Me.Label41a)
+        Me.GroupBoxNuevoProducto.Location = New System.Drawing.Point(190, 48)
+        Me.GroupBoxNuevoProducto.Name = "GroupBoxNuevoProducto"
+        Me.GroupBoxNuevoProducto.Size = New System.Drawing.Size(321, 359)
+        Me.GroupBoxNuevoProducto.TabIndex = 4
+        Me.GroupBoxNuevoProducto.TabStop = False
+        Me.GroupBoxNuevoProducto.Text = "Nuevo Producto"
+        Me.GroupBoxNuevoProducto.Visible = False
+        '
+        'LabelNuevoProducto
+        '
+        Me.LabelNuevoProducto.AutoSize = True
+        Me.LabelNuevoProducto.Location = New System.Drawing.Point(66, 220)
+        Me.LabelNuevoProducto.Name = "LabelNuevoProducto"
+        Me.LabelNuevoProducto.Size = New System.Drawing.Size(108, 13)
+        Me.LabelNuevoProducto.TabIndex = 8
+        Me.LabelNuevoProducto.Text = "LabelNuevoProducto"
+        Me.LabelNuevoProducto.Visible = False
+        '
+        'ButtonCerrar1
+        '
+        Me.ButtonCerrar1.Location = New System.Drawing.Point(175, 294)
+        Me.ButtonCerrar1.Name = "ButtonCerrar1"
+        Me.ButtonCerrar1.Size = New System.Drawing.Size(106, 23)
+        Me.ButtonCerrar1.TabIndex = 7
+        Me.ButtonCerrar1.Text = "Cerrar"
+        Me.ButtonCerrar1.UseVisualStyleBackColor = True
+        '
+        'ButtonCrearProducto
+        '
+        Me.ButtonCrearProducto.Location = New System.Drawing.Point(30, 294)
+        Me.ButtonCrearProducto.Name = "ButtonCrearProducto"
+        Me.ButtonCrearProducto.Size = New System.Drawing.Size(106, 23)
+        Me.ButtonCrearProducto.TabIndex = 6
+        Me.ButtonCrearProducto.Text = "Crear Producto"
+        Me.ButtonCrearProducto.UseVisualStyleBackColor = True
+        '
+        'TextBoxPrecio
+        '
+        Me.TextBoxPrecio.Location = New System.Drawing.Point(108, 116)
+        Me.TextBoxPrecio.Name = "TextBoxPrecio"
+        Me.TextBoxPrecio.Size = New System.Drawing.Size(161, 20)
+        Me.TextBoxPrecio.TabIndex = 5
+        '
+        'TextBoxDescripcion
+        '
+        Me.TextBoxDescripcion.Location = New System.Drawing.Point(108, 81)
+        Me.TextBoxDescripcion.Name = "TextBoxDescripcion"
+        Me.TextBoxDescripcion.Size = New System.Drawing.Size(161, 20)
+        Me.TextBoxDescripcion.TabIndex = 4
+        '
+        'TextBoxCodigo
+        '
+        Me.TextBoxCodigo.Location = New System.Drawing.Point(108, 46)
+        Me.TextBoxCodigo.Name = "TextBoxCodigo"
+        Me.TextBoxCodigo.Size = New System.Drawing.Size(161, 20)
+        Me.TextBoxCodigo.TabIndex = 3
+        '
+        'Label43d
+        '
+        Me.Label43d.AutoSize = True
+        Me.Label43d.Location = New System.Drawing.Point(19, 120)
+        Me.Label43d.Name = "Label43d"
+        Me.Label43d.Size = New System.Drawing.Size(85, 13)
+        Me.Label43d.TabIndex = 2
+        Me.Label43d.Text = "Precio de venta:"
+        '
+        'Label42s
+        '
+        Me.Label42s.AutoSize = True
+        Me.Label42s.Location = New System.Drawing.Point(38, 85)
+        Me.Label42s.Name = "Label42s"
+        Me.Label42s.Size = New System.Drawing.Size(66, 13)
+        Me.Label42s.TabIndex = 1
+        Me.Label42s.Text = "Descripción:"
+        '
+        'Label41a
+        '
+        Me.Label41a.AutoSize = True
+        Me.Label41a.Location = New System.Drawing.Point(61, 50)
+        Me.Label41a.Name = "Label41a"
+        Me.Label41a.Size = New System.Drawing.Size(43, 13)
+        Me.Label41a.TabIndex = 0
+        Me.Label41a.Text = "Código:"
+        '
+        'Button27
+        '
+        Me.Button27.Location = New System.Drawing.Point(26, 188)
+        Me.Button27.Name = "Button27"
+        Me.Button27.Size = New System.Drawing.Size(124, 23)
+        Me.Button27.TabIndex = 3
+        Me.Button27.Text = "Estado de Stock"
+        Me.Button27.UseVisualStyleBackColor = True
+        '
+        'Button26
+        '
+        Me.Button26.Location = New System.Drawing.Point(26, 143)
+        Me.Button26.Name = "Button26"
+        Me.Button26.Size = New System.Drawing.Size(124, 23)
+        Me.Button26.TabIndex = 2
+        Me.Button26.Text = "Modificar Producto"
+        Me.Button26.UseVisualStyleBackColor = True
+        '
+        'Button25
+        '
+        Me.Button25.Location = New System.Drawing.Point(26, 98)
+        Me.Button25.Name = "Button25"
+        Me.Button25.Size = New System.Drawing.Size(124, 23)
+        Me.Button25.TabIndex = 1
+        Me.Button25.Text = "Ingreso de Producto"
+        Me.Button25.UseVisualStyleBackColor = True
+        '
+        'Button24NuevoProducto
+        '
+        Me.Button24NuevoProducto.Location = New System.Drawing.Point(26, 53)
+        Me.Button24NuevoProducto.Name = "Button24NuevoProducto"
+        Me.Button24NuevoProducto.Size = New System.Drawing.Size(124, 23)
+        Me.Button24NuevoProducto.TabIndex = 0
+        Me.Button24NuevoProducto.Text = "Nuevo Producto"
+        Me.Button24NuevoProducto.UseVisualStyleBackColor = True
         '
         'Form2
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1353, 711)
+        Me.ClientSize = New System.Drawing.Size(1526, 772)
+        Me.Controls.Add(Me.GroupBox4Stock)
+        Me.Controls.Add(Me.PanelTrabajosPendientes)
         Me.Controls.Add(Me.panel_vender)
         Me.Controls.Add(Me.boton_servicios)
         Me.Controls.Add(Me.panel_botones_mugen)
@@ -2666,6 +4066,25 @@ Partial Class Form2
         Me.GroupBoxEstadisticasdelCliente.ResumeLayout(False)
         Me.GroupBoxModificarClienteasd.ResumeLayout(False)
         Me.GroupBoxModificarClienteasd.PerformLayout()
+        Me.PanelTrabajosPendientes.ResumeLayout(False)
+        Me.PanelTrabajosPendientes.PerformLayout()
+        CType(Me.pedidoGridView, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.UsuarioDataGrid, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ClienteGridView, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.graficoTrabajos, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.graficoPagados, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.BindingNavigator1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.BindingNavigator1.ResumeLayout(False)
+        Me.BindingNavigator1.PerformLayout()
+        Me.TableLayoutPanel1.ResumeLayout(False)
+        Me.TableLayoutPanel1.PerformLayout()
+        Me.GroupBox4Stock.ResumeLayout(False)
+        Me.GroupBoxModificarProducto.ResumeLayout(False)
+        Me.GroupBoxModificarProducto.PerformLayout()
+        Me.GroupBoxIngresodeProducto.ResumeLayout(False)
+        Me.GroupBoxIngresodeProducto.PerformLayout()
+        Me.GroupBoxNuevoProducto.ResumeLayout(False)
+        Me.GroupBoxNuevoProducto.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -2932,4 +4351,140 @@ Partial Class Form2
     Friend WithEvents ModificarClienteBoton As Button
     Friend WithEvents CrearClienteBoton As Button
     Friend WithEvents Button24 As Button
+    Friend WithEvents PanelTrabajosPendientes As Panel
+    Friend WithEvents graficoTrabajos As DataVisualization.Charting.Chart
+    Friend WithEvents graficoPagados As DataVisualization.Charting.Chart
+    Friend WithEvents btpGenerar As Button
+    Friend WithEvents BindingNavigator1 As BindingNavigator
+    Friend WithEvents BindingNavigatorAddNewItem1 As ToolStripButton
+    Friend WithEvents BindingNavigatorCountItem1 As ToolStripLabel
+    Friend WithEvents BindingNavigatorDeleteItem1 As ToolStripButton
+    Friend WithEvents BindingNavigatorMoveFirstItem1 As ToolStripButton
+    Friend WithEvents BindingNavigatorMovePreviousItem1 As ToolStripButton
+    Friend WithEvents BindingNavigatorSeparator3 As ToolStripSeparator
+    Friend WithEvents BindingNavigatorPositionItem1 As ToolStripTextBox
+    Friend WithEvents BindingNavigatorSeparator4 As ToolStripSeparator
+    Friend WithEvents BindingNavigatorMoveNextItem1 As ToolStripButton
+    Friend WithEvents BindingNavigatorMoveLastItem1 As ToolStripButton
+    Friend WithEvents BindingNavigatorSeparator5 As ToolStripSeparator
+    Friend WithEvents idClientesAux As ListBox
+    Friend WithEvents pbBorrar As Button
+    Friend WithEvents pbCambiar As Button
+    Friend WithEvents label47 As Label
+    Friend WithEvents pcEstado As ComboBox
+    Friend WithEvents idClienteActual As Label
+    Friend WithEvents noHayPendientes As Label
+    Friend WithEvents noExiste As Label
+    Friend WithEvents sinDatos As Label
+    Friend WithEvents Label55 As Label
+    Friend WithEvents TextIden As TextBox
+    Friend WithEvents Label54 As Label
+    Friend WithEvents TextApellido As TextBox
+    Friend WithEvents Label53 As Label
+    Friend WithEvents calendarioCobro As MonthCalendar
+    Friend WithEvents Label52 As Label
+    Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
+    Friend WithEvents Label51 As Label
+    Friend WithEvents Label50 As Label
+    Friend WithEvents Label49 As Label
+    Friend WithEvents Label56 As Label
+    Friend WithEvents labelRuc As Label
+    Friend WithEvents Label58 As Label
+    Friend WithEvents pcProyecto As ComboBox
+    Friend WithEvents ptNombre As TextBox
+    Friend WithEvents ptApellido As TextBox
+    Friend WithEvents ptRuc As TextBox
+    Friend WithEvents ptDescrip As TextBox
+    Friend WithEvents ptEntrega As TextBox
+    Friend WithEvents ptCobro As TextBox
+    Friend WithEvents Label48 As Label
+    Friend WithEvents ptPrecio As TextBox
+    Friend WithEvents Label45 As Label
+    Friend WithEvents Label46 As Label
+    Friend WithEvents lbEstado As Label
+    Friend WithEvents botonBuscar As Button
+    Friend WithEvents calendarioEntregas As MonthCalendar
+    Friend WithEvents resultadosPedidos As ListBox
+    Friend WithEvents Label44 As Label
+    Friend WithEvents Label43 As Label
+    Friend WithEvents TextCliente As TextBox
+    Friend WithEvents Label42 As Label
+    Friend WithEvents Label41 As Label
+    Friend WithEvents pedidoGridView As DataGridView
+    Friend WithEvents DataGridViewTextBoxColumn88 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn89 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn90 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn91 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn92 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn93 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn94 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn95 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn96 As DataGridViewTextBoxColumn
+    Friend WithEvents UsuarioDataGrid As DataGridView
+    Friend WithEvents DataGridViewTextBoxColumn79 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn80 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn81 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn82 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn83 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn84 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn85 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn86 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn87 As DataGridViewTextBoxColumn
+    Friend WithEvents ClienteGridView As DataGridView
+    Friend WithEvents DataGridViewTextBoxColumn70 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn71 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn72 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn73 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn74 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn75 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn76 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn77 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn78 As DataGridViewTextBoxColumn
+    Friend WithEvents SaveFileDialog1 As SaveFileDialog
+    Friend WithEvents GroupBox4Stock As GroupBox
+    Friend WithEvents GroupBoxModificarProducto As GroupBox
+    Friend WithEvents LabelModificarProducto As Label
+    Friend WithEvents ButtonCerrar3 As Button
+    Friend WithEvents ButtonModificarProducto As Button
+    Friend WithEvents TextBoxPrecio2 As TextBox
+    Friend WithEvents LabelPrecio As Label
+    Friend WithEvents TextBoxDescripcion2 As TextBox
+    Friend WithEvents LabelDescripcion As Label
+    Friend WithEvents TextBoxCodigo2 As TextBox
+    Friend WithEvents LabelCodigo As Label
+    Friend WithEvents GroupBoxIngresodeProducto As GroupBox
+    Friend WithEvents TextBox18 As TextBox
+    Friend WithEvents TextBox15 As TextBox
+    Friend WithEvents Label57 As Label
+    Friend WithEvents TextBoxDeshabilitado2 As TextBox
+    Friend WithEvents TextBoxDeshabilitado As TextBox
+    Friend WithEvents LabelIngresoProducto As Label
+    Friend WithEvents ButtonCerrar2 As Button
+    Friend WithEvents ButtonInsertarProducto As Button
+    Friend WithEvents TextBoxIVA As TextBox
+    Friend WithEvents TextBoxPreciodeCompra As TextBox
+    Friend WithEvents TextBoxProveedor As TextBox
+    Friend WithEvents TextBoxFacturaNro As TextBox
+    Friend WithEvents TextBoxSeleccionarCantidad As TextBox
+    Friend WithEvents TextBoxSeleccionarProducto As TextBox
+    Friend WithEvents Label59 As Label
+    Friend WithEvents Label60 As Label
+    Friend WithEvents Label61 As Label
+    Friend WithEvents Label62 As Label
+    Friend WithEvents Label63 As Label
+    Friend WithEvents Label64 As Label
+    Friend WithEvents GroupBoxNuevoProducto As GroupBox
+    Friend WithEvents LabelNuevoProducto As Label
+    Friend WithEvents ButtonCerrar1 As Button
+    Friend WithEvents ButtonCrearProducto As Button
+    Friend WithEvents TextBoxPrecio As TextBox
+    Friend WithEvents TextBoxDescripcion As TextBox
+    Friend WithEvents TextBoxCodigo As TextBox
+    Friend WithEvents Label43d As Label
+    Friend WithEvents Label42s As Label
+    Friend WithEvents Label41a As Label
+    Friend WithEvents Button27 As Button
+    Friend WithEvents Button26 As Button
+    Friend WithEvents Button25 As Button
+    Friend WithEvents Button24NuevoProducto As Button
 End Class

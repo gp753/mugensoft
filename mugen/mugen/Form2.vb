@@ -14,6 +14,10 @@ Public Class Form2
     End Sub
 
     Private Sub Form2_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'TODO: esta línea de código carga datos en la tabla 'DataSet1.venta_servicio' Puede moverla o quitarla según sea necesario.
+        Me.Venta_servicioTableAdapter.Fill(Me.DataSet1.venta_servicio)
+        'TODO: esta línea de código carga datos en la tabla 'DataSet1.servicio' Puede moverla o quitarla según sea necesario.
+        Me.ServicioTableAdapter.Fill(Me.DataSet1.servicio)
         'TODO: This line of code loads data into the 'DataSet1.venta_producto' table. You can move, or remove it, as needed.
         Me.Venta_productoTableAdapter.Fill(Me.DataSet1.venta_producto)
         'TODO: This line of code loads data into the 'DataSet1.usuario' table. You can move, or remove it, as needed.

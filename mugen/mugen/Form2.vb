@@ -516,6 +516,36 @@
 
     End Sub
 
+    Private Function cantidad_producto_disponible(idproducto As Integer)
+        'funcion que devuelve la cantidad del producto seleccionado disponible
+        Dim ingresos As Integer
+        Dim salidas As Integer
+        Dim i As Integer
+
+
+        ingresos = 0
+        salidas = 0
+
+        For i = 0 To DataSet1.Tables("ingreso_producto").Rows.Count - 1
+            If DataSet1.Tables("ingreso_producto").Rows(i).Item("id_stock_mugen") = idproducto Then
+                ingresos = ingresos + DataSet1.Tables("ingreso_producto").Rows(i).Item("cantidad_ingreso")
+            End If
+        Next
+
+        For i = 0 To DataSet1.Tables("venta_producto").Rows.Count - 1
+
+            If DataSet1.Tables("venta_producto").Rows(i).Item("id_stock_mugen") = idproducto Then
+                salidas = salidas + DataSet1.Tables("venta_producto").Rows(i).Item("cantidad")
+            End If
+
+        Next
+
+        Return ingresos - salidas
+
+
+
+
+    End Function
 
     Private Sub DataGridView1_CellEndEdit(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellEndEdit
         Dim cod As String
@@ -524,6 +554,10 @@
         Dim suma As Integer
         Dim iva As Integer
         Dim total As Integer
+        Dim idproducto As Integer
+        Dim cantidad_product As Integer
+        Dim ban As Integer
+
 
         curen = DataGridView1.CurrentRow.Index
         suma = 0
@@ -540,6 +574,7 @@
 
                     DataGridView1.Item(1, curen).Value = DataSet1.Tables("producto").Rows(i).Item("descripcion")
                     DataGridView1.Item(2, curen).Value = DataSet1.Tables("producto").Rows(i).Item("precio_venta")
+                    idproducto = DataSet1.Tables("producto").Rows(i).Item("id_stock_mugen")
                 Else
                     DataGridView1.Item(0, curen).Value = ""
 
@@ -552,6 +587,28 @@
         If DataGridView1.Item(3, curen).Value = "" Then
 
         Else
+            cantidad_product = cantidad_producto_disponible(idproducto)
+            For i = 0 To DataGridView1.RowCount - 1
+                If DataGridView1.Item(0, i).Value = 0 Then
+                    suma = suma + DataGridView1.Item(4, i).Value
+                    text_sub_total.Text = suma.ToString
+                    iva = suma * 0.1
+                    text_iva.Text = iva.ToString
+                    total = suma + iva
+
+                    text_total.Text = total.ToString
+                End If
+
+
+            Next
+
+
+            If cantidad_product - DataGridView1.Item(3, curen).Value < 0 Then
+                MsgBox("cantidad de " + DataGridView1.Item(1, curen).Value.ToString + " supera stock: " + cantidad_product.ToString)
+                DataGridView1.CurrentCell.Value = 0
+
+
+            End If
             DataGridView1.Item(4, curen).Value = DataGridView1.Item(3, curen).Value * DataGridView1.Item(2, curen).Value
             suma = 0
             For i = 0 To DataGridView1.RowCount - 1
@@ -588,6 +645,8 @@
 
             Next
         Next
+
+
 
 
     End Sub
@@ -936,6 +995,15 @@
     End Sub
 
     Private Sub DataGridView1_CellContentClick_1(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
+
+    End Sub
+
+    Private Sub Button24_Click(sender As Object, e As EventArgs) Handles Button24.Click
+        text_ruc_venta.Clear()
+        TextBox16.Clear()
+        DataGridView1.Rows.Clear()
+
+
 
     End Sub
 End Class

@@ -338,6 +338,9 @@ Partial Class Form2
         Me.Button26 = New System.Windows.Forms.Button()
         Me.Button25 = New System.Windows.Forms.Button()
         Me.Button24NuevoProducto = New System.Windows.Forms.Button()
+        Me.TextBox15 = New System.Windows.Forms.TextBox()
+        Me.Label47 = New System.Windows.Forms.Label()
+        Me.TextBox18 = New System.Windows.Forms.TextBox()
         MailLabelM = New System.Windows.Forms.Label()
         NumeroLabelN = New System.Windows.Forms.Label()
         RucLabelR = New System.Windows.Forms.Label()
@@ -2747,6 +2750,9 @@ Partial Class Form2
         '
         'GroupBoxIngresodeProducto
         '
+        Me.GroupBoxIngresodeProducto.Controls.Add(Me.TextBox18)
+        Me.GroupBoxIngresodeProducto.Controls.Add(Me.TextBox15)
+        Me.GroupBoxIngresodeProducto.Controls.Add(Me.Label47)
         Me.GroupBoxIngresodeProducto.Controls.Add(Me.TextBoxDeshabilitado2)
         Me.GroupBoxIngresodeProducto.Controls.Add(Me.TextBoxDeshabilitado)
         Me.GroupBoxIngresodeProducto.Controls.Add(Me.LabelIngresoProducto)
@@ -2774,7 +2780,7 @@ Partial Class Form2
         '
         'TextBoxDeshabilitado2
         '
-        Me.TextBoxDeshabilitado2.Location = New System.Drawing.Point(211, 151)
+        Me.TextBoxDeshabilitado2.Location = New System.Drawing.Point(220, 32)
         Me.TextBoxDeshabilitado2.Name = "TextBoxDeshabilitado2"
         Me.TextBoxDeshabilitado2.ReadOnly = True
         Me.TextBoxDeshabilitado2.Size = New System.Drawing.Size(93, 20)
@@ -2782,16 +2788,16 @@ Partial Class Form2
         '
         'TextBoxDeshabilitado
         '
-        Me.TextBoxDeshabilitado.Location = New System.Drawing.Point(135, 30)
+        Me.TextBoxDeshabilitado.Location = New System.Drawing.Point(219, 134)
         Me.TextBoxDeshabilitado.Name = "TextBoxDeshabilitado"
         Me.TextBoxDeshabilitado.ReadOnly = True
-        Me.TextBoxDeshabilitado.Size = New System.Drawing.Size(169, 20)
+        Me.TextBoxDeshabilitado.Size = New System.Drawing.Size(93, 20)
         Me.TextBoxDeshabilitado.TabIndex = 14
         '
         'LabelIngresoProducto
         '
         Me.LabelIngresoProducto.AutoSize = True
-        Me.LabelIngresoProducto.Location = New System.Drawing.Point(71, 262)
+        Me.LabelIngresoProducto.Location = New System.Drawing.Point(71, 289)
         Me.LabelIngresoProducto.Name = "LabelIngresoProducto"
         Me.LabelIngresoProducto.Size = New System.Drawing.Size(111, 13)
         Me.LabelIngresoProducto.TabIndex = 9
@@ -2800,7 +2806,7 @@ Partial Class Form2
         '
         'ButtonCerrar2
         '
-        Me.ButtonCerrar2.Location = New System.Drawing.Point(181, 294)
+        Me.ButtonCerrar2.Location = New System.Drawing.Point(181, 321)
         Me.ButtonCerrar2.Name = "ButtonCerrar2"
         Me.ButtonCerrar2.Size = New System.Drawing.Size(106, 23)
         Me.ButtonCerrar2.TabIndex = 13
@@ -2809,7 +2815,7 @@ Partial Class Form2
         '
         'ButtonInsertarProducto
         '
-        Me.ButtonInsertarProducto.Location = New System.Drawing.Point(35, 294)
+        Me.ButtonInsertarProducto.Location = New System.Drawing.Point(35, 321)
         Me.ButtonInsertarProducto.Name = "ButtonInsertarProducto"
         Me.ButtonInsertarProducto.Size = New System.Drawing.Size(106, 23)
         Me.ButtonInsertarProducto.TabIndex = 12
@@ -2818,68 +2824,68 @@ Partial Class Form2
         '
         'TextBoxIVA
         '
-        Me.TextBoxIVA.Location = New System.Drawing.Point(135, 219)
+        Me.TextBoxIVA.Location = New System.Drawing.Point(143, 202)
         Me.TextBoxIVA.Name = "TextBoxIVA"
         Me.TextBoxIVA.Size = New System.Drawing.Size(169, 20)
         Me.TextBoxIVA.TabIndex = 11
         '
         'TextBoxPreciodeCompra
         '
-        Me.TextBoxPreciodeCompra.Location = New System.Drawing.Point(135, 185)
+        Me.TextBoxPreciodeCompra.Location = New System.Drawing.Point(143, 168)
         Me.TextBoxPreciodeCompra.Name = "TextBoxPreciodeCompra"
         Me.TextBoxPreciodeCompra.Size = New System.Drawing.Size(169, 20)
         Me.TextBoxPreciodeCompra.TabIndex = 10
         '
         'TextBoxProveedor
         '
-        Me.TextBoxProveedor.Location = New System.Drawing.Point(135, 151)
+        Me.TextBoxProveedor.Location = New System.Drawing.Point(144, 32)
         Me.TextBoxProveedor.Name = "TextBoxProveedor"
         Me.TextBoxProveedor.Size = New System.Drawing.Size(77, 20)
         Me.TextBoxProveedor.TabIndex = 9
         '
         'TextBoxFacturaNro
         '
-        Me.TextBoxFacturaNro.Location = New System.Drawing.Point(135, 117)
+        Me.TextBoxFacturaNro.Location = New System.Drawing.Point(143, 100)
         Me.TextBoxFacturaNro.Name = "TextBoxFacturaNro"
         Me.TextBoxFacturaNro.Size = New System.Drawing.Size(169, 20)
         Me.TextBoxFacturaNro.TabIndex = 8
         '
         'TextBoxSeleccionarCantidad
         '
-        Me.TextBoxSeleccionarCantidad.Location = New System.Drawing.Point(135, 83)
+        Me.TextBoxSeleccionarCantidad.Location = New System.Drawing.Point(143, 66)
         Me.TextBoxSeleccionarCantidad.Name = "TextBoxSeleccionarCantidad"
-        Me.TextBoxSeleccionarCantidad.Size = New System.Drawing.Size(169, 20)
+        Me.TextBoxSeleccionarCantidad.Size = New System.Drawing.Size(78, 20)
         Me.TextBoxSeleccionarCantidad.TabIndex = 7
         '
         'TextBoxSeleccionarProducto
         '
-        Me.TextBoxSeleccionarProducto.Location = New System.Drawing.Point(135, 49)
+        Me.TextBoxSeleccionarProducto.Location = New System.Drawing.Point(143, 134)
         Me.TextBoxSeleccionarProducto.Name = "TextBoxSeleccionarProducto"
-        Me.TextBoxSeleccionarProducto.Size = New System.Drawing.Size(169, 20)
+        Me.TextBoxSeleccionarProducto.Size = New System.Drawing.Size(77, 20)
         Me.TextBoxSeleccionarProducto.TabIndex = 6
         '
         'Label45
         '
         Me.Label45.AutoSize = True
-        Me.Label45.Location = New System.Drawing.Point(101, 223)
+        Me.Label45.Location = New System.Drawing.Point(44, 206)
         Me.Label45.Name = "Label45"
-        Me.Label45.Size = New System.Drawing.Size(27, 13)
+        Me.Label45.Size = New System.Drawing.Size(94, 13)
         Me.Label45.TabIndex = 5
-        Me.Label45.Text = "IVA:"
+        Me.Label45.Text = "Precio de Compra:"
         '
         'Label46
         '
         Me.Label46.AutoSize = True
-        Me.Label46.Location = New System.Drawing.Point(34, 189)
+        Me.Label46.Location = New System.Drawing.Point(86, 172)
         Me.Label46.Name = "Label46"
-        Me.Label46.Size = New System.Drawing.Size(94, 13)
+        Me.Label46.Size = New System.Drawing.Size(52, 13)
         Me.Label46.TabIndex = 4
-        Me.Label46.Text = "Precio de Compra:"
+        Me.Label46.Text = "Cantidad:"
         '
         'Label43
         '
         Me.Label43.AutoSize = True
-        Me.Label43.Location = New System.Drawing.Point(69, 155)
+        Me.Label43.Location = New System.Drawing.Point(79, 36)
         Me.Label43.Name = "Label43"
         Me.Label43.Size = New System.Drawing.Size(59, 13)
         Me.Label43.TabIndex = 3
@@ -2888,29 +2894,29 @@ Partial Class Form2
         'Label44
         '
         Me.Label44.AutoSize = True
-        Me.Label44.Location = New System.Drawing.Point(62, 121)
+        Me.Label44.Location = New System.Drawing.Point(45, 104)
         Me.Label44.Name = "Label44"
-        Me.Label44.Size = New System.Drawing.Size(66, 13)
+        Me.Label44.Size = New System.Drawing.Size(93, 13)
         Me.Label44.TabIndex = 2
-        Me.Label44.Text = "Factura Nro:"
+        Me.Label44.Text = "Fecha de Ingreso:"
         '
         'Label42
         '
         Me.Label42.AutoSize = True
-        Me.Label42.Location = New System.Drawing.Point(76, 87)
+        Me.Label42.Location = New System.Drawing.Point(50, 70)
         Me.Label42.Name = "Label42"
-        Me.Label42.Size = New System.Drawing.Size(52, 13)
+        Me.Label42.Size = New System.Drawing.Size(88, 13)
         Me.Label42.TabIndex = 1
-        Me.Label42.Text = "Cantidad:"
+        Me.Label42.Text = "ID Stock Mugen:"
         '
         'Label41
         '
         Me.Label41.AutoSize = True
-        Me.Label41.Location = New System.Drawing.Point(16, 53)
+        Me.Label41.Location = New System.Drawing.Point(69, 138)
         Me.Label41.Name = "Label41"
-        Me.Label41.Size = New System.Drawing.Size(112, 13)
+        Me.Label41.Size = New System.Drawing.Size(69, 13)
         Me.Label41.TabIndex = 0
-        Me.Label41.Text = "Seleccionar Producto:"
+        Me.Label41.Text = "Nro. Factura:"
         '
         'GroupBoxNuevoProducto
         '
@@ -3042,6 +3048,30 @@ Partial Class Form2
         Me.Button24NuevoProducto.TabIndex = 0
         Me.Button24NuevoProducto.Text = "Nuevo Producto"
         Me.Button24NuevoProducto.UseVisualStyleBackColor = True
+        '
+        'TextBox15
+        '
+        Me.TextBox15.Location = New System.Drawing.Point(144, 236)
+        Me.TextBox15.Name = "TextBox15"
+        Me.TextBox15.Size = New System.Drawing.Size(169, 20)
+        Me.TextBox15.TabIndex = 17
+        '
+        'Label47
+        '
+        Me.Label47.AutoSize = True
+        Me.Label47.Location = New System.Drawing.Point(5, 240)
+        Me.Label47.Name = "Label47"
+        Me.Label47.Size = New System.Drawing.Size(133, 13)
+        Me.Label47.TabIndex = 16
+        Me.Label47.Text = "Precio de Compra Unitario:"
+        '
+        'TextBox18
+        '
+        Me.TextBox18.Location = New System.Drawing.Point(220, 66)
+        Me.TextBox18.Name = "TextBox18"
+        Me.TextBox18.ReadOnly = True
+        Me.TextBox18.Size = New System.Drawing.Size(93, 20)
+        Me.TextBox18.TabIndex = 18
         '
         'Form2
         '
@@ -3428,4 +3458,7 @@ Partial Class Form2
     Friend WithEvents LabelNuevoProducto As Label
     Friend WithEvents TextBoxDeshabilitado As TextBox
     Friend WithEvents TextBoxDeshabilitado2 As TextBox
+    Friend WithEvents TextBox15 As TextBox
+    Friend WithEvents Label47 As Label
+    Friend WithEvents TextBox18 As TextBox
 End Class

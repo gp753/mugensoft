@@ -1026,4 +1026,39 @@
             Label72CrearCliente.ForeColor = Color.Red
         End If
     End Sub
+
+    Private Sub TextBoxSeleccionarCantidad_TextChanged(sender As Object, e As EventArgs) Handles TextBoxSeleccionarCantidad.TextChanged
+
+    End Sub
+
+    Private Sub TextBoxSeleccionarCantidad_LostFocus(sender As Object, e As EventArgs) Handles TextBoxSeleccionarCantidad.LostFocus
+    '    Dim cantidad_de_proveedores As Integer
+    '    cantidad_de_proveedores = DataSet1.Tables("proveedor").Rows.Count
+    '    Dim ban As Integer
+    '    ban = 0
+
+    '    'If cantidad_de_proveedores > 0 Then
+    '    For i As Integer = 0 To (cantidad_de_proveedores - 1)
+    '        'Si el PROVEEDOR existe
+
+    '        If DataSet1.Tables("proveedor").Rows(i).Item("ruc_proveedor") = TextBoxProveedor.Text Then
+    '            TextBoxDeshabilitado2.Text = DataSet1.Tables("proveedor").Rows(i).Item("nombre_proveedor")
+    '            LabelIngresoProducto.Hide()
+    '            'i = cantidad_de_proveedores - 1 'Para cortar el FOR, ya que se encontró RUC repetido
+    '            ban = 1
+
+    '        ElseIf ban = 0 Then
+    '            'Si el PROVEEDOR no existe
+    '            TextBoxDeshabilitado2.Text = ""
+
+    '            TextBoxProveedor.Text = ""
+    '            TextBoxProveedor.Focus()
+
+    '            LabelIngresoProducto.Show()
+    '            LabelIngresoProducto.Text = "El RUC de proveedor ingresado no existe"
+    '            LabelIngresoProducto.ForeColor = Color.Red
+    '        End If
+    '    Next
+    '    'End If
+    'End Sub
 End Class

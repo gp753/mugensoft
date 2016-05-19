@@ -1,4 +1,11 @@
-﻿Public Class Form2
+﻿Imports System.Drawing
+'Imports iTextSharp
+'Imports iTextSharp.text
+'Imports iTextSharp.text.pdf
+Imports System.IO
+Imports System
+
+Public Class Form2
     Private Sub Association_1BindingNavigatorSaveItem_Click(sender As Object, e As EventArgs)
         Me.Validate()
         Me.Association_1BindingSource.EndEdit()
@@ -7,6 +14,10 @@
     End Sub
 
     Private Sub Form2_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'TODO: esta línea de código carga datos en la tabla 'DataSet1.venta_servicio' Puede moverla o quitarla según sea necesario.
+        Me.Venta_servicioTableAdapter.Fill(Me.DataSet1.venta_servicio)
+        'TODO: esta línea de código carga datos en la tabla 'DataSet1.servicio' Puede moverla o quitarla según sea necesario.
+        Me.ServicioTableAdapter.Fill(Me.DataSet1.servicio)
         'TODO: This line of code loads data into the 'DataSet1.venta_producto' table. You can move, or remove it, as needed.
         Me.Venta_productoTableAdapter.Fill(Me.DataSet1.venta_producto)
         'TODO: This line of code loads data into the 'DataSet1.usuario' table. You can move, or remove it, as needed.
@@ -28,6 +39,12 @@
         Me.ClienteTableAdapter.Fill(Me.DataSet1.cliente)
         'TODO: This line of code loads data into the 'DataSet1.association_1' table. You can move, or remove it, as needed.
         Me.Association_1TableAdapter.Fill(Me.DataSet1.association_1)
+
+        pcEstado.Items.Add("pendiente") 'no se termino aun 0
+        pcEstado.Items.Add("terminado") 'terminado pero no cobrado 1
+        pcEstado.Items.Add("entregado") 'entregado pero no cobrado 2
+        pcEstado.Items.Add("cobrado")   'cobrado 3
+
 
     End Sub
 
@@ -395,14 +412,157 @@
         End If
     End Sub
 
-    Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) 
+    Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs)
 
     End Sub
+
+    Private Function buscar_en_tablas(tabla As String, columna As String, buscado As String)
+
+        'buscar 
+        Dim i As Integer
+        Dim cantidad As Integer
+        Dim posicion As Integer
+        Dim ban As Integer
+        ban = 0
+        cantidad = DataSet1.Tables(tabla).Rows.Count
+        cantidad = cantidad - 1
+        For i = 0 To cantidad
+            If buscado = DataSet1.Tables(tabla).Rows(i).Item(columna) Then
+
+                posicion = i
+                ban = 1
+            End If
+        Next
+
+        If ban = 0 Then
+            posicion = -1 'no se encontro el registro
+        End If
+        Return posicion
+
+
+    End Function
+
+    Private Function cargar_venta(code As String, client As String, fecha As String, cantidad As Integer)
+
+
+
+
+        Dim nueva_venta As DataRow = DataSet1.Tables("venta_producto").NewRow
+        Dim idproducto As Integer
+        idproducto = DataSet1.Tables("producto").Rows(buscar_en_tablas("producto", "codigo", code)).Item("id_stock_mugen")
+
+        nueva_venta("id_stock_mugen") = idproducto
+        nueva_venta("id_cliente") = client
+        nueva_venta("fecha_venta") = fecha
+        nueva_venta("cantidad") = cantidad
+
+
+        DataSet1.Tables("venta_producto").Rows.Add(nueva_venta)
+        Validate()
+        Venta_productoBindingSource.EndEdit()
+        Venta_productoTableAdapter.Update(DataSet1.venta_producto)
+
+
+
+    End Function
 
     Private Sub Button21_Click(sender As Object, e As EventArgs) Handles venta_guardar.Click
-        DataGridView1.Item(0, 0).Value = "hola"
+
+        Dim ban = 0
+        'comprobar existencia del cliente
+
+        Dim ruc_cliente As Integer
+        ruc_cliente = buscar_en_tablas("cliente", "ruc", text_ruc_venta.Text)
+        If ruc_cliente < 0 Then
+            ban = 1
+            MsgBox("Cliente sin registrar!")
+        End If
+
+
+
+
+        'comprobar existencia del producto
+        Dim i As Integer
+
+        For i = 0 To DataGridView1.RowCount - 1
+
+            If DataGridView1.Item(0, i).Value IsNot "" Then
+                If DataGridView1.Item(3, i).Value = "" Then
+
+                Else
+                    If DataGridView1.Item(3, i).Value IsNot "0" Then
+
+                        cargar_venta(DataGridView1.Item(0, i).Value, ruc_cliente, TextBox17.Text, DataGridView1.Item(3, i).Value)
+
+
+                    End If
+                End If
+            End If
+
+        Next
+
+
+
+
+
+
+        'salida de productos
+        'Dim nuevo_cliente As DataRow = DataSet1.Tables("cliente").NewRow()
+
+
+        'nuevo_cliente("nombre") = TextBox9.Text
+        'nuevo_cliente("apellido") = TextBox10.Text
+
+        'nuevo_cliente("ruc") = TextBox12.Text
+        'nuevo_cliente("numero") = TextBox13.Text
+        'nuevo_cliente("mail") = TextBox14.Text
+
+        'DataSet1.Tables("cliente").Rows.Add(nuevo_cliente)
+
+        'Validate()
+        'UsuarioBindingSource.EndEdit()
+        'ClienteBindingSource.EndEdit()
+
+        'ClienteTableAdapter.Update(DataSet1.cliente)
+
+        Dim nueva_venta As DataRow = DataSet1.Tables("contabilidad").NewRow
+
+
+
+
+
     End Sub
 
+    Private Function cantidad_producto_disponible(idproducto As Integer)
+        'funcion que devuelve la cantidad del producto seleccionado disponible
+        Dim ingresos As Integer
+        Dim salidas As Integer
+        Dim i As Integer
+
+
+        ingresos = 0
+        salidas = 0
+
+        For i = 0 To DataSet1.Tables("ingreso_producto").Rows.Count - 1
+            If DataSet1.Tables("ingreso_producto").Rows(i).Item("id_stock_mugen") = idproducto Then
+                ingresos = ingresos + DataSet1.Tables("ingreso_producto").Rows(i).Item("cantidad_ingreso")
+            End If
+        Next
+
+        For i = 0 To DataSet1.Tables("venta_producto").Rows.Count - 1
+
+            If DataSet1.Tables("venta_producto").Rows(i).Item("id_stock_mugen") = idproducto Then
+                salidas = salidas + DataSet1.Tables("venta_producto").Rows(i).Item("cantidad")
+            End If
+
+        Next
+
+        Return ingresos - salidas
+
+
+
+
+    End Function
 
     Private Sub DataGridView1_CellEndEdit(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellEndEdit
         Dim cod As String
@@ -411,6 +571,10 @@
         Dim suma As Integer
         Dim iva As Integer
         Dim total As Integer
+        Dim idproducto As Integer
+        Dim cantidad_product As Integer
+        Dim ban As Integer
+
 
         curen = DataGridView1.CurrentRow.Index
         suma = 0
@@ -427,7 +591,11 @@
 
                     DataGridView1.Item(1, curen).Value = DataSet1.Tables("producto").Rows(i).Item("descripcion")
                     DataGridView1.Item(2, curen).Value = DataSet1.Tables("producto").Rows(i).Item("precio_venta")
+                    idproducto = DataSet1.Tables("producto").Rows(i).Item("id_stock_mugen")
+                Else
+                    DataGridView1.Item(0, curen).Value = ""
 
+                    MsgBox("Codigo de producto no existe!")
                 End If
 
             Next
@@ -436,20 +604,68 @@
         If DataGridView1.Item(3, curen).Value = "" Then
 
         Else
+            cantidad_product = cantidad_producto_disponible(idproducto)
+            For i = 0 To DataGridView1.RowCount - 1
+                If DataGridView1.Item(0, i).Value = 0 Then
+                    suma = suma + DataGridView1.Item(4, i).Value
+                    text_sub_total.Text = suma.ToString
+                    iva = suma * 0.1
+                    text_iva.Text = iva.ToString
+                    total = suma + iva
+
+                    text_total.Text = total.ToString
+                End If
+
+
+            Next
+
+
+            If cantidad_product - DataGridView1.Item(3, curen).Value < 0 Then
+                MsgBox("cantidad de " + DataGridView1.Item(1, curen).Value.ToString + " supera stock: " + cantidad_product.ToString)
+                DataGridView1.CurrentCell.Value = 0
+
+
+            End If
             DataGridView1.Item(4, curen).Value = DataGridView1.Item(3, curen).Value * DataGridView1.Item(2, curen).Value
             suma = 0
             For i = 0 To DataGridView1.RowCount - 1
-                suma = suma + DataGridView1.Item(4, i).Value
-                text_sub_total.Text = suma.ToString
-                iva = suma * 0.1
-                text_iva.Text = iva.ToString
-                total = suma + iva
+                If DataGridView1.Item(4, i).Value IsNot "" Then
+                    suma = suma + DataGridView1.Item(4, i).Value
+                    text_sub_total.Text = suma.ToString
+                    iva = suma * 0.1
+                    text_iva.Text = iva.ToString
+                    total = suma + iva
 
-                text_total.Text = total.ToString
+                    text_total.Text = total.ToString
+                End If
+
 
             Next
 
         End If
+
+        'ordenar los los grid
+        Dim j, k As Integer
+        For k = 0 To DataGridView1.RowCount
+            For i = 0 To DataGridView1.RowCount - 1
+                If DataGridView1.Item(0, i).Value = "" Then
+                    If i + 1 < DataGridView1.RowCount Then
+
+                        If DataGridView1.Item(0, i + 1).Value IsNot "" Then
+                            For j = 0 To 4
+                                DataGridView1.Item(j, i).Value = DataGridView1.Item(j, i + 1).Value
+                                DataGridView1.Item(j, i + 1).Value = ""
+                            Next
+                        End If
+                    End If
+                End If
+
+            Next
+        Next
+
+
+
+
     End Sub
 
     Private Sub TextBox15_TextChanged(sender As Object, e As EventArgs) Handles text_ruc_venta.TextChanged
@@ -476,23 +692,35 @@
 
         If bandera_salida = 0 Then
             salida = -1
+
         End If
 
-        Return i
+        Return salida
 
     End Function
 
     Private Sub TextBox15_LostFocus(sender As Object, e As EventArgs) Handles text_ruc_venta.LostFocus
-        Dim ruc As String
+        Dim ruc As Integer
+
         ruc = funcion_buscar_cliente(text_ruc_venta.Text)
+
 
         If ruc < 0 Then
             label_ruc_venta.Text = "no se econtro cliente"
+            label_ruc_venta.ForeColor = Color.Red
+            label_ruc_venta.Visible = True
+
+
+
+        Else
+            label_ruc_venta.Visible = False
+            TextBox16.Text = DataSet1.Tables("cliente").Rows(ruc).Item("nombre") + " " + DataSet1.Tables("cliente").Rows(ruc).Item("apellido")
+            TextBox17.Text = Date.Now.Date
 
         End If
 
 
-        label_ruc_venta.Text = funcion_buscar_cliente("hola")
+
     End Sub
 
     Private Sub boton_vender_Click(sender As Object, e As EventArgs) Handles boton_vender.Click
@@ -783,40 +1011,599 @@
         End If
     End Sub
 
-    Private Sub TextBox23_TextChanged(sender As Object, e As EventArgs) Handles TextBoxPreciodeCompra.TextChanged
+    Private Sub DataGridView1_CellContentClick_1(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
 
     End Sub
 
-    Private Sub Button32_Click(sender As Object, e As EventArgs) Handles ButtonCerrar3.Click
+    Private Sub Button24_Click(sender As Object, e As EventArgs) Handles Button24.Click
+        text_ruc_venta.Clear()
+        TextBox16.Clear()
+        DataGridView1.Rows.Clear()
 
-        GroupBoxModificarProducto.Hide()
+
+
     End Sub
 
-    Private Sub TextBoxCodigo_TextChanged(sender As Object, e As EventArgs) Handles TextBoxCodigo.TextChanged
-
+    Private Sub pbBorrar_Click(sender As Object, e As EventArgs) Handles pbBorrar.Click
+        TextCliente.Text = ""
+        TextApellido.Text = ""
+        TextIden.Text = ""
     End Sub
 
-    Private Sub TextBoxCodigo_LostFocus(sender As Object, e As EventArgs) Handles TextBoxCodigo.LostFocus
-        Dim cantidad_de_productos As Integer
-        cantidad_de_productos = DataSet1.Tables("producto").Rows.Count
-        If cantidad_de_productos > 0 Then
-            For i As Integer = 0 To (cantidad_de_productos - 1)
-                'Si el (CÓDIGO DE) PRODUCTO ya esta registrado'
-                If DataSet1.Tables("producto").Rows(i).Item("codigo") = TextBoxCodigo.Text Then
+    Private Sub botonBuscar_Click(sender As Object, e As EventArgs) Handles botonBuscar.Click
+        Dim nombreCliente As String
+        Dim apellidoCliente As String
+        Dim identiCliente As String
+        Dim canPedidos As Integer
+        Dim canClientes As Integer
+        Dim idCliente() As Integer
+        Dim nombres() As String
+        Dim apellidos() As String
+        Dim ban, ban2 As Boolean
+        Dim i As Integer
+        Dim j As Integer
+        Dim k As Integer = 0
+        Dim s As Integer
+        ban = False
+        ban2 = False
+        canClientes = DataSet1.Tables("cliente").Rows.Count
+        canPedidos = DataSet1.Tables("pedido").Rows.Count
 
-                    LabelNuevoProducto.Show()
-                    LabelNuevoProducto.Text = "El código de producto ya está registrado"
-                    LabelNuevoProducto.ForeColor = Color.Red
+        apellidoCliente = TextApellido.Text
+        identiCliente = TextIden.Text
+        nombreCliente = TextCliente.Text
+        resultadosPedidos.Items.Clear()
 
-                    TextBoxCodigo.Text = ""
-                    TextBoxCodigo.Focus()
+        noExiste.Hide()
+        sinDatos.Hide()
+        noHayPendientes.Hide()
+        idClientesAux.Items.Clear()
+        'ReDim idCliente(canClientes)
+        ReDim idCliente(k + 1)
+        idCliente(0) = 0
+        If canPedidos > 0 And canClientes > 0 Then
+            ReDim nombres(canClientes)
+            ReDim apellidos(canClientes)
+            If nombreCliente <> "" Then
+                If apellidoCliente <> "" Then
+                    If identiCliente <> "" Then
+                        'realizar busqueda en base a los 3
+                        For i = 0 To (canClientes - 1)
+                            If nombreCliente = ClienteGridView.Item(1, i).Value().ToString And apellidoCliente = ClienteGridView.Item(2, i).Value().ToString And identiCliente = ClienteGridView.Item(3, i).Value().ToString Then
+                                idCliente(k) = ClienteGridView.Item(0, i).Value()
+                                k = k + 1
+                                ReDim Preserve idCliente(k)
+                            End If
+                        Next
+                    Else
+                        'realizar busqueda en base a nombre y apellido
+                        For i = 0 To (canClientes - 1)
+                            If nombreCliente = ClienteGridView.Item(1, i).Value().ToString And apellidoCliente = ClienteGridView.Item(2, i).Value().ToString Then
+                                idCliente(k) = ClienteGridView.Item(0, i).Value()
+                                k = k + 1
+                                ReDim Preserve idCliente(k)
 
-                    i = cantidad_de_productos - 1 'Para cortar el FOR, ya que se encontró RUC repetido
+                            End If
+                        Next
+                    End If
                 Else
-                    LabelNuevoProducto.Hide()
+                    If identiCliente <> "" Then
+                        'realizar busqueda en base a nombre e identificacion
+                        For i = 0 To (canClientes - 1)
+                            If nombreCliente = ClienteGridView.Item(1, i).Value().ToString And identiCliente = ClienteGridView.Item(3, i).Value().ToString Then
+                                idCliente(k) = ClienteGridView.Item(0, i).Value()
+                                k = k + 1
+                                ReDim Preserve idCliente(k)
+                            End If
+                        Next
+                    Else
+                        'realizar busqueda en base a nombre 
+                        For i = 0 To (canClientes - 1)
+                            If nombreCliente = ClienteGridView.Item(1, i).Value().ToString Then
+                                idCliente(k) = ClienteGridView.Item(0, i).Value()
+                                k = k + 1
+                                ReDim Preserve idCliente(k)
+                            End If
+                        Next
+                    End If
+
+                End If
+            ElseIf apellidoCliente <> "" Then
+
+                If identiCliente <> "" Then
+                    'realizar busqueda en base a apellido e identificacion
+                    For i = 0 To (canClientes - 1)
+                        If apellidoCliente = ClienteGridView.Item(2, i).Value().ToString And identiCliente = ClienteGridView.Item(3, i).Value().ToString Then
+                            idCliente(k) = ClienteGridView.Item(0, i).Value()
+                            k = k + 1
+                            ReDim Preserve idCliente(k)
+                        End If
+                    Next
+                Else
+                    'realizar busqueda en base al apellido
+                    For i = 0 To (canClientes - 1)
+                        If apellidoCliente = ClienteGridView.Item(2, i).Value().ToString Then
+                            idCliente(k) = ClienteGridView.Item(0, i).Value()
+                            k = k + 1
+                            ReDim Preserve idCliente(k)
+                        End If
+                    Next
+                End If
+            Else
+                'realizar busqueda en base a la identidad o ruc
+                For i = 0 To (canClientes - 1)
+                    If identiCliente = ClienteGridView.Item(3, i).Value().ToString Then
+                        idCliente(k) = ClienteGridView.Item(0, i).Value()
+                        k = k + 1
+                        ReDim Preserve idCliente(k)
+                    End If
+                Next
+            End If
+
+            If idCliente(s) = 0 And Not (identiCliente = "" And apellidoCliente = "" And nombreCliente = "") Then
+                noExiste.Show()
+            End If
+            'controla  si hay trabajos pendientes para en cliente buscado
+            For s = 0 To (k - 1)
+                ban = False
+                For j = 0 To (canPedidos - 1)
+                    If idCliente(s) = pedidoGridView.Item(1, j).Value() Then
+                        For i = 0 To (canClientes - 1)
+                            If idCliente(s).ToString = ClienteGridView.Item(0, i).Value().ToString And ban = False Then
+                                resultadosPedidos.Items.Add(ClienteGridView.Item(1, i).Value().ToString + " " + ClienteGridView.Item(2, i).Value().ToString + " " + ClienteGridView.Item(3, i).Value().ToString)
+                                ban = True
+                                idClientesAux.Items.Add(idCliente(s))
+                                idCliente(s) = 0
+                                i = canClientes
+                            End If
+                        Next
+                    End If
+                Next
+            Next
+            If identiCliente = "" And apellidoCliente = "" And nombreCliente = "" Then
+                sinDatos.Show()
+                ban = True
+            End If
+            If ban = False And ban2 = True Then
+                noHayPendientes.Show()
+            End If
+
+        Else
+            MsgBox("No hay clientes que mostrar")
+
+        End If
+    End Sub
+
+    Private Sub resultadosPedidos_SelectedIndexChanged(sender As Object, e As EventArgs) Handles resultadosPedidos.SelectedIndexChanged
+        Dim i, j As Integer
+        Dim idCliente As String
+        Dim canClientes As Integer
+        Dim canPedidos As Integer
+        Dim canElem As Integer
+        canElem = pcProyecto.Items.Count - 1
+        For j = 0 To canElem
+            pcProyecto.Items(j) = ""
+        Next
+        pcProyecto.Items.Clear()
+        ptEntrega.Text = ""
+        ptCobro.Text = ""
+        ptDescrip.Text = ""
+        ptPrecio.Text = ""
+
+        canClientes = DataSet1.Tables("cliente").Rows.Count
+        canPedidos = DataSet1.Tables("pedido").Rows.Count
+        i = resultadosPedidos.SelectedIndex
+
+        If i > -1 Then
+            idCliente = idClientesAux.Items(i).ToString
+            If canClientes > 0 Then
+                For j = 0 To (canClientes - 1)
+                    If idCliente = ClienteGridView.Item(0, j).Value.ToString Then
+                        ptNombre.Text = ClienteGridView.Item(1, j).Value.ToString
+                        ptApellido.Text = ClienteGridView.Item(2, j).Value.ToString
+                        ptRuc.Text = ClienteGridView.Item(3, i).Value.ToString
+                    End If
+                Next
+            End If
+            'tiene que poner el nombre del proyecto y no su id esperar a base de datos
+            If canPedidos > 0 Then
+                For j = 0 To (canPedidos - 1)
+                    If idCliente = pedidoGridView.Item(1, j).Value.ToString Then
+                        pcProyecto.Items.Add(pedidoGridView.Item(8, j).Value.ToString)
+                    End If
+                Next
+            End If
+        End If
+    End Sub
+
+    Private Sub pcProyecto_SelectedIndexChanged(sender As Object, e As EventArgs) Handles pcProyecto.SelectedIndexChanged
+        Dim i, j As Integer
+        Dim nProyecto As String
+        Dim canClientes As Integer
+        Dim canPedidos As Integer
+
+        canClientes = DataSet1.Tables("cliente").Rows.Count
+        canPedidos = DataSet1.Tables("pedido").Rows.Count
+
+        i = pcProyecto.SelectedIndex
+        nProyecto = pcProyecto.Items(i).ToString
+        If canPedidos > 0 Then
+            For j = 0 To (canPedidos - 1)
+                If nProyecto = pedidoGridView.Item(8, j).Value.ToString Then
+                    ptEntrega.Text = pedidoGridView.Item(3, j).Value.ToString
+                    ptCobro.Text = pedidoGridView.Item(4, j).Value.ToString
+                    ptDescrip.Text = pedidoGridView.Item(5, j).Value.ToString
+                    ptPrecio.Text = pedidoGridView.Item(6, j).Value.ToString
+                    lbEstado.Text = pedidoGridView.Item(7, j).Value.ToString
+                    cambioColorLabelEstado()
+                    'falta agregar el estado
                 End If
             Next
         End If
+    End Sub
+
+    Private Sub pbCambiar_Click(sender As Object, e As EventArgs) Handles pbCambiar.Click
+        Dim i, j, canPedidos As Integer
+        Dim ban As Boolean = False
+        Dim estado As String
+        Dim proyecto As String
+
+        proyecto = ""
+        If pcProyecto.SelectedIndex <> -1 Then
+            i = pcEstado.SelectedIndex
+            estado = pcEstado.Items(i).ToString
+            proyecto = pcProyecto.Items(pcProyecto.SelectedIndex).ToString
+            canPedidos = DataSet1.Tables("pedido").Rows.Count
+
+            If canPedidos > 0 Then 'a tener en cuenta que verifique si la base de datos esta vacia
+                For j = 0 To (canPedidos - 1)
+                    If proyecto = pedidoGridView.Item(8, j).Value.ToString Then
+                        'DataSet1.Tables("pendido").Rows(j).Item("estado") = estado
+                        DataSet1.Tables("pedido").Rows(j).Item(7) = estado
+                        lbEstado.Text = estado
+                        cambioColorLabelEstado()
+                        ban = True
+                    End If
+                Next
+                If ban = True Then
+                    Validate()
+                    PedidoTableAdapter.Update(DataSet1.pedido) 'se utiliza para actualizar la base datos a lo tru
+                    'revisar problema
+                    actualizarCalendarios()
+                    MsgBox(" Se cambio el estado del " + proyecto + " a " + estado)
+                Else
+                    MsgBox("No existe pedido para cambiar el estado")
+
+                End If
+            End If
+        End If
+    End Sub
+
+    Private Sub cambioColorLabelEstado() 'por el pae
+        If lbEstado.Text = "pendiente" Then
+            lbEstado.ForeColor = Color.Red
+        ElseIf lbEstado.Text = "terminado" Then
+            lbEstado.ForeColor = Color.Yellow
+        ElseIf lbEstado.Text = "entregado" Then
+            lbEstado.ForeColor = Color.GreenYellow
+        Else
+            lbEstado.ForeColor = Color.Green
+        End If
+    End Sub
+
+    Private Sub btpGenerar_Click(sender As Object, e As EventArgs) Handles btpGenerar.Click
+        'Dim user() As String
+        'Dim i, k, canUsuario, userId() As Integer
+        'canUsuario = DataSet1.Tables("usuario").Rows.Count
+
+        'graficoPagados.Series.Clear()
+        'graficoTrabajos.Series.Clear()
+        'graficoTrabajos.Series.Add("Pendientes")
+        'graficoTrabajos.Series.Add("Terminados")
+        'graficoTrabajos.Series.Add("Entregados")
+        'graficoPagados.Series.Add("Cobrados")
+        'graficoPagados.Series("Cobrados").ChartType = DataVisualization.Charting.SeriesChartType.Area
+        'ReDim user(1)
+        'ReDim userId(1)
+        'k = 0
+        'user(0) = ""
+        'If canUsuario > 0 Then
+        '    For i = 1 To canUsuario - 1
+        '        If controlarRepetidos(user, UsuarioDataGridView.Item(1, i).Value.ToString) Then
+        '            user(k) = UsuarioDataGridView.Item(1, i).Value.ToString
+        '            userId(k) = UsuarioDataGridView.Item(0, i).Value
+        '            'MsgBox(user(k) + userId(k).ToString)
+        '            k = k + 1
+        '            ReDim Preserve user(k + 1)
+        '            ReDim Preserve userId(k + 1)
+        '        End If
+        '    Next
+        'End If
+        'ReDim Preserve user(k)
+        'ReDim Preserve userId(k)
+        'Dim j, p(k), t(k), en(k), canPedidos As Integer
+        'Dim entrega, cobrado As Date
+        'Dim monto As Double
+        'Dim bandera As Boolean
+        'bandera = False
+        'canPedidos = DataSet1.Tables("pedido").Rows.Count
+        'If canPedidos > 0 Then
+        '    For i = 0 To k - 1
+        '        p(i) = 0
+        '        t(i) = 0
+        '        en(i) = 0
+
+        '    Next
+
+        '    'MsgBox(k)
+        '    If user(0) <> "" Then
+
+        '        For i = 0 To k - 1
+        '            For j = 0 To canPedidos - 1
+        '                entrega = pedidoGridView.Item(3, j).Value
+        '                If userId(i) = pedidoGridView.Item(2, j).Value And entrega.Month = Now.Month Then ' se puede mejorar
+        '                    bandera = True
+        '                    If pedidoGridView.Item(7, j).Value.ToString = "pendiente" Then
+        '                        p(i) = p(i) + 1
+        '                        'MsgBox("entra")
+        '                    ElseIf pedidoGridView.Item(7, j).Value.ToString = "terminado" Then
+        '                        t(i) = t(i) + 1
+        '                    ElseIf pedidoGridView.Item(7, j).Value.ToString = "entregado" Then
+        '                        en(i) = en(i) + 1
+
+        '                    End If
+
+
+        '                End If
+        '            Next
+        '        Next
+        '        If bandera Then
+        '            For i = 0 To k - 1
+        '                'MsgBox(p(i))
+
+        '                If p(i) > 0 Then
+        '                    graficoTrabajos.Series("Pendientes").Points.AddXY(user(i), p(i))
+
+        '                End If
+        '                If t(i) > 0 Then
+        '                    graficoTrabajos.Series("Terminados").Points.AddXY(user(i), t(i))
+        '                End If
+        '                If en(i) > 0 Then
+        '                    graficoTrabajos.Series("Entregados").Points.AddXY(user(i), en(i))
+        '                End If
+        '                'If c(i) > 0 Then
+        '                'graficoTrabajos.Series("Cobrados").Points.AddXY(user(i), c(i))
+        '                'End If
+        '                graficoTrabajos.AlignDataPointsByAxisLabel()
+        '            Next
+
+        '        End If
+        '    Else
+        '        MsgBox("No hay trabajos este mes")
+        '    End If
+        '    bandera = False
+        '    For i = 0 To canPedidos - 1
+        '        cobrado = pedidoGridView.Item(4, i).Value
+        '        monto = pedidoGridView.Item(6, i).Value
+        '        If cobrado.Month = Now.Month Then
+        '            graficoPagados.Series("Cobrados").Points.AddXY(cobrado, monto)
+        '            bandera = True
+        '        End If
+        '    Next
+        '    If Not bandera Then
+        '        MsgBox("No hay trabajos cobrados en el mes")
+        '    End If
+
+        '    Dim imagen1, imagen2 As New Bitmap(400, 230)
+        '    Dim table As New PdfPTable(7)
+        '    Dim table2 As New PdfPTable(7)
+        '    Dim cell As New PdfPCell(New Phrase("                                   Trabajos realizados por los Usuarios"))
+        '    Dim cell2 As New PdfPCell(New Phrase("                                   Trabajos cobrados por los Usuarios"))
+
+        '    ' Dim base As iTextSharp.text.pdf.BaseFont
+        '    '  Dim fuente As iTextSharp.text.Font
+        '    ' base = FontFactory.GetFont(FontFactory.TIMES_ROMAN, iTextSharp.text.Font.DEFAULTSIZE, iTextSharp.text.Font.NORMAL).BaseFont
+        '    'fuente.Style(base, 12, Font.Italic, Color.Red)
+        '    'MsgBox(Environment.UserName.ToString)
+        '    graficoTrabajos.DrawToBitmap(imagen1, graficoTrabajos.DisplayRectangle)
+        '    imagen1.Save("C:\Users\" + Environment.UserName.ToString + "\AppData\Local\Temp\grafico1.jpg", System.Drawing.Imaging.ImageFormat.Jpeg)
+        '    graficoPagados.DrawToBitmap(imagen2, graficoPagados.DisplayRectangle)
+        '    imagen2.Save("C:\Users\" + Environment.UserName.ToString + "\AppData\Local\Temp\grafico2.jpg", System.Drawing.Imaging.ImageFormat.Jpeg)
+        '    SaveFileDialog1.DefaultExt = "pdf"
+        '    SaveFileDialog1.FileName = "informe"
+
+        '    cell.Colspan = 7
+        '    cell.HorizontalAlignment = 0
+        '    table.SpacingBefore = 20.0F
+        '    table.SpacingAfter = 30.0F
+        '    table.AddCell(cell)
+        '    table.SetWidths({0.55F, 0.7F, 0.7F, 0.9F, 0.7F, 0.7F, 0.8F})
+        '    If SaveFileDialog1.ShowDialog = System.Windows.Forms.DialogResult.OK Then
+        '        Try
+        '            Dim salida1 As iTextSharp.text.Image = iTextSharp.text.Image.GetInstance("C:\Users\" + Environment.UserName.ToString + "\AppData\Local\Temp\grafico1.jpg")
+        '            Dim salida2 As iTextSharp.text.Image = iTextSharp.text.Image.GetInstance("C:\Users\" + Environment.UserName.ToString + "\AppData\Local\Temp\grafico2.jpg")
+        '            Dim DOCUMENTO As New Document
+        '            Dim ESCRITOR As PdfWriter = PdfWriter.GetInstance(DOCUMENTO, New FileStream(SaveFileDialog1.FileName, FileMode.Create))
+        '            DOCUMENTO.Open()
+        '            DOCUMENTO.Add(New Paragraph("                                                                 Resumen del mes"))
+        '            DOCUMENTO.Add(New Paragraph(vbCrLf))
+        '            DOCUMENTO.Add(New Paragraph(vbCrLf))
+        '            DOCUMENTO.Add(New Paragraph("Estadisticas de trabajos correspondiente a el mes actual"))
+        '            DOCUMENTO.Add(New Paragraph(vbCrLf))
+        '            DOCUMENTO.Add(salida1)
+        '            DOCUMENTO.Add(New Paragraph(vbCrLf))
+        '            table.AddCell("Usuario")
+        '            table.AddCell("Fecha de Entrega")
+        '            table.AddCell("Fecha de Cobro")
+        '            table.AddCell("Descripcion")
+        '            table.AddCell("Precio")
+        '            table.AddCell("Nombre del Pedido")
+        '            table.AddCell("Estado")
+
+        '            For i = 0 To canPedidos - 1
+        '                If pedidoGridView.Item(7, i).Value <> "cobrado" Then
+        '                    For j = 0 To k - 1
+        '                        If pedidoGridView.Item(2, i).Value = userId(j) Then
+        '                            table.AddCell(user(j).ToString)
+        '                        End If
+        '                    Next
+        '                    table.AddCell(pedidoGridView.Item(3, i).Value.ToString)
+        '                    table.AddCell(pedidoGridView.Item(4, i).Value.ToString)
+        '                    table.AddCell(pedidoGridView.Item(5, i).Value.ToString)
+        '                    table.AddCell(pedidoGridView.Item(6, i).Value.ToString)
+        '                    table.AddCell(pedidoGridView.Item(8, i).Value.ToString)
+        '                    table.AddCell(pedidoGridView.Item(7, i).Value.ToString)
+        '                End If
+        '            Next
+        '            DOCUMENTO.Add(table)
+        '            DOCUMENTO.Add(New Paragraph(vbCrLf))
+        '            DOCUMENTO.Add(salida2)
+        '            DOCUMENTO.Add(New Paragraph(vbCrLf))
+        '            cell2.Colspan = 7
+        '            cell2.HorizontalAlignment = 0
+        '            table2.SpacingBefore = 20.0F
+        '            table2.SpacingAfter = 30.0F
+        '            table2.AddCell(cell2)
+        '            table2.SetWidths({0.55F, 0.7F, 0.7F, 0.9F, 0.7F, 0.7F, 0.8F})
+
+        '            table2.AddCell("Usuario")
+        '            table2.AddCell("Fecha de Entrega")
+        '            table2.AddCell("Fecha de Cobro")
+        '            table2.AddCell("Descripcion")
+        '            table2.AddCell("Precio")
+        '            table2.AddCell("Nombre del Pedido")
+        '            table2.AddCell("Estado")
+
+        '            For i = 0 To canPedidos - 1
+        '                If pedidoGridView.Item(7, i).Value = "cobrado" Then
+        '                    For j = 0 To k - 1
+        '                        If pedidoGridView.Item(2, i).Value = userId(j) Then
+        '                            table2.AddCell(user(j).ToString)
+        '                        End If
+        '                    Next
+        '                    table2.AddCell(pedidoGridView.Item(3, i).Value.ToString)
+        '                    table2.AddCell(pedidoGridView.Item(4, i).Value.ToString)
+        '                    table2.AddCell(pedidoGridView.Item(5, i).Value.ToString)
+        '                    table2.AddCell(pedidoGridView.Item(6, i).Value.ToString)
+        '                    table2.AddCell(pedidoGridView.Item(8, i).Value.ToString)
+        '                    table2.AddCell(pedidoGridView.Item(7, i).Value.ToString)
+        '                End If
+        '            Next
+        '            DOCUMENTO.Add(table2)
+        '            DOCUMENTO.Close()
+        '            MsgBox("Resumen generado con exito")
+
+        '        Catch ex As Exception
+        '            MsgBox(ex.Message)
+        '        End Try
+        '    End If
+        'End If
+
+
+    End Sub
+
+    Private Function controlarRepetidos(ByVal array(), ByVal valor)
+
+        Dim i, n As Integer
+        n = array.Length
+        For i = 0 To n - 1
+            If array(i) = valor Then
+                Return False
+            End If
+        Next
+        Return True
+
+    End Function
+
+
+
+    Private Sub calendarioEntregas_DateSelected(sender As Object, e As DateRangeEventArgs) Handles calendarioEntregas.DateSelected
+        ' TextEntrega.Text = calendarioEntregas.SelectionStart.Date aca al hacer click buscar clientes
+        Dim i As Integer
+        Dim pDate As Date
+        Dim canPedidos As Integer
+        Dim cadena As String = "Proyectos pendientes:" + vbCrLf
+        Dim ban As Boolean = False
+
+        canPedidos = DataSet1.Tables("pedido").Rows.Count
+
+        If canPedidos > 0 Then
+            For i = 0 To (canPedidos - 1)
+                pDate = pedidoGridView.Item(3, i).Value.ToString
+                If pDate = calendarioEntregas.SelectionStart Then
+                    cadena = cadena + pedidoGridView.Item(8, i).Value.ToString + vbCrLf
+                    ban = True
+                End If
+            Next
+            If ban = True Then
+                MsgBox(cadena)
+            Else
+                MsgBox("Sin pedidos")
+            End If
+        End If
+    End Sub
+
+
+
+    Private Sub calendarioCobro_DateSelected(sender As Object, e As DateRangeEventArgs) Handles calendarioCobro.DateSelected
+        'TextCobro.Text = calendarioCobro.SelectionStart.Date aca al hacer click buscar cliente
+        Dim i As Integer
+        Dim pDate As Date
+        Dim canPedidos As Integer
+        Dim cadena As String = "Proyectos a cobrar:" + vbCrLf
+        Dim ban As Boolean = False
+
+        canPedidos = DataSet1.Tables("pedido").Rows.Count
+
+        If canPedidos > 0 Then
+            For i = 0 To (canPedidos - 1)
+                pDate = pedidoGridView.Item(4, i).Value.ToString
+                If pDate = calendarioCobro.SelectionStart Then
+                    cadena = cadena + pedidoGridView.Item(8, i).Value.ToString + vbCrLf
+                    ban = True
+                End If
+            Next
+            If ban = True Then
+                MsgBox(cadena)
+            Else
+                MsgBox("Sin pedidos")
+            End If
+        End If
+    End Sub
+
+    Private Sub actualizarCalendarios()
+        Dim canPedidos As Integer
+        Dim entregas, cobros, estado As String
+        canPedidos = DataSet1.Tables("pedido").Rows.Count
+        calendarioCobro.RemoveAllBoldedDates()
+        calendarioEntregas.RemoveAllBoldedDates()
+        For i As Integer = 0 To (canPedidos - 1)
+
+            entregas = pedidoGridView.Item(3, i).Value().ToString
+            cobros = pedidoGridView.Item(4, i).Value().ToString
+            estado = pedidoGridView.Item(7, i).Value().ToString
+            If estado = "pendiente" Or estado = "terminado" Then
+                calendarioEntregas.AddBoldedDate(entregas)
+            End If
+            If estado = "entregado" Or estado = "pendiente" Or estado = "terminado" Then
+                calendarioCobro.AddBoldedDate(cobros)
+            End If
+        Next
+        calendarioEntregas.UpdateBoldedDates()
+        calendarioCobro.UpdateBoldedDates()
+    End Sub
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+
+        panel_cuentas.Hide()
+        panel_carga_presupuesto.Hide()
+        PanelTrabajosPendientes.Show()
+        actualizarCalendarios()
+
+    End Sub
+
+    Private Sub boton_stock_Click(sender As Object, e As EventArgs) Handles boton_stock.Click
+        GroupBox4Stock.Show()
     End Sub
 
     Private Sub Button24NuevoProducto_Click(sender As Object, e As EventArgs) Handles Button24NuevoProducto.Click
@@ -831,7 +1618,6 @@
         TextBoxCodigo.Clear()
         TextBoxDescripcion.Clear()
         TextBoxPrecio.Clear()
-
     End Sub
 
     Private Sub Button25_Click(sender As Object, e As EventArgs) Handles Button25.Click
@@ -849,20 +1635,14 @@
         TextBoxIVA.Text = ""
     End Sub
 
+    Private Sub GroupBox4Stock_Enter(sender As Object, e As EventArgs) Handles GroupBox4Stock.Enter
+
+    End Sub
+
     Private Sub Button26_Click(sender As Object, e As EventArgs) Handles Button26.Click
         GroupBoxNuevoProducto.Hide()
         GroupBoxIngresodeProducto.Hide()
         GroupBoxModificarProducto.Show()
-    End Sub
-
-    Private Sub ButtonCerrar1_Click(sender As Object, e As EventArgs) Handles ButtonCerrar1.Click
-        GroupBoxNuevoProducto.Hide()
-
-    End Sub
-
-    Private Sub ButtonCerrar2_Click(sender As Object, e As EventArgs) Handles ButtonCerrar2.Click
-        GroupBoxIngresodeProducto.Hide()
-
     End Sub
 
     Private Sub ButtonCrearProducto_Click(sender As Object, e As EventArgs) Handles ButtonCrearProducto.Click
@@ -893,94 +1673,8 @@
         End If
     End Sub
 
-    Private Sub TextBoxPrecio_TextChanged(sender As Object, e As EventArgs) Handles TextBoxPrecio.TextChanged
-
-    End Sub
-
-    Private Sub TextBoxPrecio_LostFocus(sender As Object, e As EventArgs) Handles TextBoxPrecio.LostFocus
-        If IsNumeric(TextBoxPrecio.Text) = False Then
-            TextBoxPrecio.Text = ""
-            TextBoxPrecio.Focus()
-
-            LabelNuevoProducto.Show()
-            LabelNuevoProducto.Text = "Rellene el campo sólo con números"
-            LabelNuevoProducto.ForeColor = Color.Red
-        Else
-            LabelNuevoProducto.Hide()
-        End If
-    End Sub
-
-    Private Sub boton_stock_Click(sender As Object, e As EventArgs) Handles boton_stock.Click
-        GroupBox4Stock.Show()
-    End Sub
-
-    Private Sub TextBoxSeleccionarProducto_TextChanged(sender As Object, e As EventArgs) Handles TextBoxSeleccionarProducto.TextChanged
-
-    End Sub
-
-    Private Sub TextBoxSeleccionarProducto_LostFocus(sender As Object, e As EventArgs) Handles TextBoxSeleccionarProducto.LostFocus
-        Dim cantidad_de_productos As Integer
-        cantidad_de_productos = DataSet1.Tables("producto").Rows.Count
-        'If cantidad_de_productos > 0 Then
-        For i As Integer = 0 To (cantidad_de_productos - 1)
-            'Si el (CÓDIGO DE) PRODUCTO existe
-            If DataSet1.Tables("producto").Rows(i).Item("codigo") = TextBoxSeleccionarProducto.Text Then
-                TextBoxDeshabilitado.Text = DataSet1.Tables("producto").Rows(i).Item("descripcion")
-
-                LabelIngresoProducto.Hide()
-                i = cantidad_de_productos - 1 'Para cortar el FOR, ya que se encontró RUC repetido
-
-
-            Else
-                'Si el (CÓDIGO DE) PRODUCTO no existe
-                TextBoxDeshabilitado.Text = ""
-
-                LabelIngresoProducto.Show()
-                LabelIngresoProducto.Text = "El código de producto no existe"
-                LabelIngresoProducto.ForeColor = Color.Red
-            End If
-        Next
-        'End If
-    End Sub
-
-    Private Sub TextBoxIVA_TextChanged(sender As Object, e As EventArgs) Handles TextBoxIVA.TextChanged
-
-    End Sub
-
-    Private Sub TextBoxProveedor_TextChanged(sender As Object, e As EventArgs) Handles TextBoxProveedor.TextChanged
-
-    End Sub
-
-    Private Sub TextBoxProveedor_LostFocus(sender As Object, e As EventArgs) Handles TextBoxProveedor.LostFocus
-
-        Dim cantidad_de_proveedores As Integer
-        cantidad_de_proveedores = DataSet1.Tables("proveedor").Rows.Count
-        Dim ban As Integer
-        ban = 0
-
-        'If cantidad_de_proveedores > 0 Then
-        For i As Integer = 0 To (cantidad_de_proveedores - 1)
-            'Si el PROVEEDOR existe
-
-            If DataSet1.Tables("proveedor").Rows(i).Item("ruc_proveedor") = TextBoxProveedor.Text Then
-                TextBoxDeshabilitado2.Text = DataSet1.Tables("proveedor").Rows(i).Item("nombre_proveedor")
-                LabelIngresoProducto.Hide()
-                'i = cantidad_de_proveedores - 1 'Para cortar el FOR, ya que se encontró RUC repetido
-                ban = 1
-
-            ElseIf ban = 0 Then
-                'Si el PROVEEDOR no existe
-                TextBoxDeshabilitado2.Text = ""
-
-                TextBoxProveedor.Text = ""
-                TextBoxProveedor.Focus()
-
-                LabelIngresoProducto.Show()
-                LabelIngresoProducto.Text = "El RUC de proveedor ingresado no existe"
-                LabelIngresoProducto.ForeColor = Color.Red
-            End If
-        Next
-        'End If
+    Private Sub ButtonCerrar1_Click(sender As Object, e As EventArgs) Handles ButtonCerrar1.Click
+        GroupBoxNuevoProducto.Hide()
     End Sub
 
     Private Sub ButtonInsertarProducto_Click(sender As Object, e As EventArgs) Handles ButtonInsertarProducto.Click
@@ -1027,38 +1721,74 @@
         End If
     End Sub
 
-    Private Sub TextBoxSeleccionarCantidad_TextChanged(sender As Object, e As EventArgs) Handles TextBoxSeleccionarCantidad.TextChanged
+    Private Sub ButtonCerrar2_Click(sender As Object, e As EventArgs) Handles ButtonCerrar2.Click
+        GroupBoxIngresodeProducto.Hide()
+    End Sub
+
+    Private Sub ButtonCerrar3_Click(sender As Object, e As EventArgs) Handles ButtonCerrar3.Click
+
+        GroupBoxModificarProducto.Hide()
+    End Sub
+
+    Private Sub TextBoxProveedor_TextChanged(sender As Object, e As EventArgs) Handles TextBoxProveedor.TextChanged
 
     End Sub
 
-    Private Sub TextBoxSeleccionarCantidad_LostFocus(sender As Object, e As EventArgs) Handles TextBoxSeleccionarCantidad.LostFocus
-    '    Dim cantidad_de_proveedores As Integer
-    '    cantidad_de_proveedores = DataSet1.Tables("proveedor").Rows.Count
-    '    Dim ban As Integer
-    '    ban = 0
+    Private Sub TextBoxProveedor_LostFocus(sender As Object, e As EventArgs) Handles TextBoxProveedor.LostFocus
+        Dim cantidad_de_proveedores As Integer
+        cantidad_de_proveedores = DataSet1.Tables("proveedor").Rows.Count
+        Dim ban As Integer
+        ban = 0
 
-    '    'If cantidad_de_proveedores > 0 Then
-    '    For i As Integer = 0 To (cantidad_de_proveedores - 1)
-    '        'Si el PROVEEDOR existe
+        'If cantidad_de_proveedores > 0 Then
+        For i As Integer = 0 To (cantidad_de_proveedores - 1)
+            'Si el PROVEEDOR existe
 
-    '        If DataSet1.Tables("proveedor").Rows(i).Item("ruc_proveedor") = TextBoxProveedor.Text Then
-    '            TextBoxDeshabilitado2.Text = DataSet1.Tables("proveedor").Rows(i).Item("nombre_proveedor")
-    '            LabelIngresoProducto.Hide()
-    '            'i = cantidad_de_proveedores - 1 'Para cortar el FOR, ya que se encontró RUC repetido
-    '            ban = 1
+            If DataSet1.Tables("proveedor").Rows(i).Item("ruc_proveedor") = TextBoxProveedor.Text Then
+                TextBoxDeshabilitado2.Text = DataSet1.Tables("proveedor").Rows(i).Item("nombre_proveedor")
+                LabelIngresoProducto.Hide()
+                'i = cantidad_de_proveedores - 1 'Para cortar el FOR, ya que se encontró RUC repetido
+                ban = 1
 
-    '        ElseIf ban = 0 Then
-    '            'Si el PROVEEDOR no existe
-    '            TextBoxDeshabilitado2.Text = ""
+            ElseIf ban = 0 Then
+                'Si el PROVEEDOR no existe
+                TextBoxDeshabilitado2.Text = ""
 
-    '            TextBoxProveedor.Text = ""
-    '            TextBoxProveedor.Focus()
+                TextBoxProveedor.Text = ""
+                TextBoxProveedor.Focus()
 
-    '            LabelIngresoProducto.Show()
-    '            LabelIngresoProducto.Text = "El RUC de proveedor ingresado no existe"
-    '            LabelIngresoProducto.ForeColor = Color.Red
-    '        End If
-    '    Next
-    '    'End If
-    'End Sub
+                LabelIngresoProducto.Show()
+                LabelIngresoProducto.Text = "El RUC de proveedor ingresado no existe"
+                LabelIngresoProducto.ForeColor = Color.Red
+            End If
+        Next
+        'End If
+    End Sub
+
+    Private Sub TextBoxCodigo_TextChanged(sender As Object, e As EventArgs) Handles TextBoxCodigo.TextChanged
+
+    End Sub
+
+    Private Sub TextBoxCodigo_LostFocus(sender As Object, e As EventArgs) Handles TextBoxCodigo.LostFocus
+        Dim cantidad_de_productos As Integer
+        cantidad_de_productos = DataSet1.Tables("producto").Rows.Count
+        If cantidad_de_productos > 0 Then
+            For i As Integer = 0 To (cantidad_de_productos - 1)
+                'Si el (CÓDIGO DE) PRODUCTO ya esta registrado'
+                If DataSet1.Tables("producto").Rows(i).Item("codigo") = TextBoxCodigo.Text Then
+
+                    LabelNuevoProducto.Show()
+                    LabelNuevoProducto.Text = "El código de producto ya está registrado"
+                    LabelNuevoProducto.ForeColor = Color.Red
+
+                    TextBoxCodigo.Text = ""
+                    TextBoxCodigo.Focus()
+
+                    i = cantidad_de_productos - 1 'Para cortar el FOR, ya que se encontró RUC repetido
+                Else
+                    LabelNuevoProducto.Hide()
+                End If
+            Next
+        End If
+    End Sub
 End Class

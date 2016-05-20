@@ -496,30 +496,46 @@ Public Class Form2
             For i = 0 To DataGridView1.RowCount - 1
 
                 If DataGridView1.Item(0, i).Value IsNot "" Then
-                    If DataGridView1.Item(3, i).Value = "" Then
+                    If DataGridView1.Item(3, i).Value IsNot Nothing Then
 
-                    Else
-                        If DataGridView1.Item(3, i).Value IsNot "0" Then
-                            id_cliente = DataSet1.Tables("cliente").Rows(ruc_cliente).Item("id_cliente")
-                            cargar_venta(DataGridView1.Item(0, i).Value, id_cliente, TextBox17.Text, DataGridView1.Item(3, i).Value)
+                        If DataGridView1.Item(3, i).Value.ToString = "" Then
 
-
-                            Dim nueva_contabilidad As DataRow = DataSet1.Tables("contabilidad").NewRow
-                            nueva_contabilidad("descripcion") = "Venta de " + DataGridView1.Item(3, i).Value + " " + DataGridView1.Item(1, i).Value
-                            nueva_contabilidad("haber") = DataGridView1.Item(4, i).Value
-                            nueva_contabilidad("fecha") = TextBox17.Text
-                            nueva_contabilidad("numero_factura") = n_factura_textbox.Text
-                            DataSet1.Tables("contabilidad").Rows.Add(nueva_contabilidad)
-                            Validate()
-                            ContabilidadBindingSource.EndEdit()
-                            ContabilidadTableAdapter.Update(DataSet1.contabilidad)
+                        Else
+                            If DataGridView1.Item(3, i).Value IsNot "0" Then
+                                id_cliente = DataSet1.Tables("cliente").Rows(ruc_cliente).Item("id_cliente")
+                                cargar_venta(DataGridView1.Item(0, i).Value, id_cliente, TextBox17.Text, DataGridView1.Item(3, i).Value)
 
 
+                                Dim nueva_contabilidad As DataRow = DataSet1.Tables("contabilidad").NewRow
+                                nueva_contabilidad("descripcion") = "Venta de " + DataGridView1.Item(3, i).Value.ToString + " " + DataGridView1.Item(1, i).Value.ToString
+                                nueva_contabilidad("haber") = DataGridView1.Item(4, i).Value
+                                nueva_contabilidad("fecha") = TextBox17.Text
+                                nueva_contabilidad("numero_factura") = n_factura_textbox.Text
+                                DataSet1.Tables("contabilidad").Rows.Add(nueva_contabilidad)
+                                Validate()
+                                ContabilidadBindingSource.EndEdit()
+                                ContabilidadTableAdapter.Update(DataSet1.contabilidad)
+
+                                Dim nueva_contabilidad6 As DataRow = DataSet1.Tables("contabilidad2").NewRow
+                                nueva_contabilidad6("descripcion_modificacion") = "Venta realizada"
+                                nueva_contabilidad6("fecha_modificacion") = TextBox17.Text
+                                nueva_contabilidad6("haber2") = DataGridView1.Item(4, i).Value
+                                nueva_contabilidad6("fecha2") = TextBox17.Text
+                                nueva_contabilidad6("numero_factura2") = n_factura_textbox.Text
+                                nueva_contabilidad6("descripcion2") = "Venta de " + DataGridView1.Item(3, i).Value.ToString + " " + DataGridView1.Item(1, i).Value.ToString
+                                DataSet1.Tables("contabilidad2").Rows.Add(nueva_contabilidad6)
+                                Validate()
+                                Contabilidad2BindingSource.EndEdit()
+                                Contabilidad2TableAdapter.Update(DataSet1.contabilidad2)
 
 
+
+
+                            End If
                         End If
                     End If
                 End If
+
 
             Next
 
@@ -543,6 +559,30 @@ Public Class Form2
             Validate()
             ContabilidadBindingSource.EndEdit()
             ContabilidadTableAdapter.Update(DataSet1.contabilidad)
+
+            Dim nueva_contabilidad4 As DataRow = DataSet1.Tables("contabilidad2").NewRow
+            nueva_contabilidad4("descripcion_modificacion") = "Venta realizada"
+            nueva_contabilidad4("fecha_modificacion") = TextBox17.Text
+            nueva_contabilidad4("haber2") = text_iva.Text
+            nueva_contabilidad4("fecha2") = TextBox17.Text
+            nueva_contabilidad4("numero_factura2") = n_factura_textbox.Text
+            nueva_contabilidad4("descripcion2") = "IVA"
+            DataSet1.Tables("contabilidad2").Rows.Add(nueva_contabilidad4)
+            Validate()
+            Contabilidad2BindingSource.EndEdit()
+            Contabilidad2TableAdapter.Update(DataSet1.contabilidad2)
+
+            Dim nueva_contabilidad5 As DataRow = DataSet1.Tables("contabilidad2").NewRow
+            nueva_contabilidad5("descripcion_modificacion") = "Venta realizada"
+            nueva_contabilidad5("fecha_modificacion") = TextBox17.Text
+            nueva_contabilidad5("deber2") = text_sub_total.Text
+            nueva_contabilidad5("fecha2") = TextBox17.Text
+            nueva_contabilidad5("numero_factura2") = n_factura_textbox.Text
+            nueva_contabilidad5("descripcion2") = "Caja"
+            DataSet1.Tables("contabilidad2").Rows.Add(nueva_contabilidad5)
+            Validate()
+            Contabilidad2BindingSource.EndEdit()
+            Contabilidad2TableAdapter.Update(DataSet1.contabilidad2)
 
 
 
@@ -652,15 +692,18 @@ Public Class Form2
         Else
             cantidad_product = cantidad_producto_disponible(idproducto)
             For i = 0 To DataGridView1.RowCount - 1
-                If DataGridView1.Item(0, i).Value = 0 Then
-                    suma = suma + DataGridView1.Item(4, i).Value
-                    text_sub_total.Text = suma.ToString
-                    iva = suma * 0.1
-                    text_iva.Text = iva.ToString
-                    total = suma + iva
+                If DataGridView1.Item(0, i).Value IsNot "" Then
+                    If DataGridView1.Item(0, i).Value = 0 Then
+                        suma = suma + DataGridView1.Item(4, i).Value
+                        text_sub_total.Text = suma.ToString
+                        iva = suma * 0.1
+                        text_iva.Text = iva.ToString
+                        total = suma + iva
 
-                    text_total.Text = total.ToString
+                        text_total.Text = total.ToString
+                    End If
                 End If
+
 
 
             Next
@@ -1092,7 +1135,7 @@ Public Class Form2
         astring = "10-200-123456"
         bstring = astring.Substring(7)
         bstring = bstring + 1
-        MsgBox(bstring)
+        MsgBox("el usuario es " + datos_loguin.id_usuario.ToString)
 
 
 

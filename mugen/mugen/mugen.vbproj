@@ -78,6 +78,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="datos_loguin.vb" />
     <Compile Include="Form1.vb">
       <SubType>Form</SubType>
     </Compile>

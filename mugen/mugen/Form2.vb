@@ -457,10 +457,17 @@ Public Class Form2
         nueva_venta("cantidad") = cantidad
 
 
+
+
+        nueva_venta("n_factura_venta_producto") = n_factura_textbox.Text
+
+        MsgBox("Guardado exitosamente")
         DataSet1.Tables("venta_producto").Rows.Add(nueva_venta)
         Validate()
         Venta_productoBindingSource.EndEdit()
         Venta_productoTableAdapter.Update(DataSet1.venta_producto)
+
+
 
 
 
@@ -470,7 +477,7 @@ Public Class Form2
 
         Dim ban = 0
         'comprobar existencia del cliente
-
+        Dim id_cliente
         Dim ruc_cliente As Integer
         ruc_cliente = buscar_en_tablas("cliente", "ruc", text_ruc_venta.Text)
         If ruc_cliente < 0 Then
@@ -479,53 +486,127 @@ Public Class Form2
         End If
 
 
+        If buscar_en_tablas("venta_producto", "n_factura_venta_producto", n_factura_textbox.Text) >= 0 Then
+            MsgBox("ya existe un registro con esa factura, cree una nueva factura si desea realizar una venta")
+        Else
+
+            'comprobar existencia del producto
+            Dim i As Integer
+
+            For i = 0 To DataGridView1.RowCount - 1
+
+                If DataGridView1.Item(0, i).Value IsNot "" Then
+                    If DataGridView1.Item(3, i).Value IsNot Nothing Then
+
+                        If DataGridView1.Item(3, i).Value.ToString = "" Then
+
+                        Else
+                            If DataGridView1.Item(3, i).Value IsNot "0" Then
+                                id_cliente = DataSet1.Tables("cliente").Rows(ruc_cliente).Item("id_cliente")
+                                cargar_venta(DataGridView1.Item(0, i).Value, id_cliente, TextBox17.Text, DataGridView1.Item(3, i).Value)
 
 
-        'comprobar existencia del producto
-        Dim i As Integer
+                                Dim nueva_contabilidad As DataRow = DataSet1.Tables("contabilidad").NewRow
+                                nueva_contabilidad("descripcion") = "Venta de " + DataGridView1.Item(3, i).Value.ToString + " " + DataGridView1.Item(1, i).Value.ToString
+                                nueva_contabilidad("haber") = DataGridView1.Item(4, i).Value
+                                nueva_contabilidad("fecha") = TextBox17.Text
+                                nueva_contabilidad("numero_factura") = n_factura_textbox.Text
+                                DataSet1.Tables("contabilidad").Rows.Add(nueva_contabilidad)
+                                Validate()
+                                ContabilidadBindingSource.EndEdit()
+                                ContabilidadTableAdapter.Update(DataSet1.contabilidad)
 
-        For i = 0 To DataGridView1.RowCount - 1
+                                Dim nueva_contabilidad6 As DataRow = DataSet1.Tables("contabilidad2").NewRow
+                                nueva_contabilidad6("descripcion_modificacion") = "Venta realizada"
+                                nueva_contabilidad6("fecha_modificacion") = TextBox17.Text
+                                nueva_contabilidad6("haber2") = DataGridView1.Item(4, i).Value
+                                nueva_contabilidad6("fecha2") = TextBox17.Text
+                                nueva_contabilidad6("numero_factura2") = n_factura_textbox.Text
+                                nueva_contabilidad6("descripcion2") = "Venta de " + DataGridView1.Item(3, i).Value.ToString + " " + DataGridView1.Item(1, i).Value.ToString
+                                DataSet1.Tables("contabilidad2").Rows.Add(nueva_contabilidad6)
+                                Validate()
+                                Contabilidad2BindingSource.EndEdit()
+                                Contabilidad2TableAdapter.Update(DataSet1.contabilidad2)
 
-            If DataGridView1.Item(0, i).Value IsNot "" Then
-                If DataGridView1.Item(3, i).Value = "" Then
-
-                Else
-                    If DataGridView1.Item(3, i).Value IsNot "0" Then
-
-                        cargar_venta(DataGridView1.Item(0, i).Value, ruc_cliente, TextBox17.Text, DataGridView1.Item(3, i).Value)
 
 
+
+                            End If
+                        End If
                     End If
                 End If
-            End If
-
-        Next
 
 
+            Next
+
+
+            Dim nueva_contabilidad2 As DataRow = DataSet1.Tables("contabilidad").NewRow
+            nueva_contabilidad2("descripcion") = "IVA"
+            nueva_contabilidad2("haber") = text_iva.Text
+            nueva_contabilidad2("fecha") = TextBox17.Text
+            nueva_contabilidad2("numero_factura") = n_factura_textbox.Text
+            DataSet1.Tables("contabilidad").Rows.Add(nueva_contabilidad2)
+            Validate()
+            ContabilidadBindingSource.EndEdit()
+            ContabilidadTableAdapter.Update(DataSet1.contabilidad)
+
+            Dim nueva_contabilidad3 As DataRow = DataSet1.Tables("contabilidad").NewRow
+            nueva_contabilidad3("descripcion") = "Caja"
+            nueva_contabilidad3("deber") = text_sub_total.Text
+            nueva_contabilidad3("fecha") = TextBox17.Text
+            nueva_contabilidad3("numero_factura") = n_factura_textbox.Text
+            DataSet1.Tables("contabilidad").Rows.Add(nueva_contabilidad3)
+            Validate()
+            ContabilidadBindingSource.EndEdit()
+            ContabilidadTableAdapter.Update(DataSet1.contabilidad)
+
+            Dim nueva_contabilidad4 As DataRow = DataSet1.Tables("contabilidad2").NewRow
+            nueva_contabilidad4("descripcion_modificacion") = "Venta realizada"
+            nueva_contabilidad4("fecha_modificacion") = TextBox17.Text
+            nueva_contabilidad4("haber2") = text_iva.Text
+            nueva_contabilidad4("fecha2") = TextBox17.Text
+            nueva_contabilidad4("numero_factura2") = n_factura_textbox.Text
+            nueva_contabilidad4("descripcion2") = "IVA"
+            DataSet1.Tables("contabilidad2").Rows.Add(nueva_contabilidad4)
+            Validate()
+            Contabilidad2BindingSource.EndEdit()
+            Contabilidad2TableAdapter.Update(DataSet1.contabilidad2)
+
+            Dim nueva_contabilidad5 As DataRow = DataSet1.Tables("contabilidad2").NewRow
+            nueva_contabilidad5("descripcion_modificacion") = "Venta realizada"
+            nueva_contabilidad5("fecha_modificacion") = TextBox17.Text
+            nueva_contabilidad5("deber2") = text_sub_total.Text
+            nueva_contabilidad5("fecha2") = TextBox17.Text
+            nueva_contabilidad5("numero_factura2") = n_factura_textbox.Text
+            nueva_contabilidad5("descripcion2") = "Caja"
+            DataSet1.Tables("contabilidad2").Rows.Add(nueva_contabilidad5)
+            Validate()
+            Contabilidad2BindingSource.EndEdit()
+            Contabilidad2TableAdapter.Update(DataSet1.contabilidad2)
 
 
 
+            'salida de productos
+            'Dim nuevo_cliente As DataRow = DataSet1.Tables("cliente").NewRow()
 
-        'salida de productos
-        'Dim nuevo_cliente As DataRow = DataSet1.Tables("cliente").NewRow()
+
+            'nuevo_cliente("nombre") = TextBox9.Text
+            'nuevo_cliente("apellido") = TextBox10.Text
+
+            'nuevo_cliente("ruc") = TextBox12.Text
+            'nuevo_cliente("numero") = TextBox13.Text
+            'nuevo_cliente("mail") = TextBox14.Text
+
+            'DataSet1.Tables("cliente").Rows.Add(nuevo_cliente)
+
+            'Validate()
+            'UsuarioBindingSource.EndEdit()
+            'ClienteBindingSource.EndEdit()
+
+            'ClienteTableAdapter.Update(DataSet1.cliente)
 
 
-        'nuevo_cliente("nombre") = TextBox9.Text
-        'nuevo_cliente("apellido") = TextBox10.Text
-
-        'nuevo_cliente("ruc") = TextBox12.Text
-        'nuevo_cliente("numero") = TextBox13.Text
-        'nuevo_cliente("mail") = TextBox14.Text
-
-        'DataSet1.Tables("cliente").Rows.Add(nuevo_cliente)
-
-        'Validate()
-        'UsuarioBindingSource.EndEdit()
-        'ClienteBindingSource.EndEdit()
-
-        'ClienteTableAdapter.Update(DataSet1.cliente)
-
-        Dim nueva_venta As DataRow = DataSet1.Tables("contabilidad").NewRow
+        End If
 
 
 
@@ -574,6 +655,8 @@ Public Class Form2
         Dim idproducto As Integer
         Dim cantidad_product As Integer
         Dim ban As Integer
+        Dim ban_exist_product As Integer
+        ban_exist_product = 0
 
 
         curen = DataGridView1.CurrentRow.Index
@@ -592,13 +675,16 @@ Public Class Form2
                     DataGridView1.Item(1, curen).Value = DataSet1.Tables("producto").Rows(i).Item("descripcion")
                     DataGridView1.Item(2, curen).Value = DataSet1.Tables("producto").Rows(i).Item("precio_venta")
                     idproducto = DataSet1.Tables("producto").Rows(i).Item("id_stock_mugen")
-                Else
-                    DataGridView1.Item(0, curen).Value = ""
+                    ban_exist_product = 1
 
-                    MsgBox("Codigo de producto no existe!")
                 End If
 
             Next
+            If ban_exist_product = 0 Then
+                DataGridView1.Item(0, curen).Value = ""
+                MsgBox("Codigo de producto no existe!")
+            End If
+
         End If
 
         If DataGridView1.Item(3, curen).Value = "" Then
@@ -606,15 +692,18 @@ Public Class Form2
         Else
             cantidad_product = cantidad_producto_disponible(idproducto)
             For i = 0 To DataGridView1.RowCount - 1
-                If DataGridView1.Item(0, i).Value = 0 Then
-                    suma = suma + DataGridView1.Item(4, i).Value
-                    text_sub_total.Text = suma.ToString
-                    iva = suma * 0.1
-                    text_iva.Text = iva.ToString
-                    total = suma + iva
+                If DataGridView1.Item(0, i).Value IsNot "" Then
+                    If DataGridView1.Item(0, i).Value = 0 Then
+                        suma = suma + DataGridView1.Item(4, i).Value
+                        text_sub_total.Text = suma.ToString
+                        iva = suma * 0.1
+                        text_iva.Text = iva.ToString
+                        total = suma + iva
 
-                    text_total.Text = total.ToString
+                        text_total.Text = total.ToString
+                    End If
                 End If
+
 
 
             Next
@@ -701,9 +790,15 @@ Public Class Form2
 
     Private Sub TextBox15_LostFocus(sender As Object, e As EventArgs) Handles text_ruc_venta.LostFocus
         Dim ruc As Integer
+        Dim venta_producto_tam As Integer
+        Dim mayor As Integer
+        Dim aux As String
+
+
+        venta_producto_tam = DataSet1.Tables("venta_producto").Rows.Count - 1
 
         ruc = funcion_buscar_cliente(text_ruc_venta.Text)
-
+        mayor = 0
 
         If ruc < 0 Then
             label_ruc_venta.Text = "no se econtro cliente"
@@ -716,6 +811,20 @@ Public Class Form2
             label_ruc_venta.Visible = False
             TextBox16.Text = DataSet1.Tables("cliente").Rows(ruc).Item("nombre") + " " + DataSet1.Tables("cliente").Rows(ruc).Item("apellido")
             TextBox17.Text = Date.Now.Date
+
+            If venta_producto_tam >= 0 Then
+                For i = 0 To venta_producto_tam
+                    aux = DataSet1.Tables("venta_producto").Rows(i).Item("n_factura_venta_producto")
+                    aux = aux.Substring(7)
+                    If aux > mayor Then
+                        mayor = aux
+                    End If
+                Next
+            End If
+            mayor = mayor + 1
+
+            n_factura_textbox.Text = "00-000-" + mayor.ToString
+
 
         End If
 
@@ -1019,6 +1128,14 @@ Public Class Form2
         text_ruc_venta.Clear()
         TextBox16.Clear()
         DataGridView1.Rows.Clear()
+
+        Dim astring As String
+        Dim bstring As String
+
+        astring = "10-200-123456"
+        bstring = astring.Substring(7)
+        bstring = bstring + 1
+        MsgBox("el usuario es " + datos_loguin.id_usuario.ToString)
 
 
 

@@ -574,6 +574,8 @@ Public Class Form2
         Dim idproducto As Integer
         Dim cantidad_product As Integer
         Dim ban As Integer
+        Dim ban_exist_product As Integer
+        ban_exist_product = 0
 
 
         curen = DataGridView1.CurrentRow.Index
@@ -592,13 +594,20 @@ Public Class Form2
                     DataGridView1.Item(1, curen).Value = DataSet1.Tables("producto").Rows(i).Item("descripcion")
                     DataGridView1.Item(2, curen).Value = DataSet1.Tables("producto").Rows(i).Item("precio_venta")
                     idproducto = DataSet1.Tables("producto").Rows(i).Item("id_stock_mugen")
-                Else
-                    DataGridView1.Item(0, curen).Value = ""
+                    ban_exist_product = 1
+                ElseIf ban_exist_product = 0 Then
 
-                    MsgBox("Codigo de producto no existe!")
+
+
+
                 End If
 
             Next
+            If ban_exist_product = 0 Then
+                DataGridView1.Item(0, curen).Value = ""
+                MsgBox("Codigo de producto no existe!")
+            End If
+
         End If
 
         If DataGridView1.Item(3, curen).Value = "" Then

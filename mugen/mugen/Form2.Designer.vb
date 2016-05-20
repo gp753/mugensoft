@@ -458,6 +458,8 @@ Partial Class Form2
         Me.Button24NuevoProducto = New System.Windows.Forms.Button()
         Me.ServicioTableAdapter = New mugen.DataSet1TableAdapters.servicioTableAdapter()
         Me.Venta_servicioTableAdapter = New mugen.DataSet1TableAdapters.venta_servicioTableAdapter()
+        Me.label_n_factura = New System.Windows.Forms.Label()
+        Me.n_factura_textbox = New System.Windows.Forms.TextBox()
         MailLabelM = New System.Windows.Forms.Label()
         NumeroLabelN = New System.Windows.Forms.Label()
         RucLabelR = New System.Windows.Forms.Label()
@@ -718,7 +720,7 @@ Partial Class Form2
         Me.Venta_servicioDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn107, Me.DataGridViewTextBoxColumn108, Me.DataGridViewTextBoxColumn109, Me.DataGridViewTextBoxColumn110, Me.DataGridViewTextBoxColumn111, Me.DataGridViewTextBoxColumn112})
         Me.Venta_servicioDataGridView.DataSource = Me.Venta_servicioBindingSource
         Me.Venta_servicioDataGridView.Location = New System.Drawing.Point(631, 85)
-        Me.Venta_servicioDataGridView.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Venta_servicioDataGridView.Margin = New System.Windows.Forms.Padding(2)
         Me.Venta_servicioDataGridView.Name = "Venta_servicioDataGridView"
         Me.Venta_servicioDataGridView.RowTemplate.Height = 28
         Me.Venta_servicioDataGridView.Size = New System.Drawing.Size(200, 143)
@@ -772,7 +774,7 @@ Partial Class Form2
         Me.Venta_productoDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn101, Me.DataGridViewTextBoxColumn102, Me.DataGridViewTextBoxColumn103, Me.DataGridViewTextBoxColumn104, Me.DataGridViewTextBoxColumn105, Me.DataGridViewTextBoxColumn106})
         Me.Venta_productoDataGridView.DataSource = Me.Venta_productoBindingSource
         Me.Venta_productoDataGridView.Location = New System.Drawing.Point(609, 55)
-        Me.Venta_productoDataGridView.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Venta_productoDataGridView.Margin = New System.Windows.Forms.Padding(2)
         Me.Venta_productoDataGridView.Name = "Venta_productoDataGridView"
         Me.Venta_productoDataGridView.RowTemplate.Height = 28
         Me.Venta_productoDataGridView.Size = New System.Drawing.Size(200, 143)
@@ -826,7 +828,7 @@ Partial Class Form2
         Me.UsuarioDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn56, Me.DataGridViewTextBoxColumn57, Me.DataGridViewTextBoxColumn58, Me.DataGridViewTextBoxColumn59, Me.DataGridViewTextBoxColumn60, Me.DataGridViewTextBoxColumn97, Me.DataGridViewTextBoxColumn98, Me.DataGridViewTextBoxColumn99, Me.DataGridViewTextBoxColumn100})
         Me.UsuarioDataGridView.DataSource = Me.UsuarioBindingSource
         Me.UsuarioDataGridView.Location = New System.Drawing.Point(581, 33)
-        Me.UsuarioDataGridView.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.UsuarioDataGridView.Margin = New System.Windows.Forms.Padding(2)
         Me.UsuarioDataGridView.Name = "UsuarioDataGridView"
         Me.UsuarioDataGridView.RowTemplate.Height = 28
         Me.UsuarioDataGridView.Size = New System.Drawing.Size(200, 143)
@@ -898,7 +900,7 @@ Partial Class Form2
         Me.ServicioDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn52, Me.DataGridViewTextBoxColumn53, Me.DataGridViewTextBoxColumn54, Me.DataGridViewTextBoxColumn55})
         Me.ServicioDataGridView.DataSource = Me.ServicioBindingSource
         Me.ServicioDataGridView.Location = New System.Drawing.Point(557, 14)
-        Me.ServicioDataGridView.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.ServicioDataGridView.Margin = New System.Windows.Forms.Padding(2)
         Me.ServicioDataGridView.Name = "ServicioDataGridView"
         Me.ServicioDataGridView.RowTemplate.Height = 28
         Me.ServicioDataGridView.Size = New System.Drawing.Size(200, 143)
@@ -940,7 +942,7 @@ Partial Class Form2
         Me.ProveedorDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn49, Me.DataGridViewTextBoxColumn50, Me.DataGridViewTextBoxColumn51})
         Me.ProveedorDataGridView.DataSource = Me.ProveedorBindingSource
         Me.ProveedorDataGridView.Location = New System.Drawing.Point(349, 68)
-        Me.ProveedorDataGridView.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.ProveedorDataGridView.Margin = New System.Windows.Forms.Padding(2)
         Me.ProveedorDataGridView.Name = "ProveedorDataGridView"
         Me.ProveedorDataGridView.RowTemplate.Height = 28
         Me.ProveedorDataGridView.Size = New System.Drawing.Size(200, 143)
@@ -976,7 +978,7 @@ Partial Class Form2
         Me.ProductoDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn45, Me.DataGridViewTextBoxColumn46, Me.DataGridViewTextBoxColumn47, Me.DataGridViewTextBoxColumn48})
         Me.ProductoDataGridView.DataSource = Me.ProductoBindingSource
         Me.ProductoDataGridView.Location = New System.Drawing.Point(321, 47)
-        Me.ProductoDataGridView.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.ProductoDataGridView.Margin = New System.Windows.Forms.Padding(2)
         Me.ProductoDataGridView.Name = "ProductoDataGridView"
         Me.ProductoDataGridView.RowTemplate.Height = 28
         Me.ProductoDataGridView.Size = New System.Drawing.Size(200, 143)
@@ -1018,7 +1020,7 @@ Partial Class Form2
         Me.PedidoDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn36, Me.DataGridViewTextBoxColumn37, Me.DataGridViewTextBoxColumn38, Me.DataGridViewTextBoxColumn39, Me.DataGridViewTextBoxColumn40, Me.DataGridViewTextBoxColumn41, Me.DataGridViewTextBoxColumn42, Me.DataGridViewTextBoxColumn43, Me.DataGridViewTextBoxColumn44})
         Me.PedidoDataGridView.DataSource = Me.PedidoBindingSource
         Me.PedidoDataGridView.Location = New System.Drawing.Point(294, 27)
-        Me.PedidoDataGridView.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.PedidoDataGridView.Margin = New System.Windows.Forms.Padding(2)
         Me.PedidoDataGridView.Name = "PedidoDataGridView"
         Me.PedidoDataGridView.RowTemplate.Height = 28
         Me.PedidoDataGridView.Size = New System.Drawing.Size(200, 143)
@@ -1085,7 +1087,7 @@ Partial Class Form2
         Me.Ingreso_productoDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn28, Me.DataGridViewTextBoxColumn29, Me.DataGridViewTextBoxColumn30, Me.DataGridViewTextBoxColumn31, Me.DataGridViewTextBoxColumn32, Me.DataGridViewTextBoxColumn33, Me.DataGridViewTextBoxColumn34, Me.DataGridViewTextBoxColumn35})
         Me.Ingreso_productoDataGridView.DataSource = Me.Ingreso_productoBindingSource
         Me.Ingreso_productoDataGridView.Location = New System.Drawing.Point(267, 6)
-        Me.Ingreso_productoDataGridView.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Ingreso_productoDataGridView.Margin = New System.Windows.Forms.Padding(2)
         Me.Ingreso_productoDataGridView.Name = "Ingreso_productoDataGridView"
         Me.Ingreso_productoDataGridView.RowTemplate.Height = 28
         Me.Ingreso_productoDataGridView.Size = New System.Drawing.Size(200, 143)
@@ -1146,7 +1148,7 @@ Partial Class Form2
         Me.Contabilidad2DataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn19, Me.DataGridViewTextBoxColumn20, Me.DataGridViewTextBoxColumn21, Me.DataGridViewTextBoxColumn22, Me.DataGridViewTextBoxColumn23, Me.DataGridViewTextBoxColumn24, Me.DataGridViewTextBoxColumn25, Me.DataGridViewTextBoxColumn26, Me.DataGridViewTextBoxColumn27})
         Me.Contabilidad2DataGridView.DataSource = Me.Contabilidad2BindingSource
         Me.Contabilidad2DataGridView.Location = New System.Drawing.Point(62, 47)
-        Me.Contabilidad2DataGridView.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Contabilidad2DataGridView.Margin = New System.Windows.Forms.Padding(2)
         Me.Contabilidad2DataGridView.Name = "Contabilidad2DataGridView"
         Me.Contabilidad2DataGridView.RowTemplate.Height = 28
         Me.Contabilidad2DataGridView.Size = New System.Drawing.Size(200, 143)
@@ -1213,7 +1215,7 @@ Partial Class Form2
         Me.ContabilidadDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn12, Me.DataGridViewTextBoxColumn13, Me.DataGridViewTextBoxColumn14, Me.DataGridViewTextBoxColumn15, Me.DataGridViewTextBoxColumn16, Me.DataGridViewTextBoxColumn17, Me.DataGridViewTextBoxColumn18})
         Me.ContabilidadDataGridView.DataSource = Me.ContabilidadBindingSource
         Me.ContabilidadDataGridView.Location = New System.Drawing.Point(48, 32)
-        Me.ContabilidadDataGridView.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.ContabilidadDataGridView.Margin = New System.Windows.Forms.Padding(2)
         Me.ContabilidadDataGridView.Name = "ContabilidadDataGridView"
         Me.ContabilidadDataGridView.RowTemplate.Height = 28
         Me.ContabilidadDataGridView.Size = New System.Drawing.Size(200, 143)
@@ -1268,7 +1270,7 @@ Partial Class Form2
         Me.ClienteDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn7, Me.DataGridViewTextBoxColumn8, Me.DataGridViewTextBoxColumn9, Me.DataGridViewTextBoxColumn11})
         Me.ClienteDataGridView.DataSource = Me.ClienteBindingSource
         Me.ClienteDataGridView.Location = New System.Drawing.Point(27, 20)
-        Me.ClienteDataGridView.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.ClienteDataGridView.Margin = New System.Windows.Forms.Padding(2)
         Me.ClienteDataGridView.Name = "ClienteDataGridView"
         Me.ClienteDataGridView.RowTemplate.Height = 28
         Me.ClienteDataGridView.Size = New System.Drawing.Size(200, 143)
@@ -1329,7 +1331,7 @@ Partial Class Form2
         Me.Association_1DataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2})
         Me.Association_1DataGridView.DataSource = Me.Association_1BindingSource
         Me.Association_1DataGridView.Location = New System.Drawing.Point(7, 5)
-        Me.Association_1DataGridView.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Association_1DataGridView.Margin = New System.Windows.Forms.Padding(2)
         Me.Association_1DataGridView.Name = "Association_1DataGridView"
         Me.Association_1DataGridView.RowTemplate.Height = 28
         Me.Association_1DataGridView.Size = New System.Drawing.Size(200, 143)
@@ -1981,7 +1983,7 @@ Partial Class Form2
         'TextBox22
         '
         Me.TextBox22.Location = New System.Drawing.Point(199, 75)
-        Me.TextBox22.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.TextBox22.Margin = New System.Windows.Forms.Padding(2)
         Me.TextBox22.Name = "TextBox22"
         Me.TextBox22.Size = New System.Drawing.Size(283, 20)
         Me.TextBox22.TabIndex = 22
@@ -2352,6 +2354,8 @@ Partial Class Form2
         '
         'panel_vender
         '
+        Me.panel_vender.Controls.Add(Me.n_factura_textbox)
+        Me.panel_vender.Controls.Add(Me.label_n_factura)
         Me.panel_vender.Controls.Add(Me.Button24)
         Me.panel_vender.Controls.Add(Me.label_ruc_venta)
         Me.panel_vender.Controls.Add(Me.text_total)
@@ -3312,7 +3316,7 @@ Partial Class Form2
         'pbBorrar
         '
         Me.pbBorrar.Location = New System.Drawing.Point(117, 164)
-        Me.pbBorrar.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.pbBorrar.Margin = New System.Windows.Forms.Padding(2)
         Me.pbBorrar.Name = "pbBorrar"
         Me.pbBorrar.Size = New System.Drawing.Size(60, 24)
         Me.pbBorrar.TabIndex = 34
@@ -3322,7 +3326,7 @@ Partial Class Form2
         'pbCambiar
         '
         Me.pbCambiar.Location = New System.Drawing.Point(478, 496)
-        Me.pbCambiar.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.pbCambiar.Margin = New System.Windows.Forms.Padding(2)
         Me.pbCambiar.Name = "pbCambiar"
         Me.pbCambiar.Size = New System.Drawing.Size(64, 21)
         Me.pbCambiar.TabIndex = 33
@@ -3343,7 +3347,7 @@ Partial Class Form2
         '
         Me.pcEstado.FormattingEnabled = True
         Me.pcEstado.Location = New System.Drawing.Point(388, 496)
-        Me.pcEstado.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.pcEstado.Margin = New System.Windows.Forms.Padding(2)
         Me.pcEstado.Name = "pcEstado"
         Me.pcEstado.Size = New System.Drawing.Size(82, 21)
         Me.pcEstado.TabIndex = 32
@@ -3550,7 +3554,7 @@ Partial Class Form2
         '
         Me.pcProyecto.FormattingEnabled = True
         Me.pcProyecto.Location = New System.Drawing.Point(308, 15)
-        Me.pcProyecto.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.pcProyecto.Margin = New System.Windows.Forms.Padding(2)
         Me.pcProyecto.Name = "pcProyecto"
         Me.pcProyecto.Size = New System.Drawing.Size(110, 21)
         Me.pcProyecto.TabIndex = 17
@@ -3558,7 +3562,7 @@ Partial Class Form2
         'ptNombre
         '
         Me.ptNombre.Location = New System.Drawing.Point(2, 15)
-        Me.ptNombre.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.ptNombre.Margin = New System.Windows.Forms.Padding(2)
         Me.ptNombre.Name = "ptNombre"
         Me.ptNombre.Size = New System.Drawing.Size(98, 20)
         Me.ptNombre.TabIndex = 18
@@ -3566,7 +3570,7 @@ Partial Class Form2
         'ptApellido
         '
         Me.ptApellido.Location = New System.Drawing.Point(104, 15)
-        Me.ptApellido.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.ptApellido.Margin = New System.Windows.Forms.Padding(2)
         Me.ptApellido.Name = "ptApellido"
         Me.ptApellido.Size = New System.Drawing.Size(94, 20)
         Me.ptApellido.TabIndex = 19
@@ -3574,7 +3578,7 @@ Partial Class Form2
         'ptRuc
         '
         Me.ptRuc.Location = New System.Drawing.Point(202, 15)
-        Me.ptRuc.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.ptRuc.Margin = New System.Windows.Forms.Padding(2)
         Me.ptRuc.Name = "ptRuc"
         Me.ptRuc.Size = New System.Drawing.Size(102, 20)
         Me.ptRuc.TabIndex = 20
@@ -3582,7 +3586,7 @@ Partial Class Form2
         'ptDescrip
         '
         Me.ptDescrip.Location = New System.Drawing.Point(645, 15)
-        Me.ptDescrip.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.ptDescrip.Margin = New System.Windows.Forms.Padding(2)
         Me.ptDescrip.Multiline = True
         Me.ptDescrip.Name = "ptDescrip"
         Me.ptDescrip.Size = New System.Drawing.Size(191, 139)
@@ -3591,7 +3595,7 @@ Partial Class Form2
         'ptEntrega
         '
         Me.ptEntrega.Location = New System.Drawing.Point(422, 15)
-        Me.ptEntrega.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.ptEntrega.Margin = New System.Windows.Forms.Padding(2)
         Me.ptEntrega.Name = "ptEntrega"
         Me.ptEntrega.Size = New System.Drawing.Size(103, 20)
         Me.ptEntrega.TabIndex = 24
@@ -3599,7 +3603,7 @@ Partial Class Form2
         'ptCobro
         '
         Me.ptCobro.Location = New System.Drawing.Point(529, 15)
-        Me.ptCobro.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.ptCobro.Margin = New System.Windows.Forms.Padding(2)
         Me.ptCobro.Name = "ptCobro"
         Me.ptCobro.Size = New System.Drawing.Size(112, 20)
         Me.ptCobro.TabIndex = 25
@@ -3616,7 +3620,7 @@ Partial Class Form2
         'ptPrecio
         '
         Me.ptPrecio.Location = New System.Drawing.Point(645, 174)
-        Me.ptPrecio.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.ptPrecio.Margin = New System.Windows.Forms.Padding(2)
         Me.ptPrecio.Name = "ptPrecio"
         Me.ptPrecio.Size = New System.Drawing.Size(122, 20)
         Me.ptPrecio.TabIndex = 29
@@ -4165,6 +4169,22 @@ Partial Class Form2
         '
         Me.Venta_servicioTableAdapter.ClearBeforeFill = True
         '
+        'label_n_factura
+        '
+        Me.label_n_factura.AutoSize = True
+        Me.label_n_factura.Location = New System.Drawing.Point(439, 46)
+        Me.label_n_factura.Name = "label_n_factura"
+        Me.label_n_factura.Size = New System.Drawing.Size(66, 13)
+        Me.label_n_factura.TabIndex = 16
+        Me.label_n_factura.Text = "Nro. Factura"
+        '
+        'n_factura_textbox
+        '
+        Me.n_factura_textbox.Location = New System.Drawing.Point(519, 41)
+        Me.n_factura_textbox.Name = "n_factura_textbox"
+        Me.n_factura_textbox.Size = New System.Drawing.Size(109, 20)
+        Me.n_factura_textbox.TabIndex = 17
+        '
         'Form2
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -4684,4 +4704,6 @@ Partial Class Form2
     Friend WithEvents DataGridViewTextBoxColumn110 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn111 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn112 As DataGridViewTextBoxColumn
+    Friend WithEvents n_factura_textbox As TextBox
+    Friend WithEvents label_n_factura As Label
 End Class

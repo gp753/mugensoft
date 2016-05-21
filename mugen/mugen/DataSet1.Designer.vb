@@ -7818,6 +7818,7 @@ Namespace DataSet1TableAdapters
                 End If
             End Try
         End Function
+
     End Class
     
     '''<summary>

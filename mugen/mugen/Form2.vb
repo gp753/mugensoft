@@ -2224,40 +2224,7 @@ Public Class Form2
         End If
 
     End Sub
-    Private Sub serBusBtn_Click(sender As Object, e As EventArgs) Handles serBusBtn.Click
 
-        'nueva puerquesa
-        Dim i, j, k, s As Integer
-        Dim resul As String
-        Dim bandera As Boolean = False
-
-        mostrarErrores(errorBuscar, "", False)
-        i = DataSet1.Tables("servicio").Rows.Count
-        s = serBusBtn.Text.ToString.Length
-        If i > 0 Then
-            For j = 0 To i - 1
-
-                resul = ServicioDataGridView.Item(1, j).Value().ToString()
-                k = resul.Length
-                If k >= s And serBusBtn.Text <> "" Then
-                    If resul.Substring(0, s).Equals(serBusBtn.Text) Then
-                        lisBusSer.Items.Add(resul + " " + ServicioDataGridView.Item(2, j).Value().ToString() + " " + ServicioDataGridView.Item(3, j).Value().ToString())
-                        bandera = True
-                    End If
-                ElseIf serBusBtn.Text = "" Then
-                    lisBusSer.Items.Add(resul + " " + ServicioDataGridView.Item(2, j).Value().ToString() + " " + ServicioDataGridView.Item(3, j).Value().ToString())
-                    bandera = -True
-                End If
-            Next
-        Else
-            mostrarErrores(errorBuscar, "No existe registros en la base de datos", True)
-            verServicios.Hide()
-        End If
-
-        If bandera Then
-            mostrarErrores(errorBuscar, "No existen coincidencias", True)
-        End If
-    End Sub
 
     Private Sub carSerBtn_Click(sender As Object, e As EventArgs) Handles carSerBtn.Click
         Dim resul As Integer
@@ -2404,14 +2371,75 @@ Public Class Form2
         CheckBoxMano.Checked = False
     End Sub
 
-    Private Sub Buscar_Click(sender As Object, e As EventArgs) Handles Buscar.Click
-        verSerPanel.Show()
-    End Sub
 
     Private Sub boton_servicios_Click(sender As Object, e As EventArgs) Handles boton_servicios.Click
         panel_cuentas.Hide()
         panel_carga_presupuesto.Hide()
         PanelTrabajosPendientes.Hide()
         panelServicios.Show()
+    End Sub
+
+    Private Sub cancelSerBtn_Click(sender As Object, e As EventArgs)
+        cancelSerBtn.Hide()
+    End Sub
+
+    Private Sub buscoSerBtn_Click(sender As Object, e As EventArgs) Handles buscoSerBtn.Click
+        verSerPanel.Show()
+        lisBusSer.Items.Clear()
+        auxSer.Items.Clear()
+    End Sub
+
+    Private Sub serBusBtn_Click_1(sender As Object, e As EventArgs) Handles serBusBtn.Click
+        'nueva puerquesa
+        Dim i, j, k, s As Integer
+        Dim resul As String
+        Dim bandera As Boolean = False
+
+
+        mostrarErrores(errorBuscar, "", False)
+        i = DataSet1.Tables("servicio").Rows.Count
+        s = serBusTxt.Text.Length
+
+
+        If i > 0 Then
+            For j = 0 To i - 1
+
+                resul = ServicioDataGridView.Item(1, j).Value().ToString()
+                k = resul.Length
+
+                If k >= s And serBusTxt.Text <> "" Then
+                    MsgBox(resul.Substring(0, s))
+                    If resul.Substring(0, s).Equals(serBusTxt.Text.ToString) Then
+
+                        lisBusSer.Items.Add("Nombre: " + resul + "     " + "Descripcion: " + ServicioDataGridView.Item(2, j).Value().ToString() + "     " + "Se calcula: " + ServicioDataGridView.Item(3, j).Value().ToString())
+                        auxSer.Items.Add(resul)
+                        bandera = True
+                    End If
+                ElseIf serBusTxt.Text = "" Then
+                    lisBusSer.Items.Add("Nombre: " + resul + "     " + "Descripcion: " + ServicioDataGridView.Item(2, j).Value().ToString() + "     " + "Se calcula: " + ServicioDataGridView.Item(3, j).Value().ToString())
+                    auxSer.Items.Add(resul)
+                    bandera = -True
+                End If
+            Next
+        Else
+            mostrarErrores(errorBuscar, "No existe registros en la base de datos", True)
+
+        End If
+
+        If bandera = False Then
+            mostrarErrores(errorBuscar, "No existen coincidencias", True)
+
+
+        End If
+    End Sub
+
+    Private Sub cancelSerBtn_Click_1(sender As Object, e As EventArgs) Handles cancelSerBtn.Click
+        verSerPanel.Hide()
+    End Sub
+
+    Private Sub lisBusSer_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lisBusSer.SelectedIndexChanged
+        nomSerTxt.Text = auxSer.Items(lisBusSer.SelectedIndex)
+
+        verSerPanel.Hide()
     End Sub
 End Class

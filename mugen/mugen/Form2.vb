@@ -26,6 +26,7 @@ Public Class Form2
         Me.ProveedorTableAdapter.Fill(Me.DataSet1.proveedor)
         'TODO: This line of code loads data into the 'DataSet1.producto' table. You can move, or remove it, as needed.
         Me.ProductoTableAdapter.Fill(Me.DataSet1.producto)
+
         'TODO: This line of code loads data into the 'DataSet1.pedido' table. You can move, or remove it, as needed.
         Me.PedidoTableAdapter.Fill(Me.DataSet1.pedido)
         'TODO: This line of code loads data into the 'DataSet1.ingreso_producto' table. You can move, or remove it, as needed.
@@ -456,10 +457,17 @@ Public Class Form2
         nueva_venta("cantidad") = cantidad
 
 
+
+
+        nueva_venta("n_factura_venta_producto") = n_factura_textbox.Text
+
+        MsgBox("Guardado exitosamente")
         DataSet1.Tables("venta_producto").Rows.Add(nueva_venta)
         Validate()
         Venta_productoBindingSource.EndEdit()
         Venta_productoTableAdapter.Update(DataSet1.venta_producto)
+
+
 
 
 
@@ -469,7 +477,7 @@ Public Class Form2
 
         Dim ban = 0
         'comprobar existencia del cliente
-
+        Dim id_cliente
         Dim ruc_cliente As Integer
         ruc_cliente = buscar_en_tablas("cliente", "ruc", text_ruc_venta.Text)
         If ruc_cliente < 0 Then
@@ -478,53 +486,127 @@ Public Class Form2
         End If
 
 
+        If buscar_en_tablas("venta_producto", "n_factura_venta_producto", n_factura_textbox.Text) >= 0 Then
+            MsgBox("ya existe un registro con esa factura, cree una nueva factura si desea realizar una venta")
+        Else
+
+            'comprobar existencia del producto
+            Dim i As Integer
+
+            For i = 0 To DataGridView1.RowCount - 1
+
+                If DataGridView1.Item(0, i).Value IsNot "" Then
+                    If DataGridView1.Item(3, i).Value IsNot Nothing Then
+
+                        If DataGridView1.Item(3, i).Value.ToString = "" Then
+
+                        Else
+                            If DataGridView1.Item(3, i).Value IsNot "0" Then
+                                id_cliente = DataSet1.Tables("cliente").Rows(ruc_cliente).Item("id_cliente")
+                                cargar_venta(DataGridView1.Item(0, i).Value, id_cliente, TextBox17.Text, DataGridView1.Item(3, i).Value)
 
 
-        'comprobar existencia del producto
-        Dim i As Integer
+                                Dim nueva_contabilidad As DataRow = DataSet1.Tables("contabilidad").NewRow
+                                nueva_contabilidad("descripcion") = "Venta de " + DataGridView1.Item(3, i).Value.ToString + " " + DataGridView1.Item(1, i).Value.ToString
+                                nueva_contabilidad("haber") = DataGridView1.Item(4, i).Value
+                                nueva_contabilidad("fecha") = TextBox17.Text
+                                nueva_contabilidad("numero_factura") = n_factura_textbox.Text
+                                DataSet1.Tables("contabilidad").Rows.Add(nueva_contabilidad)
+                                Validate()
+                                ContabilidadBindingSource.EndEdit()
+                                ContabilidadTableAdapter.Update(DataSet1.contabilidad)
 
-        For i = 0 To DataGridView1.RowCount - 1
+                                Dim nueva_contabilidad6 As DataRow = DataSet1.Tables("contabilidad2").NewRow
+                                nueva_contabilidad6("descripcion_modificacion") = "Venta realizada"
+                                nueva_contabilidad6("fecha_modificacion") = TextBox17.Text
+                                nueva_contabilidad6("haber2") = DataGridView1.Item(4, i).Value
+                                nueva_contabilidad6("fecha2") = TextBox17.Text
+                                nueva_contabilidad6("numero_factura2") = n_factura_textbox.Text
+                                nueva_contabilidad6("descripcion2") = "Venta de " + DataGridView1.Item(3, i).Value.ToString + " " + DataGridView1.Item(1, i).Value.ToString
+                                DataSet1.Tables("contabilidad2").Rows.Add(nueva_contabilidad6)
+                                Validate()
+                                Contabilidad2BindingSource.EndEdit()
+                                Contabilidad2TableAdapter.Update(DataSet1.contabilidad2)
 
-            If DataGridView1.Item(0, i).Value IsNot "" Then
-                If DataGridView1.Item(3, i).Value = "" Then
-
-                Else
-                    If DataGridView1.Item(3, i).Value IsNot "0" Then
-
-                        cargar_venta(DataGridView1.Item(0, i).Value, ruc_cliente, TextBox17.Text, DataGridView1.Item(3, i).Value)
 
 
+
+                            End If
+                        End If
                     End If
                 End If
-            End If
-
-        Next
 
 
+            Next
+
+
+            Dim nueva_contabilidad2 As DataRow = DataSet1.Tables("contabilidad").NewRow
+            nueva_contabilidad2("descripcion") = "IVA"
+            nueva_contabilidad2("haber") = text_iva.Text
+            nueva_contabilidad2("fecha") = TextBox17.Text
+            nueva_contabilidad2("numero_factura") = n_factura_textbox.Text
+            DataSet1.Tables("contabilidad").Rows.Add(nueva_contabilidad2)
+            Validate()
+            ContabilidadBindingSource.EndEdit()
+            ContabilidadTableAdapter.Update(DataSet1.contabilidad)
+
+            Dim nueva_contabilidad3 As DataRow = DataSet1.Tables("contabilidad").NewRow
+            nueva_contabilidad3("descripcion") = "Caja"
+            nueva_contabilidad3("deber") = text_sub_total.Text
+            nueva_contabilidad3("fecha") = TextBox17.Text
+            nueva_contabilidad3("numero_factura") = n_factura_textbox.Text
+            DataSet1.Tables("contabilidad").Rows.Add(nueva_contabilidad3)
+            Validate()
+            ContabilidadBindingSource.EndEdit()
+            ContabilidadTableAdapter.Update(DataSet1.contabilidad)
+
+            Dim nueva_contabilidad4 As DataRow = DataSet1.Tables("contabilidad2").NewRow
+            nueva_contabilidad4("descripcion_modificacion") = "Venta realizada"
+            nueva_contabilidad4("fecha_modificacion") = TextBox17.Text
+            nueva_contabilidad4("haber2") = text_iva.Text
+            nueva_contabilidad4("fecha2") = TextBox17.Text
+            nueva_contabilidad4("numero_factura2") = n_factura_textbox.Text
+            nueva_contabilidad4("descripcion2") = "IVA"
+            DataSet1.Tables("contabilidad2").Rows.Add(nueva_contabilidad4)
+            Validate()
+            Contabilidad2BindingSource.EndEdit()
+            Contabilidad2TableAdapter.Update(DataSet1.contabilidad2)
+
+            Dim nueva_contabilidad5 As DataRow = DataSet1.Tables("contabilidad2").NewRow
+            nueva_contabilidad5("descripcion_modificacion") = "Venta realizada"
+            nueva_contabilidad5("fecha_modificacion") = TextBox17.Text
+            nueva_contabilidad5("deber2") = text_sub_total.Text
+            nueva_contabilidad5("fecha2") = TextBox17.Text
+            nueva_contabilidad5("numero_factura2") = n_factura_textbox.Text
+            nueva_contabilidad5("descripcion2") = "Caja"
+            DataSet1.Tables("contabilidad2").Rows.Add(nueva_contabilidad5)
+            Validate()
+            Contabilidad2BindingSource.EndEdit()
+            Contabilidad2TableAdapter.Update(DataSet1.contabilidad2)
 
 
 
+            'salida de productos
+            'Dim nuevo_cliente As DataRow = DataSet1.Tables("cliente").NewRow()
 
-        'salida de productos
-        'Dim nuevo_cliente As DataRow = DataSet1.Tables("cliente").NewRow()
+
+            'nuevo_cliente("nombre") = TextBox9.Text
+            'nuevo_cliente("apellido") = TextBox10.Text
+
+            'nuevo_cliente("ruc") = TextBox12.Text
+            'nuevo_cliente("numero") = TextBox13.Text
+            'nuevo_cliente("mail") = TextBox14.Text
+
+            'DataSet1.Tables("cliente").Rows.Add(nuevo_cliente)
+
+            'Validate()
+            'UsuarioBindingSource.EndEdit()
+            'ClienteBindingSource.EndEdit()
+
+            'ClienteTableAdapter.Update(DataSet1.cliente)
 
 
-        'nuevo_cliente("nombre") = TextBox9.Text
-        'nuevo_cliente("apellido") = TextBox10.Text
-
-        'nuevo_cliente("ruc") = TextBox12.Text
-        'nuevo_cliente("numero") = TextBox13.Text
-        'nuevo_cliente("mail") = TextBox14.Text
-
-        'DataSet1.Tables("cliente").Rows.Add(nuevo_cliente)
-
-        'Validate()
-        'UsuarioBindingSource.EndEdit()
-        'ClienteBindingSource.EndEdit()
-
-        'ClienteTableAdapter.Update(DataSet1.cliente)
-
-        Dim nueva_venta As DataRow = DataSet1.Tables("contabilidad").NewRow
+        End If
 
 
 
@@ -573,6 +655,8 @@ Public Class Form2
         Dim idproducto As Integer
         Dim cantidad_product As Integer
         Dim ban As Integer
+        Dim ban_exist_product As Integer
+        ban_exist_product = 0
 
 
         curen = DataGridView1.CurrentRow.Index
@@ -591,13 +675,16 @@ Public Class Form2
                     DataGridView1.Item(1, curen).Value = DataSet1.Tables("producto").Rows(i).Item("descripcion")
                     DataGridView1.Item(2, curen).Value = DataSet1.Tables("producto").Rows(i).Item("precio_venta")
                     idproducto = DataSet1.Tables("producto").Rows(i).Item("id_stock_mugen")
-                Else
-                    DataGridView1.Item(0, curen).Value = ""
+                    ban_exist_product = 1
 
-                    MsgBox("Codigo de producto no existe!")
                 End If
 
             Next
+            If ban_exist_product = 0 Then
+                DataGridView1.Item(0, curen).Value = ""
+                MsgBox("Codigo de producto no existe!")
+            End If
+
         End If
 
         If DataGridView1.Item(3, curen).Value = "" Then
@@ -605,15 +692,18 @@ Public Class Form2
         Else
             cantidad_product = cantidad_producto_disponible(idproducto)
             For i = 0 To DataGridView1.RowCount - 1
-                If DataGridView1.Item(0, i).Value = 0 Then
-                    suma = suma + DataGridView1.Item(4, i).Value
-                    text_sub_total.Text = suma.ToString
-                    iva = suma * 0.1
-                    text_iva.Text = iva.ToString
-                    total = suma + iva
+                If DataGridView1.Item(0, i).Value IsNot "" Then
+                    If DataGridView1.Item(0, i).Value = 0 Then
+                        suma = suma + DataGridView1.Item(4, i).Value
+                        text_sub_total.Text = suma.ToString
+                        iva = suma * 0.1
+                        text_iva.Text = iva.ToString
+                        total = suma + iva
 
-                    text_total.Text = total.ToString
+                        text_total.Text = total.ToString
+                    End If
                 End If
+
 
 
             Next
@@ -700,9 +790,15 @@ Public Class Form2
 
     Private Sub TextBox15_LostFocus(sender As Object, e As EventArgs) Handles text_ruc_venta.LostFocus
         Dim ruc As Integer
+        Dim venta_producto_tam As Integer
+        Dim mayor As Integer
+        Dim aux As String
+
+
+        venta_producto_tam = DataSet1.Tables("venta_producto").Rows.Count - 1
 
         ruc = funcion_buscar_cliente(text_ruc_venta.Text)
-
+        mayor = 0
 
         If ruc < 0 Then
             label_ruc_venta.Text = "no se econtro cliente"
@@ -715,6 +811,20 @@ Public Class Form2
             label_ruc_venta.Visible = False
             TextBox16.Text = DataSet1.Tables("cliente").Rows(ruc).Item("nombre") + " " + DataSet1.Tables("cliente").Rows(ruc).Item("apellido")
             TextBox17.Text = Date.Now.Date
+
+            If venta_producto_tam >= 0 Then
+                For i = 0 To venta_producto_tam
+                    aux = DataSet1.Tables("venta_producto").Rows(i).Item("n_factura_venta_producto")
+                    aux = aux.Substring(7)
+                    If aux > mayor Then
+                        mayor = aux
+                    End If
+                Next
+            End If
+            mayor = mayor + 1
+
+            n_factura_textbox.Text = "00-000-" + mayor.ToString
+
 
         End If
 
@@ -1019,6 +1129,14 @@ Public Class Form2
         TextBox16.Clear()
         DataGridView1.Rows.Clear()
 
+        Dim astring As String
+        Dim bstring As String
+
+        astring = "10-200-123456"
+        bstring = astring.Substring(7)
+        bstring = bstring + 1
+        MsgBox("el usuario es " + datos_loguin.id_usuario.ToString)
+
 
 
     End Sub
@@ -1029,7 +1147,7 @@ Public Class Form2
         TextIden.Text = ""
     End Sub
 
-    Private Sub botonBuscar_Click(sender As Object, e As EventArgs) Handles botonBuscar.Click
+    Private Sub botonBuscar_Click(sender As Object, e As EventArgs) Handles buscarSerBtn.Click
         Dim nombreCliente As String
         Dim apellidoCliente As String
         Dim identiCliente As String
@@ -1605,7 +1723,7 @@ Public Class Form2
         GroupBox4Stock.Show()
     End Sub
 
-    Private Sub Button24NuevoProducto_Click(sender As Object, e As EventArgs) Handles Button24NuevoProducto.Click
+    Private Sub Button24NuevoProducto_Click(sender As Object, e As EventArgs)
         GroupBoxNuevoProducto.Show()
         GroupBoxIngresodeProducto.Hide()
         GroupBoxModificarProducto.Hide()
@@ -1619,32 +1737,19 @@ Public Class Form2
         TextBoxPrecio.Clear()
     End Sub
 
-    Private Sub Button25_Click(sender As Object, e As EventArgs) Handles Button25.Click
-        GroupBoxNuevoProducto.Hide()
-        GroupBoxIngresodeProducto.Show()
-        GroupBoxModificarProducto.Hide()
-        LabelIngresoProducto.Hide()
 
-        TextBoxDeshabilitado.Text = ""
-        TextBoxSeleccionarProducto.Text = ""
-        TextBoxSeleccionarCantidad.Text = ""
-        TextBoxFacturaNro.Text = ""
-        TextBoxProveedor.Text = ""
-        TextBoxPreciodeCompra.Text = ""
-        TextBoxIVA.Text = ""
-    End Sub
 
-    Private Sub GroupBox4Stock_Enter(sender As Object, e As EventArgs) Handles GroupBox4Stock.Enter
+    Private Sub GroupBox4Stock_Enter(sender As Object, e As EventArgs)
 
     End Sub
 
-    Private Sub Button26_Click(sender As Object, e As EventArgs) Handles Button26.Click
+    Private Sub Button26_Click(sender As Object, e As EventArgs)
         GroupBoxNuevoProducto.Hide()
         GroupBoxIngresodeProducto.Hide()
         GroupBoxModificarProducto.Show()
     End Sub
 
-    Private Sub ButtonCrearProducto_Click(sender As Object, e As EventArgs) Handles ButtonCrearProducto.Click
+    Private Sub ButtonCrearProducto_Click(sender As Object, e As EventArgs)
         LabelNuevoProducto.Hide()
 
         If TextBoxCodigo.Text <> "" And TextBoxDescripcion.Text <> "" And TextBoxPrecio.Text <> "" Then
@@ -1672,99 +1777,111 @@ Public Class Form2
         End If
     End Sub
 
-    Private Sub ButtonCerrar1_Click(sender As Object, e As EventArgs) Handles ButtonCerrar1.Click
+    Private Sub ButtonCerrar1_Click(sender As Object, e As EventArgs)
         GroupBoxNuevoProducto.Hide()
     End Sub
 
-    Private Sub ButtonInsertarProducto_Click(sender As Object, e As EventArgs) Handles ButtonInsertarProducto.Click
-        LabelIngresoProducto.Hide()
 
 
-        If TextBoxSeleccionarProducto.Text <> "" And TextBoxSeleccionarCantidad.Text <> "" And TextBoxFacturaNro.Text <> "" And TextBoxProveedor.Text <> "" And TextBoxPreciodeCompra.Text <> "" And TextBoxIVA.Text <> "" Then
-
-            Dim nuevo_producto As DataRow = DataSet1.Tables("ingreso_producto").NewRow() '''''''''''''''''''''''''''
-
-            nuevo_producto("id_proveedor") = NombreTextBoxCrearCliente.Text
-            nuevo_producto("id_stock_mugen") = ApellidoTextBoxCrearCliente.Text
-            nuevo_producto("fecha_ingreso") = RucTextBoxCrearCliente.Text
-            nuevo_producto("numero_factura_ingreso") = NumeroTextBoxCrearCliente.Text
-            nuevo_producto("cantidad_ingreso") = MailTextBoxCrearCliente.Text
-            nuevo_producto("precio_compra") = True
-            nuevo_producto("precio_compra_unitario") = True
-            If CheckBoxClientePrioritarioCrearCliente.Checked Then
-                nuevo_producto("cliente_prioritario") = True
-            Else
-                nuevo_producto("cliente_prioritario") = False
-            End If
-
-
-
-
-            DataSet1.Tables("ingreso_producto").Rows.Add(nuevo_producto)
-
-            Validate()
-            UsuarioBindingSource.EndEdit()
-            ClienteTableAdapter.Update(DataSet1.cliente)
-
-            Label72CrearCliente.Show()
-            Label72CrearCliente.Text = "Cliente creado"
-            Label72CrearCliente.ForeColor = Color.Green
-
-
-
-
-        Else
-            Label72CrearCliente.Show()
-            Label72CrearCliente.Text = "Complete los campos vacíos"
-            Label72CrearCliente.ForeColor = Color.Red
-        End If
-    End Sub
-
-    Private Sub ButtonCerrar2_Click(sender As Object, e As EventArgs) Handles ButtonCerrar2.Click
+    Private Sub ButtonCerrar2_Click(sender As Object, e As EventArgs)
         GroupBoxIngresodeProducto.Hide()
     End Sub
 
-    Private Sub ButtonCerrar3_Click(sender As Object, e As EventArgs) Handles ButtonCerrar3.Click
+    Private Sub ButtonCerrar3_Click(sender As Object, e As EventArgs)
 
         GroupBoxModificarProducto.Hide()
     End Sub
 
-    Private Sub TextBoxProveedor_TextChanged(sender As Object, e As EventArgs) Handles TextBoxProveedor.TextChanged
+    Private Sub TextBoxProveedor_TextChanged(sender As Object, e As EventArgs)
 
     End Sub
 
-    Private Sub TextBoxProveedor_LostFocus(sender As Object, e As EventArgs) Handles TextBoxProveedor.LostFocus
-        Dim cantidad_de_proveedores As Integer
-        cantidad_de_proveedores = DataSet1.Tables("proveedor").Rows.Count
-        Dim ban As Integer
-        ban = 0
 
-        'If cantidad_de_proveedores > 0 Then
-        For i As Integer = 0 To (cantidad_de_proveedores - 1)
-            'Si el PROVEEDOR existe
 
-            If DataSet1.Tables("proveedor").Rows(i).Item("ruc_proveedor") = TextBoxProveedor.Text Then
-                TextBoxDeshabilitado2.Text = DataSet1.Tables("proveedor").Rows(i).Item("nombre_proveedor")
-                LabelIngresoProducto.Hide()
-                'i = cantidad_de_proveedores - 1 'Para cortar el FOR, ya que se encontró RUC repetido
-                ban = 1
+    Private Sub TextBoxCodigo_TextChanged(sender As Object, e As EventArgs)
 
-            ElseIf ban = 0 Then
-                'Si el PROVEEDOR no existe
-                TextBoxDeshabilitado2.Text = ""
+    End Sub
 
-                TextBoxProveedor.Text = ""
-                TextBoxProveedor.Focus()
 
-                LabelIngresoProducto.Show()
-                LabelIngresoProducto.Text = "El RUC de proveedor ingresado no existe"
-                LabelIngresoProducto.ForeColor = Color.Red
+
+    Private Sub Mostrar_contabilidad_Click(sender As Object, e As EventArgs) Handles Mostrar_contabilidad.Click
+        view_contable.Rows.Add()
+
+
+
+        Dim i As Integer
+        Dim cant_cont As Integer
+        cant_cont = DataSet1.Tables("contabilidad").Rows.Count - 1
+        For i = 0 To cant_cont
+            view_contable.Item(0, i).Value = DataSet1.Tables("contabilidad").Rows(i).Item("fecha")
+            view_contable.Item(1, i).Value = DataSet1.Tables("contabilidad").Rows(i).Item("descripcion")
+
+            If IsNumeric(DataSet1.Tables("contabilidad").Rows(i).Item("haber")) Then
+                view_contable.Item(3, i).Value = DataSet1.Tables("contabilidad").Rows(i).Item("haber")
             End If
+
+            If IsNumeric(DataSet1.Tables("contabilidad").Rows(i).Item("deber")) Then
+                view_contable.Item(2, i).Value = DataSet1.Tables("contabilidad").Rows(i).Item("deber")
+            End If
+
+            view_contable.Item(4, i).Value = 0
+            view_contable.Rows.Add()
         Next
-        'End If
     End Sub
 
-    Private Sub TextBoxCodigo_TextChanged(sender As Object, e As EventArgs) Handles TextBoxCodigo.TextChanged
+    Private Sub Button28_Click(sender As Object, e As EventArgs) Handles Button28.Click
+        Dim desde As String
+        Dim hasta As String
+
+        desde = fecha_desde.Value
+        desde = desde.Substring(0, 10)
+
+        hasta = fecha_hasta.Value
+        hasta = hasta.Substring(0, 10)
+
+        MsgBox("desde " + desde + " hasta " + hasta)
+    End Sub
+
+    Private Sub Button24NuevoProducto_Click_1(sender As Object, e As EventArgs) Handles Button24NuevoProducto.Click
+        GroupBoxNuevoProducto.Show()
+        GroupBoxIngresodeProducto.Hide()
+        GroupBoxModificarProducto.Hide()
+
+        GroupBoxIngresodeProducto.Text = ""
+        GroupBoxModificarProducto.Text = ""
+
+
+        TextBoxCodigo.Clear()
+        TextBoxDescripcion.Clear()
+        TextBoxPrecio.Clear()
+    End Sub
+
+    Private Sub Button25_Click_1(sender As Object, e As EventArgs) Handles Button25.Click
+        GroupBoxNuevoProducto.Hide()
+        GroupBoxIngresodeProducto.Show()
+        GroupBoxModificarProducto.Hide()
+        LabelIngresoProducto.Hide()
+
+        TextBoxProveedor.Text = ""
+        TextBoxDeshabilitado2.Text = ""
+        TextBoxIDStockMugen.Text = ""
+        TextBoxDeshabilitado3.Text = ""
+        TextBoxNroFactura.Text = ""
+        TextBoxCantidad.Text = ""
+        TextBoxPreciodeCompra.Text = ""
+        TextBoxPrecioUnitario.Text = ""
+
+        TextBoxFecha.Text = Date.Today
+
+    End Sub
+
+    Private Sub Button26_Click_1(sender As Object, e As EventArgs) Handles Button26.Click
+        GroupBoxNuevoProducto.Hide()
+        GroupBoxIngresodeProducto.Hide()
+        GroupBoxModificarProducto.Show()
+    End Sub
+
+    Private Sub TextBoxCodigo_TextChanged_1(sender As Object, e As EventArgs) Handles TextBoxCodigo.TextChanged
 
     End Sub
 
@@ -1789,8 +1906,312 @@ Public Class Form2
                 End If
             Next
         End If
+
     End Sub
 
+    Private Sub ButtonCrearProducto_Click_1(sender As Object, e As EventArgs) Handles ButtonCrearProducto.Click
+        LabelNuevoProducto.Hide()
+
+        If TextBoxCodigo.Text <> "" And TextBoxDescripcion.Text <> "" And TextBoxPrecio.Text <> "" Then
+            Dim nuevo_producto As DataRow = DataSet1.Tables("producto").NewRow()
+
+            nuevo_producto("codigo") = TextBoxCodigo.Text
+            nuevo_producto("descripcion") = TextBoxDescripcion.Text
+            nuevo_producto("precio_venta") = TextBoxPrecio.Text
+
+            DataSet1.Tables("producto").Rows.Add(nuevo_producto)
+
+            Validate()
+            UsuarioBindingSource.EndEdit()
+            ProductoTableAdapter.Update(DataSet1.producto)
+
+            LabelNuevoProducto.Show()
+            LabelNuevoProducto.Text = "Producto creado"
+            LabelNuevoProducto.ForeColor = Color.Green
+
+
+        Else
+            LabelNuevoProducto.Show()
+            LabelNuevoProducto.Text = "Complete los campos vacíos"
+            LabelNuevoProducto.ForeColor = Color.Red
+        End If
+
+    End Sub
+
+    Private Sub ButtonCerrar1_Click_1(sender As Object, e As EventArgs) Handles ButtonCerrar1.Click
+        GroupBoxNuevoProducto.Hide()
+
+    End Sub
+
+    Private Sub TextBoxProveedor_TextChanged_1(sender As Object, e As EventArgs) Handles TextBoxProveedor.TextChanged
+
+    End Sub
+
+    Private Sub TextBoxProveedor_LostFocus(sender As Object, e As EventArgs) Handles TextBoxProveedor.LostFocus
+        LabelIngresoProducto.Hide()
+        Dim cantidad_de_proveedores As Integer
+        cantidad_de_proveedores = DataSet1.Tables("proveedor").Rows.Count
+        Dim ban As Integer
+        ban = 0
+
+        If cantidad_de_proveedores > 0 Then
+            For i As Integer = 0 To (cantidad_de_proveedores - 1)
+                'Si el PROVEEDOR existe'
+                If DataSet1.Tables("proveedor").Rows(i).Item("ruc_proveedor") = TextBoxProveedor.Text Then
+                    LabelNuevoProducto.Hide()
+                    TextBoxDeshabilitado2.Text = DataSet1.Tables("proveedor").Rows(i).Item("nombre_proveedor")
+
+                    'i = cantidad_de_productos - 1 'Para cortar el FOR, ya que se encontró RUC repetido
+
+                    ban = 1
+
+                End If
+            Next
+
+            If ban = 0 Then
+                LabelIngresoProducto.Show()
+                LabelIngresoProducto.Text = "El proveedor ingresado no existe"
+                LabelIngresoProducto.ForeColor = Color.Red
+
+                TextBoxDeshabilitado2.Text = ""
+
+                TextBoxProveedor.Text = ""
+                TextBoxProveedor.Focus()
+            End If
+        End If
+
+    End Sub
+
+    Private Sub TextBoxIDStockMugen_TextChanged(sender As Object, e As EventArgs) Handles TextBoxIDStockMugen.TextChanged
+
+    End Sub
+
+    Private Sub TextBoxIDStockMugen_LostFocus(sender As Object, e As EventArgs) Handles TextBoxIDStockMugen.LostFocus
+        LabelIngresoProducto.Hide()
+        Dim cantidad_de_productos As Integer
+        cantidad_de_productos = DataSet1.Tables("producto").Rows.Count
+        Dim ban As Integer
+        ban = 0
+
+        If cantidad_de_productos > 0 Then
+            For i As Integer = 0 To (cantidad_de_productos - 1)
+                'Si el (CÓDIGO DE) PRODUCTO existe'
+                If DataSet1.Tables("producto").Rows(i).Item("codigo") = TextBoxIDStockMugen.Text Then
+                    LabelNuevoProducto.Hide()
+                    TextBoxDeshabilitado3.Text = DataSet1.Tables("producto").Rows(i).Item("descripcion")
+
+                    'i = cantidad_de_productos - 1 'Para cortar el FOR, ya que se encontró RUC repetido
+
+                    ban = 1
+
+                End If
+            Next
+
+            If ban = 0 Then
+                LabelIngresoProducto.Show()
+                LabelIngresoProducto.Text = "El código de producto no existe"
+                LabelIngresoProducto.ForeColor = Color.Red
+
+                TextBoxDeshabilitado3.Text = ""
+
+                TextBoxIDStockMugen.Text = ""
+                TextBoxIDStockMugen.Focus()
+            End If
+        End If
+
+    End Sub
+
+    Private Sub TextBoxFecha_TextChanged(sender As Object, e As EventArgs) Handles TextBoxFecha.TextChanged
+
+    End Sub
+
+    Private Sub TextBoxFecha_LostFocus(sender As Object, e As EventArgs) Handles TextBoxFecha.LostFocus
+        LabelIngresoProducto.Hide()
+        If IsDate(TextBoxFecha.Text) = False Then
+            LabelIngresoProducto.Show()
+            LabelIngresoProducto.Text = "Ingrese fecha válida"
+            LabelIngresoProducto.ForeColor = Color.Red
+
+            TextBoxFecha.Focus()
+        End If
+
+    End Sub
+
+    Private Sub TextBoxCantidad_TextChanged(sender As Object, e As EventArgs) Handles TextBoxCantidad.TextChanged
+
+    End Sub
+
+    Private Sub TextBoxCantidad_LostFocus(sender As Object, e As EventArgs) Handles TextBoxCantidad.LostFocus
+        LabelIngresoProducto.Hide()
+        If IsNumeric(TextBoxCantidad.Text) = False Then
+            LabelIngresoProducto.Show()
+            LabelIngresoProducto.Text = "Ingrese un número"
+            LabelIngresoProducto.ForeColor = Color.Red
+
+            TextBoxCantidad.Text = ""
+            TextBoxCantidad.Focus()
+        End If
+    End Sub
+
+    Private Sub TextBoxPreciodeCompra_TextChanged(sender As Object, e As EventArgs) Handles TextBoxPreciodeCompra.TextChanged
+
+    End Sub
+
+    Private Sub TextBoxPreciodeCompra_MouseWheel(sender As Object, e As MouseEventArgs) Handles TextBoxPreciodeCompra.MouseWheel
+        LabelIngresoProducto.Hide()
+        If IsNumeric(TextBoxPreciodeCompra.Text) = False Then
+            LabelIngresoProducto.Show()
+            LabelIngresoProducto.Text = "Ingrese un número"
+            LabelIngresoProducto.ForeColor = Color.Red
+
+            TextBoxPreciodeCompra.Text = ""
+            TextBoxPreciodeCompra.Focus()
+        End If
+
+    End Sub
+
+    Private Sub TextBoxPrecioUnitario_TextChanged(sender As Object, e As EventArgs) Handles TextBoxPrecioUnitario.TextChanged
+
+    End Sub
+
+    Private Sub TextBoxPrecioUnitario_LostFocus(sender As Object, e As EventArgs) Handles TextBoxPrecioUnitario.LostFocus
+        LabelIngresoProducto.Hide()
+        If IsNumeric(TextBoxPrecioUnitario.Text) = False Then
+            LabelIngresoProducto.Show()
+            LabelIngresoProducto.Text = "Ingrese un número"
+            LabelIngresoProducto.ForeColor = Color.Red
+
+            TextBoxPrecioUnitario.Text = ""
+            TextBoxPrecioUnitario.Focus()
+        End If
+
+    End Sub
+
+    Private Sub ButtonInsertarProducto_Click_1(sender As Object, e As EventArgs) Handles ButtonInsertarProducto.Click
+        LabelIngresoProducto.Hide()
+
+        If TextBoxProveedor.Text <> "" And TextBoxDeshabilitado2.Text <> "" And TextBoxIDStockMugen.Text <> "" And TextBoxDeshabilitado3.Text <> "" And TextBoxFecha.Text <> "" And TextBoxNroFactura.Text <> "" And TextBoxCantidad.Text <> "" And TextBoxPreciodeCompra.Text <> "" And TextBoxPrecioUnitario.Text <> "" Then
+            Dim nuevo_ingreso_producto As DataRow = DataSet1.Tables("ingreso_producto").NewRow()
+
+
+            nuevo_ingreso_producto("id_proveedor") = DataSet1.Tables("proveedor").Rows(buscar_en_tablas("proveedor", "ruc_proveedor", TextBoxProveedor.Text)).Item("id_proveedor")
+            nuevo_ingreso_producto("id_stock_mugen") = DataSet1.Tables("producto").Rows(buscar_en_tablas("producto", "codigo", TextBoxIDStockMugen.Text)).Item("id_stock_mugen")
+            nuevo_ingreso_producto("fecha_ingreso") = TextBoxFecha.Text
+            nuevo_ingreso_producto("numero_factura_ingreso") = TextBoxNroFactura.Text
+            nuevo_ingreso_producto("cantidad_ingreso") = TextBoxCantidad.Text
+            nuevo_ingreso_producto("precio_compra") = TextBoxPreciodeCompra.Text
+            nuevo_ingreso_producto("precio_compra_unitario") = TextBoxPrecioUnitario.Text
+
+            DataSet1.Tables("ingreso_producto").Rows.Add(nuevo_ingreso_producto)
+
+            Validate()
+            Ingreso_productoBindingSource.EndEdit()
+            Ingreso_productoTableAdapter.Update(DataSet1.ingreso_producto)
+
+            LabelIngresoProducto.Show()
+            LabelIngresoProducto.Text = "Producto creado"
+            LabelIngresoProducto.ForeColor = Color.Green
+
+
+        Else
+            LabelIngresoProducto.Show()
+            LabelIngresoProducto.Text = "Complete los campos vacíos"
+            LabelIngresoProducto.ForeColor = Color.Red
+        End If
+    End Sub
+
+    Private Sub ButtonCerrar2_Click_1(sender As Object, e As EventArgs) Handles ButtonCerrar2.Click
+        GroupBoxIngresodeProducto.Hide()
+
+    End Sub
+
+    Private Sub ButtonBuscara_Click(sender As Object, e As EventArgs) Handles ButtonBuscara.Click
+        Dim cantidad_de_productos As Integer
+        cantidad_de_productos = DataSet1.Tables("producto").Rows.Count
+        Dim ban_productos_existe As Integer
+        ban_productos_existe = 0
+
+        For i As Integer = 0 To (cantidad_de_productos - 1)
+            'Si el PRODUCTO ingresado existe'
+            If DataSet1.Tables("producto").Rows(i).Item("codigo") = TextBoxCodigo2.Text Then
+
+                LabelModificarProducto.Hide()
+
+                'RucTextBoxCrearCliente.Text = ""
+                'RucTextBoxCrearCliente.Focus()
+
+                TextBoxDescripcion2.ReadOnly = False
+                TextBoxPrecio2.ReadOnly = False
+
+
+                TextBoxDescripcion2.Text = DataSet1.Tables("producto").Rows(i).Item("descripcion")
+                TextBoxPrecio2.Text = DataSet1.Tables("producto").Rows(i).Item("precio_venta")
+
+                i = cantidad_de_productos - 1 'Para cortar el FOR
+
+                ban_productos_existe = 1
+            End If
+        Next
+
+        If ban_productos_existe = 0 Then
+            'Si el producto ingresado NO existe
+            LabelModificarProducto.Show()
+            LabelModificarProducto.Text = "Producto no registrado"
+            LabelModificarProducto.ForeColor = Color.Red
+
+            TextBoxCodigo2.Text = ""
+            TextBoxCodigo2.Focus()
+
+            TextBoxDescripcion2.Text = ""
+            TextBoxPrecio2.Text = ""
+
+            TextBoxDescripcion2.ReadOnly = True
+            TextBoxPrecio2.ReadOnly = True
+        End If
+
+    End Sub
+
+    Private Sub ButtonModificarProducto_Click(sender As Object, e As EventArgs) Handles ButtonModificarProducto.Click
+        LabelModificarProducto.Hide()
+
+        If TextBoxCodigo2.Text <> "" And TextBoxDescripcion2.Text <> "" And TextBoxPrecio2.Text <> "" Then
+
+            Dim nuevo_producto As DataRow = DataSet1.Tables("producto").NewRow()
+
+            Dim cantidad_de_productos As Integer
+            cantidad_de_productos = DataSet1.Tables("producto").Rows.Count
+
+            For i As Integer = 0 To (cantidad_de_productos - 1)
+                If DataSet1.Tables("producto").Rows(i).Item("codigo") = TextBoxCodigo2.Text Then
+
+                    DataSet1.Tables("producto").Rows(i).Item("descripcion") = TextBoxDescripcion2.Text
+                    DataSet1.Tables("producto").Rows(i).Item("precio_venta") = TextBoxPrecio2.Text
+
+                    i = cantidad_de_productos - 1 'Para cortar el FOR, ya que se encontró RUC repetido
+                End If
+
+            Next
+
+            Validate()
+            ProductoBindingSource.EndEdit()
+            ProductoTableAdapter.Update(DataSet1.producto)
+
+            LabelModificarProducto.Show()
+            LabelModificarProducto.Text = "Producto Modificado"
+            LabelModificarProducto.ForeColor = Color.Green
+
+        Else
+            LabelModificarProducto.Show()
+            LabelModificarProducto.Text = "Complete los campos vacíos"
+            LabelModificarProducto.ForeColor = Color.Red
+        End If
+
+    End Sub
+
+    Private Sub ButtonCerrar3_Click_1(sender As Object, e As EventArgs) Handles ButtonCerrar3.Click
+
+        GroupBoxModificarProducto.Hide()
+    End Sub
     Private Sub mostrarErrores(ByRef label As Object, ByVal mensaje As String, ByVal codigoError As Boolean) ' para mostrar los labels que sirven para indicar errores
 
         ' 0 no hay error ocultar labels 1 hay error pintar de rojo y cargar mensaje
@@ -1803,16 +2224,49 @@ Public Class Form2
         End If
 
     End Sub
+    Private Sub serBusBtn_Click(sender As Object, e As EventArgs) Handles serBusBtn.Click
+
+        'nueva puerquesa
+        Dim i, j, k, s As Integer
+        Dim resul As String
+        Dim bandera As Boolean = False
+
+        mostrarErrores(errorBuscar, "", False)
+        i = DataSet1.Tables("servicio").Rows.Count
+        s = serBusBtn.Text.ToString.Length
+        If i > 0 Then
+            For j = 0 To i - 1
+
+                resul = ServicioDataGridView.Item(1, j).Value().ToString()
+                k = resul.Length
+                If k >= s And serBusBtn.Text <> "" Then
+                    If resul.Substring(0, s).Equals(serBusBtn.Text) Then
+                        lisBusSer.Items.Add(resul + " " + ServicioDataGridView.Item(2, j).Value().ToString() + " " + ServicioDataGridView.Item(3, j).Value().ToString())
+                        bandera = True
+                    End If
+                ElseIf serBusBtn.Text = "" Then
+                    lisBusSer.Items.Add(resul + " " + ServicioDataGridView.Item(2, j).Value().ToString() + " " + ServicioDataGridView.Item(3, j).Value().ToString())
+                    bandera = -True
+                End If
+            Next
+        Else
+            mostrarErrores(errorBuscar, "No existe registros en la base de datos", True)
+            verServicios.Hide()
+        End If
+
+        If bandera Then
+            mostrarErrores(errorBuscar, "No existen coincidencias", True)
+        End If
+    End Sub
 
     Private Sub carSerBtn_Click(sender As Object, e As EventArgs) Handles carSerBtn.Click
-
         Dim resul As Integer
 
         If nomSerTxt.Text = "" Then
             mostrarErrores(error1Ser, "Complete este campo", True)
         ElseIf desSerTxt.Text = "" Then
             mostrarErrores(error2Ser, "Complete este campo", True)
-        ElseIf not(CheckBoxDias.Checked <> False Or CheckBoxMano.Checked <> False Or CheckBoxCom.Checked <> False) Then
+        ElseIf Not (CheckBoxDias.Checked <> False Or CheckBoxMano.Checked <> False Or CheckBoxCom.Checked <> False) Then
             mostrarErrores(error3Ser, "Marque al menos un campo", True)
         Else
             mostrarErrores(error1Ser, "", False)
@@ -1851,16 +2305,6 @@ Public Class Form2
         End If
     End Sub
 
-    Private Sub boton_servicios_Click(sender As Object, e As EventArgs) Handles boton_servicios.Click
-        panel_cuentas.Hide()
-        panel_carga_presupuesto.Hide()
-        PanelTrabajosPendientes.Hide()
-        panelServicios.Show()
-    End Sub
-
-    Private Sub ingresarServicios_Enter(sender As Object, e As EventArgs) Handles ingresarServicios.Enter
-
-    End Sub
 
     Private Sub editSerBtn_Click(sender As Object, e As EventArgs) Handles editSerBtn.Click
         Dim resul As Integer
@@ -1910,14 +2354,11 @@ Public Class Form2
             End If
 
         Else
-                mostrarErrores(error1Ser, "¿Cual es el nombre del servicio a editar?", True)
+            mostrarErrores(error1Ser, "¿Cual es el nombre del servicio a editar?", True)
         End If
-
-
     End Sub
 
     Private Sub modSerBtn_Click(sender As Object, e As EventArgs) Handles modSerBtn.Click
-
         Dim resul As Integer
         Dim cadena As String
 
@@ -1944,7 +2385,15 @@ Public Class Form2
             Validate()
             ServicioTableAdapter.Update(DataSet1)
         End If
+    End Sub
 
+    Private Sub borSerBtn2_Click(sender As Object, e As EventArgs) Handles borSerBtn2.Click
+        nomSerTxt2.Clear()
+        desSerTxt2.Clear()
+        CheckBoxCom2.Checked = False
+        CheckBoxDias2.Checked = False
+        CheckBoxMano2.Checked = False
+        ingresarServicios.Hide()
     End Sub
 
     Private Sub borSerBtn_Click(sender As Object, e As EventArgs) Handles borSerBtn.Click
@@ -1955,50 +2404,14 @@ Public Class Form2
         CheckBoxMano.Checked = False
     End Sub
 
-    Private Sub borSerBtn2_Click(sender As Object, e As EventArgs) Handles borSerBtn2.Click
-        nomSerTxt2.Clear()
-        desSerTxt2.Clear()
-        CheckBoxCom2.Checked = False
-        CheckBoxDias2.Checked = False
-        CheckBoxMano2.Checked = False
-        ingresarServicios.Hide()
-
-
+    Private Sub Buscar_Click(sender As Object, e As EventArgs) Handles Buscar.Click
+        verSerPanel.Show()
     End Sub
 
-    Private Sub serBusBtn_Click(sender As Object, e As EventArgs) Handles serBusBtn.Click
-        'nueva puerquesa
-        Dim i, j, k, s As Integer
-        Dim resul As String
-        Dim bandera As Boolean = False
-
-        mostrarErrores(errorBuscar, "", False)
-        i = DataSet1.Tables("servicio").Rows.Count
-        s = serBusBtn.Text.ToString.Length
-        If i > 0 Then
-            For j = 0 To i - 1
-
-                resul = ServicioDataGridView.Item(1, j).Value().ToString()
-                k = resul.Length
-                If k >= s And serBusBtn.Text <> "" Then
-                    If resul.Substring(0, s).Equals(serBusBtn.Text) Then
-                        lisBusSer.Items.Add(resul + " " + ServicioDataGridView.Item(2, j).Value().ToString() + " " + ServicioDataGridView.Item(3, j).Value().ToString())
-                        bandera = True
-                    End If
-                ElseIf serBusBtn.Text = "" Then
-                    lisBusSer.Items.Add(resul + " " + ServicioDataGridView.Item(2, j).Value().ToString() + " " + ServicioDataGridView.Item(3, j).Value().ToString())
-                    bandera = -True
-                End If
-            Next
-        Else
-            mostrarErrores(errorBuscar, "No existe registros en la base de datos", True)
-        End If
-
-        If bandera Then
-            mostrarErrores(errorBuscar, "No existen coincidencias", True)
-        End If
-
-
-
+    Private Sub boton_servicios_Click(sender As Object, e As EventArgs) Handles boton_servicios.Click
+        panel_cuentas.Hide()
+        panel_carga_presupuesto.Hide()
+        PanelTrabajosPendientes.Hide()
+        panelServicios.Show()
     End Sub
 End Class

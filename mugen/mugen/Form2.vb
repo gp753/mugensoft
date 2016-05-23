@@ -263,7 +263,8 @@ Public Class Form2
 
     End Structure
     Dim cliente_buscado As clien
-    Public Property DataGridDataGridViewTrabajos As Object
+
+
 
     Private Sub Button14_Click(sender As Object, e As EventArgs) Handles aceptar_carga_presupuesto.Click
 
@@ -521,6 +522,7 @@ Public Class Form2
                                 nueva_contabilidad6("haber2") = DataGridView1.Item(4, i).Value
                                 nueva_contabilidad6("fecha2") = TextBox17.Text
                                 nueva_contabilidad6("numero_factura2") = n_factura_textbox.Text
+                                nueva_contabilidad6("id_usuario") = datos_loguin.id_usuario
                                 nueva_contabilidad6("descripcion2") = "Venta de " + DataGridView1.Item(3, i).Value.ToString + " " + DataGridView1.Item(1, i).Value.ToString
                                 DataSet1.Tables("contabilidad2").Rows.Add(nueva_contabilidad6)
                                 Validate()
@@ -566,6 +568,7 @@ Public Class Form2
             nueva_contabilidad4("fecha2") = TextBox17.Text
             nueva_contabilidad4("numero_factura2") = n_factura_textbox.Text
             nueva_contabilidad4("descripcion2") = "IVA"
+            nueva_contabilidad4("id_usuario") = datos_loguin.id_usuario
             DataSet1.Tables("contabilidad2").Rows.Add(nueva_contabilidad4)
             Validate()
             Contabilidad2BindingSource.EndEdit()
@@ -577,6 +580,7 @@ Public Class Form2
             nueva_contabilidad5("deber2") = text_sub_total.Text
             nueva_contabilidad5("fecha2") = TextBox17.Text
             nueva_contabilidad5("numero_factura2") = n_factura_textbox.Text
+            nueva_contabilidad5("id_usuario") = datos_loguin.id_usuario
             nueva_contabilidad5("descripcion2") = "Caja"
             DataSet1.Tables("contabilidad2").Rows.Add(nueva_contabilidad5)
             Validate()
@@ -1408,152 +1412,213 @@ Public Class Form2
     End Sub
 
     Private Sub btpGenerar_Click(sender As Object, e As EventArgs) Handles btpGenerar.Click
+        'Dim user() As String
+        'Dim i, k, canUsuario, userId() As Integer
+        'canUsuario = DataSet1.Tables("usuario").Rows.Count
 
-        Dim user() As String
-        Dim i, k, canUsuario, userId() As Integer
-        canUsuario = DataSet1.Tables("usuario").Rows.Count
+        'graficoPagados.Series.Clear()
+        'graficoTrabajos.Series.Clear()
+        'graficoTrabajos.Series.Add("Pendientes")
+        'graficoTrabajos.Series.Add("Terminados")
+        'graficoTrabajos.Series.Add("Entregados")
+        'graficoPagados.Series.Add("Cobrados")
+        'graficoPagados.Series("Cobrados").ChartType = DataVisualization.Charting.SeriesChartType.Area
+        'ReDim user(1)
+        'ReDim userId(1)
+        'k = 0
+        'user(0) = ""
+        'If canUsuario > 0 Then
+        '    For i = 1 To canUsuario - 1
+        '        If controlarRepetidos(user, UsuarioDataGridView.Item(1, i).Value.ToString) Then
+        '            user(k) = UsuarioDataGridView.Item(1, i).Value.ToString
+        '            userId(k) = UsuarioDataGridView.Item(0, i).Value
+        '            'MsgBox(user(k) + userId(k).ToString)
+        '            k = k + 1
+        '            ReDim Preserve user(k + 1)
+        '            ReDim Preserve userId(k + 1)
+        '        End If
+        '    Next
+        'End If
+        'ReDim Preserve user(k)
+        'ReDim Preserve userId(k)
+        'Dim j, p(k), t(k), en(k), canPedidos As Integer
+        'Dim entrega, cobrado As Date
+        'Dim monto As Double
+        'Dim bandera As Boolean
+        'bandera = False
+        'canPedidos = DataSet1.Tables("pedido").Rows.Count
+        'If canPedidos > 0 Then
+        '    For i = 0 To k - 1
+        '        p(i) = 0
+        '        t(i) = 0
+        '        en(i) = 0
 
-        graficoPagados.Series.Clear()
-        graficoTrabajos.Series.Clear()
-        graficoTrabajos.Series.Add("Pendientes")
-        graficoTrabajos.Series.Add("Terminados")
-        graficoTrabajos.Series.Add("Entregados")
-        graficoPagados.Series.Add("Cobrados")
-        graficoPagados.Series("Cobrados").ChartType = DataVisualization.Charting.SeriesChartType.Area
-        ReDim user(1)
-        ReDim userId(1)
-        k = 0
-        user(0) = ""
-        If canUsuario > 0 Then
-            For i = 1 To canUsuario - 1
-                If controlarRepetidos(user, UsuarioDataGridView.Item(1, i).Value.ToString) Then
-                    user(k) = UsuarioDataGridView.Item(1, i).Value.ToString
-                    userId(k) = UsuarioDataGridView.Item(0, i).Value
-                    'MsgBox(user(k) + userId(k).ToString)
-                    k = k + 1
-                    ReDim Preserve user(k + 1)
-                    ReDim Preserve userId(k + 1)
-                End If
-            Next
-        End If
+        '    Next
 
-        ReDim Preserve user(k)
-        ReDim Preserve userId(k)
-        Dim j, p(k), t(k), en(k), canPedidos As Integer
-        Dim entrega, cobrado As Date
-        Dim monto As Double
-        Dim bandera, bandera2 As Boolean
-        bandera = bandera2 = False
-        canPedidos = DataSet1.Tables("pedido").Rows.Count
+        '    'MsgBox(k)
+        '    If user(0) <> "" Then
 
-            If canPedidos > 0 Then
+        '        For i = 0 To k - 1
+        '            For j = 0 To canPedidos - 1
+        '                entrega = pedidoGridView.Item(3, j).Value
+        '                If userId(i) = pedidoGridView.Item(2, j).Value And entrega.Month = Now.Month Then ' se puede mejorar
+        '                    bandera = True
+        '                    If pedidoGridView.Item(7, j).Value.ToString = "pendiente" Then
+        '                        p(i) = p(i) + 1
+        '                        'MsgBox("entra")
+        '                    ElseIf pedidoGridView.Item(7, j).Value.ToString = "terminado" Then
+        '                        t(i) = t(i) + 1
+        '                    ElseIf pedidoGridView.Item(7, j).Value.ToString = "entregado" Then
+        '                        en(i) = en(i) + 1
 
-                For i = 0 To k - 1
-                    p(i) = 0
-                    t(i) = 0
-                    en(i) = 0
+        '                    End If
 
-                Next
 
-                'MsgBox(k)
-                If user(0) <> "" Then
+        '                End If
+        '            Next
+        '        Next
+        '        If bandera Then
+        '            For i = 0 To k - 1
+        '                'MsgBox(p(i))
 
-                    For i = 0 To k - 1
-                        For j = 0 To canPedidos - 1
-                            entrega = pedidoGridView.Item(3, j).Value
-                            If userId(i) = pedidoGridView.Item(2, j).Value And entrega.Month = Now.Month Then ' se puede mejorar
-                                bandera = True
-                                If pedidoGridView.Item(7, j).Value.ToString = "pendiente" Then
-                                    p(i) = p(i) + 1
-                                    'MsgBox("entra")
-                                ElseIf pedidoGridView.Item(7, j).Value.ToString = "terminado" Then
-                                    t(i) = t(i) + 1
-                                ElseIf pedidoGridView.Item(7, j).Value.ToString = "entregado" Then
-                                    en(i) = en(i) + 1
+        '                If p(i) > 0 Then
+        '                    graficoTrabajos.Series("Pendientes").Points.AddXY(user(i), p(i))
 
-                                End If
-                            End If
-                        Next
-                    Next
-                    If bandera Then
-                        For i = 0 To k - 1
-                        'MsgBox(p(i))
-                        bandera2 = True
-                        If p(i) > 0 Then
-                                graficoTrabajos.Series("Pendientes").Points.AddXY(user(i), p(i))
+        '                End If
+        '                If t(i) > 0 Then
+        '                    graficoTrabajos.Series("Terminados").Points.AddXY(user(i), t(i))
+        '                End If
+        '                If en(i) > 0 Then
+        '                    graficoTrabajos.Series("Entregados").Points.AddXY(user(i), en(i))
+        '                End If
+        '                'If c(i) > 0 Then
+        '                'graficoTrabajos.Series("Cobrados").Points.AddXY(user(i), c(i))
+        '                'End If
+        '                graficoTrabajos.AlignDataPointsByAxisLabel()
+        '            Next
 
-                            End If
-                            If t(i) > 0 Then
-                                graficoTrabajos.Series("Terminados").Points.AddXY(user(i), t(i))
-                            End If
-                            If en(i) > 0 Then
-                                graficoTrabajos.Series("Entregados").Points.AddXY(user(i), en(i))
-                            End If
+        '        End If
+        '    Else
+        '        MsgBox("No hay trabajos este mes")
+        '    End If
+        '    bandera = False
+        '    For i = 0 To canPedidos - 1
+        '        cobrado = pedidoGridView.Item(4, i).Value
+        '        monto = pedidoGridView.Item(6, i).Value
+        '        If cobrado.Month = Now.Month Then
+        '            graficoPagados.Series("Cobrados").Points.AddXY(cobrado, monto)
+        '            bandera = True
+        '        End If
+        '    Next
+        '    If Not bandera Then
+        '        MsgBox("No hay trabajos cobrados en el mes")
+        '    End If
 
-                            graficoTrabajos.AlignDataPointsByAxisLabel()
-                        Next
+        '    Dim imagen1, imagen2 As New Bitmap(400, 230)
+        '    Dim table As New PdfPTable(7)
+        '    Dim table2 As New PdfPTable(7)
+        '    Dim cell As New PdfPCell(New Phrase("                                   Trabajos realizados por los Usuarios"))
+        '    Dim cell2 As New PdfPCell(New Phrase("                                   Trabajos cobrados por los Usuarios"))
 
-                    End If
-                Else
-                    MsgBox("No hay trabajos este mes")
-                End If
-                bandera = False
-                For i = 0 To canPedidos - 1
-                    cobrado = pedidoGridView.Item(4, i).Value
-                    monto = pedidoGridView.Item(6, i).Value
-                    If cobrado.Month = Now.Month Then
-                        graficoPagados.Series("Cobrados").Points.AddXY(cobrado, monto)
-                        bandera = True
-                    End If
-                Next
-            If Not bandera Then
-                MsgBox("No hay trabajos cobrados en el mes")
-            End If
+        '    ' Dim base As iTextSharp.text.pdf.BaseFont
+        '    '  Dim fuente As iTextSharp.text.Font
+        '    ' base = FontFactory.GetFont(FontFactory.TIMES_ROMAN, iTextSharp.text.Font.DEFAULTSIZE, iTextSharp.text.Font.NORMAL).BaseFont
+        '    'fuente.Style(base, 12, Font.Italic, Color.Red)
+        '    'MsgBox(Environment.UserName.ToString)
+        '    graficoTrabajos.DrawToBitmap(imagen1, graficoTrabajos.DisplayRectangle)
+        '    imagen1.Save("C:\Users\" + Environment.UserName.ToString + "\AppData\Local\Temp\grafico1.jpg", System.Drawing.Imaging.ImageFormat.Jpeg)
+        '    graficoPagados.DrawToBitmap(imagen2, graficoPagados.DisplayRectangle)
+        '    imagen2.Save("C:\Users\" + Environment.UserName.ToString + "\AppData\Local\Temp\grafico2.jpg", System.Drawing.Imaging.ImageFormat.Jpeg)
+        '    SaveFileDialog1.DefaultExt = "pdf"
+        '    SaveFileDialog1.FileName = "informe"
 
-            Dim y As Integer
-            y = 0
-            If bandera2 Then
-                For i = 0 To canPedidos - 1
-                    If pedidoGridView.Item(7, i).Value <> "cobrado" Then
-                        For j = 0 To k - 1
-                            If pedidoGridView.Item(2, i).Value = userId(j) Then
-                                DataGridViewTrabajos.Item(0, y).Value = user(j).ToString
-                            End If
-                        Next
-                        DataGridViewTrabajos.Item(1, y).Value = pedidoGridView.Item(8, i).Value.ToString()
-                        DataGridViewTrabajos.Item(2, y).Value = pedidoGridView.Item(3, i).Value.ToString()
-                        DataGridViewTrabajos.Item(3, y).Value = pedidoGridView.Item(4, i).Value.ToString()
-                        DataGridViewTrabajos.Item(4, y).Value = pedidoGridView.Item(5, i).Value.ToString()
-                        DataGridViewTrabajos.Item(5, y).Value = pedidoGridView.Item(6, i).Value.ToString()
-                        DataGridViewTrabajos.Item(6, y).Value = pedidoGridView.Item(7, i).Value.ToString()
-                        DataGridViewTrabajos.Rows.Add()
-                        y = y + 1
-                        resulTrabajos.Show()
-                        PanelTrabajosPendientes.Hide()
-                    End If
-                Next
-            End If
-            If bandera Then
-                y = 0
-                For i = 0 To canPedidos - 1
-                    If pedidoGridView.Item(7, i).Value = "cobrado" Then
-                        For j = 0 To k - 1
-                            If pedidoGridView.Item(2, i).Value = userId(j) Then
-                                DataGridViewTrabajos.Item(0, y).Value = user(j).ToString
-                            End If
-                        Next
-                        DataGridViewCobrados.Item(1, y).Value = pedidoGridView.Item(8, i).Value.ToString()
-                        DataGridViewCobrados.Item(2, y).Value = pedidoGridView.Item(3, i).Value.ToString()
-                        DataGridViewCobrados.Item(3, y).Value = pedidoGridView.Item(4, i).Value.ToString()
-                        DataGridViewCobrados.Item(4, y).Value = pedidoGridView.Item(5, i).Value.ToString()
-                        DataGridViewCobrados.Rows.Add()
-                        y = y + 1
-                    End If
-                Next
+        '    cell.Colspan = 7
+        '    cell.HorizontalAlignment = 0
+        '    table.SpacingBefore = 20.0F
+        '    table.SpacingAfter = 30.0F
+        '    table.AddCell(cell)
+        '    table.SetWidths({0.55F, 0.7F, 0.7F, 0.9F, 0.7F, 0.7F, 0.8F})
+        '    If SaveFileDialog1.ShowDialog = System.Windows.Forms.DialogResult.OK Then
+        '        Try
+        '            Dim salida1 As iTextSharp.text.Image = iTextSharp.text.Image.GetInstance("C:\Users\" + Environment.UserName.ToString + "\AppData\Local\Temp\grafico1.jpg")
+        '            Dim salida2 As iTextSharp.text.Image = iTextSharp.text.Image.GetInstance("C:\Users\" + Environment.UserName.ToString + "\AppData\Local\Temp\grafico2.jpg")
+        '            Dim DOCUMENTO As New Document
+        '            Dim ESCRITOR As PdfWriter = PdfWriter.GetInstance(DOCUMENTO, New FileStream(SaveFileDialog1.FileName, FileMode.Create))
+        '            DOCUMENTO.Open()
+        '            DOCUMENTO.Add(New Paragraph("                                                                 Resumen del mes"))
+        '            DOCUMENTO.Add(New Paragraph(vbCrLf))
+        '            DOCUMENTO.Add(New Paragraph(vbCrLf))
+        '            DOCUMENTO.Add(New Paragraph("Estadisticas de trabajos correspondiente a el mes actual"))
+        '            DOCUMENTO.Add(New Paragraph(vbCrLf))
+        '            DOCUMENTO.Add(salida1)
+        '            DOCUMENTO.Add(New Paragraph(vbCrLf))
+        '            table.AddCell("Usuario")
+        '            table.AddCell("Fecha de Entrega")
+        '            table.AddCell("Fecha de Cobro")
+        '            table.AddCell("Descripcion")
+        '            table.AddCell("Precio")
+        '            table.AddCell("Nombre del Pedido")
+        '            table.AddCell("Estado")
 
-            End If
-            'las cosas terminan aca
-        End If
+        '            For i = 0 To canPedidos - 1
+        '                If pedidoGridView.Item(7, i).Value <> "cobrado" Then
+        '                    For j = 0 To k - 1
+        '                        If pedidoGridView.Item(2, i).Value = userId(j) Then
+        '                            table.AddCell(user(j).ToString)
+        '                        End If
+        '                    Next
+        '                    table.AddCell(pedidoGridView.Item(3, i).Value.ToString)
+        '                    table.AddCell(pedidoGridView.Item(4, i).Value.ToString)
+        '                    table.AddCell(pedidoGridView.Item(5, i).Value.ToString)
+        '                    table.AddCell(pedidoGridView.Item(6, i).Value.ToString)
+        '                    table.AddCell(pedidoGridView.Item(8, i).Value.ToString)
+        '                    table.AddCell(pedidoGridView.Item(7, i).Value.ToString)
+        '                End If
+        '            Next
+        '            DOCUMENTO.Add(table)
+        '            DOCUMENTO.Add(New Paragraph(vbCrLf))
+        '            DOCUMENTO.Add(salida2)
+        '            DOCUMENTO.Add(New Paragraph(vbCrLf))
+        '            cell2.Colspan = 7
+        '            cell2.HorizontalAlignment = 0
+        '            table2.SpacingBefore = 20.0F
+        '            table2.SpacingAfter = 30.0F
+        '            table2.AddCell(cell2)
+        '            table2.SetWidths({0.55F, 0.7F, 0.7F, 0.9F, 0.7F, 0.7F, 0.8F})
+
+        '            table2.AddCell("Usuario")
+        '            table2.AddCell("Fecha de Entrega")
+        '            table2.AddCell("Fecha de Cobro")
+        '            table2.AddCell("Descripcion")
+        '            table2.AddCell("Precio")
+        '            table2.AddCell("Nombre del Pedido")
+        '            table2.AddCell("Estado")
+
+        '            For i = 0 To canPedidos - 1
+        '                If pedidoGridView.Item(7, i).Value = "cobrado" Then
+        '                    For j = 0 To k - 1
+        '                        If pedidoGridView.Item(2, i).Value = userId(j) Then
+        '                            table2.AddCell(user(j).ToString)
+        '                        End If
+        '                    Next
+        '                    table2.AddCell(pedidoGridView.Item(3, i).Value.ToString)
+        '                    table2.AddCell(pedidoGridView.Item(4, i).Value.ToString)
+        '                    table2.AddCell(pedidoGridView.Item(5, i).Value.ToString)
+        '                    table2.AddCell(pedidoGridView.Item(6, i).Value.ToString)
+        '                    table2.AddCell(pedidoGridView.Item(8, i).Value.ToString)
+        '                    table2.AddCell(pedidoGridView.Item(7, i).Value.ToString)
+        '                End If
+        '            Next
+        '            DOCUMENTO.Add(table2)
+        '            DOCUMENTO.Close()
+        '            MsgBox("Resumen generado con exito")
+
+        '        Catch ex As Exception
+        '            MsgBox(ex.Message)
+        '        End Try
+        '    End If
+        'End If
+
 
     End Sub
 
@@ -1652,9 +1717,7 @@ Public Class Form2
 
         panel_cuentas.Hide()
         panel_carga_presupuesto.Hide()
-        panelServicios.Hide()
         PanelTrabajosPendientes.Show()
-        resulTrabajos.Hide()
         actualizarCalendarios()
 
     End Sub
@@ -2164,7 +2227,40 @@ Public Class Form2
         End If
 
     End Sub
+    Private Sub serBusBtn_Click(sender As Object, e As EventArgs) Handles serBusBtn.Click
 
+        'nueva puerquesa
+        Dim i, j, k, s As Integer
+        Dim resul As String
+        Dim bandera As Boolean = False
+
+        mostrarErrores(errorBuscar, "", False)
+        i = DataSet1.Tables("servicio").Rows.Count
+        s = serBusBtn.Text.ToString.Length
+        If i > 0 Then
+            For j = 0 To i - 1
+
+                resul = ServicioDataGridView.Item(1, j).Value().ToString()
+                k = resul.Length
+                If k >= s And serBusBtn.Text <> "" Then
+                    If resul.Substring(0, s).Equals(serBusBtn.Text) Then
+                        lisBusSer.Items.Add(resul + " " + ServicioDataGridView.Item(2, j).Value().ToString() + " " + ServicioDataGridView.Item(3, j).Value().ToString())
+                        bandera = True
+                    End If
+                ElseIf serBusBtn.Text = "" Then
+                    lisBusSer.Items.Add(resul + " " + ServicioDataGridView.Item(2, j).Value().ToString() + " " + ServicioDataGridView.Item(3, j).Value().ToString())
+                    bandera = -True
+                End If
+            Next
+        Else
+            mostrarErrores(errorBuscar, "No existe registros en la base de datos", True)
+            verServicios.Hide()
+        End If
+
+        If bandera Then
+            mostrarErrores(errorBuscar, "No existen coincidencias", True)
+        End If
+    End Sub
 
     Private Sub carSerBtn_Click(sender As Object, e As EventArgs) Handles carSerBtn.Click
         Dim resul As Integer
@@ -2269,7 +2365,6 @@ Public Class Form2
         Dim resul As Integer
         Dim cadena As String
 
-        actualizarDataset()
         cadena = ""
         resul = buscar_en_tablas("servicio", "nombre_servicio", nomSerTxt.Text)
         MsgBox(resul)
@@ -2312,6 +2407,9 @@ Public Class Form2
         CheckBoxMano.Checked = False
     End Sub
 
+    Private Sub Buscar_Click(sender As Object, e As EventArgs) Handles Buscar.Click
+        verSerPanel.Show()
+    End Sub
 
     Private Sub boton_servicios_Click(sender As Object, e As EventArgs) Handles boton_servicios.Click
         panel_cuentas.Hide()
@@ -2320,551 +2418,59 @@ Public Class Form2
         panelServicios.Show()
     End Sub
 
-    Private Sub cancelSerBtn_Click(sender As Object, e As EventArgs)
-        cancelSerBtn.Hide()
+    Private Sub Button30_Click(sender As Object, e As EventArgs) Handles Button30.Click
+
     End Sub
 
-    Private Sub buscoSerBtn_Click(sender As Object, e As EventArgs) Handles buscoSerBtn.Click
-        verSerPanel.Show()
-        lisBusSer.Items.Clear()
-        auxSer.Items.Clear()
-    End Sub
+    Private Sub Button29_Click(sender As Object, e As EventArgs) Handles Button29.Click
+        Dim factura_buscada As String
+        Dim pos As Integer
+        Dim i As Integer
+        Dim ruc As String
+
+        Dim fecha As String
+        Dim pos_cliente As Integer
+        Dim nom_cliente As String
+        Dim cantidad_grid As Integer
+        Dim cont As Integer
+        cont = 0
+
+        factura_buscada = n_factura_textbox.Text
+        pos = buscar_en_tablas("venta_producto", "n_factura_venta_producto", factura_buscada)
+
+        If pos >= 0 Then
+            ruc = DataSet1.Tables("venta_producto").Rows(pos).Item("id_cliente")
+            pos_cliente = buscar_en_tablas("cliente", "id_cliente", ruc)
+            ruc = DataSet1.Tables("cliente").Rows(pos_cliente).Item("ruc")
+            nom_cliente = DataSet1.Tables("cliente").Rows(pos_cliente).Item("nombre") + " " + DataSet1.Tables("cliente").Rows(pos_cliente).Item("apellido")
+            fecha = DataSet1.Tables("venta_producto").Rows(pos).Item("fecha_venta")
+
+            text_ruc_venta.Text = ruc
+            TextBox16.Text = nom_cliente
+            TextBox17.Text = fecha
+
+            For i = 0 To DataSet1.Tables("venta_producto").Rows.Count - 1
+
+                If factura_buscada = DataSet1.Tables("venta_producto").Rows(i).Item("n_factura_venta_producto") Then
+
+                    DataGridView1.Rows.Add()
+
+                        DataGridView1.Item(0, cont).Value = DataSet1.Tables("producto").Rows(buscar_en_tablas("producto", "id_stock_mugen", DataSet1.Tables("venta_producto").Rows(i).Item("id_stock_mugen"))).Item("codigo")
+                        DataGridView1.Item(1, cont).Value = DataSet1.Tables("producto").Rows(buscar_en_tablas("producto", "id_stock_mugen", DataSet1.Tables("venta_producto").Rows(i).Item("id_stock_mugen"))).Item("descripcion")
+                        DataGridView1.Item(2, cont).Value = DataSet1.Tables("producto").Rows(buscar_en_tablas("producto", "id_stock_mugen", DataSet1.Tables("venta_producto").Rows(i).Item("id_stock_mugen"))).Item("precio_venta")
+                        DataGridView1.Item(3, cont).Value = DataSet1.Tables("venta_producto").Rows(i).Item("cantidad")
+
+                    cont = cont + 1
+                    End If
 
 
-
-    Private Sub cancelSerBtn_Click_1(sender As Object, e As EventArgs) Handles cancelSerBtn.Click
-        verSerPanel.Hide()
-    End Sub
-
-    Private Sub lisBusSer_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lisBusSer.SelectedIndexChanged
-        nomSerTxt.Text = auxSer.Items(lisBusSer.SelectedIndex)
-
-        verSerPanel.Hide()
-    End Sub
-
-    Private Sub actualizarDataset()
-        'TODO: esta línea de código carga datos en la tabla 'DataSet1.venta_servicio' Puede moverla o quitarla según sea necesario.
-        Me.Venta_servicioTableAdapter.Fill(Me.DataSet1.venta_servicio)
-        'TODO: esta línea de código carga datos en la tabla 'DataSet1.servicio' Puede moverla o quitarla según sea necesario.
-        Me.ServicioTableAdapter.Fill(Me.DataSet1.servicio)
-        'TODO: This line of code loads data into the 'DataSet1.venta_producto' table. You can move, or remove it, as needed.
-        Me.Venta_productoTableAdapter.Fill(Me.DataSet1.venta_producto)
-        'TODO: This line of code loads data into the 'DataSet1.usuario' table. You can move, or remove it, as needed.
-        Me.UsuarioTableAdapter.Fill(Me.DataSet1.usuario)
-        'TODO: This line of code loads data into the 'DataSet1.proveedor' table. You can move, or remove it, as needed.
-        Me.ProveedorTableAdapter.Fill(Me.DataSet1.proveedor)
-        'TODO: This line of code loads data into the 'DataSet1.producto' table. You can move, or remove it, as needed.
-        Me.ProductoTableAdapter.Fill(Me.DataSet1.producto)
-
-        'TODO: This line of code loads data into the 'DataSet1.pedido' table. You can move, or remove it, as needed.
-        Me.PedidoTableAdapter.Fill(Me.DataSet1.pedido)
-        'TODO: This line of code loads data into the 'DataSet1.ingreso_producto' table. You can move, or remove it, as needed.
-        Me.Ingreso_productoTableAdapter.Fill(Me.DataSet1.ingreso_producto)
-        'TODO: This line of code loads data into the 'DataSet1.contabilidad2' table. You can move, or remove it, as needed.
-        Me.Contabilidad2TableAdapter.Fill(Me.DataSet1.contabilidad2)
-        'TODO: This line of code loads data into the 'DataSet1.contabilidad' table. You can move, or remove it, as needed.
-        Me.ContabilidadTableAdapter.Fill(Me.DataSet1.contabilidad)
-        'TODO: This line of code loads data into the 'DataSet1.cliente' table. You can move, or remove it, as needed.
-        Me.ClienteTableAdapter.Fill(Me.DataSet1.cliente)
-        'TODO: This line of code loads data into the 'DataSet1.association_1' table. You can move, or remove it, as needed.
-        Me.Association_1TableAdapter.Fill(Me.DataSet1.association_1)
-    End Sub
-
-    Private Sub imprimirDataGridView_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles imprimirDataGridView.PrintPage
-        Dim data As DataGridView
-        Dim f, c, i, j As Integer
-        Dim fuente As Font
-        Dim x, y As Integer 'coordenadas
-        fuente = New Drawing.Font("Arial", 9) 'tipo de letra y tamanho
-        data = PedidoDataGridView ' asisgnar que datagridview se quiere imprimir
-        e.Graphics.DrawString("Fecha: " + fechaFactura.ToString, fuente, Brushes.Black, 500, 100)
-        e.Graphics.DrawString("RUC: " + ruc, fuente, Brushes.Black, 100, 100)
-        e.Graphics.DrawString("Nombre: " + nombre, fuente, Brushes.Black, 100, 150)
-        e.Graphics.DrawString("Sub Total: " + sub_total.ToString, fuente, Brushes.Black, 100, 500)
-        e.Graphics.DrawString("Total a Pagar: " + total_a_pagar.ToString, fuente, Brushes.Black, 100, 550)
-        e.Graphics.DrawString("IVA: " + iva.ToString, fuente, Brushes.Black, 400, 550)
-        e.Graphics.DrawString("Total: " + total.ToString, fuente, Brushes.Black, 500, 550)
-        f = data.RowCount ' se optienen la cantidad de filas
-        c = data.ColumnCount 'se optienen la cantidad de columnas
-        x = 100
-        y = 200
-        'MsgBox(f.ToString + " " + c.ToString + " " + data.Rows(0).Cells(0).Value.ToString)
-
-        For i = 0 To f - 2
-            For j = 3 To c - 1
-                e.Graphics.DrawString(data.Rows(i).Cells(j).Value.ToString, fuente, Brushes.Black, x, y)
-                x = x + 125
             Next
-            y = y + 25
-            x = 100
-        Next
 
 
-
-    End Sub
-
-    Private Sub prueba_Click(sender As Object, e As EventArgs) Handles prueba.Click
-        imprimirDataGridView.Print()
-    End Sub
-
-
-
-    Private Sub fechaGastoTxt_GotFocus(sender As Object, e As EventArgs) Handles fechaGastoTxt.GotFocus
-        calendarioGasto.Show()
-    End Sub
-
-    Private Sub fechaGastoTxt_LostFocus(sender As Object, e As EventArgs) Handles fechaGastoTxt.LostFocus
-        calendarioGasto.Hide()
-    End Sub
-
-    Private Sub fechaGastoTxt2_GotFocus(sender As Object, e As EventArgs) Handles fechaGastoTxt2.GotFocus
-        calendarioGasto2.Show()
-    End Sub
-
-    Private Sub fechaGastoTxt2_LostFocus(sender As Object, e As EventArgs) Handles fechaGastoTxt2.LostFocus
-        calendarioGasto2.Hide()
-    End Sub
-    Private Sub calendarioGasto_DateChanged(sender As Object, e As DateRangeEventArgs) Handles calendarioGasto.DateChanged
-        fechaGastoTxt.Text = calendarioGasto.SelectionStart
-    End Sub
-    Private Sub calendarGasto2_DateSelected(sender As Object, e As DateRangeEventArgs) Handles calendarioGasto2.DateSelected
-        fechaGastoTxt2.Text = calendarioGasto2.SelectionStart
-    End Sub
-
-    Private Sub cargarGastoBtn_Click(sender As Object, e As EventArgs) Handles cargarGastoBtn.Click
-        mostrarErrores(errorGasto, "", False)
-        If nFacturaGastoTxt.Text = "" And montoGastoTxt.Text And fechaGastoTxt.Text = "" And detalleGastoTxt.Text = "" Then
-            If IsDate(fechaGastoTxt.Text) Then
-                Dim nuevo_gasto As DataRow = DataSet1.Tables("gasto").NewRow()
-                Dim nueva_contabilidad As DataRow = DataSet1.Tables("contabilidad").NewRow()
-                Dim nueva_contabilidad2 As DataRow = DataSet1.Tables("contabilidad2").NewRow()
-
-                'se carga la tabla de gastos
-                nuevo_gasto("n_factura_gasto") = nFacturaGastoTxt.Text
-                nuevo_gasto("detalle_gasto") = detalleGastoTxt.Text
-                nuevo_gasto("monto_factura") = montoGastoTxt.Text
-                nuevo_gasto("fecha_gasto") = fechaGastoTxt.Text
-                DataSet1.Tables("gasto").Rows.Add(nuevo_gasto)
-                Validate()
-                'GastoBindingSource.EndEdit()
-                'GastoTableAdapter.Update(DataSet1.gasto)
-                'con iva?
-                If ivaCbGasto.Checked Then
-                    'cargando contabiidad 1
-                    Dim nueva_contabilidad4 As DataRow = DataSet1.Tables("contabilidad").NewRow()
-
-                    nueva_contabilidad4("descripcion") = "Ingresa Gasto"
-                    nueva_contabilidad4("deber") = (montoGastoTxt.Text / 110) * 100
-                    nueva_contabilidad4("fecha") = fechaGastoTxt.Text
-                    nueva_contabilidad4("numero_factura") = nFacturaGastoTxt.Text
-
-                    DataSet1.Tables("contabilidad").Rows.Add(nueva_contabilidad4)
-                    Validate()
-                    ContabilidadBindingSource.EndEdit()
-                    ContabilidadTableAdapter.Update(DataSet1.contabilidad)
-
-                    ' 2) IVA
-                    Dim nueva_contabilidad5 As DataRow = DataSet1.Tables("contabilidad").NewRow()
-
-                    nueva_contabilidad5("descripcion") = "IVA"
-                    nueva_contabilidad5("deber") = montoGastoTxt.Text - ((montoGastoTxt.Text / 110) * 100)
-                    nueva_contabilidad5("fecha") = fechaGastoTxt.Text
-                    nueva_contabilidad5("numero_factura") = nFacturaGastoTxt.Text
-
-                    DataSet1.Tables("contabilidad").Rows.Add(nueva_contabilidad5)
-                    Validate()
-                    ContabilidadBindingSource.EndEdit()
-                    ContabilidadTableAdapter.Update(DataSet1.contabilidad)
-
-                    ' 3) CAJA
-                    Dim nueva_contabilidad6 As DataRow = DataSet1.Tables("contabilidad").NewRow()
-
-                    nueva_contabilidad6("descripcion") = "Caja"
-                    nueva_contabilidad6("haber") = ((montoGastoTxt.Text / 110) * 100) + (montoGastoTxt.Text - ((montoGastoTxt.Text / 110) * 100))
-                    nueva_contabilidad6("fecha") = fechaGastoTxt.Text
-
-
-                    DataSet1.Tables("contabilidad").Rows.Add(nueva_contabilidad6)
-
-                    Validate()
-                    ContabilidadBindingSource.EndEdit()
-                    ContabilidadTableAdapter.Update(DataSet1.contabilidad)
-
-
-                    ' ===ACTUALIZAR TABLA CONTABILIDAD II===
-
-                    ' 1) ITEM
-                    Dim nueva_contabilidad7 As DataRow = DataSet1.Tables("contabilidad2").NewRow()
-
-                    nueva_contabilidad7("id_usuario") = datos_loguin.id_usuario
-                    nueva_contabilidad7("descripcion_modificacion") = "Ingreso de Gasto"
-                    nueva_contabilidad7("fecha_modificacion") = fechaGastoTxt.Text
-                    nueva_contabilidad7("descripcion2") = detalleGastoTxt.Text
-                    nueva_contabilidad7("deber2") = (montoGastoTxt.Text / 110) * 100
-                    nueva_contabilidad7("fecha2") = fechaGastoTxt.Text
-                    nueva_contabilidad7("numero_factura2") = nFacturaGastoTxt.Text
-
-                    DataSet1.Tables("contabilidad2").Rows.Add(nueva_contabilidad7)
-
-                    Validate()
-                    Contabilidad2BindingSource.EndEdit()
-                    Contabilidad2TableAdapter.Update(DataSet1.contabilidad2)
-
-                    ' 2) IVA
-                    Dim nueva_contabilidad8 As DataRow = DataSet1.Tables("contabilidad2").NewRow()
-
-                    nueva_contabilidad8("id_usuario") = datos_loguin.id_usuario
-                    nueva_contabilidad8("descripcion_modificacion") = "Ingreso de Gasto"
-                    nueva_contabilidad8("fecha_modificacion") = fechaGastoTxt.Text
-                    nueva_contabilidad8("descripcion2") = "IVA"
-                    nueva_contabilidad8("deber2") = montoGastoTxt.Text - ((montoGastoTxt.Text / 110) * 100)
-                    nueva_contabilidad8("fecha2") = fechaGastoTxt.Text
-                    nueva_contabilidad8("numero_factura2") = nFacturaGastoTxt.Text
-
-                    DataSet1.Tables("contabilidad2").Rows.Add(nueva_contabilidad8)
-
-                    Validate()
-                    Contabilidad2BindingSource.EndEdit()
-                    Contabilidad2TableAdapter.Update(DataSet1.contabilidad2)
-
-                Else 'SI EL IVA NO ESTÁ INCLUIDO
-                    ' ===ACTUALIZAR TABLA CONTABILIDAD I===
-
-                    ' 1) ITEM
-                    Dim nueva_contabilidad1 As DataRow = DataSet1.Tables("contabilidad").NewRow()
-
-                    nueva_contabilidad1("descripcion") = "Ingreso de Gasto"
-                    nueva_contabilidad1("deber") = montoGastoTxt.Text
-                    nueva_contabilidad1("fecha") = fechaGastoTxt.Text
-                    nueva_contabilidad1("numero_factura") = nFacturaGastoTxt.Text
-
-                    DataSet1.Tables("contabilidad").Rows.Add(nueva_contabilidad1)
-
-                    Validate()
-                    ContabilidadBindingSource.EndEdit()
-                    ContabilidadTableAdapter.Update(DataSet1.contabilidad)
-
-                    ' 2) IVA
-                    Dim nueva_contabilidad22 As DataRow = DataSet1.Tables("contabilidad").NewRow()
-
-                    nueva_contabilidad2("descripcion") = "IVA"
-                    nueva_contabilidad2("deber") = montoGastoTxt.Text / 10
-                    nueva_contabilidad2("fecha") = fechaGastoTxt.Text
-                    nueva_contabilidad2("numero_factura") = nFacturaGastoTxt.Text
-
-                    DataSet1.Tables("contabilidad").Rows.Add(nueva_contabilidad22)
-
-                    Validate()
-                    ContabilidadBindingSource.EndEdit()
-                    ContabilidadTableAdapter.Update(DataSet1.contabilidad)
-
-                    ' 3) CAJA
-                    Dim nueva_contabilidad3 As DataRow = DataSet1.Tables("contabilidad").NewRow()
-
-                    nueva_contabilidad3("descripcion") = "Caja"
-                    nueva_contabilidad3("haber") = montoGastoTxt.Text + (montoGastoTxt.Text / 10)
-                    nueva_contabilidad3("fecha") = fechaGastoTxt.Text
-
-                    DataSet1.Tables("contabilidad").Rows.Add(nueva_contabilidad3)
-
-                    Validate()
-                    ContabilidadBindingSource.EndEdit()
-                    ContabilidadTableAdapter.Update(DataSet1.contabilidad)
-
-
-                    ' ===ACTUALIZAR TABLA CONTABILIDAD II===
-
-                    ' 1) ITEM
-                    Dim nueva_contabilidad10 As DataRow = DataSet1.Tables("contabilidad2").NewRow()
-
-                    nueva_contabilidad10("id_usuario") = datos_loguin.id_usuario
-                    nueva_contabilidad10("descripcion_modificacion") = "Ingreso de Gasto"
-                    nueva_contabilidad10("fecha_modificacion") = fechaGastoTxt.Text
-                    nueva_contabilidad10("descripcion2") = detalleGastoTxt.Text
-                    nueva_contabilidad10("deber2") = montoGastoTxt.Text
-                    nueva_contabilidad10("fecha2") = fechaGastoTxt.Text
-                    nueva_contabilidad10("numero_factura2") = nFacturaGastoTxt.Text
-
-                    DataSet1.Tables("contabilidad2").Rows.Add(nueva_contabilidad10)
-
-                    Validate()
-                    Contabilidad2BindingSource.EndEdit()
-                    Contabilidad2TableAdapter.Update(DataSet1.contabilidad2)
-
-                    ' 2) IVA
-                    Dim nueva_contabilidad11 As DataRow = DataSet1.Tables("contabilidad2").NewRow()
-
-                    nueva_contabilidad11("id_usuario") = datos_loguin.id_usuario
-                    nueva_contabilidad11("descripcion_modificacion") = "Ingreso de Gasto"
-                    nueva_contabilidad11("fecha_modificacion") = fechaGastoTxt.Text
-                    nueva_contabilidad11("descripcion2") = "IVA"
-                    nueva_contabilidad11("deber2") = montoGastoTxt.Text / 10
-                    nueva_contabilidad11("fecha2") = fechaGastoTxt.Text
-                    nueva_contabilidad11("numero_factura2") = nFacturaGastoTxt.Text
-
-                    DataSet1.Tables("contabilidad2").Rows.Add(nueva_contabilidad11)
-
-                    Validate()
-                    Contabilidad2BindingSource.EndEdit()
-                    Contabilidad2TableAdapter.Update(DataSet1.contabilidad2)
-
-                    ' 3) CAJA
-                    Dim nueva_contabilidad12 As DataRow = DataSet1.Tables("contabilidad2").NewRow()
-
-                    nueva_contabilidad12("id_usuario") = datos_loguin.id_usuario
-                    nueva_contabilidad12("descripcion_modificacion") = "Ingreso de Gasto"
-                    nueva_contabilidad12("fecha_modificacion") = fechaGastoTxt.Text
-                    nueva_contabilidad12("descripcion2") = "Caja"
-                    nueva_contabilidad12("haber2") = montoGastoTxt.Text + (montoGastoTxt.Text / 10)
-                    nueva_contabilidad12("fecha2") = fechaGastoTxt.Text
-
-                    DataSet1.Tables("contabilidad2").Rows.Add(nueva_contabilidad12)
-
-                    Validate()
-                    Contabilidad2BindingSource.EndEdit()
-                    Contabilidad2TableAdapter.Update(DataSet1.contabilidad2)
-                End If
-            Else
-                mostrarErrores(errorGasto, "La fecha no es valida", True)
-            End If
         Else
-            mostrarErrores(errorGasto, "Porfavor, complete todos los campos", True)
+            MsgBox("Factura no existe")
         End If
-    End Sub
-
-    Private Sub aceptarGastoBtn_Click(sender As Object, e As EventArgs) Handles aceptarGastoBtn.Click
-
-        mostrarErrores(errorGasto2, "", False)
-        If nFacturaGastoTxt2.Text = "" And montoGastoTxt2.Text And fechaGastoTxt2.Text = "" And detalleGastoTxt2.Text = "" Then
-            If IsDate(fechaGastoTxt2.Text) Then
-                Dim nuevo_gasto As DataRow = DataSet1.Tables("gasto").NewRow()
-                Dim nueva_contabilidad As DataRow = DataSet1.Tables("contabilidad").NewRow()
-                Dim nueva_contabilidad2 As DataRow = DataSet1.Tables("contabilidad2").NewRow()
-
-                'se carga la tabla de gastos
-                nuevo_gasto("n_factura_gasto") = nFacturaGastoTxt2.Text
-                nuevo_gasto("detalle_gasto") = detalleGastoTxt2.Text
-                nuevo_gasto("monto_factura") = montoGastoTxt2.Text
-                nuevo_gasto("fecha_gasto") = fechaGastoTxt2.Text
-                DataSet1.Tables("gasto").Rows.Add(nuevo_gasto)
-                Validate()
-                'GastoBindingSource.EndEdit()
-                'GastoTableAdapter.Update(DataSet1.gasto)
-                'con iva?
-                If ivaCbGasto2.Checked Then
-                    'cargando contabiidad 1
-                    Dim nueva_contabilidad4 As DataRow = DataSet1.Tables("contabilidad").NewRow()
-
-                    nueva_contabilidad4("descripcion") = "Ingresa Gasto"
-                    nueva_contabilidad4("deber") = (montoGastoTxt2.Text / 110) * 100
-                    nueva_contabilidad4("fecha") = fechaGastoTxt2.Text
-                    nueva_contabilidad4("numero_factura") = nFacturaGastoTxt2.Text
-
-                    DataSet1.Tables("contabilidad").Rows.Add(nueva_contabilidad4)
-                    Validate()
-                    ContabilidadBindingSource.EndEdit()
-                    ContabilidadTableAdapter.Update(DataSet1.contabilidad)
-
-                    ' 2) IVA
-                    Dim nueva_contabilidad5 As DataRow = DataSet1.Tables("contabilidad").NewRow()
-
-                    nueva_contabilidad5("descripcion") = "IVA"
-                    nueva_contabilidad5("deber") = montoGastoTxt2.Text - ((montoGastoTxt2.Text / 110) * 100)
-                    nueva_contabilidad5("fecha") = fechaGastoTxt2.Text
-                    nueva_contabilidad5("numero_factura") = nFacturaGastoTxt2.Text
-
-                    DataSet1.Tables("contabilidad").Rows.Add(nueva_contabilidad5)
-                    Validate()
-                    ContabilidadBindingSource.EndEdit()
-                    ContabilidadTableAdapter.Update(DataSet1.contabilidad)
-
-                    ' 3) CAJA
-                    Dim nueva_contabilidad6 As DataRow = DataSet1.Tables("contabilidad").NewRow()
-
-                    nueva_contabilidad6("descripcion") = "Caja"
-                    nueva_contabilidad6("haber") = ((montoGastoTxt2.Text / 110) * 100) + (montoGastoTxt2.Text - ((montoGastoTxt2.Text / 110) * 100))
-                    nueva_contabilidad6("fecha") = fechaGastoTxt2.Text
 
 
-                    DataSet1.Tables("contabilidad").Rows.Add(nueva_contabilidad6)
-
-                    Validate()
-                    ContabilidadBindingSource.EndEdit()
-                    ContabilidadTableAdapter.Update(DataSet1.contabilidad)
-
-
-                    ' ===ACTUALIZAR TABLA CONTABILIDAD II===
-
-                    ' 1) ITEM
-                    Dim nueva_contabilidad7 As DataRow = DataSet1.Tables("contabilidad2").NewRow()
-
-                    nueva_contabilidad7("id_usuario") = datos_loguin.id_usuario
-                    nueva_contabilidad7("descripcion_modificacion") = "Ingreso de Gasto"
-                    nueva_contabilidad7("fecha_modificacion") = fechaGastoTxt2.Text
-                    nueva_contabilidad7("descripcion2") = detalleGastoTxt2.Text
-                    nueva_contabilidad7("deber2") = (montoGastoTxt2.Text / 110) * 100
-                    nueva_contabilidad7("fecha2") = fechaGastoTxt2.Text
-                    nueva_contabilidad7("numero_factura2") = nFacturaGastoTxt2.Text
-
-                    DataSet1.Tables("contabilidad2").Rows.Add(nueva_contabilidad7)
-
-                    Validate()
-                    Contabilidad2BindingSource.EndEdit()
-                    Contabilidad2TableAdapter.Update(DataSet1.contabilidad2)
-
-                    ' 2) IVA
-                    Dim nueva_contabilidad8 As DataRow = DataSet1.Tables("contabilidad2").NewRow()
-
-                    nueva_contabilidad8("id_usuario") = datos_loguin.id_usuario
-                    nueva_contabilidad8("descripcion_modificacion") = "Ingreso de Gasto"
-                    nueva_contabilidad8("fecha_modificacion") = fechaGastoTxt2.Text
-                    nueva_contabilidad8("descripcion2") = "IVA"
-                    nueva_contabilidad8("deber2") = montoGastoTxt2.Text - ((montoGastoTxt2.Text / 110) * 100)
-                    nueva_contabilidad8("fecha2") = fechaGastoTxt2.Text
-                    nueva_contabilidad8("numero_factura2") = nFacturaGastoTxt2.Text
-
-                    DataSet1.Tables("contabilidad2").Rows.Add(nueva_contabilidad8)
-
-                    Validate()
-                    Contabilidad2BindingSource.EndEdit()
-                    Contabilidad2TableAdapter.Update(DataSet1.contabilidad2)
-
-                Else 'SI EL IVA NO ESTÁ INCLUIDO
-                    ' ===ACTUALIZAR TABLA CONTABILIDAD I===
-
-                    ' 1) ITEM
-                    Dim nueva_contabilidad1 As DataRow = DataSet1.Tables("contabilidad").NewRow()
-
-                    nueva_contabilidad1("descripcion") = "Ingreso de Gasto"
-                    nueva_contabilidad1("deber") = montoGastoTxt2.Text
-                    nueva_contabilidad1("fecha") = fechaGastoTxt2.Text
-                    nueva_contabilidad1("numero_factura") = nFacturaGastoTxt2.Text
-
-                    DataSet1.Tables("contabilidad").Rows.Add(nueva_contabilidad1)
-
-                    Validate()
-                    ContabilidadBindingSource.EndEdit()
-                    ContabilidadTableAdapter.Update(DataSet1.contabilidad)
-
-                    ' 2) IVA
-                    Dim nueva_contabilidad22 As DataRow = DataSet1.Tables("contabilidad").NewRow()
-
-                    nueva_contabilidad2("descripcion") = "IVA"
-                    nueva_contabilidad2("deber") = montoGastoTxt2.Text / 10
-                    nueva_contabilidad2("fecha") = fechaGastoTxt2.Text
-                    nueva_contabilidad2("numero_factura") = nFacturaGastoTxt2.Text
-
-                    DataSet1.Tables("contabilidad").Rows.Add(nueva_contabilidad22)
-
-                    Validate()
-                    ContabilidadBindingSource.EndEdit()
-                    ContabilidadTableAdapter.Update(DataSet1.contabilidad)
-
-                    ' 3) CAJA
-                    Dim nueva_contabilidad3 As DataRow = DataSet1.Tables("contabilidad").NewRow()
-
-                    nueva_contabilidad3("descripcion") = "Caja"
-                    nueva_contabilidad3("haber") = montoGastoTxt2.Text + (montoGastoTxt2.Text / 10)
-                    nueva_contabilidad3("fecha") = fechaGastoTxt2.Text
-
-                    DataSet1.Tables("contabilidad").Rows.Add(nueva_contabilidad3)
-
-                    Validate()
-                    ContabilidadBindingSource.EndEdit()
-                    ContabilidadTableAdapter.Update(DataSet1.contabilidad)
-
-
-                    ' ===ACTUALIZAR TABLA CONTABILIDAD II===
-
-                    ' 1) ITEM
-                    Dim nueva_contabilidad10 As DataRow = DataSet1.Tables("contabilidad2").NewRow()
-
-                    nueva_contabilidad10("id_usuario") = datos_loguin.id_usuario
-                    nueva_contabilidad10("descripcion_modificacion") = "Ingreso de Gasto"
-                    nueva_contabilidad10("fecha_modificacion") = fechaGastoTxt2.Text
-                    nueva_contabilidad10("descripcion2") = detalleGastoTxt2.Text
-                    nueva_contabilidad10("deber2") = montoGastoTxt2.Text
-                    nueva_contabilidad10("fecha2") = fechaGastoTxt2.Text
-                    nueva_contabilidad10("numero_factura2") = nFacturaGastoTxt2.Text
-
-                    DataSet1.Tables("contabilidad2").Rows.Add(nueva_contabilidad10)
-
-                    Validate()
-                    Contabilidad2BindingSource.EndEdit()
-                    Contabilidad2TableAdapter.Update(DataSet1.contabilidad2)
-
-                    ' 2) IVA
-                    Dim nueva_contabilidad11 As DataRow = DataSet1.Tables("contabilidad2").NewRow()
-
-                    nueva_contabilidad11("id_usuario") = datos_loguin.id_usuario
-                    nueva_contabilidad11("descripcion_modificacion") = "Ingreso de Gasto"
-                    nueva_contabilidad11("fecha_modificacion") = fechaGastoTxt2.Text
-                    nueva_contabilidad11("descripcion2") = "IVA"
-                    nueva_contabilidad11("deber2") = montoGastoTxt2.Text / 10
-                    nueva_contabilidad11("fecha2") = fechaGastoTxt2.Text
-                    nueva_contabilidad11("numero_factura2") = nFacturaGastoTxt2.Text
-
-                    DataSet1.Tables("contabilidad2").Rows.Add(nueva_contabilidad11)
-
-                    Validate()
-                    Contabilidad2BindingSource.EndEdit()
-                    Contabilidad2TableAdapter.Update(DataSet1.contabilidad2)
-
-                    ' 3) CAJA
-                    Dim nueva_contabilidad12 As DataRow = DataSet1.Tables("contabilidad2").NewRow()
-
-                    nueva_contabilidad12("id_usuario") = datos_loguin.id_usuario
-                    nueva_contabilidad12("descripcion_modificacion") = "Ingreso de Gasto"
-                    nueva_contabilidad12("fecha_modificacion") = fechaGastoTxt2.Text
-                    nueva_contabilidad12("descripcion2") = "Caja"
-                    nueva_contabilidad12("haber2") = montoGastoTxt2.Text + (montoGastoTxt2.Text / 10)
-                    nueva_contabilidad12("fecha2") = fechaGastoTxt2.Text
-
-                    DataSet1.Tables("contabilidad2").Rows.Add(nueva_contabilidad12)
-
-                    Validate()
-                    Contabilidad2BindingSource.EndEdit()
-                    Contabilidad2TableAdapter.Update(DataSet1.contabilidad2)
-                End If
-            Else
-                mostrarErrores(errorGasto2, "La fecha no es valida", True)
-            End If
-        Else
-            mostrarErrores(errorGasto2, "Porfavor, complete todos los campos", True)
-        End If
-    End Sub
-
-    Private Sub cancelarGastoBtn_Click(sender As Object, e As EventArgs) Handles cancelarGastoBtn.Click
-        modificarGasto.Hide()
-
-    End Sub
-
-    Private Sub modificarGastoBtn_Click(sender As Object, e As EventArgs) Handles modificarGastoBtn.Click
-        modificarGasto.Show()
-        nFacturaGastoTxt2.Text = nFacturaGastoTxt.Text
-        If montoGastoTxt2.Text <> "" Then
-            mostrarErrores(errorGasto2, "Ingrese el gasto a modificar,numero de factura", True)
-        Else
-            Dim i As Integer = buscar_en_tablas("gasto", "n_factura_gasto", nFacturaGastoTxt2.Text)
-            If i > -1 Then
-                fechaGastoTxt2.Text = DataSet1.Tables("gasto").Rows(i).Item("fecha_gasto")
-                montoGastoTxt2.Text = DataSet1.Tables("gasto").Rows(i).Item("monto_gasto")
-                detalleGastoTxt2.Text = DataSet1.Tables("gasto").Rows(i).Item("detalle_gasto")
-            End If
-        End If
-    End Sub
-
-    Private Sub borrarGastoBtn_Click(sender As Object, e As EventArgs) Handles borrarGastoBtn.Click
-        nFacturaGastoTxt.Text = ""
-        fechaGastoTxt.Text = ""
-        montoGastoTxt.Text = ""
-        detalleGastoTxt.Text = ""
-    End Sub
-
-    Private Sub borrarGastoBtn2_Click(sender As Object, e As EventArgs) Handles borrarGastoBtn2.Click
-        nFacturaGastoTxt2.Text = ""
-        fechaGastoTxt2.Text = ""
-        montoGastoTxt2.Text = ""
-        detalleGastoTxt2.Text = ""
     End Sub
 End Class

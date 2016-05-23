@@ -522,6 +522,7 @@ Public Class Form2
                                 nueva_contabilidad6("haber2") = DataGridView1.Item(4, i).Value
                                 nueva_contabilidad6("fecha2") = TextBox17.Text
                                 nueva_contabilidad6("numero_factura2") = n_factura_textbox.Text
+                                nueva_contabilidad6("id_usuario") = datos_loguin.id_usuario
                                 nueva_contabilidad6("descripcion2") = "Venta de " + DataGridView1.Item(3, i).Value.ToString + " " + DataGridView1.Item(1, i).Value.ToString
                                 DataSet1.Tables("contabilidad2").Rows.Add(nueva_contabilidad6)
                                 Validate()
@@ -567,6 +568,7 @@ Public Class Form2
             nueva_contabilidad4("fecha2") = TextBox17.Text
             nueva_contabilidad4("numero_factura2") = n_factura_textbox.Text
             nueva_contabilidad4("descripcion2") = "IVA"
+            nueva_contabilidad4("id_usuario") = datos_loguin.id_usuario
             DataSet1.Tables("contabilidad2").Rows.Add(nueva_contabilidad4)
             Validate()
             Contabilidad2BindingSource.EndEdit()
@@ -578,6 +580,7 @@ Public Class Form2
             nueva_contabilidad5("deber2") = text_sub_total.Text
             nueva_contabilidad5("fecha2") = TextBox17.Text
             nueva_contabilidad5("numero_factura2") = n_factura_textbox.Text
+            nueva_contabilidad5("id_usuario") = datos_loguin.id_usuario
             nueva_contabilidad5("descripcion2") = "Caja"
             DataSet1.Tables("contabilidad2").Rows.Add(nueva_contabilidad5)
             Validate()
@@ -2413,5 +2416,61 @@ Public Class Form2
         panel_carga_presupuesto.Hide()
         PanelTrabajosPendientes.Hide()
         panelServicios.Show()
+    End Sub
+
+    Private Sub Button30_Click(sender As Object, e As EventArgs) Handles Button30.Click
+
+    End Sub
+
+    Private Sub Button29_Click(sender As Object, e As EventArgs) Handles Button29.Click
+        Dim factura_buscada As String
+        Dim pos As Integer
+        Dim i As Integer
+        Dim ruc As String
+
+        Dim fecha As String
+        Dim pos_cliente As Integer
+        Dim nom_cliente As String
+        Dim cantidad_grid As Integer
+        Dim cont As Integer
+        cont = 0
+
+        factura_buscada = n_factura_textbox.Text
+        pos = buscar_en_tablas("venta_producto", "n_factura_venta_producto", factura_buscada)
+
+        If pos >= 0 Then
+            ruc = DataSet1.Tables("venta_producto").Rows(pos).Item("id_cliente")
+            pos_cliente = buscar_en_tablas("cliente", "id_cliente", ruc)
+            ruc = DataSet1.Tables("cliente").Rows(pos_cliente).Item("ruc")
+            nom_cliente = DataSet1.Tables("cliente").Rows(pos_cliente).Item("nombre") + " " + DataSet1.Tables("cliente").Rows(pos_cliente).Item("apellido")
+            fecha = DataSet1.Tables("venta_producto").Rows(pos).Item("fecha_venta")
+
+            text_ruc_venta.Text = ruc
+            TextBox16.Text = nom_cliente
+            TextBox17.Text = fecha
+
+            For i = 0 To DataSet1.Tables("venta_producto").Rows.Count - 1
+
+                If factura_buscada = DataSet1.Tables("venta_producto").Rows(i).Item("n_factura_venta_producto") Then
+
+                    DataGridView1.Rows.Add()
+
+                        DataGridView1.Item(0, cont).Value = DataSet1.Tables("producto").Rows(buscar_en_tablas("producto", "id_stock_mugen", DataSet1.Tables("venta_producto").Rows(i).Item("id_stock_mugen"))).Item("codigo")
+                        DataGridView1.Item(1, cont).Value = DataSet1.Tables("producto").Rows(buscar_en_tablas("producto", "id_stock_mugen", DataSet1.Tables("venta_producto").Rows(i).Item("id_stock_mugen"))).Item("descripcion")
+                        DataGridView1.Item(2, cont).Value = DataSet1.Tables("producto").Rows(buscar_en_tablas("producto", "id_stock_mugen", DataSet1.Tables("venta_producto").Rows(i).Item("id_stock_mugen"))).Item("precio_venta")
+                        DataGridView1.Item(3, cont).Value = DataSet1.Tables("venta_producto").Rows(i).Item("cantidad")
+
+                    cont = cont + 1
+                    End If
+
+
+            Next
+
+
+        Else
+            MsgBox("Factura no existe")
+        End If
+
+
     End Sub
 End Class

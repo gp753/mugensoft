@@ -33,12 +33,12 @@ Partial Class Form2
         Dim ApellidoLabel1A As System.Windows.Forms.Label
         Dim NombreLabel1N As System.Windows.Forms.Label
         Dim RucLabel1R As System.Windows.Forms.Label
-        Dim ChartArea11 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend11 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series11 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim ChartArea12 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend12 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series12 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea2 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend2 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series2 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form2))
         Me.Ingreso_productoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DataSet1 = New mugen.DataSet1()
@@ -46,112 +46,15 @@ Partial Class Form2
         Me.ContabilidadBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ClienteBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Association_1BindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.Association_1TableAdapter = New mugen.DataSet1TableAdapters.association_1TableAdapter()
         Me.TableAdapterManager = New mugen.DataSet1TableAdapters.TableAdapterManager()
-        Me.ClienteTableAdapter = New mugen.DataSet1TableAdapters.clienteTableAdapter()
-        Me.Contabilidad2TableAdapter = New mugen.DataSet1TableAdapters.contabilidad2TableAdapter()
-        Me.ContabilidadTableAdapter = New mugen.DataSet1TableAdapters.contabilidadTableAdapter()
-        Me.Ingreso_productoTableAdapter = New mugen.DataSet1TableAdapters.ingreso_productoTableAdapter()
-        Me.PedidoTableAdapter = New mugen.DataSet1TableAdapters.pedidoTableAdapter()
         Me.PedidoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.Venta_servicioDataGridView = New System.Windows.Forms.DataGridView()
-        Me.DataGridViewTextBoxColumn107 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn108 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn109 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn110 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn111 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn112 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Venta_servicioBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.Venta_productoDataGridView = New System.Windows.Forms.DataGridView()
-        Me.DataGridViewTextBoxColumn101 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn102 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn103 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn104 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn105 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn106 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Venta_productoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.UsuarioDataGridView = New System.Windows.Forms.DataGridView()
-        Me.DataGridViewTextBoxColumn56 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn57 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn58 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn59 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn60 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn97 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn98 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn99 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn100 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.UsuarioBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.ServicioDataGridView = New System.Windows.Forms.DataGridView()
-        Me.DataGridViewTextBoxColumn52 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn53 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn54 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn55 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ServicioBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.ProveedorDataGridView = New System.Windows.Forms.DataGridView()
-        Me.DataGridViewTextBoxColumn49 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn50 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn51 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ProveedorBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.ProductoDataGridView = New System.Windows.Forms.DataGridView()
-        Me.DataGridViewTextBoxColumn45 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn46 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn47 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn48 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ProductoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.PedidoDataGridView = New System.Windows.Forms.DataGridView()
-        Me.DataGridViewTextBoxColumn36 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn37 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn38 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn39 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn40 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn41 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn42 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn43 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn44 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Ingreso_productoDataGridView = New System.Windows.Forms.DataGridView()
-        Me.DataGridViewTextBoxColumn28 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn29 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn30 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn31 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn32 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn33 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn34 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn35 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Contabilidad2DataGridView = New System.Windows.Forms.DataGridView()
-        Me.DataGridViewTextBoxColumn19 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn20 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn21 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn22 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn23 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn24 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn25 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn26 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn27 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ContabilidadDataGridView = New System.Windows.Forms.DataGridView()
-        Me.DataGridViewTextBoxColumn12 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn13 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn14 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn15 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn16 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn17 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn18 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ClienteDataGridView = New System.Windows.Forms.DataGridView()
-        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn11 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Association_1DataGridView = New System.Windows.Forms.DataGridView()
-        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ProductoTableAdapter = New mugen.DataSet1TableAdapters.productoTableAdapter()
-        Me.ProveedorTableAdapter = New mugen.DataSet1TableAdapters.proveedorTableAdapter()
-        Me.UsuarioTableAdapter = New mugen.DataSet1TableAdapters.usuarioTableAdapter()
-        Me.Venta_productoTableAdapter = New mugen.DataSet1TableAdapters.venta_productoTableAdapter()
         Me.Button7 = New System.Windows.Forms.Button()
         Me.Button6 = New System.Windows.Forms.Button()
         Me.Button5 = New System.Windows.Forms.Button()
@@ -412,9 +315,19 @@ Partial Class Form2
         Me.Label42 = New System.Windows.Forms.Label()
         Me.Label41 = New System.Windows.Forms.Label()
         Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
-        Me.ServicioTableAdapter = New mugen.DataSet1TableAdapters.servicioTableAdapter()
-        Me.Venta_servicioTableAdapter = New mugen.DataSet1TableAdapters.venta_servicioTableAdapter()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Label66 = New System.Windows.Forms.Label()
+        Me.Label65 = New System.Windows.Forms.Label()
+        Me.fecha_hasta = New System.Windows.Forms.DateTimePicker()
+        Me.fecha_desde = New System.Windows.Forms.DateTimePicker()
+        Me.Button28 = New System.Windows.Forms.Button()
+        Me.Mostrar_contabilidad = New System.Windows.Forms.Button()
+        Me.view_contable = New System.Windows.Forms.DataGridView()
+        Me.Fecha = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Descripcion = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Deber = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Haber = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Saldo = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.GroupBox4Stock = New System.Windows.Forms.GroupBox()
         Me.GroupBoxModificarProducto = New System.Windows.Forms.GroupBox()
         Me.ButtonBuscara = New System.Windows.Forms.Button()
@@ -462,20 +375,7 @@ Partial Class Form2
         Me.Button26 = New System.Windows.Forms.Button()
         Me.Button25 = New System.Windows.Forms.Button()
         Me.Button24NuevoProducto = New System.Windows.Forms.Button()
-        Me.Label66 = New System.Windows.Forms.Label()
-        Me.Label65 = New System.Windows.Forms.Label()
-        Me.fecha_hasta = New System.Windows.Forms.DateTimePicker()
-        Me.fecha_desde = New System.Windows.Forms.DateTimePicker()
-        Me.Button28 = New System.Windows.Forms.Button()
-        Me.Mostrar_contabilidad = New System.Windows.Forms.Button()
-        Me.view_contable = New System.Windows.Forms.DataGridView()
-        Me.Fecha = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Descripcion = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Deber = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Haber = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Saldo = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.panelServicios = New System.Windows.Forms.Panel()
-        Me.editarServicios = New System.Windows.Forms.GroupBox()
         Me.verServicios = New System.Windows.Forms.Panel()
         Me.verSerPanel = New System.Windows.Forms.GroupBox()
         Me.errorBuscar = New System.Windows.Forms.Label()
@@ -484,6 +384,7 @@ Partial Class Form2
         Me.verBusLab = New System.Windows.Forms.Label()
         Me.verSerLab = New System.Windows.Forms.Label()
         Me.lisBusSer = New System.Windows.Forms.ListBox()
+        Me.editarServicios = New System.Windows.Forms.GroupBox()
         Me.CheckBoxCom2 = New System.Windows.Forms.CheckBox()
         Me.CheckBoxMano2 = New System.Windows.Forms.CheckBox()
         Me.CheckBoxDias2 = New System.Windows.Forms.CheckBox()
@@ -498,6 +399,7 @@ Partial Class Form2
         Me.Label72 = New System.Windows.Forms.Label()
         Me.nomSerTxt2 = New System.Windows.Forms.TextBox()
         Me.ingresarServicios = New System.Windows.Forms.GroupBox()
+        Me.Buscar = New System.Windows.Forms.Button()
         Me.CheckBoxCom = New System.Windows.Forms.CheckBox()
         Me.CheckBoxMano = New System.Windows.Forms.CheckBox()
         Me.CheckBoxDias = New System.Windows.Forms.CheckBox()
@@ -512,7 +414,106 @@ Partial Class Form2
         Me.error1Ser = New System.Windows.Forms.Label()
         Me.nomSerLabel = New System.Windows.Forms.Label()
         Me.nomSerTxt = New System.Windows.Forms.TextBox()
-        Me.Buscar = New System.Windows.Forms.Button()
+        Me.Association_1TableAdapter = New mugen.DataSet1TableAdapters.association_1TableAdapter()
+        Me.Association_1DataGridView = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ClienteTableAdapter = New mugen.DataSet1TableAdapters.clienteTableAdapter()
+        Me.ClienteDataGridView = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn11 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ContabilidadTableAdapter = New mugen.DataSet1TableAdapters.contabilidadTableAdapter()
+        Me.ContabilidadDataGridView = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewTextBoxColumn12 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn13 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn14 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn15 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn16 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn17 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn18 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Contabilidad2TableAdapter = New mugen.DataSet1TableAdapters.contabilidad2TableAdapter()
+        Me.Contabilidad2DataGridView = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewTextBoxColumn19 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn20 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn21 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn22 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn23 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn24 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn25 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn26 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn27 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn28 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Ingreso_productoTableAdapter = New mugen.DataSet1TableAdapters.ingreso_productoTableAdapter()
+        Me.Ingreso_productoDataGridView = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewTextBoxColumn29 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn30 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn31 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn32 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn33 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn34 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn35 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn36 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.PedidoTableAdapter = New mugen.DataSet1TableAdapters.pedidoTableAdapter()
+        Me.PedidoDataGridView = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewTextBoxColumn37 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn38 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn39 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn40 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn41 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn42 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn43 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn44 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn45 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ProductoTableAdapter = New mugen.DataSet1TableAdapters.productoTableAdapter()
+        Me.ProductoDataGridView = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewTextBoxColumn46 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn47 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn48 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn49 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ProveedorTableAdapter = New mugen.DataSet1TableAdapters.proveedorTableAdapter()
+        Me.ProveedorDataGridView = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewTextBoxColumn50 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn51 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn52 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ServicioTableAdapter = New mugen.DataSet1TableAdapters.servicioTableAdapter()
+        Me.ServicioDataGridView = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewTextBoxColumn53 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn54 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn55 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn56 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.UsuarioTableAdapter = New mugen.DataSet1TableAdapters.usuarioTableAdapter()
+        Me.UsuarioDataGridView = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewTextBoxColumn57 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn58 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn59 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn60 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn97 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn98 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn99 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn100 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn101 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Venta_productoTableAdapter = New mugen.DataSet1TableAdapters.venta_productoTableAdapter()
+        Me.Venta_productoDataGridView = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewTextBoxColumn102 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn103 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn104 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn105 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn106 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn107 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Venta_servicioTableAdapter = New mugen.DataSet1TableAdapters.venta_servicioTableAdapter()
+        Me.Venta_servicioDataGridView = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewTextBoxColumn108 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn109 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn110 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn111 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn112 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn113 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         MailLabelM = New System.Windows.Forms.Label()
         NumeroLabelN = New System.Windows.Forms.Label()
         RucLabelR = New System.Windows.Forms.Label()
@@ -531,24 +532,12 @@ Partial Class Form2
         CType(Me.Association_1BindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PedidoBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
-        CType(Me.Venta_servicioDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Venta_servicioBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.Venta_productoDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Venta_productoBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.UsuarioDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.UsuarioBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ServicioDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ServicioBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ProveedorDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ProveedorBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ProductoDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ProductoBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PedidoDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.Ingreso_productoDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.Contabilidad2DataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ContabilidadDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ClienteDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.Association_1DataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.panel_cuentas.SuspendLayout()
         Me.panel_crear_usuarios.SuspendLayout()
         Me.Panel_mod_user.SuspendLayout()
@@ -575,16 +564,28 @@ Partial Class Form2
         Me.BindingNavigator1.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
+        CType(Me.view_contable, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox4Stock.SuspendLayout()
         Me.GroupBoxModificarProducto.SuspendLayout()
         Me.GroupBoxIngresodeProducto.SuspendLayout()
         Me.GroupBoxNuevoProducto.SuspendLayout()
-        CType(Me.view_contable, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.panelServicios.SuspendLayout()
-        Me.editarServicios.SuspendLayout()
         Me.verServicios.SuspendLayout()
         Me.verSerPanel.SuspendLayout()
+        Me.editarServicios.SuspendLayout()
         Me.ingresarServicios.SuspendLayout()
+        CType(Me.Association_1DataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ClienteDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ContabilidadDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Contabilidad2DataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Ingreso_productoDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PedidoDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ProductoDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ProveedorDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ServicioDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.UsuarioDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Venta_productoDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Venta_servicioDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'MailLabelM
@@ -707,46 +708,11 @@ Partial Class Form2
         Me.Association_1BindingSource.DataMember = "association_1"
         Me.Association_1BindingSource.DataSource = Me.DataSet1
         '
-        'Association_1TableAdapter
-        '
-        Me.Association_1TableAdapter.ClearBeforeFill = True
-        '
         'TableAdapterManager
         '
-        Me.TableAdapterManager.association_1TableAdapter = Me.Association_1TableAdapter
         Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
-        Me.TableAdapterManager.clienteTableAdapter = Me.ClienteTableAdapter
-        Me.TableAdapterManager.contabilidad2TableAdapter = Me.Contabilidad2TableAdapter
-        Me.TableAdapterManager.contabilidadTableAdapter = Me.ContabilidadTableAdapter
-        Me.TableAdapterManager.ingreso_productoTableAdapter = Me.Ingreso_productoTableAdapter
-        Me.TableAdapterManager.pedidoTableAdapter = Me.PedidoTableAdapter
-        Me.TableAdapterManager.productoTableAdapter = Nothing
-        Me.TableAdapterManager.proveedorTableAdapter = Nothing
-        Me.TableAdapterManager.servicioTableAdapter = Nothing
+        Me.TableAdapterManager.Connection = Nothing
         Me.TableAdapterManager.UpdateOrder = mugen.DataSet1TableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
-        Me.TableAdapterManager.usuarioTableAdapter = Nothing
-        Me.TableAdapterManager.venta_productoTableAdapter = Nothing
-        Me.TableAdapterManager.venta_servicioTableAdapter = Nothing
-        '
-        'ClienteTableAdapter
-        '
-        Me.ClienteTableAdapter.ClearBeforeFill = True
-        '
-        'Contabilidad2TableAdapter
-        '
-        Me.Contabilidad2TableAdapter.ClearBeforeFill = True
-        '
-        'ContabilidadTableAdapter
-        '
-        Me.ContabilidadTableAdapter.ClearBeforeFill = True
-        '
-        'Ingreso_productoTableAdapter
-        '
-        Me.Ingreso_productoTableAdapter.ClearBeforeFill = True
-        '
-        'PedidoTableAdapter
-        '
-        Me.PedidoTableAdapter.ClearBeforeFill = True
         '
         'PedidoBindingSource
         '
@@ -769,661 +735,39 @@ Partial Class Form2
         Me.Panel1.Controls.Add(Me.Association_1DataGridView)
         Me.Panel1.Location = New System.Drawing.Point(90, 93)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1194, 605)
+        Me.Panel1.Size = New System.Drawing.Size(1241, 715)
         Me.Panel1.TabIndex = 0
         Me.Panel1.Visible = False
-        '
-        'Venta_servicioDataGridView
-        '
-        Me.Venta_servicioDataGridView.AutoGenerateColumns = False
-        Me.Venta_servicioDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.Venta_servicioDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn107, Me.DataGridViewTextBoxColumn108, Me.DataGridViewTextBoxColumn109, Me.DataGridViewTextBoxColumn110, Me.DataGridViewTextBoxColumn111, Me.DataGridViewTextBoxColumn112})
-        Me.Venta_servicioDataGridView.DataSource = Me.Venta_servicioBindingSource
-        Me.Venta_servicioDataGridView.Location = New System.Drawing.Point(631, 85)
-        Me.Venta_servicioDataGridView.Margin = New System.Windows.Forms.Padding(2)
-        Me.Venta_servicioDataGridView.Name = "Venta_servicioDataGridView"
-        Me.Venta_servicioDataGridView.RowTemplate.Height = 28
-        Me.Venta_servicioDataGridView.Size = New System.Drawing.Size(200, 143)
-        Me.Venta_servicioDataGridView.TabIndex = 11
-        '
-        'DataGridViewTextBoxColumn107
-        '
-        Me.DataGridViewTextBoxColumn107.DataPropertyName = "id_venta_servicio"
-        Me.DataGridViewTextBoxColumn107.HeaderText = "id_venta_servicio"
-        Me.DataGridViewTextBoxColumn107.Name = "DataGridViewTextBoxColumn107"
-        '
-        'DataGridViewTextBoxColumn108
-        '
-        Me.DataGridViewTextBoxColumn108.DataPropertyName = "id_servicio"
-        Me.DataGridViewTextBoxColumn108.HeaderText = "id_servicio"
-        Me.DataGridViewTextBoxColumn108.Name = "DataGridViewTextBoxColumn108"
-        '
-        'DataGridViewTextBoxColumn109
-        '
-        Me.DataGridViewTextBoxColumn109.DataPropertyName = "id_cliente"
-        Me.DataGridViewTextBoxColumn109.HeaderText = "id_cliente"
-        Me.DataGridViewTextBoxColumn109.Name = "DataGridViewTextBoxColumn109"
-        '
-        'DataGridViewTextBoxColumn110
-        '
-        Me.DataGridViewTextBoxColumn110.DataPropertyName = "fecha_venta_servicio"
-        Me.DataGridViewTextBoxColumn110.HeaderText = "fecha_venta_servicio"
-        Me.DataGridViewTextBoxColumn110.Name = "DataGridViewTextBoxColumn110"
-        '
-        'DataGridViewTextBoxColumn111
-        '
-        Me.DataGridViewTextBoxColumn111.DataPropertyName = "precio_venta_servicio"
-        Me.DataGridViewTextBoxColumn111.HeaderText = "precio_venta_servicio"
-        Me.DataGridViewTextBoxColumn111.Name = "DataGridViewTextBoxColumn111"
-        '
-        'DataGridViewTextBoxColumn112
-        '
-        Me.DataGridViewTextBoxColumn112.DataPropertyName = "n_factura_venta_servicio"
-        Me.DataGridViewTextBoxColumn112.HeaderText = "n_factura_venta_servicio"
-        Me.DataGridViewTextBoxColumn112.Name = "DataGridViewTextBoxColumn112"
         '
         'Venta_servicioBindingSource
         '
         Me.Venta_servicioBindingSource.DataMember = "venta_servicio"
         Me.Venta_servicioBindingSource.DataSource = Me.DataSet1
         '
-        'Venta_productoDataGridView
-        '
-        Me.Venta_productoDataGridView.AutoGenerateColumns = False
-        Me.Venta_productoDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.Venta_productoDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn101, Me.DataGridViewTextBoxColumn102, Me.DataGridViewTextBoxColumn103, Me.DataGridViewTextBoxColumn104, Me.DataGridViewTextBoxColumn105, Me.DataGridViewTextBoxColumn106})
-        Me.Venta_productoDataGridView.DataSource = Me.Venta_productoBindingSource
-        Me.Venta_productoDataGridView.Location = New System.Drawing.Point(609, 55)
-        Me.Venta_productoDataGridView.Margin = New System.Windows.Forms.Padding(2)
-        Me.Venta_productoDataGridView.Name = "Venta_productoDataGridView"
-        Me.Venta_productoDataGridView.RowTemplate.Height = 28
-        Me.Venta_productoDataGridView.Size = New System.Drawing.Size(200, 143)
-        Me.Venta_productoDataGridView.TabIndex = 10
-        '
-        'DataGridViewTextBoxColumn101
-        '
-        Me.DataGridViewTextBoxColumn101.DataPropertyName = "id_venta_producto"
-        Me.DataGridViewTextBoxColumn101.HeaderText = "id_venta_producto"
-        Me.DataGridViewTextBoxColumn101.Name = "DataGridViewTextBoxColumn101"
-        '
-        'DataGridViewTextBoxColumn102
-        '
-        Me.DataGridViewTextBoxColumn102.DataPropertyName = "id_stock_mugen"
-        Me.DataGridViewTextBoxColumn102.HeaderText = "id_stock_mugen"
-        Me.DataGridViewTextBoxColumn102.Name = "DataGridViewTextBoxColumn102"
-        '
-        'DataGridViewTextBoxColumn103
-        '
-        Me.DataGridViewTextBoxColumn103.DataPropertyName = "id_cliente"
-        Me.DataGridViewTextBoxColumn103.HeaderText = "id_cliente"
-        Me.DataGridViewTextBoxColumn103.Name = "DataGridViewTextBoxColumn103"
-        '
-        'DataGridViewTextBoxColumn104
-        '
-        Me.DataGridViewTextBoxColumn104.DataPropertyName = "fecha_venta"
-        Me.DataGridViewTextBoxColumn104.HeaderText = "fecha_venta"
-        Me.DataGridViewTextBoxColumn104.Name = "DataGridViewTextBoxColumn104"
-        '
-        'DataGridViewTextBoxColumn105
-        '
-        Me.DataGridViewTextBoxColumn105.DataPropertyName = "cantidad"
-        Me.DataGridViewTextBoxColumn105.HeaderText = "cantidad"
-        Me.DataGridViewTextBoxColumn105.Name = "DataGridViewTextBoxColumn105"
-        '
-        'DataGridViewTextBoxColumn106
-        '
-        Me.DataGridViewTextBoxColumn106.DataPropertyName = "n_factura_venta_producto"
-        Me.DataGridViewTextBoxColumn106.HeaderText = "n_factura_venta_producto"
-        Me.DataGridViewTextBoxColumn106.Name = "DataGridViewTextBoxColumn106"
-        '
         'Venta_productoBindingSource
         '
         Me.Venta_productoBindingSource.DataMember = "venta_producto"
         Me.Venta_productoBindingSource.DataSource = Me.DataSet1
-        '
-        'UsuarioDataGridView
-        '
-        Me.UsuarioDataGridView.AutoGenerateColumns = False
-        Me.UsuarioDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.UsuarioDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn56, Me.DataGridViewTextBoxColumn57, Me.DataGridViewTextBoxColumn58, Me.DataGridViewTextBoxColumn59, Me.DataGridViewTextBoxColumn60, Me.DataGridViewTextBoxColumn97, Me.DataGridViewTextBoxColumn98, Me.DataGridViewTextBoxColumn99, Me.DataGridViewTextBoxColumn100})
-        Me.UsuarioDataGridView.DataSource = Me.UsuarioBindingSource
-        Me.UsuarioDataGridView.Location = New System.Drawing.Point(581, 33)
-        Me.UsuarioDataGridView.Margin = New System.Windows.Forms.Padding(2)
-        Me.UsuarioDataGridView.Name = "UsuarioDataGridView"
-        Me.UsuarioDataGridView.RowTemplate.Height = 28
-        Me.UsuarioDataGridView.Size = New System.Drawing.Size(200, 143)
-        Me.UsuarioDataGridView.TabIndex = 9
-        '
-        'DataGridViewTextBoxColumn56
-        '
-        Me.DataGridViewTextBoxColumn56.DataPropertyName = "id_usuario"
-        Me.DataGridViewTextBoxColumn56.HeaderText = "id_usuario"
-        Me.DataGridViewTextBoxColumn56.Name = "DataGridViewTextBoxColumn56"
-        '
-        'DataGridViewTextBoxColumn57
-        '
-        Me.DataGridViewTextBoxColumn57.DataPropertyName = "cuenta"
-        Me.DataGridViewTextBoxColumn57.HeaderText = "cuenta"
-        Me.DataGridViewTextBoxColumn57.Name = "DataGridViewTextBoxColumn57"
-        '
-        'DataGridViewTextBoxColumn58
-        '
-        Me.DataGridViewTextBoxColumn58.DataPropertyName = "pass"
-        Me.DataGridViewTextBoxColumn58.HeaderText = "pass"
-        Me.DataGridViewTextBoxColumn58.Name = "DataGridViewTextBoxColumn58"
-        '
-        'DataGridViewTextBoxColumn59
-        '
-        Me.DataGridViewTextBoxColumn59.DataPropertyName = "nivel"
-        Me.DataGridViewTextBoxColumn59.HeaderText = "nivel"
-        Me.DataGridViewTextBoxColumn59.Name = "DataGridViewTextBoxColumn59"
-        '
-        'DataGridViewTextBoxColumn60
-        '
-        Me.DataGridViewTextBoxColumn60.DataPropertyName = "estado_usuario"
-        Me.DataGridViewTextBoxColumn60.HeaderText = "estado_usuario"
-        Me.DataGridViewTextBoxColumn60.Name = "DataGridViewTextBoxColumn60"
-        '
-        'DataGridViewTextBoxColumn97
-        '
-        Me.DataGridViewTextBoxColumn97.DataPropertyName = "nombre_usuario"
-        Me.DataGridViewTextBoxColumn97.HeaderText = "nombre_usuario"
-        Me.DataGridViewTextBoxColumn97.Name = "DataGridViewTextBoxColumn97"
-        '
-        'DataGridViewTextBoxColumn98
-        '
-        Me.DataGridViewTextBoxColumn98.DataPropertyName = "apellido_usuario"
-        Me.DataGridViewTextBoxColumn98.HeaderText = "apellido_usuario"
-        Me.DataGridViewTextBoxColumn98.Name = "DataGridViewTextBoxColumn98"
-        '
-        'DataGridViewTextBoxColumn99
-        '
-        Me.DataGridViewTextBoxColumn99.DataPropertyName = "numero_usuario"
-        Me.DataGridViewTextBoxColumn99.HeaderText = "numero_usuario"
-        Me.DataGridViewTextBoxColumn99.Name = "DataGridViewTextBoxColumn99"
-        '
-        'DataGridViewTextBoxColumn100
-        '
-        Me.DataGridViewTextBoxColumn100.DataPropertyName = "mail_usuario"
-        Me.DataGridViewTextBoxColumn100.HeaderText = "mail_usuario"
-        Me.DataGridViewTextBoxColumn100.Name = "DataGridViewTextBoxColumn100"
         '
         'UsuarioBindingSource
         '
         Me.UsuarioBindingSource.DataMember = "usuario"
         Me.UsuarioBindingSource.DataSource = Me.DataSet1
         '
-        'ServicioDataGridView
-        '
-        Me.ServicioDataGridView.AutoGenerateColumns = False
-        Me.ServicioDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.ServicioDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn52, Me.DataGridViewTextBoxColumn53, Me.DataGridViewTextBoxColumn54, Me.DataGridViewTextBoxColumn55})
-        Me.ServicioDataGridView.DataSource = Me.ServicioBindingSource
-        Me.ServicioDataGridView.Location = New System.Drawing.Point(557, 14)
-        Me.ServicioDataGridView.Margin = New System.Windows.Forms.Padding(2)
-        Me.ServicioDataGridView.Name = "ServicioDataGridView"
-        Me.ServicioDataGridView.RowTemplate.Height = 28
-        Me.ServicioDataGridView.Size = New System.Drawing.Size(200, 143)
-        Me.ServicioDataGridView.TabIndex = 8
-        '
-        'DataGridViewTextBoxColumn52
-        '
-        Me.DataGridViewTextBoxColumn52.DataPropertyName = "id_servicio"
-        Me.DataGridViewTextBoxColumn52.HeaderText = "id_servicio"
-        Me.DataGridViewTextBoxColumn52.Name = "DataGridViewTextBoxColumn52"
-        '
-        'DataGridViewTextBoxColumn53
-        '
-        Me.DataGridViewTextBoxColumn53.DataPropertyName = "nombre_servicio"
-        Me.DataGridViewTextBoxColumn53.HeaderText = "nombre_servicio"
-        Me.DataGridViewTextBoxColumn53.Name = "DataGridViewTextBoxColumn53"
-        '
-        'DataGridViewTextBoxColumn54
-        '
-        Me.DataGridViewTextBoxColumn54.DataPropertyName = "descripcion_servicio"
-        Me.DataGridViewTextBoxColumn54.HeaderText = "descripcion_servicio"
-        Me.DataGridViewTextBoxColumn54.Name = "DataGridViewTextBoxColumn54"
-        '
-        'DataGridViewTextBoxColumn55
-        '
-        Me.DataGridViewTextBoxColumn55.DataPropertyName = "forma_calculo"
-        Me.DataGridViewTextBoxColumn55.HeaderText = "forma_calculo"
-        Me.DataGridViewTextBoxColumn55.Name = "DataGridViewTextBoxColumn55"
-        '
         'ServicioBindingSource
         '
         Me.ServicioBindingSource.DataMember = "servicio"
         Me.ServicioBindingSource.DataSource = Me.DataSet1
-        '
-        'ProveedorDataGridView
-        '
-        Me.ProveedorDataGridView.AutoGenerateColumns = False
-        Me.ProveedorDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.ProveedorDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn49, Me.DataGridViewTextBoxColumn50, Me.DataGridViewTextBoxColumn51})
-        Me.ProveedorDataGridView.DataSource = Me.ProveedorBindingSource
-        Me.ProveedorDataGridView.Location = New System.Drawing.Point(349, 68)
-        Me.ProveedorDataGridView.Margin = New System.Windows.Forms.Padding(2)
-        Me.ProveedorDataGridView.Name = "ProveedorDataGridView"
-        Me.ProveedorDataGridView.RowTemplate.Height = 28
-        Me.ProveedorDataGridView.Size = New System.Drawing.Size(200, 143)
-        Me.ProveedorDataGridView.TabIndex = 7
-        '
-        'DataGridViewTextBoxColumn49
-        '
-        Me.DataGridViewTextBoxColumn49.DataPropertyName = "id_proveedor"
-        Me.DataGridViewTextBoxColumn49.HeaderText = "id_proveedor"
-        Me.DataGridViewTextBoxColumn49.Name = "DataGridViewTextBoxColumn49"
-        '
-        'DataGridViewTextBoxColumn50
-        '
-        Me.DataGridViewTextBoxColumn50.DataPropertyName = "nombre_proveedor"
-        Me.DataGridViewTextBoxColumn50.HeaderText = "nombre_proveedor"
-        Me.DataGridViewTextBoxColumn50.Name = "DataGridViewTextBoxColumn50"
-        '
-        'DataGridViewTextBoxColumn51
-        '
-        Me.DataGridViewTextBoxColumn51.DataPropertyName = "ruc_proveedor"
-        Me.DataGridViewTextBoxColumn51.HeaderText = "ruc_proveedor"
-        Me.DataGridViewTextBoxColumn51.Name = "DataGridViewTextBoxColumn51"
         '
         'ProveedorBindingSource
         '
         Me.ProveedorBindingSource.DataMember = "proveedor"
         Me.ProveedorBindingSource.DataSource = Me.DataSet1
         '
-        'ProductoDataGridView
-        '
-        Me.ProductoDataGridView.AutoGenerateColumns = False
-        Me.ProductoDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.ProductoDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn45, Me.DataGridViewTextBoxColumn46, Me.DataGridViewTextBoxColumn47, Me.DataGridViewTextBoxColumn48})
-        Me.ProductoDataGridView.DataSource = Me.ProductoBindingSource
-        Me.ProductoDataGridView.Location = New System.Drawing.Point(321, 47)
-        Me.ProductoDataGridView.Margin = New System.Windows.Forms.Padding(2)
-        Me.ProductoDataGridView.Name = "ProductoDataGridView"
-        Me.ProductoDataGridView.RowTemplate.Height = 28
-        Me.ProductoDataGridView.Size = New System.Drawing.Size(200, 143)
-        Me.ProductoDataGridView.TabIndex = 6
-        '
-        'DataGridViewTextBoxColumn45
-        '
-        Me.DataGridViewTextBoxColumn45.DataPropertyName = "id_stock_mugen"
-        Me.DataGridViewTextBoxColumn45.HeaderText = "id_stock_mugen"
-        Me.DataGridViewTextBoxColumn45.Name = "DataGridViewTextBoxColumn45"
-        '
-        'DataGridViewTextBoxColumn46
-        '
-        Me.DataGridViewTextBoxColumn46.DataPropertyName = "codigo"
-        Me.DataGridViewTextBoxColumn46.HeaderText = "codigo"
-        Me.DataGridViewTextBoxColumn46.Name = "DataGridViewTextBoxColumn46"
-        '
-        'DataGridViewTextBoxColumn47
-        '
-        Me.DataGridViewTextBoxColumn47.DataPropertyName = "descripcion"
-        Me.DataGridViewTextBoxColumn47.HeaderText = "descripcion"
-        Me.DataGridViewTextBoxColumn47.Name = "DataGridViewTextBoxColumn47"
-        '
-        'DataGridViewTextBoxColumn48
-        '
-        Me.DataGridViewTextBoxColumn48.DataPropertyName = "precio_venta"
-        Me.DataGridViewTextBoxColumn48.HeaderText = "precio_venta"
-        Me.DataGridViewTextBoxColumn48.Name = "DataGridViewTextBoxColumn48"
-        '
         'ProductoBindingSource
         '
         Me.ProductoBindingSource.DataMember = "producto"
         Me.ProductoBindingSource.DataSource = Me.DataSet1
-        '
-        'PedidoDataGridView
-        '
-        Me.PedidoDataGridView.AutoGenerateColumns = False
-        Me.PedidoDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.PedidoDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn36, Me.DataGridViewTextBoxColumn37, Me.DataGridViewTextBoxColumn38, Me.DataGridViewTextBoxColumn39, Me.DataGridViewTextBoxColumn40, Me.DataGridViewTextBoxColumn41, Me.DataGridViewTextBoxColumn42, Me.DataGridViewTextBoxColumn43, Me.DataGridViewTextBoxColumn44})
-        Me.PedidoDataGridView.DataSource = Me.PedidoBindingSource
-        Me.PedidoDataGridView.Location = New System.Drawing.Point(294, 27)
-        Me.PedidoDataGridView.Margin = New System.Windows.Forms.Padding(2)
-        Me.PedidoDataGridView.Name = "PedidoDataGridView"
-        Me.PedidoDataGridView.RowTemplate.Height = 28
-        Me.PedidoDataGridView.Size = New System.Drawing.Size(200, 143)
-        Me.PedidoDataGridView.TabIndex = 5
-        '
-        'DataGridViewTextBoxColumn36
-        '
-        Me.DataGridViewTextBoxColumn36.DataPropertyName = "id_pedido"
-        Me.DataGridViewTextBoxColumn36.HeaderText = "id_pedido"
-        Me.DataGridViewTextBoxColumn36.Name = "DataGridViewTextBoxColumn36"
-        '
-        'DataGridViewTextBoxColumn37
-        '
-        Me.DataGridViewTextBoxColumn37.DataPropertyName = "id_cliente"
-        Me.DataGridViewTextBoxColumn37.HeaderText = "id_cliente"
-        Me.DataGridViewTextBoxColumn37.Name = "DataGridViewTextBoxColumn37"
-        '
-        'DataGridViewTextBoxColumn38
-        '
-        Me.DataGridViewTextBoxColumn38.DataPropertyName = "id_usuario"
-        Me.DataGridViewTextBoxColumn38.HeaderText = "id_usuario"
-        Me.DataGridViewTextBoxColumn38.Name = "DataGridViewTextBoxColumn38"
-        '
-        'DataGridViewTextBoxColumn39
-        '
-        Me.DataGridViewTextBoxColumn39.DataPropertyName = "plazo_entrega"
-        Me.DataGridViewTextBoxColumn39.HeaderText = "plazo_entrega"
-        Me.DataGridViewTextBoxColumn39.Name = "DataGridViewTextBoxColumn39"
-        '
-        'DataGridViewTextBoxColumn40
-        '
-        Me.DataGridViewTextBoxColumn40.DataPropertyName = "plazo_cobro"
-        Me.DataGridViewTextBoxColumn40.HeaderText = "plazo_cobro"
-        Me.DataGridViewTextBoxColumn40.Name = "DataGridViewTextBoxColumn40"
-        '
-        'DataGridViewTextBoxColumn41
-        '
-        Me.DataGridViewTextBoxColumn41.DataPropertyName = "oferta"
-        Me.DataGridViewTextBoxColumn41.HeaderText = "oferta"
-        Me.DataGridViewTextBoxColumn41.Name = "DataGridViewTextBoxColumn41"
-        '
-        'DataGridViewTextBoxColumn42
-        '
-        Me.DataGridViewTextBoxColumn42.DataPropertyName = "precio"
-        Me.DataGridViewTextBoxColumn42.HeaderText = "precio"
-        Me.DataGridViewTextBoxColumn42.Name = "DataGridViewTextBoxColumn42"
-        '
-        'DataGridViewTextBoxColumn43
-        '
-        Me.DataGridViewTextBoxColumn43.DataPropertyName = "estado"
-        Me.DataGridViewTextBoxColumn43.HeaderText = "estado"
-        Me.DataGridViewTextBoxColumn43.Name = "DataGridViewTextBoxColumn43"
-        '
-        'DataGridViewTextBoxColumn44
-        '
-        Me.DataGridViewTextBoxColumn44.DataPropertyName = "nombre_pedido"
-        Me.DataGridViewTextBoxColumn44.HeaderText = "nombre_pedido"
-        Me.DataGridViewTextBoxColumn44.Name = "DataGridViewTextBoxColumn44"
-        '
-        'Ingreso_productoDataGridView
-        '
-        Me.Ingreso_productoDataGridView.AutoGenerateColumns = False
-        Me.Ingreso_productoDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.Ingreso_productoDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn28, Me.DataGridViewTextBoxColumn29, Me.DataGridViewTextBoxColumn30, Me.DataGridViewTextBoxColumn31, Me.DataGridViewTextBoxColumn32, Me.DataGridViewTextBoxColumn33, Me.DataGridViewTextBoxColumn34, Me.DataGridViewTextBoxColumn35})
-        Me.Ingreso_productoDataGridView.DataSource = Me.Ingreso_productoBindingSource
-        Me.Ingreso_productoDataGridView.Location = New System.Drawing.Point(267, 6)
-        Me.Ingreso_productoDataGridView.Margin = New System.Windows.Forms.Padding(2)
-        Me.Ingreso_productoDataGridView.Name = "Ingreso_productoDataGridView"
-        Me.Ingreso_productoDataGridView.RowTemplate.Height = 28
-        Me.Ingreso_productoDataGridView.Size = New System.Drawing.Size(200, 143)
-        Me.Ingreso_productoDataGridView.TabIndex = 4
-        '
-        'DataGridViewTextBoxColumn28
-        '
-        Me.DataGridViewTextBoxColumn28.DataPropertyName = "id_ingreso_producto"
-        Me.DataGridViewTextBoxColumn28.HeaderText = "id_ingreso_producto"
-        Me.DataGridViewTextBoxColumn28.Name = "DataGridViewTextBoxColumn28"
-        '
-        'DataGridViewTextBoxColumn29
-        '
-        Me.DataGridViewTextBoxColumn29.DataPropertyName = "id_proveedor"
-        Me.DataGridViewTextBoxColumn29.HeaderText = "id_proveedor"
-        Me.DataGridViewTextBoxColumn29.Name = "DataGridViewTextBoxColumn29"
-        '
-        'DataGridViewTextBoxColumn30
-        '
-        Me.DataGridViewTextBoxColumn30.DataPropertyName = "id_stock_mugen"
-        Me.DataGridViewTextBoxColumn30.HeaderText = "id_stock_mugen"
-        Me.DataGridViewTextBoxColumn30.Name = "DataGridViewTextBoxColumn30"
-        '
-        'DataGridViewTextBoxColumn31
-        '
-        Me.DataGridViewTextBoxColumn31.DataPropertyName = "fecha_ingreso"
-        Me.DataGridViewTextBoxColumn31.HeaderText = "fecha_ingreso"
-        Me.DataGridViewTextBoxColumn31.Name = "DataGridViewTextBoxColumn31"
-        '
-        'DataGridViewTextBoxColumn32
-        '
-        Me.DataGridViewTextBoxColumn32.DataPropertyName = "numero_factura_ingreso"
-        Me.DataGridViewTextBoxColumn32.HeaderText = "numero_factura_ingreso"
-        Me.DataGridViewTextBoxColumn32.Name = "DataGridViewTextBoxColumn32"
-        '
-        'DataGridViewTextBoxColumn33
-        '
-        Me.DataGridViewTextBoxColumn33.DataPropertyName = "cantidad_ingreso"
-        Me.DataGridViewTextBoxColumn33.HeaderText = "cantidad_ingreso"
-        Me.DataGridViewTextBoxColumn33.Name = "DataGridViewTextBoxColumn33"
-        '
-        'DataGridViewTextBoxColumn34
-        '
-        Me.DataGridViewTextBoxColumn34.DataPropertyName = "precio_compra"
-        Me.DataGridViewTextBoxColumn34.HeaderText = "precio_compra"
-        Me.DataGridViewTextBoxColumn34.Name = "DataGridViewTextBoxColumn34"
-        '
-        'DataGridViewTextBoxColumn35
-        '
-        Me.DataGridViewTextBoxColumn35.DataPropertyName = "precio_compra_unitario"
-        Me.DataGridViewTextBoxColumn35.HeaderText = "precio_compra_unitario"
-        Me.DataGridViewTextBoxColumn35.Name = "DataGridViewTextBoxColumn35"
-        '
-        'Contabilidad2DataGridView
-        '
-        Me.Contabilidad2DataGridView.AutoGenerateColumns = False
-        Me.Contabilidad2DataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.Contabilidad2DataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn19, Me.DataGridViewTextBoxColumn20, Me.DataGridViewTextBoxColumn21, Me.DataGridViewTextBoxColumn22, Me.DataGridViewTextBoxColumn23, Me.DataGridViewTextBoxColumn24, Me.DataGridViewTextBoxColumn25, Me.DataGridViewTextBoxColumn26, Me.DataGridViewTextBoxColumn27})
-        Me.Contabilidad2DataGridView.DataSource = Me.Contabilidad2BindingSource
-        Me.Contabilidad2DataGridView.Location = New System.Drawing.Point(62, 47)
-        Me.Contabilidad2DataGridView.Margin = New System.Windows.Forms.Padding(2)
-        Me.Contabilidad2DataGridView.Name = "Contabilidad2DataGridView"
-        Me.Contabilidad2DataGridView.RowTemplate.Height = 28
-        Me.Contabilidad2DataGridView.Size = New System.Drawing.Size(200, 143)
-        Me.Contabilidad2DataGridView.TabIndex = 3
-        '
-        'DataGridViewTextBoxColumn19
-        '
-        Me.DataGridViewTextBoxColumn19.DataPropertyName = "id_contabilidad3"
-        Me.DataGridViewTextBoxColumn19.HeaderText = "id_contabilidad3"
-        Me.DataGridViewTextBoxColumn19.Name = "DataGridViewTextBoxColumn19"
-        '
-        'DataGridViewTextBoxColumn20
-        '
-        Me.DataGridViewTextBoxColumn20.DataPropertyName = "descripcion_modificacion"
-        Me.DataGridViewTextBoxColumn20.HeaderText = "descripcion_modificacion"
-        Me.DataGridViewTextBoxColumn20.Name = "DataGridViewTextBoxColumn20"
-        '
-        'DataGridViewTextBoxColumn21
-        '
-        Me.DataGridViewTextBoxColumn21.DataPropertyName = "fecha_modificacion"
-        Me.DataGridViewTextBoxColumn21.HeaderText = "fecha_modificacion"
-        Me.DataGridViewTextBoxColumn21.Name = "DataGridViewTextBoxColumn21"
-        '
-        'DataGridViewTextBoxColumn22
-        '
-        Me.DataGridViewTextBoxColumn22.DataPropertyName = "deber2"
-        Me.DataGridViewTextBoxColumn22.HeaderText = "deber2"
-        Me.DataGridViewTextBoxColumn22.Name = "DataGridViewTextBoxColumn22"
-        '
-        'DataGridViewTextBoxColumn23
-        '
-        Me.DataGridViewTextBoxColumn23.DataPropertyName = "haber2"
-        Me.DataGridViewTextBoxColumn23.HeaderText = "haber2"
-        Me.DataGridViewTextBoxColumn23.Name = "DataGridViewTextBoxColumn23"
-        '
-        'DataGridViewTextBoxColumn24
-        '
-        Me.DataGridViewTextBoxColumn24.DataPropertyName = "fecha2"
-        Me.DataGridViewTextBoxColumn24.HeaderText = "fecha2"
-        Me.DataGridViewTextBoxColumn24.Name = "DataGridViewTextBoxColumn24"
-        '
-        'DataGridViewTextBoxColumn25
-        '
-        Me.DataGridViewTextBoxColumn25.DataPropertyName = "saldo2"
-        Me.DataGridViewTextBoxColumn25.HeaderText = "saldo2"
-        Me.DataGridViewTextBoxColumn25.Name = "DataGridViewTextBoxColumn25"
-        '
-        'DataGridViewTextBoxColumn26
-        '
-        Me.DataGridViewTextBoxColumn26.DataPropertyName = "numero_factura2"
-        Me.DataGridViewTextBoxColumn26.HeaderText = "numero_factura2"
-        Me.DataGridViewTextBoxColumn26.Name = "DataGridViewTextBoxColumn26"
-        '
-        'DataGridViewTextBoxColumn27
-        '
-        Me.DataGridViewTextBoxColumn27.DataPropertyName = "descripcion2"
-        Me.DataGridViewTextBoxColumn27.HeaderText = "descripcion2"
-        Me.DataGridViewTextBoxColumn27.Name = "DataGridViewTextBoxColumn27"
-        '
-        'ContabilidadDataGridView
-        '
-        Me.ContabilidadDataGridView.AutoGenerateColumns = False
-        Me.ContabilidadDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.ContabilidadDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn12, Me.DataGridViewTextBoxColumn13, Me.DataGridViewTextBoxColumn14, Me.DataGridViewTextBoxColumn15, Me.DataGridViewTextBoxColumn16, Me.DataGridViewTextBoxColumn17, Me.DataGridViewTextBoxColumn18})
-        Me.ContabilidadDataGridView.DataSource = Me.ContabilidadBindingSource
-        Me.ContabilidadDataGridView.Location = New System.Drawing.Point(48, 32)
-        Me.ContabilidadDataGridView.Margin = New System.Windows.Forms.Padding(2)
-        Me.ContabilidadDataGridView.Name = "ContabilidadDataGridView"
-        Me.ContabilidadDataGridView.RowTemplate.Height = 28
-        Me.ContabilidadDataGridView.Size = New System.Drawing.Size(200, 143)
-        Me.ContabilidadDataGridView.TabIndex = 2
-        '
-        'DataGridViewTextBoxColumn12
-        '
-        Me.DataGridViewTextBoxColumn12.DataPropertyName = "id_contabilidad"
-        Me.DataGridViewTextBoxColumn12.HeaderText = "id_contabilidad"
-        Me.DataGridViewTextBoxColumn12.Name = "DataGridViewTextBoxColumn12"
-        '
-        'DataGridViewTextBoxColumn13
-        '
-        Me.DataGridViewTextBoxColumn13.DataPropertyName = "descripcion"
-        Me.DataGridViewTextBoxColumn13.HeaderText = "descripcion"
-        Me.DataGridViewTextBoxColumn13.Name = "DataGridViewTextBoxColumn13"
-        '
-        'DataGridViewTextBoxColumn14
-        '
-        Me.DataGridViewTextBoxColumn14.DataPropertyName = "deber"
-        Me.DataGridViewTextBoxColumn14.HeaderText = "deber"
-        Me.DataGridViewTextBoxColumn14.Name = "DataGridViewTextBoxColumn14"
-        '
-        'DataGridViewTextBoxColumn15
-        '
-        Me.DataGridViewTextBoxColumn15.DataPropertyName = "haber"
-        Me.DataGridViewTextBoxColumn15.HeaderText = "haber"
-        Me.DataGridViewTextBoxColumn15.Name = "DataGridViewTextBoxColumn15"
-        '
-        'DataGridViewTextBoxColumn16
-        '
-        Me.DataGridViewTextBoxColumn16.DataPropertyName = "fecha"
-        Me.DataGridViewTextBoxColumn16.HeaderText = "fecha"
-        Me.DataGridViewTextBoxColumn16.Name = "DataGridViewTextBoxColumn16"
-        '
-        'DataGridViewTextBoxColumn17
-        '
-        Me.DataGridViewTextBoxColumn17.DataPropertyName = "saldo"
-        Me.DataGridViewTextBoxColumn17.HeaderText = "saldo"
-        Me.DataGridViewTextBoxColumn17.Name = "DataGridViewTextBoxColumn17"
-        '
-        'DataGridViewTextBoxColumn18
-        '
-        Me.DataGridViewTextBoxColumn18.DataPropertyName = "numero_factura"
-        Me.DataGridViewTextBoxColumn18.HeaderText = "numero_factura"
-        Me.DataGridViewTextBoxColumn18.Name = "DataGridViewTextBoxColumn18"
-        '
-        'ClienteDataGridView
-        '
-        Me.ClienteDataGridView.AutoGenerateColumns = False
-        Me.ClienteDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.ClienteDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn7, Me.DataGridViewTextBoxColumn8, Me.DataGridViewTextBoxColumn9, Me.DataGridViewTextBoxColumn11})
-        Me.ClienteDataGridView.DataSource = Me.ClienteBindingSource
-        Me.ClienteDataGridView.Location = New System.Drawing.Point(27, 20)
-        Me.ClienteDataGridView.Margin = New System.Windows.Forms.Padding(2)
-        Me.ClienteDataGridView.Name = "ClienteDataGridView"
-        Me.ClienteDataGridView.RowTemplate.Height = 28
-        Me.ClienteDataGridView.Size = New System.Drawing.Size(200, 143)
-        Me.ClienteDataGridView.TabIndex = 1
-        '
-        'DataGridViewTextBoxColumn3
-        '
-        Me.DataGridViewTextBoxColumn3.DataPropertyName = "id_cliente"
-        Me.DataGridViewTextBoxColumn3.HeaderText = "id_cliente"
-        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
-        '
-        'DataGridViewTextBoxColumn4
-        '
-        Me.DataGridViewTextBoxColumn4.DataPropertyName = "nombre"
-        Me.DataGridViewTextBoxColumn4.HeaderText = "nombre"
-        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
-        '
-        'DataGridViewTextBoxColumn5
-        '
-        Me.DataGridViewTextBoxColumn5.DataPropertyName = "apellido"
-        Me.DataGridViewTextBoxColumn5.HeaderText = "apellido"
-        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
-        '
-        'DataGridViewTextBoxColumn6
-        '
-        Me.DataGridViewTextBoxColumn6.DataPropertyName = "ruc"
-        Me.DataGridViewTextBoxColumn6.HeaderText = "ruc"
-        Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
-        '
-        'DataGridViewTextBoxColumn7
-        '
-        Me.DataGridViewTextBoxColumn7.DataPropertyName = "numero"
-        Me.DataGridViewTextBoxColumn7.HeaderText = "numero"
-        Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
-        '
-        'DataGridViewTextBoxColumn8
-        '
-        Me.DataGridViewTextBoxColumn8.DataPropertyName = "mail"
-        Me.DataGridViewTextBoxColumn8.HeaderText = "mail"
-        Me.DataGridViewTextBoxColumn8.Name = "DataGridViewTextBoxColumn8"
-        '
-        'DataGridViewTextBoxColumn9
-        '
-        Me.DataGridViewTextBoxColumn9.DataPropertyName = "estado_cliente"
-        Me.DataGridViewTextBoxColumn9.HeaderText = "estado_cliente"
-        Me.DataGridViewTextBoxColumn9.Name = "DataGridViewTextBoxColumn9"
-        '
-        'DataGridViewTextBoxColumn11
-        '
-        Me.DataGridViewTextBoxColumn11.DataPropertyName = "cliente_prioritario"
-        Me.DataGridViewTextBoxColumn11.HeaderText = "cliente_prioritario"
-        Me.DataGridViewTextBoxColumn11.Name = "DataGridViewTextBoxColumn11"
-        '
-        'Association_1DataGridView
-        '
-        Me.Association_1DataGridView.AutoGenerateColumns = False
-        Me.Association_1DataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.Association_1DataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2})
-        Me.Association_1DataGridView.DataSource = Me.Association_1BindingSource
-        Me.Association_1DataGridView.Location = New System.Drawing.Point(7, 5)
-        Me.Association_1DataGridView.Margin = New System.Windows.Forms.Padding(2)
-        Me.Association_1DataGridView.Name = "Association_1DataGridView"
-        Me.Association_1DataGridView.RowTemplate.Height = 28
-        Me.Association_1DataGridView.Size = New System.Drawing.Size(200, 143)
-        Me.Association_1DataGridView.TabIndex = 0
-        '
-        'DataGridViewTextBoxColumn1
-        '
-        Me.DataGridViewTextBoxColumn1.DataPropertyName = "id_cliente"
-        Me.DataGridViewTextBoxColumn1.HeaderText = "id_cliente"
-        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
-        '
-        'DataGridViewTextBoxColumn2
-        '
-        Me.DataGridViewTextBoxColumn2.DataPropertyName = "id_contabilidad"
-        Me.DataGridViewTextBoxColumn2.HeaderText = "id_contabilidad"
-        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
-        '
-        'ProductoTableAdapter
-        '
-        Me.ProductoTableAdapter.ClearBeforeFill = True
-        '
-        'ProveedorTableAdapter
-        '
-        Me.ProveedorTableAdapter.ClearBeforeFill = True
-        '
-        'UsuarioTableAdapter
-        '
-        Me.UsuarioTableAdapter.ClearBeforeFill = True
-        '
-        'Venta_productoTableAdapter
-        '
-        Me.Venta_productoTableAdapter.ClearBeforeFill = True
         '
         'Button7
         '
@@ -3236,16 +2580,16 @@ Partial Class Form2
         '
         'graficoTrabajos
         '
-        ChartArea11.Name = "ChartArea1"
-        Me.graficoTrabajos.ChartAreas.Add(ChartArea11)
-        Legend11.Name = "Legend1"
-        Me.graficoTrabajos.Legends.Add(Legend11)
+        ChartArea1.Name = "ChartArea1"
+        Me.graficoTrabajos.ChartAreas.Add(ChartArea1)
+        Legend1.Name = "Legend1"
+        Me.graficoTrabajos.Legends.Add(Legend1)
         Me.graficoTrabajos.Location = New System.Drawing.Point(573, 145)
         Me.graficoTrabajos.Name = "graficoTrabajos"
-        Series11.ChartArea = "ChartArea1"
-        Series11.Legend = "Legend1"
-        Series11.Name = "Series1"
-        Me.graficoTrabajos.Series.Add(Series11)
+        Series1.ChartArea = "ChartArea1"
+        Series1.Legend = "Legend1"
+        Series1.Name = "Series1"
+        Me.graficoTrabajos.Series.Add(Series1)
         Me.graficoTrabajos.Size = New System.Drawing.Size(416, 244)
         Me.graficoTrabajos.TabIndex = 41
         Me.graficoTrabajos.Text = "Chart2"
@@ -3253,16 +2597,16 @@ Partial Class Form2
         '
         'graficoPagados
         '
-        ChartArea12.Name = "ChartArea1"
-        Me.graficoPagados.ChartAreas.Add(ChartArea12)
-        Legend12.Name = "Legend1"
-        Me.graficoPagados.Legends.Add(Legend12)
+        ChartArea2.Name = "ChartArea1"
+        Me.graficoPagados.ChartAreas.Add(ChartArea2)
+        Legend2.Name = "Legend1"
+        Me.graficoPagados.Legends.Add(Legend2)
         Me.graficoPagados.Location = New System.Drawing.Point(369, 143)
         Me.graficoPagados.Name = "graficoPagados"
-        Series12.ChartArea = "ChartArea1"
-        Series12.Legend = "Legend1"
-        Series12.Name = "Series1"
-        Me.graficoPagados.Series.Add(Series12)
+        Series2.ChartArea = "ChartArea1"
+        Series2.Legend = "Legend1"
+        Series2.Name = "Series1"
+        Me.graficoPagados.Series.Add(Series2)
         Me.graficoPagados.Size = New System.Drawing.Size(416, 244)
         Me.graficoPagados.TabIndex = 40
         Me.graficoPagados.Text = "Chart1"
@@ -3800,17 +3144,8 @@ Partial Class Form2
         Me.Label41.TabIndex = 0
         Me.Label41.Text = "Trabajos Pendientes"
         '
-        'ServicioTableAdapter
-        '
-        Me.ServicioTableAdapter.ClearBeforeFill = True
-        '
-        'Venta_servicioTableAdapter
-        '
-        Me.Venta_servicioTableAdapter.ClearBeforeFill = True
-        '
         'Panel2
         '
-        Me.Panel2.Controls.Add(Me.GroupBox4Stock)
         Me.Panel2.Controls.Add(Me.Label66)
         Me.Panel2.Controls.Add(Me.Label65)
         Me.Panel2.Controls.Add(Me.fecha_hasta)
@@ -3823,6 +3158,96 @@ Partial Class Form2
         Me.Panel2.Size = New System.Drawing.Size(1318, 520)
         Me.Panel2.TabIndex = 43
         '
+        'Label66
+        '
+        Me.Label66.AutoSize = True
+        Me.Label66.Location = New System.Drawing.Point(1031, 213)
+        Me.Label66.Name = "Label66"
+        Me.Label66.Size = New System.Drawing.Size(35, 13)
+        Me.Label66.TabIndex = 8
+        Me.Label66.Text = "Hasta"
+        '
+        'Label65
+        '
+        Me.Label65.AutoSize = True
+        Me.Label65.Location = New System.Drawing.Point(827, 212)
+        Me.Label65.Name = "Label65"
+        Me.Label65.Size = New System.Drawing.Size(38, 13)
+        Me.Label65.TabIndex = 7
+        Me.Label65.Text = "Desde"
+        '
+        'fecha_hasta
+        '
+        Me.fecha_hasta.Location = New System.Drawing.Point(1034, 180)
+        Me.fecha_hasta.Name = "fecha_hasta"
+        Me.fecha_hasta.Size = New System.Drawing.Size(200, 20)
+        Me.fecha_hasta.TabIndex = 6
+        '
+        'fecha_desde
+        '
+        Me.fecha_desde.Location = New System.Drawing.Point(825, 180)
+        Me.fecha_desde.Name = "fecha_desde"
+        Me.fecha_desde.Size = New System.Drawing.Size(200, 20)
+        Me.fecha_desde.TabIndex = 5
+        '
+        'Button28
+        '
+        Me.Button28.Location = New System.Drawing.Point(825, 241)
+        Me.Button28.Name = "Button28"
+        Me.Button28.Size = New System.Drawing.Size(131, 23)
+        Me.Button28.TabIndex = 2
+        Me.Button28.Text = "Filtrar"
+        Me.Button28.UseVisualStyleBackColor = True
+        '
+        'Mostrar_contabilidad
+        '
+        Me.Mostrar_contabilidad.Location = New System.Drawing.Point(825, 267)
+        Me.Mostrar_contabilidad.Name = "Mostrar_contabilidad"
+        Me.Mostrar_contabilidad.Size = New System.Drawing.Size(131, 23)
+        Me.Mostrar_contabilidad.TabIndex = 1
+        Me.Mostrar_contabilidad.Text = "Mostrar Todo"
+        Me.Mostrar_contabilidad.UseVisualStyleBackColor = True
+        '
+        'view_contable
+        '
+        Me.view_contable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.view_contable.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Fecha, Me.Descripcion, Me.Deber, Me.Haber, Me.Saldo})
+        Me.view_contable.Location = New System.Drawing.Point(48, 56)
+        Me.view_contable.Name = "view_contable"
+        Me.view_contable.Size = New System.Drawing.Size(694, 440)
+        Me.view_contable.TabIndex = 0
+        '
+        'Fecha
+        '
+        Me.Fecha.HeaderText = "Fecha"
+        Me.Fecha.Name = "Fecha"
+        Me.Fecha.ReadOnly = True
+        '
+        'Descripcion
+        '
+        Me.Descripcion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.Descripcion.HeaderText = "Descripcion"
+        Me.Descripcion.Name = "Descripcion"
+        Me.Descripcion.ReadOnly = True
+        '
+        'Deber
+        '
+        Me.Deber.HeaderText = "Deber"
+        Me.Deber.Name = "Deber"
+        Me.Deber.ReadOnly = True
+        '
+        'Haber
+        '
+        Me.Haber.HeaderText = "Haber"
+        Me.Haber.Name = "Haber"
+        Me.Haber.ReadOnly = True
+        '
+        'Saldo
+        '
+        Me.Saldo.HeaderText = "Saldo"
+        Me.Saldo.Name = "Saldo"
+        Me.Saldo.ReadOnly = True
+        '
         'GroupBox4Stock
         '
         Me.GroupBox4Stock.Controls.Add(Me.GroupBoxModificarProducto)
@@ -3832,7 +3257,7 @@ Partial Class Form2
         Me.GroupBox4Stock.Controls.Add(Me.Button26)
         Me.GroupBox4Stock.Controls.Add(Me.Button25)
         Me.GroupBox4Stock.Controls.Add(Me.Button24NuevoProducto)
-        Me.GroupBox4Stock.Location = New System.Drawing.Point(1, 3)
+        Me.GroupBox4Stock.Location = New System.Drawing.Point(8, 70)
         Me.GroupBox4Stock.Name = "GroupBox4Stock"
         Me.GroupBox4Stock.Size = New System.Drawing.Size(1317, 605)
         Me.GroupBox4Stock.TabIndex = 43
@@ -4274,96 +3699,6 @@ Partial Class Form2
         Me.Button24NuevoProducto.Text = "Nuevo Producto"
         Me.Button24NuevoProducto.UseVisualStyleBackColor = True
         '
-        'Label66
-        '
-        Me.Label66.AutoSize = True
-        Me.Label66.Location = New System.Drawing.Point(1031, 213)
-        Me.Label66.Name = "Label66"
-        Me.Label66.Size = New System.Drawing.Size(35, 13)
-        Me.Label66.TabIndex = 8
-        Me.Label66.Text = "Hasta"
-        '
-        'Label65
-        '
-        Me.Label65.AutoSize = True
-        Me.Label65.Location = New System.Drawing.Point(827, 212)
-        Me.Label65.Name = "Label65"
-        Me.Label65.Size = New System.Drawing.Size(38, 13)
-        Me.Label65.TabIndex = 7
-        Me.Label65.Text = "Desde"
-        '
-        'fecha_hasta
-        '
-        Me.fecha_hasta.Location = New System.Drawing.Point(1034, 180)
-        Me.fecha_hasta.Name = "fecha_hasta"
-        Me.fecha_hasta.Size = New System.Drawing.Size(200, 20)
-        Me.fecha_hasta.TabIndex = 6
-        '
-        'fecha_desde
-        '
-        Me.fecha_desde.Location = New System.Drawing.Point(825, 180)
-        Me.fecha_desde.Name = "fecha_desde"
-        Me.fecha_desde.Size = New System.Drawing.Size(200, 20)
-        Me.fecha_desde.TabIndex = 5
-        '
-        'Button28
-        '
-        Me.Button28.Location = New System.Drawing.Point(825, 241)
-        Me.Button28.Name = "Button28"
-        Me.Button28.Size = New System.Drawing.Size(131, 23)
-        Me.Button28.TabIndex = 2
-        Me.Button28.Text = "Filtrar"
-        Me.Button28.UseVisualStyleBackColor = True
-        '
-        'Mostrar_contabilidad
-        '
-        Me.Mostrar_contabilidad.Location = New System.Drawing.Point(825, 267)
-        Me.Mostrar_contabilidad.Name = "Mostrar_contabilidad"
-        Me.Mostrar_contabilidad.Size = New System.Drawing.Size(131, 23)
-        Me.Mostrar_contabilidad.TabIndex = 1
-        Me.Mostrar_contabilidad.Text = "Mostrar Todo"
-        Me.Mostrar_contabilidad.UseVisualStyleBackColor = True
-        '
-        'view_contable
-        '
-        Me.view_contable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.view_contable.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Fecha, Me.Descripcion, Me.Deber, Me.Haber, Me.Saldo})
-        Me.view_contable.Location = New System.Drawing.Point(48, 56)
-        Me.view_contable.Name = "view_contable"
-        Me.view_contable.Size = New System.Drawing.Size(694, 440)
-        Me.view_contable.TabIndex = 0
-        '
-        'Fecha
-        '
-        Me.Fecha.HeaderText = "Fecha"
-        Me.Fecha.Name = "Fecha"
-        Me.Fecha.ReadOnly = True
-        '
-        'Descripcion
-        '
-        Me.Descripcion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.Descripcion.HeaderText = "Descripcion"
-        Me.Descripcion.Name = "Descripcion"
-        Me.Descripcion.ReadOnly = True
-        '
-        'Deber
-        '
-        Me.Deber.HeaderText = "Deber"
-        Me.Deber.Name = "Deber"
-        Me.Deber.ReadOnly = True
-        '
-        'Haber
-        '
-        Me.Haber.HeaderText = "Haber"
-        Me.Haber.Name = "Haber"
-        Me.Haber.ReadOnly = True
-        '
-        'Saldo
-        '
-        Me.Saldo.HeaderText = "Saldo"
-        Me.Saldo.Name = "Saldo"
-        Me.Saldo.ReadOnly = True
-        '
         'panelServicios
         '
         Me.panelServicios.Controls.Add(Me.verServicios)
@@ -4374,29 +3709,6 @@ Partial Class Form2
         Me.panelServicios.Size = New System.Drawing.Size(1367, 601)
         Me.panelServicios.TabIndex = 13
         Me.panelServicios.Visible = False
-        '
-        'editarServicios
-        '
-        Me.editarServicios.Controls.Add(Me.CheckBoxCom2)
-        Me.editarServicios.Controls.Add(Me.CheckBoxMano2)
-        Me.editarServicios.Controls.Add(Me.CheckBoxDias2)
-        Me.editarServicios.Controls.Add(Me.borSerBtn2)
-        Me.editarServicios.Controls.Add(Me.modSerBtn)
-        Me.editarServicios.Controls.Add(Me.error3Ser2)
-        Me.editarServicios.Controls.Add(Me.desSerTxt2)
-        Me.editarServicios.Controls.Add(Me.Label67)
-        Me.editarServicios.Controls.Add(Me.error2Ser2)
-        Me.editarServicios.Controls.Add(Me.Label68)
-        Me.editarServicios.Controls.Add(Me.error1Ser2)
-        Me.editarServicios.Controls.Add(Me.Label72)
-        Me.editarServicios.Controls.Add(Me.nomSerTxt2)
-        Me.editarServicios.Location = New System.Drawing.Point(492, 23)
-        Me.editarServicios.Name = "editarServicios"
-        Me.editarServicios.Size = New System.Drawing.Size(462, 404)
-        Me.editarServicios.TabIndex = 1
-        Me.editarServicios.TabStop = False
-        Me.editarServicios.Text = "Editar Servicios"
-        Me.editarServicios.Visible = False
         '
         'verServicios
         '
@@ -4472,6 +3784,29 @@ Partial Class Form2
         Me.lisBusSer.Name = "lisBusSer"
         Me.lisBusSer.Size = New System.Drawing.Size(452, 199)
         Me.lisBusSer.TabIndex = 0
+        '
+        'editarServicios
+        '
+        Me.editarServicios.Controls.Add(Me.CheckBoxCom2)
+        Me.editarServicios.Controls.Add(Me.CheckBoxMano2)
+        Me.editarServicios.Controls.Add(Me.CheckBoxDias2)
+        Me.editarServicios.Controls.Add(Me.borSerBtn2)
+        Me.editarServicios.Controls.Add(Me.modSerBtn)
+        Me.editarServicios.Controls.Add(Me.error3Ser2)
+        Me.editarServicios.Controls.Add(Me.desSerTxt2)
+        Me.editarServicios.Controls.Add(Me.Label67)
+        Me.editarServicios.Controls.Add(Me.error2Ser2)
+        Me.editarServicios.Controls.Add(Me.Label68)
+        Me.editarServicios.Controls.Add(Me.error1Ser2)
+        Me.editarServicios.Controls.Add(Me.Label72)
+        Me.editarServicios.Controls.Add(Me.nomSerTxt2)
+        Me.editarServicios.Location = New System.Drawing.Point(492, 23)
+        Me.editarServicios.Name = "editarServicios"
+        Me.editarServicios.Size = New System.Drawing.Size(462, 404)
+        Me.editarServicios.TabIndex = 1
+        Me.editarServicios.TabStop = False
+        Me.editarServicios.Text = "Editar Servicios"
+        Me.editarServicios.Visible = False
         '
         'CheckBoxCom2
         '
@@ -4615,6 +3950,15 @@ Partial Class Form2
         Me.ingresarServicios.TabStop = False
         Me.ingresarServicios.Text = "Ingresar Servicios"
         '
+        'Buscar
+        '
+        Me.Buscar.Location = New System.Drawing.Point(83, 360)
+        Me.Buscar.Name = "Buscar"
+        Me.Buscar.Size = New System.Drawing.Size(75, 23)
+        Me.Buscar.TabIndex = 16
+        Me.Buscar.Text = "Buscar"
+        Me.Buscar.UseVisualStyleBackColor = True
+        '
         'CheckBoxCom
         '
         Me.CheckBoxCom.AutoSize = True
@@ -4742,23 +4086,648 @@ Partial Class Form2
         Me.nomSerTxt.Size = New System.Drawing.Size(295, 20)
         Me.nomSerTxt.TabIndex = 0
         '
-        'Buscar
+        'Association_1TableAdapter
         '
-        Me.Buscar.Location = New System.Drawing.Point(83, 360)
-        Me.Buscar.Name = "Buscar"
-        Me.Buscar.Size = New System.Drawing.Size(75, 23)
-        Me.Buscar.TabIndex = 16
-        Me.Buscar.Text = "Buscar"
-        Me.Buscar.UseVisualStyleBackColor = True
+        Me.Association_1TableAdapter.ClearBeforeFill = True
+        '
+        'Association_1DataGridView
+        '
+        Me.Association_1DataGridView.AutoGenerateColumns = False
+        Me.Association_1DataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.Association_1DataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2})
+        Me.Association_1DataGridView.DataSource = Me.Association_1BindingSource
+        Me.Association_1DataGridView.Location = New System.Drawing.Point(17, 10)
+        Me.Association_1DataGridView.Name = "Association_1DataGridView"
+        Me.Association_1DataGridView.Size = New System.Drawing.Size(300, 220)
+        Me.Association_1DataGridView.TabIndex = 0
+        '
+        'DataGridViewTextBoxColumn1
+        '
+        Me.DataGridViewTextBoxColumn1.DataPropertyName = "id_cliente"
+        Me.DataGridViewTextBoxColumn1.HeaderText = "id_cliente"
+        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
+        '
+        'DataGridViewTextBoxColumn2
+        '
+        Me.DataGridViewTextBoxColumn2.DataPropertyName = "id_contabilidad"
+        Me.DataGridViewTextBoxColumn2.HeaderText = "id_contabilidad"
+        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
+        '
+        'ClienteTableAdapter
+        '
+        Me.ClienteTableAdapter.ClearBeforeFill = True
+        '
+        'ClienteDataGridView
+        '
+        Me.ClienteDataGridView.AutoGenerateColumns = False
+        Me.ClienteDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.ClienteDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn7, Me.DataGridViewTextBoxColumn8, Me.DataGridViewTextBoxColumn9, Me.DataGridViewTextBoxColumn11})
+        Me.ClienteDataGridView.DataSource = Me.ClienteBindingSource
+        Me.ClienteDataGridView.Location = New System.Drawing.Point(36, 44)
+        Me.ClienteDataGridView.Name = "ClienteDataGridView"
+        Me.ClienteDataGridView.Size = New System.Drawing.Size(300, 220)
+        Me.ClienteDataGridView.TabIndex = 1
+        '
+        'DataGridViewTextBoxColumn3
+        '
+        Me.DataGridViewTextBoxColumn3.DataPropertyName = "id_cliente"
+        Me.DataGridViewTextBoxColumn3.HeaderText = "id_cliente"
+        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
+        '
+        'DataGridViewTextBoxColumn4
+        '
+        Me.DataGridViewTextBoxColumn4.DataPropertyName = "nombre"
+        Me.DataGridViewTextBoxColumn4.HeaderText = "nombre"
+        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
+        '
+        'DataGridViewTextBoxColumn5
+        '
+        Me.DataGridViewTextBoxColumn5.DataPropertyName = "apellido"
+        Me.DataGridViewTextBoxColumn5.HeaderText = "apellido"
+        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
+        '
+        'DataGridViewTextBoxColumn6
+        '
+        Me.DataGridViewTextBoxColumn6.DataPropertyName = "ruc"
+        Me.DataGridViewTextBoxColumn6.HeaderText = "ruc"
+        Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
+        '
+        'DataGridViewTextBoxColumn7
+        '
+        Me.DataGridViewTextBoxColumn7.DataPropertyName = "numero"
+        Me.DataGridViewTextBoxColumn7.HeaderText = "numero"
+        Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
+        '
+        'DataGridViewTextBoxColumn8
+        '
+        Me.DataGridViewTextBoxColumn8.DataPropertyName = "mail"
+        Me.DataGridViewTextBoxColumn8.HeaderText = "mail"
+        Me.DataGridViewTextBoxColumn8.Name = "DataGridViewTextBoxColumn8"
+        '
+        'DataGridViewTextBoxColumn9
+        '
+        Me.DataGridViewTextBoxColumn9.DataPropertyName = "estado_cliente"
+        Me.DataGridViewTextBoxColumn9.HeaderText = "estado_cliente"
+        Me.DataGridViewTextBoxColumn9.Name = "DataGridViewTextBoxColumn9"
+        '
+        'DataGridViewTextBoxColumn11
+        '
+        Me.DataGridViewTextBoxColumn11.DataPropertyName = "cliente_prioritario"
+        Me.DataGridViewTextBoxColumn11.HeaderText = "cliente_prioritario"
+        Me.DataGridViewTextBoxColumn11.Name = "DataGridViewTextBoxColumn11"
+        '
+        'ContabilidadTableAdapter
+        '
+        Me.ContabilidadTableAdapter.ClearBeforeFill = True
+        '
+        'ContabilidadDataGridView
+        '
+        Me.ContabilidadDataGridView.AutoGenerateColumns = False
+        Me.ContabilidadDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.ContabilidadDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn12, Me.DataGridViewTextBoxColumn13, Me.DataGridViewTextBoxColumn14, Me.DataGridViewTextBoxColumn15, Me.DataGridViewTextBoxColumn16, Me.DataGridViewTextBoxColumn17, Me.DataGridViewTextBoxColumn18})
+        Me.ContabilidadDataGridView.DataSource = Me.ContabilidadBindingSource
+        Me.ContabilidadDataGridView.Location = New System.Drawing.Point(60, 89)
+        Me.ContabilidadDataGridView.Name = "ContabilidadDataGridView"
+        Me.ContabilidadDataGridView.Size = New System.Drawing.Size(300, 220)
+        Me.ContabilidadDataGridView.TabIndex = 2
+        '
+        'DataGridViewTextBoxColumn12
+        '
+        Me.DataGridViewTextBoxColumn12.DataPropertyName = "id_contabilidad"
+        Me.DataGridViewTextBoxColumn12.HeaderText = "id_contabilidad"
+        Me.DataGridViewTextBoxColumn12.Name = "DataGridViewTextBoxColumn12"
+        '
+        'DataGridViewTextBoxColumn13
+        '
+        Me.DataGridViewTextBoxColumn13.DataPropertyName = "descripcion"
+        Me.DataGridViewTextBoxColumn13.HeaderText = "descripcion"
+        Me.DataGridViewTextBoxColumn13.Name = "DataGridViewTextBoxColumn13"
+        '
+        'DataGridViewTextBoxColumn14
+        '
+        Me.DataGridViewTextBoxColumn14.DataPropertyName = "deber"
+        Me.DataGridViewTextBoxColumn14.HeaderText = "deber"
+        Me.DataGridViewTextBoxColumn14.Name = "DataGridViewTextBoxColumn14"
+        '
+        'DataGridViewTextBoxColumn15
+        '
+        Me.DataGridViewTextBoxColumn15.DataPropertyName = "haber"
+        Me.DataGridViewTextBoxColumn15.HeaderText = "haber"
+        Me.DataGridViewTextBoxColumn15.Name = "DataGridViewTextBoxColumn15"
+        '
+        'DataGridViewTextBoxColumn16
+        '
+        Me.DataGridViewTextBoxColumn16.DataPropertyName = "fecha"
+        Me.DataGridViewTextBoxColumn16.HeaderText = "fecha"
+        Me.DataGridViewTextBoxColumn16.Name = "DataGridViewTextBoxColumn16"
+        '
+        'DataGridViewTextBoxColumn17
+        '
+        Me.DataGridViewTextBoxColumn17.DataPropertyName = "saldo"
+        Me.DataGridViewTextBoxColumn17.HeaderText = "saldo"
+        Me.DataGridViewTextBoxColumn17.Name = "DataGridViewTextBoxColumn17"
+        '
+        'DataGridViewTextBoxColumn18
+        '
+        Me.DataGridViewTextBoxColumn18.DataPropertyName = "numero_factura"
+        Me.DataGridViewTextBoxColumn18.HeaderText = "numero_factura"
+        Me.DataGridViewTextBoxColumn18.Name = "DataGridViewTextBoxColumn18"
+        '
+        'Contabilidad2TableAdapter
+        '
+        Me.Contabilidad2TableAdapter.ClearBeforeFill = True
+        '
+        'Contabilidad2DataGridView
+        '
+        Me.Contabilidad2DataGridView.AutoGenerateColumns = False
+        Me.Contabilidad2DataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.Contabilidad2DataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn19, Me.DataGridViewTextBoxColumn20, Me.DataGridViewTextBoxColumn21, Me.DataGridViewTextBoxColumn22, Me.DataGridViewTextBoxColumn23, Me.DataGridViewTextBoxColumn24, Me.DataGridViewTextBoxColumn25, Me.DataGridViewTextBoxColumn26, Me.DataGridViewTextBoxColumn27, Me.DataGridViewTextBoxColumn28})
+        Me.Contabilidad2DataGridView.DataSource = Me.Contabilidad2BindingSource
+        Me.Contabilidad2DataGridView.Location = New System.Drawing.Point(81, 134)
+        Me.Contabilidad2DataGridView.Name = "Contabilidad2DataGridView"
+        Me.Contabilidad2DataGridView.Size = New System.Drawing.Size(300, 220)
+        Me.Contabilidad2DataGridView.TabIndex = 3
+        '
+        'DataGridViewTextBoxColumn19
+        '
+        Me.DataGridViewTextBoxColumn19.DataPropertyName = "id_contabilidad3"
+        Me.DataGridViewTextBoxColumn19.HeaderText = "id_contabilidad3"
+        Me.DataGridViewTextBoxColumn19.Name = "DataGridViewTextBoxColumn19"
+        '
+        'DataGridViewTextBoxColumn20
+        '
+        Me.DataGridViewTextBoxColumn20.DataPropertyName = "id_usuario"
+        Me.DataGridViewTextBoxColumn20.HeaderText = "id_usuario"
+        Me.DataGridViewTextBoxColumn20.Name = "DataGridViewTextBoxColumn20"
+        '
+        'DataGridViewTextBoxColumn21
+        '
+        Me.DataGridViewTextBoxColumn21.DataPropertyName = "descripcion_modificacion"
+        Me.DataGridViewTextBoxColumn21.HeaderText = "descripcion_modificacion"
+        Me.DataGridViewTextBoxColumn21.Name = "DataGridViewTextBoxColumn21"
+        '
+        'DataGridViewTextBoxColumn22
+        '
+        Me.DataGridViewTextBoxColumn22.DataPropertyName = "fecha_modificacion"
+        Me.DataGridViewTextBoxColumn22.HeaderText = "fecha_modificacion"
+        Me.DataGridViewTextBoxColumn22.Name = "DataGridViewTextBoxColumn22"
+        '
+        'DataGridViewTextBoxColumn23
+        '
+        Me.DataGridViewTextBoxColumn23.DataPropertyName = "deber2"
+        Me.DataGridViewTextBoxColumn23.HeaderText = "deber2"
+        Me.DataGridViewTextBoxColumn23.Name = "DataGridViewTextBoxColumn23"
+        '
+        'DataGridViewTextBoxColumn24
+        '
+        Me.DataGridViewTextBoxColumn24.DataPropertyName = "haber2"
+        Me.DataGridViewTextBoxColumn24.HeaderText = "haber2"
+        Me.DataGridViewTextBoxColumn24.Name = "DataGridViewTextBoxColumn24"
+        '
+        'DataGridViewTextBoxColumn25
+        '
+        Me.DataGridViewTextBoxColumn25.DataPropertyName = "fecha2"
+        Me.DataGridViewTextBoxColumn25.HeaderText = "fecha2"
+        Me.DataGridViewTextBoxColumn25.Name = "DataGridViewTextBoxColumn25"
+        '
+        'DataGridViewTextBoxColumn26
+        '
+        Me.DataGridViewTextBoxColumn26.DataPropertyName = "saldo2"
+        Me.DataGridViewTextBoxColumn26.HeaderText = "saldo2"
+        Me.DataGridViewTextBoxColumn26.Name = "DataGridViewTextBoxColumn26"
+        '
+        'DataGridViewTextBoxColumn27
+        '
+        Me.DataGridViewTextBoxColumn27.DataPropertyName = "numero_factura2"
+        Me.DataGridViewTextBoxColumn27.HeaderText = "numero_factura2"
+        Me.DataGridViewTextBoxColumn27.Name = "DataGridViewTextBoxColumn27"
+        '
+        'DataGridViewTextBoxColumn28
+        '
+        Me.DataGridViewTextBoxColumn28.DataPropertyName = "descripcion2"
+        Me.DataGridViewTextBoxColumn28.HeaderText = "descripcion2"
+        Me.DataGridViewTextBoxColumn28.Name = "DataGridViewTextBoxColumn28"
+        '
+        'Ingreso_productoTableAdapter
+        '
+        Me.Ingreso_productoTableAdapter.ClearBeforeFill = True
+        '
+        'Ingreso_productoDataGridView
+        '
+        Me.Ingreso_productoDataGridView.AutoGenerateColumns = False
+        Me.Ingreso_productoDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.Ingreso_productoDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn29, Me.DataGridViewTextBoxColumn30, Me.DataGridViewTextBoxColumn31, Me.DataGridViewTextBoxColumn32, Me.DataGridViewTextBoxColumn33, Me.DataGridViewTextBoxColumn34, Me.DataGridViewTextBoxColumn35, Me.DataGridViewTextBoxColumn36})
+        Me.Ingreso_productoDataGridView.DataSource = Me.Ingreso_productoBindingSource
+        Me.Ingreso_productoDataGridView.Location = New System.Drawing.Point(388, 9)
+        Me.Ingreso_productoDataGridView.Name = "Ingreso_productoDataGridView"
+        Me.Ingreso_productoDataGridView.Size = New System.Drawing.Size(300, 220)
+        Me.Ingreso_productoDataGridView.TabIndex = 4
+        '
+        'DataGridViewTextBoxColumn29
+        '
+        Me.DataGridViewTextBoxColumn29.DataPropertyName = "id_ingreso_producto"
+        Me.DataGridViewTextBoxColumn29.HeaderText = "id_ingreso_producto"
+        Me.DataGridViewTextBoxColumn29.Name = "DataGridViewTextBoxColumn29"
+        '
+        'DataGridViewTextBoxColumn30
+        '
+        Me.DataGridViewTextBoxColumn30.DataPropertyName = "id_proveedor"
+        Me.DataGridViewTextBoxColumn30.HeaderText = "id_proveedor"
+        Me.DataGridViewTextBoxColumn30.Name = "DataGridViewTextBoxColumn30"
+        '
+        'DataGridViewTextBoxColumn31
+        '
+        Me.DataGridViewTextBoxColumn31.DataPropertyName = "id_stock_mugen"
+        Me.DataGridViewTextBoxColumn31.HeaderText = "id_stock_mugen"
+        Me.DataGridViewTextBoxColumn31.Name = "DataGridViewTextBoxColumn31"
+        '
+        'DataGridViewTextBoxColumn32
+        '
+        Me.DataGridViewTextBoxColumn32.DataPropertyName = "fecha_ingreso"
+        Me.DataGridViewTextBoxColumn32.HeaderText = "fecha_ingreso"
+        Me.DataGridViewTextBoxColumn32.Name = "DataGridViewTextBoxColumn32"
+        '
+        'DataGridViewTextBoxColumn33
+        '
+        Me.DataGridViewTextBoxColumn33.DataPropertyName = "numero_factura_ingreso"
+        Me.DataGridViewTextBoxColumn33.HeaderText = "numero_factura_ingreso"
+        Me.DataGridViewTextBoxColumn33.Name = "DataGridViewTextBoxColumn33"
+        '
+        'DataGridViewTextBoxColumn34
+        '
+        Me.DataGridViewTextBoxColumn34.DataPropertyName = "cantidad_ingreso"
+        Me.DataGridViewTextBoxColumn34.HeaderText = "cantidad_ingreso"
+        Me.DataGridViewTextBoxColumn34.Name = "DataGridViewTextBoxColumn34"
+        '
+        'DataGridViewTextBoxColumn35
+        '
+        Me.DataGridViewTextBoxColumn35.DataPropertyName = "precio_compra"
+        Me.DataGridViewTextBoxColumn35.HeaderText = "precio_compra"
+        Me.DataGridViewTextBoxColumn35.Name = "DataGridViewTextBoxColumn35"
+        '
+        'DataGridViewTextBoxColumn36
+        '
+        Me.DataGridViewTextBoxColumn36.DataPropertyName = "precio_compra_unitario"
+        Me.DataGridViewTextBoxColumn36.HeaderText = "precio_compra_unitario"
+        Me.DataGridViewTextBoxColumn36.Name = "DataGridViewTextBoxColumn36"
+        '
+        'PedidoTableAdapter
+        '
+        Me.PedidoTableAdapter.ClearBeforeFill = True
+        '
+        'PedidoDataGridView
+        '
+        Me.PedidoDataGridView.AutoGenerateColumns = False
+        Me.PedidoDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.PedidoDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn37, Me.DataGridViewTextBoxColumn38, Me.DataGridViewTextBoxColumn39, Me.DataGridViewTextBoxColumn40, Me.DataGridViewTextBoxColumn41, Me.DataGridViewTextBoxColumn42, Me.DataGridViewTextBoxColumn43, Me.DataGridViewTextBoxColumn44, Me.DataGridViewTextBoxColumn45})
+        Me.PedidoDataGridView.DataSource = Me.PedidoBindingSource
+        Me.PedidoDataGridView.Location = New System.Drawing.Point(401, 55)
+        Me.PedidoDataGridView.Name = "PedidoDataGridView"
+        Me.PedidoDataGridView.Size = New System.Drawing.Size(300, 220)
+        Me.PedidoDataGridView.TabIndex = 5
+        '
+        'DataGridViewTextBoxColumn37
+        '
+        Me.DataGridViewTextBoxColumn37.DataPropertyName = "id_pedido"
+        Me.DataGridViewTextBoxColumn37.HeaderText = "id_pedido"
+        Me.DataGridViewTextBoxColumn37.Name = "DataGridViewTextBoxColumn37"
+        '
+        'DataGridViewTextBoxColumn38
+        '
+        Me.DataGridViewTextBoxColumn38.DataPropertyName = "id_cliente"
+        Me.DataGridViewTextBoxColumn38.HeaderText = "id_cliente"
+        Me.DataGridViewTextBoxColumn38.Name = "DataGridViewTextBoxColumn38"
+        '
+        'DataGridViewTextBoxColumn39
+        '
+        Me.DataGridViewTextBoxColumn39.DataPropertyName = "id_usuario"
+        Me.DataGridViewTextBoxColumn39.HeaderText = "id_usuario"
+        Me.DataGridViewTextBoxColumn39.Name = "DataGridViewTextBoxColumn39"
+        '
+        'DataGridViewTextBoxColumn40
+        '
+        Me.DataGridViewTextBoxColumn40.DataPropertyName = "plazo_entrega"
+        Me.DataGridViewTextBoxColumn40.HeaderText = "plazo_entrega"
+        Me.DataGridViewTextBoxColumn40.Name = "DataGridViewTextBoxColumn40"
+        '
+        'DataGridViewTextBoxColumn41
+        '
+        Me.DataGridViewTextBoxColumn41.DataPropertyName = "plazo_cobro"
+        Me.DataGridViewTextBoxColumn41.HeaderText = "plazo_cobro"
+        Me.DataGridViewTextBoxColumn41.Name = "DataGridViewTextBoxColumn41"
+        '
+        'DataGridViewTextBoxColumn42
+        '
+        Me.DataGridViewTextBoxColumn42.DataPropertyName = "oferta"
+        Me.DataGridViewTextBoxColumn42.HeaderText = "oferta"
+        Me.DataGridViewTextBoxColumn42.Name = "DataGridViewTextBoxColumn42"
+        '
+        'DataGridViewTextBoxColumn43
+        '
+        Me.DataGridViewTextBoxColumn43.DataPropertyName = "precio"
+        Me.DataGridViewTextBoxColumn43.HeaderText = "precio"
+        Me.DataGridViewTextBoxColumn43.Name = "DataGridViewTextBoxColumn43"
+        '
+        'DataGridViewTextBoxColumn44
+        '
+        Me.DataGridViewTextBoxColumn44.DataPropertyName = "estado"
+        Me.DataGridViewTextBoxColumn44.HeaderText = "estado"
+        Me.DataGridViewTextBoxColumn44.Name = "DataGridViewTextBoxColumn44"
+        '
+        'DataGridViewTextBoxColumn45
+        '
+        Me.DataGridViewTextBoxColumn45.DataPropertyName = "nombre_pedido"
+        Me.DataGridViewTextBoxColumn45.HeaderText = "nombre_pedido"
+        Me.DataGridViewTextBoxColumn45.Name = "DataGridViewTextBoxColumn45"
+        '
+        'ProductoTableAdapter
+        '
+        Me.ProductoTableAdapter.ClearBeforeFill = True
+        '
+        'ProductoDataGridView
+        '
+        Me.ProductoDataGridView.AutoGenerateColumns = False
+        Me.ProductoDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.ProductoDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn46, Me.DataGridViewTextBoxColumn47, Me.DataGridViewTextBoxColumn48, Me.DataGridViewTextBoxColumn49})
+        Me.ProductoDataGridView.DataSource = Me.ProductoBindingSource
+        Me.ProductoDataGridView.Location = New System.Drawing.Point(411, 99)
+        Me.ProductoDataGridView.Name = "ProductoDataGridView"
+        Me.ProductoDataGridView.Size = New System.Drawing.Size(300, 220)
+        Me.ProductoDataGridView.TabIndex = 6
+        '
+        'DataGridViewTextBoxColumn46
+        '
+        Me.DataGridViewTextBoxColumn46.DataPropertyName = "id_stock_mugen"
+        Me.DataGridViewTextBoxColumn46.HeaderText = "id_stock_mugen"
+        Me.DataGridViewTextBoxColumn46.Name = "DataGridViewTextBoxColumn46"
+        '
+        'DataGridViewTextBoxColumn47
+        '
+        Me.DataGridViewTextBoxColumn47.DataPropertyName = "codigo"
+        Me.DataGridViewTextBoxColumn47.HeaderText = "codigo"
+        Me.DataGridViewTextBoxColumn47.Name = "DataGridViewTextBoxColumn47"
+        '
+        'DataGridViewTextBoxColumn48
+        '
+        Me.DataGridViewTextBoxColumn48.DataPropertyName = "descripcion"
+        Me.DataGridViewTextBoxColumn48.HeaderText = "descripcion"
+        Me.DataGridViewTextBoxColumn48.Name = "DataGridViewTextBoxColumn48"
+        '
+        'DataGridViewTextBoxColumn49
+        '
+        Me.DataGridViewTextBoxColumn49.DataPropertyName = "precio_venta"
+        Me.DataGridViewTextBoxColumn49.HeaderText = "precio_venta"
+        Me.DataGridViewTextBoxColumn49.Name = "DataGridViewTextBoxColumn49"
+        '
+        'ProveedorTableAdapter
+        '
+        Me.ProveedorTableAdapter.ClearBeforeFill = True
+        '
+        'ProveedorDataGridView
+        '
+        Me.ProveedorDataGridView.AutoGenerateColumns = False
+        Me.ProveedorDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.ProveedorDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn50, Me.DataGridViewTextBoxColumn51, Me.DataGridViewTextBoxColumn52})
+        Me.ProveedorDataGridView.DataSource = Me.ProveedorBindingSource
+        Me.ProveedorDataGridView.Location = New System.Drawing.Point(434, 145)
+        Me.ProveedorDataGridView.Name = "ProveedorDataGridView"
+        Me.ProveedorDataGridView.Size = New System.Drawing.Size(300, 220)
+        Me.ProveedorDataGridView.TabIndex = 7
+        '
+        'DataGridViewTextBoxColumn50
+        '
+        Me.DataGridViewTextBoxColumn50.DataPropertyName = "id_proveedor"
+        Me.DataGridViewTextBoxColumn50.HeaderText = "id_proveedor"
+        Me.DataGridViewTextBoxColumn50.Name = "DataGridViewTextBoxColumn50"
+        '
+        'DataGridViewTextBoxColumn51
+        '
+        Me.DataGridViewTextBoxColumn51.DataPropertyName = "nombre_proveedor"
+        Me.DataGridViewTextBoxColumn51.HeaderText = "nombre_proveedor"
+        Me.DataGridViewTextBoxColumn51.Name = "DataGridViewTextBoxColumn51"
+        '
+        'DataGridViewTextBoxColumn52
+        '
+        Me.DataGridViewTextBoxColumn52.DataPropertyName = "ruc_proveedor"
+        Me.DataGridViewTextBoxColumn52.HeaderText = "ruc_proveedor"
+        Me.DataGridViewTextBoxColumn52.Name = "DataGridViewTextBoxColumn52"
+        '
+        'ServicioTableAdapter
+        '
+        Me.ServicioTableAdapter.ClearBeforeFill = True
+        '
+        'ServicioDataGridView
+        '
+        Me.ServicioDataGridView.AutoGenerateColumns = False
+        Me.ServicioDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.ServicioDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn53, Me.DataGridViewTextBoxColumn54, Me.DataGridViewTextBoxColumn55, Me.DataGridViewTextBoxColumn56})
+        Me.ServicioDataGridView.DataSource = Me.ServicioBindingSource
+        Me.ServicioDataGridView.Location = New System.Drawing.Point(452, 188)
+        Me.ServicioDataGridView.Name = "ServicioDataGridView"
+        Me.ServicioDataGridView.Size = New System.Drawing.Size(300, 220)
+        Me.ServicioDataGridView.TabIndex = 8
+        '
+        'DataGridViewTextBoxColumn53
+        '
+        Me.DataGridViewTextBoxColumn53.DataPropertyName = "id_servicio"
+        Me.DataGridViewTextBoxColumn53.HeaderText = "id_servicio"
+        Me.DataGridViewTextBoxColumn53.Name = "DataGridViewTextBoxColumn53"
+        '
+        'DataGridViewTextBoxColumn54
+        '
+        Me.DataGridViewTextBoxColumn54.DataPropertyName = "nombre_servicio"
+        Me.DataGridViewTextBoxColumn54.HeaderText = "nombre_servicio"
+        Me.DataGridViewTextBoxColumn54.Name = "DataGridViewTextBoxColumn54"
+        '
+        'DataGridViewTextBoxColumn55
+        '
+        Me.DataGridViewTextBoxColumn55.DataPropertyName = "descripcion_servicio"
+        Me.DataGridViewTextBoxColumn55.HeaderText = "descripcion_servicio"
+        Me.DataGridViewTextBoxColumn55.Name = "DataGridViewTextBoxColumn55"
+        '
+        'DataGridViewTextBoxColumn56
+        '
+        Me.DataGridViewTextBoxColumn56.DataPropertyName = "forma_calculo"
+        Me.DataGridViewTextBoxColumn56.HeaderText = "forma_calculo"
+        Me.DataGridViewTextBoxColumn56.Name = "DataGridViewTextBoxColumn56"
+        '
+        'UsuarioTableAdapter
+        '
+        Me.UsuarioTableAdapter.ClearBeforeFill = True
+        '
+        'UsuarioDataGridView
+        '
+        Me.UsuarioDataGridView.AutoGenerateColumns = False
+        Me.UsuarioDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.UsuarioDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn57, Me.DataGridViewTextBoxColumn58, Me.DataGridViewTextBoxColumn59, Me.DataGridViewTextBoxColumn60, Me.DataGridViewTextBoxColumn97, Me.DataGridViewTextBoxColumn98, Me.DataGridViewTextBoxColumn99, Me.DataGridViewTextBoxColumn100, Me.DataGridViewTextBoxColumn101})
+        Me.UsuarioDataGridView.DataSource = Me.UsuarioBindingSource
+        Me.UsuarioDataGridView.Location = New System.Drawing.Point(769, 10)
+        Me.UsuarioDataGridView.Name = "UsuarioDataGridView"
+        Me.UsuarioDataGridView.Size = New System.Drawing.Size(300, 220)
+        Me.UsuarioDataGridView.TabIndex = 9
+        '
+        'DataGridViewTextBoxColumn57
+        '
+        Me.DataGridViewTextBoxColumn57.DataPropertyName = "id_usuario"
+        Me.DataGridViewTextBoxColumn57.HeaderText = "id_usuario"
+        Me.DataGridViewTextBoxColumn57.Name = "DataGridViewTextBoxColumn57"
+        '
+        'DataGridViewTextBoxColumn58
+        '
+        Me.DataGridViewTextBoxColumn58.DataPropertyName = "cuenta"
+        Me.DataGridViewTextBoxColumn58.HeaderText = "cuenta"
+        Me.DataGridViewTextBoxColumn58.Name = "DataGridViewTextBoxColumn58"
+        '
+        'DataGridViewTextBoxColumn59
+        '
+        Me.DataGridViewTextBoxColumn59.DataPropertyName = "pass"
+        Me.DataGridViewTextBoxColumn59.HeaderText = "pass"
+        Me.DataGridViewTextBoxColumn59.Name = "DataGridViewTextBoxColumn59"
+        '
+        'DataGridViewTextBoxColumn60
+        '
+        Me.DataGridViewTextBoxColumn60.DataPropertyName = "nivel"
+        Me.DataGridViewTextBoxColumn60.HeaderText = "nivel"
+        Me.DataGridViewTextBoxColumn60.Name = "DataGridViewTextBoxColumn60"
+        '
+        'DataGridViewTextBoxColumn97
+        '
+        Me.DataGridViewTextBoxColumn97.DataPropertyName = "estado_usuario"
+        Me.DataGridViewTextBoxColumn97.HeaderText = "estado_usuario"
+        Me.DataGridViewTextBoxColumn97.Name = "DataGridViewTextBoxColumn97"
+        '
+        'DataGridViewTextBoxColumn98
+        '
+        Me.DataGridViewTextBoxColumn98.DataPropertyName = "nombre_usuario"
+        Me.DataGridViewTextBoxColumn98.HeaderText = "nombre_usuario"
+        Me.DataGridViewTextBoxColumn98.Name = "DataGridViewTextBoxColumn98"
+        '
+        'DataGridViewTextBoxColumn99
+        '
+        Me.DataGridViewTextBoxColumn99.DataPropertyName = "apellido_usuario"
+        Me.DataGridViewTextBoxColumn99.HeaderText = "apellido_usuario"
+        Me.DataGridViewTextBoxColumn99.Name = "DataGridViewTextBoxColumn99"
+        '
+        'DataGridViewTextBoxColumn100
+        '
+        Me.DataGridViewTextBoxColumn100.DataPropertyName = "numero_usuario"
+        Me.DataGridViewTextBoxColumn100.HeaderText = "numero_usuario"
+        Me.DataGridViewTextBoxColumn100.Name = "DataGridViewTextBoxColumn100"
+        '
+        'DataGridViewTextBoxColumn101
+        '
+        Me.DataGridViewTextBoxColumn101.DataPropertyName = "mail_usuario"
+        Me.DataGridViewTextBoxColumn101.HeaderText = "mail_usuario"
+        Me.DataGridViewTextBoxColumn101.Name = "DataGridViewTextBoxColumn101"
+        '
+        'Venta_productoTableAdapter
+        '
+        Me.Venta_productoTableAdapter.ClearBeforeFill = True
+        '
+        'Venta_productoDataGridView
+        '
+        Me.Venta_productoDataGridView.AutoGenerateColumns = False
+        Me.Venta_productoDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.Venta_productoDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn102, Me.DataGridViewTextBoxColumn103, Me.DataGridViewTextBoxColumn104, Me.DataGridViewTextBoxColumn105, Me.DataGridViewTextBoxColumn106, Me.DataGridViewTextBoxColumn107})
+        Me.Venta_productoDataGridView.DataSource = Me.Venta_productoBindingSource
+        Me.Venta_productoDataGridView.Location = New System.Drawing.Point(780, 55)
+        Me.Venta_productoDataGridView.Name = "Venta_productoDataGridView"
+        Me.Venta_productoDataGridView.Size = New System.Drawing.Size(300, 220)
+        Me.Venta_productoDataGridView.TabIndex = 10
+        '
+        'DataGridViewTextBoxColumn102
+        '
+        Me.DataGridViewTextBoxColumn102.DataPropertyName = "id_venta_producto"
+        Me.DataGridViewTextBoxColumn102.HeaderText = "id_venta_producto"
+        Me.DataGridViewTextBoxColumn102.Name = "DataGridViewTextBoxColumn102"
+        '
+        'DataGridViewTextBoxColumn103
+        '
+        Me.DataGridViewTextBoxColumn103.DataPropertyName = "id_stock_mugen"
+        Me.DataGridViewTextBoxColumn103.HeaderText = "id_stock_mugen"
+        Me.DataGridViewTextBoxColumn103.Name = "DataGridViewTextBoxColumn103"
+        '
+        'DataGridViewTextBoxColumn104
+        '
+        Me.DataGridViewTextBoxColumn104.DataPropertyName = "id_cliente"
+        Me.DataGridViewTextBoxColumn104.HeaderText = "id_cliente"
+        Me.DataGridViewTextBoxColumn104.Name = "DataGridViewTextBoxColumn104"
+        '
+        'DataGridViewTextBoxColumn105
+        '
+        Me.DataGridViewTextBoxColumn105.DataPropertyName = "fecha_venta"
+        Me.DataGridViewTextBoxColumn105.HeaderText = "fecha_venta"
+        Me.DataGridViewTextBoxColumn105.Name = "DataGridViewTextBoxColumn105"
+        '
+        'DataGridViewTextBoxColumn106
+        '
+        Me.DataGridViewTextBoxColumn106.DataPropertyName = "cantidad"
+        Me.DataGridViewTextBoxColumn106.HeaderText = "cantidad"
+        Me.DataGridViewTextBoxColumn106.Name = "DataGridViewTextBoxColumn106"
+        '
+        'DataGridViewTextBoxColumn107
+        '
+        Me.DataGridViewTextBoxColumn107.DataPropertyName = "n_factura_venta_producto"
+        Me.DataGridViewTextBoxColumn107.HeaderText = "n_factura_venta_producto"
+        Me.DataGridViewTextBoxColumn107.Name = "DataGridViewTextBoxColumn107"
+        '
+        'Venta_servicioTableAdapter
+        '
+        Me.Venta_servicioTableAdapter.ClearBeforeFill = True
+        '
+        'Venta_servicioDataGridView
+        '
+        Me.Venta_servicioDataGridView.AutoGenerateColumns = False
+        Me.Venta_servicioDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.Venta_servicioDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn108, Me.DataGridViewTextBoxColumn109, Me.DataGridViewTextBoxColumn110, Me.DataGridViewTextBoxColumn111, Me.DataGridViewTextBoxColumn112, Me.DataGridViewTextBoxColumn113})
+        Me.Venta_servicioDataGridView.DataSource = Me.Venta_servicioBindingSource
+        Me.Venta_servicioDataGridView.Location = New System.Drawing.Point(798, 99)
+        Me.Venta_servicioDataGridView.Name = "Venta_servicioDataGridView"
+        Me.Venta_servicioDataGridView.Size = New System.Drawing.Size(300, 220)
+        Me.Venta_servicioDataGridView.TabIndex = 11
+        '
+        'DataGridViewTextBoxColumn108
+        '
+        Me.DataGridViewTextBoxColumn108.DataPropertyName = "id_venta_servicio"
+        Me.DataGridViewTextBoxColumn108.HeaderText = "id_venta_servicio"
+        Me.DataGridViewTextBoxColumn108.Name = "DataGridViewTextBoxColumn108"
+        '
+        'DataGridViewTextBoxColumn109
+        '
+        Me.DataGridViewTextBoxColumn109.DataPropertyName = "id_servicio"
+        Me.DataGridViewTextBoxColumn109.HeaderText = "id_servicio"
+        Me.DataGridViewTextBoxColumn109.Name = "DataGridViewTextBoxColumn109"
+        '
+        'DataGridViewTextBoxColumn110
+        '
+        Me.DataGridViewTextBoxColumn110.DataPropertyName = "id_cliente"
+        Me.DataGridViewTextBoxColumn110.HeaderText = "id_cliente"
+        Me.DataGridViewTextBoxColumn110.Name = "DataGridViewTextBoxColumn110"
+        '
+        'DataGridViewTextBoxColumn111
+        '
+        Me.DataGridViewTextBoxColumn111.DataPropertyName = "fecha_venta_servicio"
+        Me.DataGridViewTextBoxColumn111.HeaderText = "fecha_venta_servicio"
+        Me.DataGridViewTextBoxColumn111.Name = "DataGridViewTextBoxColumn111"
+        '
+        'DataGridViewTextBoxColumn112
+        '
+        Me.DataGridViewTextBoxColumn112.DataPropertyName = "precio_venta_servicio"
+        Me.DataGridViewTextBoxColumn112.HeaderText = "precio_venta_servicio"
+        Me.DataGridViewTextBoxColumn112.Name = "DataGridViewTextBoxColumn112"
+        '
+        'DataGridViewTextBoxColumn113
+        '
+        Me.DataGridViewTextBoxColumn113.DataPropertyName = "n_factura_venta_servicio"
+        Me.DataGridViewTextBoxColumn113.HeaderText = "n_factura_venta_servicio"
+        Me.DataGridViewTextBoxColumn113.Name = "DataGridViewTextBoxColumn113"
         '
         'Form2
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoScroll = True
-        Me.ClientSize = New System.Drawing.Size(1771, 679)
-        Me.Controls.Add(Me.panelServicios)
-        Me.Controls.Add(Me.Panel2)
+        Me.ClientSize = New System.Drawing.Size(1771, 808)
         Me.Controls.Add(Me.boton_servicios)
         Me.Controls.Add(Me.panel_botones_mugen)
         Me.Controls.Add(Me.Button7)
@@ -4768,12 +4737,15 @@ Partial Class Form2
         Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
-        Me.Controls.Add(Me.panel_vender)
-        Me.Controls.Add(Me.panel_carga_presupuesto)
-        Me.Controls.Add(Me.panel_cuentas)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.PanelClientes)
         Me.Controls.Add(Me.PanelTrabajosPendientes)
+        Me.Controls.Add(Me.panelServicios)
+        Me.Controls.Add(Me.Panel2)
+        Me.Controls.Add(Me.GroupBox4Stock)
+        Me.Controls.Add(Me.panel_vender)
+        Me.Controls.Add(Me.panel_carga_presupuesto)
+        Me.Controls.Add(Me.panel_cuentas)
         Me.Name = "Form2"
         Me.Text = "Form2"
         CType(Me.Ingreso_productoBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
@@ -4784,24 +4756,12 @@ Partial Class Form2
         CType(Me.Association_1BindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PedidoBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
-        CType(Me.Venta_servicioDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Venta_servicioBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.Venta_productoDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Venta_productoBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.UsuarioDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.UsuarioBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ServicioDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ServicioBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ProveedorDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ProveedorBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ProductoDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ProductoBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PedidoDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.Ingreso_productoDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.Contabilidad2DataGridView, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ContabilidadDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ClienteDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.Association_1DataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         Me.panel_cuentas.ResumeLayout(False)
         Me.panel_cuentas.PerformLayout()
         Me.panel_crear_usuarios.ResumeLayout(False)
@@ -4842,6 +4802,7 @@ Partial Class Form2
         Me.TableLayoutPanel1.PerformLayout()
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
+        CType(Me.view_contable, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox4Stock.ResumeLayout(False)
         Me.GroupBoxModificarProducto.ResumeLayout(False)
         Me.GroupBoxModificarProducto.PerformLayout()
@@ -4849,42 +4810,43 @@ Partial Class Form2
         Me.GroupBoxIngresodeProducto.PerformLayout()
         Me.GroupBoxNuevoProducto.ResumeLayout(False)
         Me.GroupBoxNuevoProducto.PerformLayout()
-        CType(Me.view_contable, System.ComponentModel.ISupportInitialize).EndInit()
         Me.panelServicios.ResumeLayout(False)
-        Me.editarServicios.ResumeLayout(False)
-        Me.editarServicios.PerformLayout()
         Me.verServicios.ResumeLayout(False)
         Me.verSerPanel.ResumeLayout(False)
         Me.verSerPanel.PerformLayout()
+        Me.editarServicios.ResumeLayout(False)
+        Me.editarServicios.PerformLayout()
         Me.ingresarServicios.ResumeLayout(False)
         Me.ingresarServicios.PerformLayout()
+        CType(Me.Association_1DataGridView, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ClienteDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ContabilidadDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Contabilidad2DataGridView, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Ingreso_productoDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PedidoDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ProductoDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ProveedorDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ServicioDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.UsuarioDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Venta_productoDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Venta_servicioDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
     Friend WithEvents DataSet1 As DataSet1
     Friend WithEvents Association_1BindingSource As BindingSource
-    Friend WithEvents Association_1TableAdapter As DataSet1TableAdapters.association_1TableAdapter
     Friend WithEvents TableAdapterManager As DataSet1TableAdapters.TableAdapterManager
-    Friend WithEvents ClienteTableAdapter As DataSet1TableAdapters.clienteTableAdapter
     Friend WithEvents ClienteBindingSource As BindingSource
-    Friend WithEvents ContabilidadTableAdapter As DataSet1TableAdapters.contabilidadTableAdapter
     Friend WithEvents ContabilidadBindingSource As BindingSource
-    Friend WithEvents Contabilidad2TableAdapter As DataSet1TableAdapters.contabilidad2TableAdapter
     Friend WithEvents Contabilidad2BindingSource As BindingSource
-    Friend WithEvents Ingreso_productoTableAdapter As DataSet1TableAdapters.ingreso_productoTableAdapter
     Friend WithEvents Ingreso_productoBindingSource As BindingSource
-    Friend WithEvents PedidoTableAdapter As DataSet1TableAdapters.pedidoTableAdapter
     Friend WithEvents PedidoBindingSource As BindingSource
     Friend WithEvents Panel1 As Panel
     Friend WithEvents DataGridViewTextBoxColumn10 As DataGridViewTextBoxColumn
     Friend WithEvents ProductoBindingSource As BindingSource
-    Friend WithEvents ProductoTableAdapter As DataSet1TableAdapters.productoTableAdapter
     Friend WithEvents ProveedorBindingSource As BindingSource
-    Friend WithEvents ProveedorTableAdapter As DataSet1TableAdapters.proveedorTableAdapter
     Friend WithEvents UsuarioBindingSource As BindingSource
-    Friend WithEvents UsuarioTableAdapter As DataSet1TableAdapters.usuarioTableAdapter
     Friend WithEvents Venta_productoBindingSource As BindingSource
-    Friend WithEvents Venta_productoTableAdapter As DataSet1TableAdapters.venta_productoTableAdapter
     Friend WithEvents Button7 As Button
     Friend WithEvents Button6 As Button
     Friend WithEvents Button5 As Button
@@ -5145,97 +5107,8 @@ Partial Class Form2
     Friend WithEvents DataGridViewTextBoxColumn77 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn78 As DataGridViewTextBoxColumn
     Friend WithEvents SaveFileDialog1 As SaveFileDialog
-    Friend WithEvents ProveedorDataGridView As DataGridView
-    Friend WithEvents DataGridViewTextBoxColumn49 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn50 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn51 As DataGridViewTextBoxColumn
-    Friend WithEvents ProductoDataGridView As DataGridView
-    Friend WithEvents DataGridViewTextBoxColumn45 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn46 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn47 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn48 As DataGridViewTextBoxColumn
-    Friend WithEvents PedidoDataGridView As DataGridView
-    Friend WithEvents DataGridViewTextBoxColumn36 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn37 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn38 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn39 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn40 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn41 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn42 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn43 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn44 As DataGridViewTextBoxColumn
-    Friend WithEvents Ingreso_productoDataGridView As DataGridView
-    Friend WithEvents DataGridViewTextBoxColumn28 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn29 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn30 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn31 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn32 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn33 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn34 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn35 As DataGridViewTextBoxColumn
-    Friend WithEvents Contabilidad2DataGridView As DataGridView
-    Friend WithEvents DataGridViewTextBoxColumn19 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn20 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn21 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn22 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn23 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn24 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn25 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn26 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn27 As DataGridViewTextBoxColumn
-    Friend WithEvents ContabilidadDataGridView As DataGridView
-    Friend WithEvents DataGridViewTextBoxColumn12 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn13 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn14 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn15 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn16 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn17 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn18 As DataGridViewTextBoxColumn
-    Friend WithEvents ClienteDataGridView As DataGridView
-    Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn5 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn6 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn7 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn8 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn9 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn11 As DataGridViewTextBoxColumn
-    Friend WithEvents Association_1DataGridView As DataGridView
-    Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
     Friend WithEvents ServicioBindingSource As BindingSource
-    Friend WithEvents ServicioTableAdapter As DataSet1TableAdapters.servicioTableAdapter
-    Friend WithEvents Venta_productoDataGridView As DataGridView
-    Friend WithEvents DataGridViewTextBoxColumn101 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn102 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn103 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn104 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn105 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn106 As DataGridViewTextBoxColumn
-    Friend WithEvents UsuarioDataGridView As DataGridView
-    Friend WithEvents DataGridViewTextBoxColumn56 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn57 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn58 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn59 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn60 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn97 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn98 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn99 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn100 As DataGridViewTextBoxColumn
-    Friend WithEvents ServicioDataGridView As DataGridView
-    Friend WithEvents DataGridViewTextBoxColumn52 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn53 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn54 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn55 As DataGridViewTextBoxColumn
     Friend WithEvents Venta_servicioBindingSource As BindingSource
-    Friend WithEvents Venta_servicioTableAdapter As DataSet1TableAdapters.venta_servicioTableAdapter
-    Friend WithEvents Venta_servicioDataGridView As DataGridView
-    Friend WithEvents DataGridViewTextBoxColumn107 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn108 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn109 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn110 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn111 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn112 As DataGridViewTextBoxColumn
     Friend WithEvents n_factura_textbox As TextBox
     Friend WithEvents label_n_factura As Label
     Friend WithEvents Panel2 As Panel
@@ -5337,4 +5210,104 @@ Partial Class Form2
     Friend WithEvents nomSerLabel As Label
     Friend WithEvents nomSerTxt As TextBox
     Friend WithEvents Buscar As Button
+    Friend WithEvents Venta_servicioDataGridView As DataGridView
+    Friend WithEvents DataGridViewTextBoxColumn108 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn109 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn110 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn111 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn112 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn113 As DataGridViewTextBoxColumn
+    Friend WithEvents Venta_productoDataGridView As DataGridView
+    Friend WithEvents DataGridViewTextBoxColumn102 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn103 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn104 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn105 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn106 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn107 As DataGridViewTextBoxColumn
+    Friend WithEvents UsuarioDataGridView As DataGridView
+    Friend WithEvents DataGridViewTextBoxColumn57 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn58 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn59 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn60 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn97 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn98 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn99 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn100 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn101 As DataGridViewTextBoxColumn
+    Friend WithEvents ServicioDataGridView As DataGridView
+    Friend WithEvents DataGridViewTextBoxColumn53 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn54 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn55 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn56 As DataGridViewTextBoxColumn
+    Friend WithEvents ProveedorDataGridView As DataGridView
+    Friend WithEvents DataGridViewTextBoxColumn50 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn51 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn52 As DataGridViewTextBoxColumn
+    Friend WithEvents ProductoDataGridView As DataGridView
+    Friend WithEvents DataGridViewTextBoxColumn46 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn47 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn48 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn49 As DataGridViewTextBoxColumn
+    Friend WithEvents PedidoDataGridView As DataGridView
+    Friend WithEvents DataGridViewTextBoxColumn37 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn38 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn39 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn40 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn41 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn42 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn43 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn44 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn45 As DataGridViewTextBoxColumn
+    Friend WithEvents Ingreso_productoDataGridView As DataGridView
+    Friend WithEvents DataGridViewTextBoxColumn29 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn30 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn31 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn32 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn33 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn34 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn35 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn36 As DataGridViewTextBoxColumn
+    Friend WithEvents Contabilidad2DataGridView As DataGridView
+    Friend WithEvents DataGridViewTextBoxColumn19 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn20 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn21 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn22 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn23 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn24 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn25 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn26 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn27 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn28 As DataGridViewTextBoxColumn
+    Friend WithEvents ContabilidadDataGridView As DataGridView
+    Friend WithEvents DataGridViewTextBoxColumn12 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn13 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn14 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn15 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn16 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn17 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn18 As DataGridViewTextBoxColumn
+    Friend WithEvents ClienteDataGridView As DataGridView
+    Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn5 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn6 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn7 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn8 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn9 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn11 As DataGridViewTextBoxColumn
+    Friend WithEvents Association_1DataGridView As DataGridView
+    Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
+    Friend WithEvents Association_1TableAdapter As DataSet1TableAdapters.association_1TableAdapter
+    Friend WithEvents ClienteTableAdapter As DataSet1TableAdapters.clienteTableAdapter
+    Friend WithEvents ContabilidadTableAdapter As DataSet1TableAdapters.contabilidadTableAdapter
+    Friend WithEvents Contabilidad2TableAdapter As DataSet1TableAdapters.contabilidad2TableAdapter
+    Friend WithEvents Ingreso_productoTableAdapter As DataSet1TableAdapters.ingreso_productoTableAdapter
+    Friend WithEvents PedidoTableAdapter As DataSet1TableAdapters.pedidoTableAdapter
+    Friend WithEvents ProductoTableAdapter As DataSet1TableAdapters.productoTableAdapter
+    Friend WithEvents ProveedorTableAdapter As DataSet1TableAdapters.proveedorTableAdapter
+    Friend WithEvents ServicioTableAdapter As DataSet1TableAdapters.servicioTableAdapter
+    Friend WithEvents UsuarioTableAdapter As DataSet1TableAdapters.usuarioTableAdapter
+    Friend WithEvents Venta_productoTableAdapter As DataSet1TableAdapters.venta_productoTableAdapter
+    Friend WithEvents Venta_servicioTableAdapter As DataSet1TableAdapters.venta_servicioTableAdapter
 End Class

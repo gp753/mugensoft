@@ -1651,6 +1651,8 @@ Partial Public Class DataSet1
         
         Private columnid_contabilidad3 As Global.System.Data.DataColumn
         
+        Private columnid_usuario As Global.System.Data.DataColumn
+        
         Private columndescripcion_modificacion As Global.System.Data.DataColumn
         
         Private columnfecha_modificacion As Global.System.Data.DataColumn
@@ -1707,6 +1709,14 @@ Partial Public Class DataSet1
         Public ReadOnly Property id_contabilidad3Column() As Global.System.Data.DataColumn
             Get
                 Return Me.columnid_contabilidad3
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property id_usuarioColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnid_usuario
             End Get
         End Property
         
@@ -1811,9 +1821,9 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function Addcontabilidad2Row(ByVal descripcion_modificacion As String, ByVal fecha_modificacion As String, ByVal deber2 As Integer, ByVal haber2 As Integer, ByVal fecha2 As String, ByVal saldo2 As Integer, ByVal numero_factura2 As String, ByVal descripcion2 As String) As contabilidad2Row
+        Public Overloads Function Addcontabilidad2Row(ByVal id_usuario As Integer, ByVal descripcion_modificacion As String, ByVal fecha_modificacion As String, ByVal deber2 As Integer, ByVal haber2 As Integer, ByVal fecha2 As String, ByVal saldo2 As Integer, ByVal numero_factura2 As String, ByVal descripcion2 As String) As contabilidad2Row
             Dim rowcontabilidad2Row As contabilidad2Row = CType(Me.NewRow,contabilidad2Row)
-            Dim columnValuesArray() As Object = New Object() {Nothing, descripcion_modificacion, fecha_modificacion, deber2, haber2, fecha2, saldo2, numero_factura2, descripcion2}
+            Dim columnValuesArray() As Object = New Object() {Nothing, id_usuario, descripcion_modificacion, fecha_modificacion, deber2, haber2, fecha2, saldo2, numero_factura2, descripcion2}
             rowcontabilidad2Row.ItemArray = columnValuesArray
             Me.Rows.Add(rowcontabilidad2Row)
             Return rowcontabilidad2Row
@@ -1843,6 +1853,7 @@ Partial Public Class DataSet1
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Friend Sub InitVars()
             Me.columnid_contabilidad3 = MyBase.Columns("id_contabilidad3")
+            Me.columnid_usuario = MyBase.Columns("id_usuario")
             Me.columndescripcion_modificacion = MyBase.Columns("descripcion_modificacion")
             Me.columnfecha_modificacion = MyBase.Columns("fecha_modificacion")
             Me.columndeber2 = MyBase.Columns("deber2")
@@ -1858,6 +1869,8 @@ Partial Public Class DataSet1
         Private Sub InitClass()
             Me.columnid_contabilidad3 = New Global.System.Data.DataColumn("id_contabilidad3", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnid_contabilidad3)
+            Me.columnid_usuario = New Global.System.Data.DataColumn("id_usuario", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnid_usuario)
             Me.columndescripcion_modificacion = New Global.System.Data.DataColumn("descripcion_modificacion", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columndescripcion_modificacion)
             Me.columnfecha_modificacion = New Global.System.Data.DataColumn("fecha_modificacion", GetType(String), Nothing, Global.System.Data.MappingType.Element)
@@ -5159,6 +5172,21 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property id_usuario() As Integer
+            Get
+                Try 
+                    Return CType(Me(Me.tablecontabilidad2.id_usuarioColumn),Integer)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'id_usuario' de la tabla 'contabilidad2' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablecontabilidad2.id_usuarioColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property descripcion_modificacion() As String
             Get
                 Try 
@@ -5278,6 +5306,18 @@ Partial Public Class DataSet1
                 Me(Me.tablecontabilidad2.descripcion2Column) = value
             End Set
         End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function Isid_usuarioNull() As Boolean
+            Return Me.IsNull(Me.tablecontabilidad2.id_usuarioColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub Setid_usuarioNull()
+            Me(Me.tablecontabilidad2.id_usuarioColumn) = Global.System.Convert.DBNull
+        End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
@@ -8310,6 +8350,7 @@ Namespace DataSet1TableAdapters
             tableMapping.SourceTable = "Table"
             tableMapping.DataSetTable = "contabilidad2"
             tableMapping.ColumnMappings.Add("id_contabilidad3", "id_contabilidad3")
+            tableMapping.ColumnMappings.Add("id_usuario", "id_usuario")
             tableMapping.ColumnMappings.Add("descripcion_modificacion", "descripcion_modificacion")
             tableMapping.ColumnMappings.Add("fecha_modificacion", "fecha_modificacion")
             tableMapping.ColumnMappings.Add("deber2", "deber2")
@@ -8322,10 +8363,13 @@ Namespace DataSet1TableAdapters
             Me._adapter.DeleteCommand = New Global.System.Data.Odbc.OdbcCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
             Me._adapter.DeleteCommand.CommandText = "DELETE FROM ""mugen"".""public"".""contabilidad2"" WHERE ((""id_contabilidad3"" = ?) AND "& _ 
-                "((? = 1 AND ""deber2"" IS NULL) OR (""deber2"" = ?)) AND ((? = 1 AND ""haber2"" IS NUL"& _ 
-                "L) OR (""haber2"" = ?)) AND ((? = 1 AND ""saldo2"" IS NULL) OR (""saldo2"" = ?)))"
+                "((? = 1 AND ""id_usuario"" IS NULL) OR (""id_usuario"" = ?)) AND ((? = 1 AND ""deber2"& _ 
+                """ IS NULL) OR (""deber2"" = ?)) AND ((? = 1 AND ""haber2"" IS NULL) OR (""haber2"" = ?"& _ 
+                ")) AND ((? = 1 AND ""saldo2"" IS NULL) OR (""saldo2"" = ?)))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.Odbc.OdbcParameter("Original_id_contabilidad3", Global.System.Data.Odbc.OdbcType.Int, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_contabilidad3", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.Odbc.OdbcParameter("IsNull_id_usuario", Global.System.Data.Odbc.OdbcType.Int, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_usuario", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.Odbc.OdbcParameter("Original_id_usuario", Global.System.Data.Odbc.OdbcType.Int, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_usuario", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.Odbc.OdbcParameter("IsNull_deber2", Global.System.Data.Odbc.OdbcType.Int, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "deber2", Global.System.Data.DataRowVersion.Original, true, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.Odbc.OdbcParameter("Original_deber2", Global.System.Data.Odbc.OdbcType.Int, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "deber2", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.Odbc.OdbcParameter("IsNull_haber2", Global.System.Data.Odbc.OdbcType.Int, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "haber2", Global.System.Data.DataRowVersion.Original, true, Nothing))
@@ -8334,10 +8378,11 @@ Namespace DataSet1TableAdapters
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.Odbc.OdbcParameter("Original_saldo2", Global.System.Data.Odbc.OdbcType.Int, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "saldo2", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.InsertCommand = New Global.System.Data.Odbc.OdbcCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
-            Me._adapter.InsertCommand.CommandText = "INSERT INTO ""mugen"".""public"".""contabilidad2"" (""descripcion_modificacion"", ""fecha_"& _ 
-                "modificacion"", ""deber2"", ""haber2"", ""fecha2"", ""saldo2"", ""numero_factura2"", ""descr"& _ 
-                "ipcion2"") VALUES (?, ?, ?, ?, ?, ?, ?, ?)"
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO ""mugen"".""public"".""contabilidad2"" (""id_usuario"", ""descripcion_modifica"& _ 
+                "cion"", ""fecha_modificacion"", ""deber2"", ""haber2"", ""fecha2"", ""saldo2"", ""numero_fac"& _ 
+                "tura2"", ""descripcion2"") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.Odbc.OdbcParameter("id_usuario", Global.System.Data.Odbc.OdbcType.Int, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_usuario", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.Odbc.OdbcParameter("descripcion_modificacion", Global.System.Data.Odbc.OdbcType.Text, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "descripcion_modificacion", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.Odbc.OdbcParameter("fecha_modificacion", Global.System.Data.Odbc.OdbcType.Text, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "fecha_modificacion", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.Odbc.OdbcParameter("deber2", Global.System.Data.Odbc.OdbcType.Int, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "deber2", Global.System.Data.DataRowVersion.Current, false, Nothing))
@@ -8348,12 +8393,14 @@ Namespace DataSet1TableAdapters
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.Odbc.OdbcParameter("descripcion2", Global.System.Data.Odbc.OdbcType.Text, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "descripcion2", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand = New Global.System.Data.Odbc.OdbcCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
-            Me._adapter.UpdateCommand.CommandText = "UPDATE ""mugen"".""public"".""contabilidad2"" SET ""descripcion_modificacion"" = ?, ""fech"& _ 
-                "a_modificacion"" = ?, ""deber2"" = ?, ""haber2"" = ?, ""fecha2"" = ?, ""saldo2"" = ?, ""nu"& _ 
-                "mero_factura2"" = ?, ""descripcion2"" = ? WHERE ((""id_contabilidad3"" = ?) AND ((? ="& _ 
-                " 1 AND ""deber2"" IS NULL) OR (""deber2"" = ?)) AND ((? = 1 AND ""haber2"" IS NULL) OR"& _ 
-                " (""haber2"" = ?)) AND ((? = 1 AND ""saldo2"" IS NULL) OR (""saldo2"" = ?)))"
+            Me._adapter.UpdateCommand.CommandText = "UPDATE ""mugen"".""public"".""contabilidad2"" SET ""id_usuario"" = ?, ""descripcion_modifi"& _ 
+                "cacion"" = ?, ""fecha_modificacion"" = ?, ""deber2"" = ?, ""haber2"" = ?, ""fecha2"" = ?,"& _ 
+                " ""saldo2"" = ?, ""numero_factura2"" = ?, ""descripcion2"" = ? WHERE ((""id_contabilida"& _ 
+                "d3"" = ?) AND ((? = 1 AND ""id_usuario"" IS NULL) OR (""id_usuario"" = ?)) AND ((? = "& _ 
+                "1 AND ""deber2"" IS NULL) OR (""deber2"" = ?)) AND ((? = 1 AND ""haber2"" IS NULL) OR "& _ 
+                "(""haber2"" = ?)) AND ((? = 1 AND ""saldo2"" IS NULL) OR (""saldo2"" = ?)))"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.Odbc.OdbcParameter("id_usuario", Global.System.Data.Odbc.OdbcType.Int, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_usuario", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.Odbc.OdbcParameter("descripcion_modificacion", Global.System.Data.Odbc.OdbcType.Text, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "descripcion_modificacion", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.Odbc.OdbcParameter("fecha_modificacion", Global.System.Data.Odbc.OdbcType.Text, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "fecha_modificacion", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.Odbc.OdbcParameter("deber2", Global.System.Data.Odbc.OdbcType.Int, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "deber2", Global.System.Data.DataRowVersion.Current, false, Nothing))
@@ -8363,6 +8410,8 @@ Namespace DataSet1TableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.Odbc.OdbcParameter("numero_factura2", Global.System.Data.Odbc.OdbcType.Text, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "numero_factura2", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.Odbc.OdbcParameter("descripcion2", Global.System.Data.Odbc.OdbcType.Text, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "descripcion2", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.Odbc.OdbcParameter("Original_id_contabilidad3", Global.System.Data.Odbc.OdbcType.Int, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_contabilidad3", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.Odbc.OdbcParameter("IsNull_id_usuario", Global.System.Data.Odbc.OdbcType.Int, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_usuario", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.Odbc.OdbcParameter("Original_id_usuario", Global.System.Data.Odbc.OdbcType.Int, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_usuario", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.Odbc.OdbcParameter("IsNull_deber2", Global.System.Data.Odbc.OdbcType.Int, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "deber2", Global.System.Data.DataRowVersion.Original, true, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.Odbc.OdbcParameter("Original_deber2", Global.System.Data.Odbc.OdbcType.Int, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "deber2", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.Odbc.OdbcParameter("IsNull_haber2", Global.System.Data.Odbc.OdbcType.Int, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "haber2", Global.System.Data.DataRowVersion.Original, true, Nothing))
@@ -8384,9 +8433,9 @@ Namespace DataSet1TableAdapters
             Me._commandCollection = New Global.System.Data.Odbc.OdbcCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.Odbc.OdbcCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT ""id_contabilidad3"", ""descripcion_modificacion"", ""fecha_modificacion"", ""deb"& _ 
-                "er2"", ""haber2"", ""fecha2"", ""saldo2"", ""numero_factura2"", ""descripcion2"" FROM ""publ"& _ 
-                "ic"".""contabilidad2"""
+            Me._commandCollection(0).CommandText = "SELECT ""id_contabilidad3"", ""id_usuario"", ""descripcion_modificacion"", ""fecha_modif"& _ 
+                "icacion"", ""deber2"", ""haber2"", ""fecha2"", ""saldo2"", ""numero_factura2"", ""descripcio"& _ 
+                "n2"" FROM ""public"".""contabilidad2"""
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
@@ -8446,14 +8495,16 @@ Namespace DataSet1TableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete(ByVal Original_id_contabilidad3 As Integer, ByVal Original_deber2 As Integer, ByVal Original_haber2 As Integer, ByVal Original_saldo2 As Integer) As Integer
+        Public Overloads Overridable Function Delete(ByVal Original_id_contabilidad3 As Integer, ByVal Original_id_usuario As Integer, ByVal Original_deber2 As Integer, ByVal Original_haber2 As Integer, ByVal Original_saldo2 As Integer) As Integer
             Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_id_contabilidad3,Integer)
             Me.Adapter.DeleteCommand.Parameters(1).Value = CType(0,Object)
-            Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_deber2,Integer)
+            Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_id_usuario,Integer)
             Me.Adapter.DeleteCommand.Parameters(3).Value = CType(0,Object)
-            Me.Adapter.DeleteCommand.Parameters(4).Value = CType(Original_haber2,Integer)
+            Me.Adapter.DeleteCommand.Parameters(4).Value = CType(Original_deber2,Integer)
             Me.Adapter.DeleteCommand.Parameters(5).Value = CType(0,Object)
-            Me.Adapter.DeleteCommand.Parameters(6).Value = CType(Original_saldo2,Integer)
+            Me.Adapter.DeleteCommand.Parameters(6).Value = CType(Original_haber2,Integer)
+            Me.Adapter.DeleteCommand.Parameters(7).Value = CType(0,Object)
+            Me.Adapter.DeleteCommand.Parameters(8).Value = CType(Original_saldo2,Integer)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
             If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -8473,34 +8524,35 @@ Namespace DataSet1TableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal descripcion_modificacion As String, ByVal fecha_modificacion As String, ByVal deber2 As Integer, ByVal haber2 As Integer, ByVal fecha2 As String, ByVal saldo2 As Integer, ByVal numero_factura2 As String, ByVal descripcion2 As String) As Integer
+        Public Overloads Overridable Function Insert(ByVal id_usuario As Integer, ByVal descripcion_modificacion As String, ByVal fecha_modificacion As String, ByVal deber2 As Integer, ByVal haber2 As Integer, ByVal fecha2 As String, ByVal saldo2 As Integer, ByVal numero_factura2 As String, ByVal descripcion2 As String) As Integer
+            Me.Adapter.InsertCommand.Parameters(0).Value = CType(id_usuario,Integer)
             If (descripcion_modificacion Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("descripcion_modificacion")
             Else
-                Me.Adapter.InsertCommand.Parameters(0).Value = CType(descripcion_modificacion,String)
+                Me.Adapter.InsertCommand.Parameters(1).Value = CType(descripcion_modificacion,String)
             End If
             If (fecha_modificacion Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("fecha_modificacion")
             Else
-                Me.Adapter.InsertCommand.Parameters(1).Value = CType(fecha_modificacion,String)
+                Me.Adapter.InsertCommand.Parameters(2).Value = CType(fecha_modificacion,String)
             End If
-            Me.Adapter.InsertCommand.Parameters(2).Value = CType(deber2,Integer)
-            Me.Adapter.InsertCommand.Parameters(3).Value = CType(haber2,Integer)
+            Me.Adapter.InsertCommand.Parameters(3).Value = CType(deber2,Integer)
+            Me.Adapter.InsertCommand.Parameters(4).Value = CType(haber2,Integer)
             If (fecha2 Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("fecha2")
             Else
-                Me.Adapter.InsertCommand.Parameters(4).Value = CType(fecha2,String)
+                Me.Adapter.InsertCommand.Parameters(5).Value = CType(fecha2,String)
             End If
-            Me.Adapter.InsertCommand.Parameters(5).Value = CType(saldo2,Integer)
+            Me.Adapter.InsertCommand.Parameters(6).Value = CType(saldo2,Integer)
             If (numero_factura2 Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("numero_factura2")
             Else
-                Me.Adapter.InsertCommand.Parameters(6).Value = CType(numero_factura2,String)
+                Me.Adapter.InsertCommand.Parameters(7).Value = CType(numero_factura2,String)
             End If
             If (descripcion2 Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("descripcion2")
             Else
-                Me.Adapter.InsertCommand.Parameters(7).Value = CType(descripcion2,String)
+                Me.Adapter.InsertCommand.Parameters(8).Value = CType(descripcion2,String)
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
             If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -8521,42 +8573,45 @@ Namespace DataSet1TableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal descripcion_modificacion As String, ByVal fecha_modificacion As String, ByVal deber2 As Integer, ByVal haber2 As Integer, ByVal fecha2 As String, ByVal saldo2 As Integer, ByVal numero_factura2 As String, ByVal descripcion2 As String, ByVal Original_id_contabilidad3 As Integer, ByVal Original_deber2 As Integer, ByVal Original_haber2 As Integer, ByVal Original_saldo2 As Integer) As Integer
+        Public Overloads Overridable Function Update(ByVal id_usuario As Integer, ByVal descripcion_modificacion As String, ByVal fecha_modificacion As String, ByVal deber2 As Integer, ByVal haber2 As Integer, ByVal fecha2 As String, ByVal saldo2 As Integer, ByVal numero_factura2 As String, ByVal descripcion2 As String, ByVal Original_id_contabilidad3 As Integer, ByVal Original_id_usuario As Integer, ByVal Original_deber2 As Integer, ByVal Original_haber2 As Integer, ByVal Original_saldo2 As Integer) As Integer
+            Me.Adapter.UpdateCommand.Parameters(0).Value = CType(id_usuario,Integer)
             If (descripcion_modificacion Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("descripcion_modificacion")
             Else
-                Me.Adapter.UpdateCommand.Parameters(0).Value = CType(descripcion_modificacion,String)
+                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(descripcion_modificacion,String)
             End If
             If (fecha_modificacion Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("fecha_modificacion")
             Else
-                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(fecha_modificacion,String)
+                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(fecha_modificacion,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(2).Value = CType(deber2,Integer)
-            Me.Adapter.UpdateCommand.Parameters(3).Value = CType(haber2,Integer)
+            Me.Adapter.UpdateCommand.Parameters(3).Value = CType(deber2,Integer)
+            Me.Adapter.UpdateCommand.Parameters(4).Value = CType(haber2,Integer)
             If (fecha2 Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("fecha2")
             Else
-                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(fecha2,String)
+                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(fecha2,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(5).Value = CType(saldo2,Integer)
+            Me.Adapter.UpdateCommand.Parameters(6).Value = CType(saldo2,Integer)
             If (numero_factura2 Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("numero_factura2")
             Else
-                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(numero_factura2,String)
+                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(numero_factura2,String)
             End If
             If (descripcion2 Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("descripcion2")
             Else
-                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(descripcion2,String)
+                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(descripcion2,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(8).Value = CType(Original_id_contabilidad3,Integer)
-            Me.Adapter.UpdateCommand.Parameters(9).Value = CType(0,Object)
-            Me.Adapter.UpdateCommand.Parameters(10).Value = CType(Original_deber2,Integer)
-            Me.Adapter.UpdateCommand.Parameters(11).Value = CType(0,Object)
-            Me.Adapter.UpdateCommand.Parameters(12).Value = CType(Original_haber2,Integer)
-            Me.Adapter.UpdateCommand.Parameters(13).Value = CType(0,Object)
-            Me.Adapter.UpdateCommand.Parameters(14).Value = CType(Original_saldo2,Integer)
+            Me.Adapter.UpdateCommand.Parameters(9).Value = CType(Original_id_contabilidad3,Integer)
+            Me.Adapter.UpdateCommand.Parameters(10).Value = CType(0,Object)
+            Me.Adapter.UpdateCommand.Parameters(11).Value = CType(Original_id_usuario,Integer)
+            Me.Adapter.UpdateCommand.Parameters(12).Value = CType(0,Object)
+            Me.Adapter.UpdateCommand.Parameters(13).Value = CType(Original_deber2,Integer)
+            Me.Adapter.UpdateCommand.Parameters(14).Value = CType(0,Object)
+            Me.Adapter.UpdateCommand.Parameters(15).Value = CType(Original_haber2,Integer)
+            Me.Adapter.UpdateCommand.Parameters(16).Value = CType(0,Object)
+            Me.Adapter.UpdateCommand.Parameters(17).Value = CType(Original_saldo2,Integer)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then

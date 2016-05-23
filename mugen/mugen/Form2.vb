@@ -1935,6 +1935,15 @@ Public Class Form2
     End Sub
 
     Private Sub Button28_Click(sender As Object, e As EventArgs) Handles Button28.Click
-        MsgBox(fecha_desde.Value)
+        Dim desde As String
+        Dim hasta As String
+
+        desde = fecha_desde.Value
+        desde = desde.Substring(0, 10)
+
+        hasta = fecha_hasta.Value
+        hasta = hasta.Substring(0, 10)
+
+        MsgBox("desde " + desde + " hasta " + hasta)
     End Sub
 End Class

@@ -1961,5 +1961,44 @@ Public Class Form2
         CheckBoxCom2.Checked = False
         CheckBoxDias2.Checked = False
         CheckBoxMano2.Checked = False
+        ingresarServicios.Hide()
+
+
+    End Sub
+
+    Private Sub serBusBtn_Click(sender As Object, e As EventArgs) Handles serBusBtn.Click
+        'nueva puerquesa
+        Dim i, j, k, s As Integer
+        Dim resul As String
+        Dim bandera As Boolean = False
+
+        mostrarErrores(errorBuscar, "", False)
+        i = DataSet1.Tables("servicio").Rows.Count
+        s = serBusBtn.Text.ToString.Length
+        If i > 0 Then
+            For j = 0 To i - 1
+
+                resul = ServicioDataGridView.Item(1, j).Value().ToString()
+                k = resul.Length
+                If k >= s And serBusBtn.Text <> "" Then
+                    If resul.Substring(0, s).Equals(serBusBtn.Text) Then
+                        lisBusSer.Items.Add(resul + " " + ServicioDataGridView.Item(2, j).Value().ToString() + " " + ServicioDataGridView.Item(3, j).Value().ToString())
+                        bandera = True
+                    End If
+                ElseIf serBusBtn.Text = "" Then
+                    lisBusSer.Items.Add(resul + " " + ServicioDataGridView.Item(2, j).Value().ToString() + " " + ServicioDataGridView.Item(3, j).Value().ToString())
+                    bandera = -True
+                End If
+            Next
+        Else
+            mostrarErrores(errorBuscar, "No existe registros en la base de datos", True)
+        End If
+
+        If bandera Then
+            mostrarErrores(errorBuscar, "No existen coincidencias", True)
+        End If
+
+
+
     End Sub
 End Class

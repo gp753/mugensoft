@@ -33,12 +33,12 @@ Partial Class Form2
         Dim ApellidoLabel1A As System.Windows.Forms.Label
         Dim NombreLabel1N As System.Windows.Forms.Label
         Dim RucLabel1R As System.Windows.Forms.Label
-        Dim ChartArea5 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend5 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series5 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim ChartArea6 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend6 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series6 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea2 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend2 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series2 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form2))
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Venta_servicioDataGridView = New System.Windows.Forms.DataGridView()
@@ -488,6 +488,14 @@ Partial Class Form2
         Me.Venta_productoTableAdapter = New mugen.DataSet1TableAdapters.venta_productoTableAdapter()
         Me.ServicioTableAdapter = New mugen.DataSet1TableAdapters.servicioTableAdapter()
         Me.Venta_servicioTableAdapter = New mugen.DataSet1TableAdapters.venta_servicioTableAdapter()
+        Me.verServicios = New System.Windows.Forms.Panel()
+        Me.verSerPanel = New System.Windows.Forms.GroupBox()
+        Me.lisBusSer = New System.Windows.Forms.ListBox()
+        Me.verSerLab = New System.Windows.Forms.Label()
+        Me.verBusLab = New System.Windows.Forms.Label()
+        Me.serBusTxt = New System.Windows.Forms.TextBox()
+        Me.serBusBtn = New System.Windows.Forms.Button()
+        Me.errorBuscar = New System.Windows.Forms.Label()
         MailLabelM = New System.Windows.Forms.Label()
         NumeroLabelN = New System.Windows.Forms.Label()
         RucLabelR = New System.Windows.Forms.Label()
@@ -556,6 +564,8 @@ Partial Class Form2
         Me.panelServicios.SuspendLayout()
         Me.editarServicios.SuspendLayout()
         Me.ingresarServicios.SuspendLayout()
+        Me.verServicios.SuspendLayout()
+        Me.verSerPanel.SuspendLayout()
         Me.SuspendLayout()
         '
         'MailLabelM
@@ -3132,16 +3142,16 @@ Partial Class Form2
         '
         'graficoTrabajos
         '
-        ChartArea5.Name = "ChartArea1"
-        Me.graficoTrabajos.ChartAreas.Add(ChartArea5)
-        Legend5.Name = "Legend1"
-        Me.graficoTrabajos.Legends.Add(Legend5)
+        ChartArea1.Name = "ChartArea1"
+        Me.graficoTrabajos.ChartAreas.Add(ChartArea1)
+        Legend1.Name = "Legend1"
+        Me.graficoTrabajos.Legends.Add(Legend1)
         Me.graficoTrabajos.Location = New System.Drawing.Point(573, 145)
         Me.graficoTrabajos.Name = "graficoTrabajos"
-        Series5.ChartArea = "ChartArea1"
-        Series5.Legend = "Legend1"
-        Series5.Name = "Series1"
-        Me.graficoTrabajos.Series.Add(Series5)
+        Series1.ChartArea = "ChartArea1"
+        Series1.Legend = "Legend1"
+        Series1.Name = "Series1"
+        Me.graficoTrabajos.Series.Add(Series1)
         Me.graficoTrabajos.Size = New System.Drawing.Size(416, 244)
         Me.graficoTrabajos.TabIndex = 41
         Me.graficoTrabajos.Text = "Chart2"
@@ -3149,16 +3159,16 @@ Partial Class Form2
         '
         'graficoPagados
         '
-        ChartArea6.Name = "ChartArea1"
-        Me.graficoPagados.ChartAreas.Add(ChartArea6)
-        Legend6.Name = "Legend1"
-        Me.graficoPagados.Legends.Add(Legend6)
+        ChartArea2.Name = "ChartArea1"
+        Me.graficoPagados.ChartAreas.Add(ChartArea2)
+        Legend2.Name = "Legend1"
+        Me.graficoPagados.Legends.Add(Legend2)
         Me.graficoPagados.Location = New System.Drawing.Point(369, 143)
         Me.graficoPagados.Name = "graficoPagados"
-        Series6.ChartArea = "ChartArea1"
-        Series6.Legend = "Legend1"
-        Series6.Name = "Series1"
-        Me.graficoPagados.Series.Add(Series6)
+        Series2.ChartArea = "ChartArea1"
+        Series2.Legend = "Legend1"
+        Series2.Name = "Series1"
+        Me.graficoPagados.Series.Add(Series2)
         Me.graficoPagados.Size = New System.Drawing.Size(416, 244)
         Me.graficoPagados.TabIndex = 40
         Me.graficoPagados.Text = "Chart1"
@@ -4285,6 +4295,7 @@ Partial Class Form2
         '
         'ingresarServicios
         '
+        Me.ingresarServicios.Controls.Add(Me.verServicios)
         Me.ingresarServicios.Controls.Add(Me.CheckBoxCom)
         Me.ingresarServicios.Controls.Add(Me.CheckBoxMano)
         Me.ingresarServicios.Controls.Add(Me.CheckBoxDias)
@@ -4498,12 +4509,86 @@ Partial Class Form2
         '
         Me.Venta_servicioTableAdapter.ClearBeforeFill = True
         '
+        'verServicios
+        '
+        Me.verServicios.Controls.Add(Me.verSerPanel)
+        Me.verServicios.Location = New System.Drawing.Point(0, 2)
+        Me.verServicios.Name = "verServicios"
+        Me.verServicios.Size = New System.Drawing.Size(474, 423)
+        Me.verServicios.TabIndex = 2
+        '
+        'verSerPanel
+        '
+        Me.verSerPanel.Controls.Add(Me.errorBuscar)
+        Me.verSerPanel.Controls.Add(Me.serBusBtn)
+        Me.verSerPanel.Controls.Add(Me.serBusTxt)
+        Me.verSerPanel.Controls.Add(Me.verBusLab)
+        Me.verSerPanel.Controls.Add(Me.verSerLab)
+        Me.verSerPanel.Controls.Add(Me.lisBusSer)
+        Me.verSerPanel.Location = New System.Drawing.Point(3, -2)
+        Me.verSerPanel.Name = "verSerPanel"
+        Me.verSerPanel.Size = New System.Drawing.Size(458, 404)
+        Me.verSerPanel.TabIndex = 0
+        Me.verSerPanel.TabStop = False
+        Me.verSerPanel.Text = "Ver Servicios"
+        '
+        'lisBusSer
+        '
+        Me.lisBusSer.FormattingEnabled = True
+        Me.lisBusSer.Location = New System.Drawing.Point(0, 81)
+        Me.lisBusSer.Name = "lisBusSer"
+        Me.lisBusSer.Size = New System.Drawing.Size(452, 199)
+        Me.lisBusSer.TabIndex = 0
+        '
+        'verSerLab
+        '
+        Me.verSerLab.AutoSize = True
+        Me.verSerLab.Location = New System.Drawing.Point(0, 66)
+        Me.verSerLab.Name = "verSerLab"
+        Me.verSerLab.Size = New System.Drawing.Size(145, 13)
+        Me.verSerLab.TabIndex = 1
+        Me.verSerLab.Text = "Lista de servicios registrados:"
+        '
+        'verBusLab
+        '
+        Me.verBusLab.AutoSize = True
+        Me.verBusLab.Location = New System.Drawing.Point(288, 306)
+        Me.verBusLab.Name = "verBusLab"
+        Me.verBusLab.Size = New System.Drawing.Size(109, 13)
+        Me.verBusLab.TabIndex = 2
+        Me.verBusLab.Text = "Buscar Coincidencias"
+        '
+        'serBusTxt
+        '
+        Me.serBusTxt.Location = New System.Drawing.Point(291, 323)
+        Me.serBusTxt.Name = "serBusTxt"
+        Me.serBusTxt.Size = New System.Drawing.Size(162, 20)
+        Me.serBusTxt.TabIndex = 3
+        '
+        'serBusBtn
+        '
+        Me.serBusBtn.Location = New System.Drawing.Point(374, 348)
+        Me.serBusBtn.Name = "serBusBtn"
+        Me.serBusBtn.Size = New System.Drawing.Size(75, 23)
+        Me.serBusBtn.TabIndex = 4
+        Me.serBusBtn.Text = "Buscar"
+        Me.serBusBtn.UseVisualStyleBackColor = True
+        '
+        'errorBuscar
+        '
+        Me.errorBuscar.AutoSize = True
+        Me.errorBuscar.Location = New System.Drawing.Point(274, 358)
+        Me.errorBuscar.Name = "errorBuscar"
+        Me.errorBuscar.Size = New System.Drawing.Size(10, 13)
+        Me.errorBuscar.TabIndex = 5
+        Me.errorBuscar.Text = "."
+        '
         'Form2
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoScroll = True
-        Me.ClientSize = New System.Drawing.Size(1115, 510)
+        Me.ClientSize = New System.Drawing.Size(1277, 510)
         Me.Controls.Add(Me.boton_servicios)
         Me.Controls.Add(Me.panel_botones_mugen)
         Me.Controls.Add(Me.Button7)
@@ -4599,6 +4684,9 @@ Partial Class Form2
         Me.editarServicios.PerformLayout()
         Me.ingresarServicios.ResumeLayout(False)
         Me.ingresarServicios.PerformLayout()
+        Me.verServicios.ResumeLayout(False)
+        Me.verSerPanel.ResumeLayout(False)
+        Me.verSerPanel.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -5053,4 +5141,12 @@ Partial Class Form2
     Friend WithEvents CheckBoxCom As CheckBox
     Friend WithEvents CheckBoxMano As CheckBox
     Friend WithEvents CheckBoxDias As CheckBox
+    Friend WithEvents verServicios As Panel
+    Friend WithEvents verSerPanel As GroupBox
+    Friend WithEvents errorBuscar As Label
+    Friend WithEvents serBusBtn As Button
+    Friend WithEvents serBusTxt As TextBox
+    Friend WithEvents verBusLab As Label
+    Friend WithEvents verSerLab As Label
+    Friend WithEvents lisBusSer As ListBox
 End Class

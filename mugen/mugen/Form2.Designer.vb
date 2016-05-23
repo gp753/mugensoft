@@ -33,12 +33,12 @@ Partial Class Form2
         Dim ApellidoLabel1A As System.Windows.Forms.Label
         Dim NombreLabel1N As System.Windows.Forms.Label
         Dim RucLabel1R As System.Windows.Forms.Label
-        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim ChartArea2 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend2 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series2 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea9 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend9 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series9 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea10 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend10 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series10 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form2))
         Me.Ingreso_productoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DataSet1 = New mugen.DataSet1()
@@ -412,8 +412,12 @@ Partial Class Form2
         Me.Label42 = New System.Windows.Forms.Label()
         Me.Label41 = New System.Windows.Forms.Label()
         Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
+        Me.ServicioTableAdapter = New mugen.DataSet1TableAdapters.servicioTableAdapter()
+        Me.Venta_servicioTableAdapter = New mugen.DataSet1TableAdapters.venta_servicioTableAdapter()
+        Me.Panel2 = New System.Windows.Forms.Panel()
         Me.GroupBox4Stock = New System.Windows.Forms.GroupBox()
         Me.GroupBoxModificarProducto = New System.Windows.Forms.GroupBox()
+        Me.ButtonBuscara = New System.Windows.Forms.Button()
         Me.LabelModificarProducto = New System.Windows.Forms.Label()
         Me.ButtonCerrar3 = New System.Windows.Forms.Button()
         Me.ButtonModificarProducto = New System.Windows.Forms.Button()
@@ -424,20 +428,20 @@ Partial Class Form2
         Me.TextBoxCodigo2 = New System.Windows.Forms.TextBox()
         Me.LabelCodigo = New System.Windows.Forms.Label()
         Me.GroupBoxIngresodeProducto = New System.Windows.Forms.GroupBox()
-        Me.TextBox18 = New System.Windows.Forms.TextBox()
-        Me.TextBox15 = New System.Windows.Forms.TextBox()
+        Me.CheckBoxIVAincluido = New System.Windows.Forms.CheckBox()
+        Me.TextBoxDeshabilitado3 = New System.Windows.Forms.TextBox()
+        Me.TextBoxPrecioUnitario = New System.Windows.Forms.TextBox()
         Me.Label57 = New System.Windows.Forms.Label()
         Me.TextBoxDeshabilitado2 = New System.Windows.Forms.TextBox()
-        Me.TextBoxDeshabilitado = New System.Windows.Forms.TextBox()
         Me.LabelIngresoProducto = New System.Windows.Forms.Label()
         Me.ButtonCerrar2 = New System.Windows.Forms.Button()
         Me.ButtonInsertarProducto = New System.Windows.Forms.Button()
-        Me.TextBoxIVA = New System.Windows.Forms.TextBox()
         Me.TextBoxPreciodeCompra = New System.Windows.Forms.TextBox()
+        Me.TextBoxCantidad = New System.Windows.Forms.TextBox()
         Me.TextBoxProveedor = New System.Windows.Forms.TextBox()
-        Me.TextBoxFacturaNro = New System.Windows.Forms.TextBox()
-        Me.TextBoxSeleccionarCantidad = New System.Windows.Forms.TextBox()
-        Me.TextBoxSeleccionarProducto = New System.Windows.Forms.TextBox()
+        Me.TextBoxFecha = New System.Windows.Forms.TextBox()
+        Me.TextBoxIDStockMugen = New System.Windows.Forms.TextBox()
+        Me.TextBoxNroFactura = New System.Windows.Forms.TextBox()
         Me.Label59 = New System.Windows.Forms.Label()
         Me.Label60 = New System.Windows.Forms.Label()
         Me.Label61 = New System.Windows.Forms.Label()
@@ -458,21 +462,18 @@ Partial Class Form2
         Me.Button26 = New System.Windows.Forms.Button()
         Me.Button25 = New System.Windows.Forms.Button()
         Me.Button24NuevoProducto = New System.Windows.Forms.Button()
-        Me.ServicioTableAdapter = New mugen.DataSet1TableAdapters.servicioTableAdapter()
-        Me.Venta_servicioTableAdapter = New mugen.DataSet1TableAdapters.venta_servicioTableAdapter()
-        Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.view_contable = New System.Windows.Forms.DataGridView()
+        Me.Label66 = New System.Windows.Forms.Label()
+        Me.Label65 = New System.Windows.Forms.Label()
+        Me.fecha_hasta = New System.Windows.Forms.DateTimePicker()
+        Me.fecha_desde = New System.Windows.Forms.DateTimePicker()
+        Me.Button28 = New System.Windows.Forms.Button()
         Me.Mostrar_contabilidad = New System.Windows.Forms.Button()
+        Me.view_contable = New System.Windows.Forms.DataGridView()
         Me.Fecha = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Descripcion = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Deber = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Haber = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Saldo = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Button28 = New System.Windows.Forms.Button()
-        Me.fecha_desde = New System.Windows.Forms.DateTimePicker()
-        Me.fecha_hasta = New System.Windows.Forms.DateTimePicker()
-        Me.Label65 = New System.Windows.Forms.Label()
-        Me.Label66 = New System.Windows.Forms.Label()
         MailLabelM = New System.Windows.Forms.Label()
         NumeroLabelN = New System.Windows.Forms.Label()
         RucLabelR = New System.Windows.Forms.Label()
@@ -534,11 +535,11 @@ Partial Class Form2
         CType(Me.BindingNavigator1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.BindingNavigator1.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
+        Me.Panel2.SuspendLayout()
         Me.GroupBox4Stock.SuspendLayout()
         Me.GroupBoxModificarProducto.SuspendLayout()
         Me.GroupBoxIngresodeProducto.SuspendLayout()
         Me.GroupBoxNuevoProducto.SuspendLayout()
-        Me.Panel2.SuspendLayout()
         CType(Me.view_contable, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -3191,16 +3192,16 @@ Partial Class Form2
         '
         'graficoTrabajos
         '
-        ChartArea1.Name = "ChartArea1"
-        Me.graficoTrabajos.ChartAreas.Add(ChartArea1)
-        Legend1.Name = "Legend1"
-        Me.graficoTrabajos.Legends.Add(Legend1)
+        ChartArea9.Name = "ChartArea1"
+        Me.graficoTrabajos.ChartAreas.Add(ChartArea9)
+        Legend9.Name = "Legend1"
+        Me.graficoTrabajos.Legends.Add(Legend9)
         Me.graficoTrabajos.Location = New System.Drawing.Point(573, 145)
         Me.graficoTrabajos.Name = "graficoTrabajos"
-        Series1.ChartArea = "ChartArea1"
-        Series1.Legend = "Legend1"
-        Series1.Name = "Series1"
-        Me.graficoTrabajos.Series.Add(Series1)
+        Series9.ChartArea = "ChartArea1"
+        Series9.Legend = "Legend1"
+        Series9.Name = "Series1"
+        Me.graficoTrabajos.Series.Add(Series9)
         Me.graficoTrabajos.Size = New System.Drawing.Size(416, 244)
         Me.graficoTrabajos.TabIndex = 41
         Me.graficoTrabajos.Text = "Chart2"
@@ -3208,16 +3209,16 @@ Partial Class Form2
         '
         'graficoPagados
         '
-        ChartArea2.Name = "ChartArea1"
-        Me.graficoPagados.ChartAreas.Add(ChartArea2)
-        Legend2.Name = "Legend1"
-        Me.graficoPagados.Legends.Add(Legend2)
+        ChartArea10.Name = "ChartArea1"
+        Me.graficoPagados.ChartAreas.Add(ChartArea10)
+        Legend10.Name = "Legend1"
+        Me.graficoPagados.Legends.Add(Legend10)
         Me.graficoPagados.Location = New System.Drawing.Point(369, 143)
         Me.graficoPagados.Name = "graficoPagados"
-        Series2.ChartArea = "ChartArea1"
-        Series2.Legend = "Legend1"
-        Series2.Name = "Series1"
-        Me.graficoPagados.Series.Add(Series2)
+        Series10.ChartArea = "ChartArea1"
+        Series10.Legend = "Legend1"
+        Series10.Name = "Series1"
+        Me.graficoPagados.Series.Add(Series10)
         Me.graficoPagados.Size = New System.Drawing.Size(416, 244)
         Me.graficoPagados.TabIndex = 40
         Me.graficoPagados.Text = "Chart1"
@@ -3755,6 +3756,29 @@ Partial Class Form2
         Me.Label41.TabIndex = 0
         Me.Label41.Text = "Trabajos Pendientes"
         '
+        'ServicioTableAdapter
+        '
+        Me.ServicioTableAdapter.ClearBeforeFill = True
+        '
+        'Venta_servicioTableAdapter
+        '
+        Me.Venta_servicioTableAdapter.ClearBeforeFill = True
+        '
+        'Panel2
+        '
+        Me.Panel2.Controls.Add(Me.GroupBox4Stock)
+        Me.Panel2.Controls.Add(Me.Label66)
+        Me.Panel2.Controls.Add(Me.Label65)
+        Me.Panel2.Controls.Add(Me.fecha_hasta)
+        Me.Panel2.Controls.Add(Me.fecha_desde)
+        Me.Panel2.Controls.Add(Me.Button28)
+        Me.Panel2.Controls.Add(Me.Mostrar_contabilidad)
+        Me.Panel2.Controls.Add(Me.view_contable)
+        Me.Panel2.Location = New System.Drawing.Point(5, 79)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(1318, 520)
+        Me.Panel2.TabIndex = 43
+        '
         'GroupBox4Stock
         '
         Me.GroupBox4Stock.Controls.Add(Me.GroupBoxModificarProducto)
@@ -3764,16 +3788,17 @@ Partial Class Form2
         Me.GroupBox4Stock.Controls.Add(Me.Button26)
         Me.GroupBox4Stock.Controls.Add(Me.Button25)
         Me.GroupBox4Stock.Controls.Add(Me.Button24NuevoProducto)
-        Me.GroupBox4Stock.Location = New System.Drawing.Point(12, 73)
+        Me.GroupBox4Stock.Location = New System.Drawing.Point(1, 3)
         Me.GroupBox4Stock.Name = "GroupBox4Stock"
         Me.GroupBox4Stock.Size = New System.Drawing.Size(1317, 605)
-        Me.GroupBox4Stock.TabIndex = 42
+        Me.GroupBox4Stock.TabIndex = 43
         Me.GroupBox4Stock.TabStop = False
         Me.GroupBox4Stock.Text = "Stock"
         Me.GroupBox4Stock.Visible = False
         '
         'GroupBoxModificarProducto
         '
+        Me.GroupBoxModificarProducto.Controls.Add(Me.ButtonBuscara)
         Me.GroupBoxModificarProducto.Controls.Add(Me.LabelModificarProducto)
         Me.GroupBoxModificarProducto.Controls.Add(Me.ButtonCerrar3)
         Me.GroupBoxModificarProducto.Controls.Add(Me.ButtonModificarProducto)
@@ -3790,6 +3815,15 @@ Partial Class Form2
         Me.GroupBoxModificarProducto.TabStop = False
         Me.GroupBoxModificarProducto.Text = "Modificar Producto"
         Me.GroupBoxModificarProducto.Visible = False
+        '
+        'ButtonBuscara
+        '
+        Me.ButtonBuscara.Location = New System.Drawing.Point(230, 46)
+        Me.ButtonBuscara.Name = "ButtonBuscara"
+        Me.ButtonBuscara.Size = New System.Drawing.Size(62, 23)
+        Me.ButtonBuscara.TabIndex = 15
+        Me.ButtonBuscara.Text = "Buscar"
+        Me.ButtonBuscara.UseVisualStyleBackColor = True
         '
         'LabelModificarProducto
         '
@@ -3823,6 +3857,7 @@ Partial Class Form2
         '
         Me.TextBoxPrecio2.Location = New System.Drawing.Point(131, 118)
         Me.TextBoxPrecio2.Name = "TextBoxPrecio2"
+        Me.TextBoxPrecio2.ReadOnly = True
         Me.TextBoxPrecio2.Size = New System.Drawing.Size(161, 20)
         Me.TextBoxPrecio2.TabIndex = 8
         '
@@ -3839,6 +3874,7 @@ Partial Class Form2
         '
         Me.TextBoxDescripcion2.Location = New System.Drawing.Point(131, 83)
         Me.TextBoxDescripcion2.Name = "TextBoxDescripcion2"
+        Me.TextBoxDescripcion2.ReadOnly = True
         Me.TextBoxDescripcion2.Size = New System.Drawing.Size(161, 20)
         Me.TextBoxDescripcion2.TabIndex = 7
         '
@@ -3853,9 +3889,9 @@ Partial Class Form2
         '
         'TextBoxCodigo2
         '
-        Me.TextBoxCodigo2.Location = New System.Drawing.Point(131, 48)
+        Me.TextBoxCodigo2.Location = New System.Drawing.Point(131, 47)
         Me.TextBoxCodigo2.Name = "TextBoxCodigo2"
-        Me.TextBoxCodigo2.Size = New System.Drawing.Size(161, 20)
+        Me.TextBoxCodigo2.Size = New System.Drawing.Size(99, 20)
         Me.TextBoxCodigo2.TabIndex = 6
         '
         'LabelCodigo
@@ -3869,20 +3905,20 @@ Partial Class Form2
         '
         'GroupBoxIngresodeProducto
         '
-        Me.GroupBoxIngresodeProducto.Controls.Add(Me.TextBox18)
-        Me.GroupBoxIngresodeProducto.Controls.Add(Me.TextBox15)
+        Me.GroupBoxIngresodeProducto.Controls.Add(Me.CheckBoxIVAincluido)
+        Me.GroupBoxIngresodeProducto.Controls.Add(Me.TextBoxDeshabilitado3)
+        Me.GroupBoxIngresodeProducto.Controls.Add(Me.TextBoxPrecioUnitario)
         Me.GroupBoxIngresodeProducto.Controls.Add(Me.Label57)
         Me.GroupBoxIngresodeProducto.Controls.Add(Me.TextBoxDeshabilitado2)
-        Me.GroupBoxIngresodeProducto.Controls.Add(Me.TextBoxDeshabilitado)
         Me.GroupBoxIngresodeProducto.Controls.Add(Me.LabelIngresoProducto)
         Me.GroupBoxIngresodeProducto.Controls.Add(Me.ButtonCerrar2)
         Me.GroupBoxIngresodeProducto.Controls.Add(Me.ButtonInsertarProducto)
-        Me.GroupBoxIngresodeProducto.Controls.Add(Me.TextBoxIVA)
         Me.GroupBoxIngresodeProducto.Controls.Add(Me.TextBoxPreciodeCompra)
+        Me.GroupBoxIngresodeProducto.Controls.Add(Me.TextBoxCantidad)
         Me.GroupBoxIngresodeProducto.Controls.Add(Me.TextBoxProveedor)
-        Me.GroupBoxIngresodeProducto.Controls.Add(Me.TextBoxFacturaNro)
-        Me.GroupBoxIngresodeProducto.Controls.Add(Me.TextBoxSeleccionarCantidad)
-        Me.GroupBoxIngresodeProducto.Controls.Add(Me.TextBoxSeleccionarProducto)
+        Me.GroupBoxIngresodeProducto.Controls.Add(Me.TextBoxFecha)
+        Me.GroupBoxIngresodeProducto.Controls.Add(Me.TextBoxIDStockMugen)
+        Me.GroupBoxIngresodeProducto.Controls.Add(Me.TextBoxNroFactura)
         Me.GroupBoxIngresodeProducto.Controls.Add(Me.Label59)
         Me.GroupBoxIngresodeProducto.Controls.Add(Me.Label60)
         Me.GroupBoxIngresodeProducto.Controls.Add(Me.Label61)
@@ -3897,20 +3933,30 @@ Partial Class Form2
         Me.GroupBoxIngresodeProducto.Text = "Ingreso de Producto"
         Me.GroupBoxIngresodeProducto.Visible = False
         '
-        'TextBox18
+        'CheckBoxIVAincluido
         '
-        Me.TextBox18.Location = New System.Drawing.Point(220, 66)
-        Me.TextBox18.Name = "TextBox18"
-        Me.TextBox18.ReadOnly = True
-        Me.TextBox18.Size = New System.Drawing.Size(93, 20)
-        Me.TextBox18.TabIndex = 18
+        Me.CheckBoxIVAincluido.AutoSize = True
+        Me.CheckBoxIVAincluido.Location = New System.Drawing.Point(144, 270)
+        Me.CheckBoxIVAincluido.Name = "CheckBoxIVAincluido"
+        Me.CheckBoxIVAincluido.Size = New System.Drawing.Size(83, 17)
+        Me.CheckBoxIVAincluido.TabIndex = 19
+        Me.CheckBoxIVAincluido.Text = "IVA Incluido"
+        Me.CheckBoxIVAincluido.UseVisualStyleBackColor = True
         '
-        'TextBox15
+        'TextBoxDeshabilitado3
         '
-        Me.TextBox15.Location = New System.Drawing.Point(144, 236)
-        Me.TextBox15.Name = "TextBox15"
-        Me.TextBox15.Size = New System.Drawing.Size(169, 20)
-        Me.TextBox15.TabIndex = 17
+        Me.TextBoxDeshabilitado3.Location = New System.Drawing.Point(220, 66)
+        Me.TextBoxDeshabilitado3.Name = "TextBoxDeshabilitado3"
+        Me.TextBoxDeshabilitado3.ReadOnly = True
+        Me.TextBoxDeshabilitado3.Size = New System.Drawing.Size(93, 20)
+        Me.TextBoxDeshabilitado3.TabIndex = 18
+        '
+        'TextBoxPrecioUnitario
+        '
+        Me.TextBoxPrecioUnitario.Location = New System.Drawing.Point(144, 236)
+        Me.TextBoxPrecioUnitario.Name = "TextBoxPrecioUnitario"
+        Me.TextBoxPrecioUnitario.Size = New System.Drawing.Size(169, 20)
+        Me.TextBoxPrecioUnitario.TabIndex = 17
         '
         'Label57
         '
@@ -3929,18 +3975,10 @@ Partial Class Form2
         Me.TextBoxDeshabilitado2.Size = New System.Drawing.Size(93, 20)
         Me.TextBoxDeshabilitado2.TabIndex = 15
         '
-        'TextBoxDeshabilitado
-        '
-        Me.TextBoxDeshabilitado.Location = New System.Drawing.Point(219, 134)
-        Me.TextBoxDeshabilitado.Name = "TextBoxDeshabilitado"
-        Me.TextBoxDeshabilitado.ReadOnly = True
-        Me.TextBoxDeshabilitado.Size = New System.Drawing.Size(93, 20)
-        Me.TextBoxDeshabilitado.TabIndex = 14
-        '
         'LabelIngresoProducto
         '
         Me.LabelIngresoProducto.AutoSize = True
-        Me.LabelIngresoProducto.Location = New System.Drawing.Point(71, 289)
+        Me.LabelIngresoProducto.Location = New System.Drawing.Point(71, 298)
         Me.LabelIngresoProducto.Name = "LabelIngresoProducto"
         Me.LabelIngresoProducto.Size = New System.Drawing.Size(111, 13)
         Me.LabelIngresoProducto.TabIndex = 9
@@ -3965,19 +4003,19 @@ Partial Class Form2
         Me.ButtonInsertarProducto.Text = "Insertar Producto"
         Me.ButtonInsertarProducto.UseVisualStyleBackColor = True
         '
-        'TextBoxIVA
-        '
-        Me.TextBoxIVA.Location = New System.Drawing.Point(143, 202)
-        Me.TextBoxIVA.Name = "TextBoxIVA"
-        Me.TextBoxIVA.Size = New System.Drawing.Size(169, 20)
-        Me.TextBoxIVA.TabIndex = 11
-        '
         'TextBoxPreciodeCompra
         '
-        Me.TextBoxPreciodeCompra.Location = New System.Drawing.Point(143, 168)
+        Me.TextBoxPreciodeCompra.Location = New System.Drawing.Point(143, 202)
         Me.TextBoxPreciodeCompra.Name = "TextBoxPreciodeCompra"
         Me.TextBoxPreciodeCompra.Size = New System.Drawing.Size(169, 20)
-        Me.TextBoxPreciodeCompra.TabIndex = 10
+        Me.TextBoxPreciodeCompra.TabIndex = 11
+        '
+        'TextBoxCantidad
+        '
+        Me.TextBoxCantidad.Location = New System.Drawing.Point(143, 168)
+        Me.TextBoxCantidad.Name = "TextBoxCantidad"
+        Me.TextBoxCantidad.Size = New System.Drawing.Size(169, 20)
+        Me.TextBoxCantidad.TabIndex = 10
         '
         'TextBoxProveedor
         '
@@ -3986,26 +4024,26 @@ Partial Class Form2
         Me.TextBoxProveedor.Size = New System.Drawing.Size(77, 20)
         Me.TextBoxProveedor.TabIndex = 9
         '
-        'TextBoxFacturaNro
+        'TextBoxFecha
         '
-        Me.TextBoxFacturaNro.Location = New System.Drawing.Point(143, 100)
-        Me.TextBoxFacturaNro.Name = "TextBoxFacturaNro"
-        Me.TextBoxFacturaNro.Size = New System.Drawing.Size(169, 20)
-        Me.TextBoxFacturaNro.TabIndex = 8
+        Me.TextBoxFecha.Location = New System.Drawing.Point(143, 100)
+        Me.TextBoxFecha.Name = "TextBoxFecha"
+        Me.TextBoxFecha.Size = New System.Drawing.Size(169, 20)
+        Me.TextBoxFecha.TabIndex = 8
         '
-        'TextBoxSeleccionarCantidad
+        'TextBoxIDStockMugen
         '
-        Me.TextBoxSeleccionarCantidad.Location = New System.Drawing.Point(143, 66)
-        Me.TextBoxSeleccionarCantidad.Name = "TextBoxSeleccionarCantidad"
-        Me.TextBoxSeleccionarCantidad.Size = New System.Drawing.Size(78, 20)
-        Me.TextBoxSeleccionarCantidad.TabIndex = 7
+        Me.TextBoxIDStockMugen.Location = New System.Drawing.Point(143, 66)
+        Me.TextBoxIDStockMugen.Name = "TextBoxIDStockMugen"
+        Me.TextBoxIDStockMugen.Size = New System.Drawing.Size(78, 20)
+        Me.TextBoxIDStockMugen.TabIndex = 7
         '
-        'TextBoxSeleccionarProducto
+        'TextBoxNroFactura
         '
-        Me.TextBoxSeleccionarProducto.Location = New System.Drawing.Point(143, 134)
-        Me.TextBoxSeleccionarProducto.Name = "TextBoxSeleccionarProducto"
-        Me.TextBoxSeleccionarProducto.Size = New System.Drawing.Size(77, 20)
-        Me.TextBoxSeleccionarProducto.TabIndex = 6
+        Me.TextBoxNroFactura.Location = New System.Drawing.Point(143, 134)
+        Me.TextBoxNroFactura.Name = "TextBoxNroFactura"
+        Me.TextBoxNroFactura.Size = New System.Drawing.Size(169, 20)
+        Me.TextBoxNroFactura.TabIndex = 6
         '
         'Label59
         '
@@ -4192,36 +4230,46 @@ Partial Class Form2
         Me.Button24NuevoProducto.Text = "Nuevo Producto"
         Me.Button24NuevoProducto.UseVisualStyleBackColor = True
         '
-        'ServicioTableAdapter
+        'Label66
         '
-        Me.ServicioTableAdapter.ClearBeforeFill = True
+        Me.Label66.AutoSize = True
+        Me.Label66.Location = New System.Drawing.Point(1031, 213)
+        Me.Label66.Name = "Label66"
+        Me.Label66.Size = New System.Drawing.Size(35, 13)
+        Me.Label66.TabIndex = 8
+        Me.Label66.Text = "Hasta"
         '
-        'Venta_servicioTableAdapter
+        'Label65
         '
-        Me.Venta_servicioTableAdapter.ClearBeforeFill = True
+        Me.Label65.AutoSize = True
+        Me.Label65.Location = New System.Drawing.Point(827, 212)
+        Me.Label65.Name = "Label65"
+        Me.Label65.Size = New System.Drawing.Size(38, 13)
+        Me.Label65.TabIndex = 7
+        Me.Label65.Text = "Desde"
         '
-        'Panel2
+        'fecha_hasta
         '
-        Me.Panel2.Controls.Add(Me.Label66)
-        Me.Panel2.Controls.Add(Me.Label65)
-        Me.Panel2.Controls.Add(Me.fecha_hasta)
-        Me.Panel2.Controls.Add(Me.fecha_desde)
-        Me.Panel2.Controls.Add(Me.Button28)
-        Me.Panel2.Controls.Add(Me.Mostrar_contabilidad)
-        Me.Panel2.Controls.Add(Me.view_contable)
-        Me.Panel2.Location = New System.Drawing.Point(5, 79)
-        Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(1318, 520)
-        Me.Panel2.TabIndex = 43
+        Me.fecha_hasta.Location = New System.Drawing.Point(1034, 180)
+        Me.fecha_hasta.Name = "fecha_hasta"
+        Me.fecha_hasta.Size = New System.Drawing.Size(200, 20)
+        Me.fecha_hasta.TabIndex = 6
         '
-        'view_contable
+        'fecha_desde
         '
-        Me.view_contable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.view_contable.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Fecha, Me.Descripcion, Me.Deber, Me.Haber, Me.Saldo})
-        Me.view_contable.Location = New System.Drawing.Point(48, 56)
-        Me.view_contable.Name = "view_contable"
-        Me.view_contable.Size = New System.Drawing.Size(694, 440)
-        Me.view_contable.TabIndex = 0
+        Me.fecha_desde.Location = New System.Drawing.Point(825, 180)
+        Me.fecha_desde.Name = "fecha_desde"
+        Me.fecha_desde.Size = New System.Drawing.Size(200, 20)
+        Me.fecha_desde.TabIndex = 5
+        '
+        'Button28
+        '
+        Me.Button28.Location = New System.Drawing.Point(825, 241)
+        Me.Button28.Name = "Button28"
+        Me.Button28.Size = New System.Drawing.Size(131, 23)
+        Me.Button28.TabIndex = 2
+        Me.Button28.Text = "Filtrar"
+        Me.Button28.UseVisualStyleBackColor = True
         '
         'Mostrar_contabilidad
         '
@@ -4231,6 +4279,15 @@ Partial Class Form2
         Me.Mostrar_contabilidad.TabIndex = 1
         Me.Mostrar_contabilidad.Text = "Mostrar Todo"
         Me.Mostrar_contabilidad.UseVisualStyleBackColor = True
+        '
+        'view_contable
+        '
+        Me.view_contable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.view_contable.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Fecha, Me.Descripcion, Me.Deber, Me.Haber, Me.Saldo})
+        Me.view_contable.Location = New System.Drawing.Point(48, 56)
+        Me.view_contable.Name = "view_contable"
+        Me.view_contable.Size = New System.Drawing.Size(694, 440)
+        Me.view_contable.TabIndex = 0
         '
         'Fecha
         '
@@ -4263,53 +4320,12 @@ Partial Class Form2
         Me.Saldo.Name = "Saldo"
         Me.Saldo.ReadOnly = True
         '
-        'Button28
-        '
-        Me.Button28.Location = New System.Drawing.Point(825, 241)
-        Me.Button28.Name = "Button28"
-        Me.Button28.Size = New System.Drawing.Size(131, 23)
-        Me.Button28.TabIndex = 2
-        Me.Button28.Text = "Filtrar"
-        Me.Button28.UseVisualStyleBackColor = True
-        '
-        'fecha_desde
-        '
-        Me.fecha_desde.Location = New System.Drawing.Point(825, 180)
-        Me.fecha_desde.Name = "fecha_desde"
-        Me.fecha_desde.Size = New System.Drawing.Size(200, 20)
-        Me.fecha_desde.TabIndex = 5
-        '
-        'fecha_hasta
-        '
-        Me.fecha_hasta.Location = New System.Drawing.Point(1034, 180)
-        Me.fecha_hasta.Name = "fecha_hasta"
-        Me.fecha_hasta.Size = New System.Drawing.Size(200, 20)
-        Me.fecha_hasta.TabIndex = 6
-        '
-        'Label65
-        '
-        Me.Label65.AutoSize = True
-        Me.Label65.Location = New System.Drawing.Point(827, 212)
-        Me.Label65.Name = "Label65"
-        Me.Label65.Size = New System.Drawing.Size(38, 13)
-        Me.Label65.TabIndex = 7
-        Me.Label65.Text = "Desde"
-        '
-        'Label66
-        '
-        Me.Label66.AutoSize = True
-        Me.Label66.Location = New System.Drawing.Point(1031, 213)
-        Me.Label66.Name = "Label66"
-        Me.Label66.Size = New System.Drawing.Size(35, 13)
-        Me.Label66.TabIndex = 8
-        Me.Label66.Text = "Hasta"
-        '
         'Form2
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoScroll = True
-        Me.ClientSize = New System.Drawing.Size(1669, 679)
+        Me.ClientSize = New System.Drawing.Size(1788, 679)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.boton_servicios)
         Me.Controls.Add(Me.panel_botones_mugen)
@@ -4325,7 +4341,6 @@ Partial Class Form2
         Me.Controls.Add(Me.panel_cuentas)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.PanelClientes)
-        Me.Controls.Add(Me.GroupBox4Stock)
         Me.Controls.Add(Me.PanelTrabajosPendientes)
         Me.Name = "Form2"
         Me.Text = "Form2"
@@ -4393,6 +4408,8 @@ Partial Class Form2
         Me.BindingNavigator1.PerformLayout()
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.TableLayoutPanel1.PerformLayout()
+        Me.Panel2.ResumeLayout(False)
+        Me.Panel2.PerformLayout()
         Me.GroupBox4Stock.ResumeLayout(False)
         Me.GroupBoxModificarProducto.ResumeLayout(False)
         Me.GroupBoxModificarProducto.PerformLayout()
@@ -4400,8 +4417,6 @@ Partial Class Form2
         Me.GroupBoxIngresodeProducto.PerformLayout()
         Me.GroupBoxNuevoProducto.ResumeLayout(False)
         Me.GroupBoxNuevoProducto.PerformLayout()
-        Me.Panel2.ResumeLayout(False)
-        Me.Panel2.PerformLayout()
         CType(Me.view_contable, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
@@ -4690,52 +4705,6 @@ Partial Class Form2
     Friend WithEvents DataGridViewTextBoxColumn77 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn78 As DataGridViewTextBoxColumn
     Friend WithEvents SaveFileDialog1 As SaveFileDialog
-    Friend WithEvents GroupBox4Stock As GroupBox
-    Friend WithEvents GroupBoxModificarProducto As GroupBox
-    Friend WithEvents LabelModificarProducto As Label
-    Friend WithEvents ButtonCerrar3 As Button
-    Friend WithEvents ButtonModificarProducto As Button
-    Friend WithEvents TextBoxPrecio2 As TextBox
-    Friend WithEvents LabelPrecio As Label
-    Friend WithEvents TextBoxDescripcion2 As TextBox
-    Friend WithEvents LabelDescripcion As Label
-    Friend WithEvents TextBoxCodigo2 As TextBox
-    Friend WithEvents LabelCodigo As Label
-    Friend WithEvents GroupBoxIngresodeProducto As GroupBox
-    Friend WithEvents TextBox18 As TextBox
-    Friend WithEvents TextBox15 As TextBox
-    Friend WithEvents Label57 As Label
-    Friend WithEvents TextBoxDeshabilitado2 As TextBox
-    Friend WithEvents TextBoxDeshabilitado As TextBox
-    Friend WithEvents LabelIngresoProducto As Label
-    Friend WithEvents ButtonCerrar2 As Button
-    Friend WithEvents ButtonInsertarProducto As Button
-    Friend WithEvents TextBoxIVA As TextBox
-    Friend WithEvents TextBoxPreciodeCompra As TextBox
-    Friend WithEvents TextBoxProveedor As TextBox
-    Friend WithEvents TextBoxFacturaNro As TextBox
-    Friend WithEvents TextBoxSeleccionarCantidad As TextBox
-    Friend WithEvents TextBoxSeleccionarProducto As TextBox
-    Friend WithEvents Label59 As Label
-    Friend WithEvents Label60 As Label
-    Friend WithEvents Label61 As Label
-    Friend WithEvents Label62 As Label
-    Friend WithEvents Label63 As Label
-    Friend WithEvents Label64 As Label
-    Friend WithEvents GroupBoxNuevoProducto As GroupBox
-    Friend WithEvents LabelNuevoProducto As Label
-    Friend WithEvents ButtonCerrar1 As Button
-    Friend WithEvents ButtonCrearProducto As Button
-    Friend WithEvents TextBoxPrecio As TextBox
-    Friend WithEvents TextBoxDescripcion As TextBox
-    Friend WithEvents TextBoxCodigo As TextBox
-    Friend WithEvents Label43d As Label
-    Friend WithEvents Label42s As Label
-    Friend WithEvents Label41a As Label
-    Friend WithEvents Button27 As Button
-    Friend WithEvents Button26 As Button
-    Friend WithEvents Button25 As Button
-    Friend WithEvents Button24NuevoProducto As Button
     Friend WithEvents ProveedorDataGridView As DataGridView
     Friend WithEvents DataGridViewTextBoxColumn49 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn50 As DataGridViewTextBoxColumn
@@ -4842,4 +4811,51 @@ Partial Class Form2
     Friend WithEvents Label66 As Label
     Friend WithEvents Label65 As Label
     Friend WithEvents fecha_hasta As DateTimePicker
+    Friend WithEvents GroupBox4Stock As GroupBox
+    Friend WithEvents GroupBoxModificarProducto As GroupBox
+    Friend WithEvents ButtonBuscara As Button
+    Friend WithEvents LabelModificarProducto As Label
+    Friend WithEvents ButtonCerrar3 As Button
+    Friend WithEvents ButtonModificarProducto As Button
+    Friend WithEvents TextBoxPrecio2 As TextBox
+    Friend WithEvents LabelPrecio As Label
+    Friend WithEvents TextBoxDescripcion2 As TextBox
+    Friend WithEvents LabelDescripcion As Label
+    Friend WithEvents TextBoxCodigo2 As TextBox
+    Friend WithEvents LabelCodigo As Label
+    Friend WithEvents GroupBoxIngresodeProducto As GroupBox
+    Friend WithEvents CheckBoxIVAincluido As CheckBox
+    Friend WithEvents TextBoxDeshabilitado3 As TextBox
+    Friend WithEvents TextBoxPrecioUnitario As TextBox
+    Friend WithEvents Label57 As Label
+    Friend WithEvents TextBoxDeshabilitado2 As TextBox
+    Friend WithEvents LabelIngresoProducto As Label
+    Friend WithEvents ButtonCerrar2 As Button
+    Friend WithEvents ButtonInsertarProducto As Button
+    Friend WithEvents TextBoxPreciodeCompra As TextBox
+    Friend WithEvents TextBoxCantidad As TextBox
+    Friend WithEvents TextBoxProveedor As TextBox
+    Friend WithEvents TextBoxFecha As TextBox
+    Friend WithEvents TextBoxIDStockMugen As TextBox
+    Friend WithEvents TextBoxNroFactura As TextBox
+    Friend WithEvents Label59 As Label
+    Friend WithEvents Label60 As Label
+    Friend WithEvents Label61 As Label
+    Friend WithEvents Label62 As Label
+    Friend WithEvents Label63 As Label
+    Friend WithEvents Label64 As Label
+    Friend WithEvents GroupBoxNuevoProducto As GroupBox
+    Friend WithEvents LabelNuevoProducto As Label
+    Friend WithEvents ButtonCerrar1 As Button
+    Friend WithEvents ButtonCrearProducto As Button
+    Friend WithEvents TextBoxPrecio As TextBox
+    Friend WithEvents TextBoxDescripcion As TextBox
+    Friend WithEvents TextBoxCodigo As TextBox
+    Friend WithEvents Label43d As Label
+    Friend WithEvents Label42s As Label
+    Friend WithEvents Label41a As Label
+    Friend WithEvents Button27 As Button
+    Friend WithEvents Button26 As Button
+    Friend WithEvents Button25 As Button
+    Friend WithEvents Button24NuevoProducto As Button
 End Class

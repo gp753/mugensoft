@@ -1908,4 +1908,42 @@ Public Class Form2
             Next
         End If
     End Sub
+
+    Private Sub Mostrar_contabilidad_Click(sender As Object, e As EventArgs) Handles Mostrar_contabilidad.Click
+        view_contable.Rows.Add()
+
+
+
+        Dim i As Integer
+        Dim cant_cont As Integer
+        cant_cont = DataSet1.Tables("contabilidad").Rows.Count - 1
+        For i = 0 To cant_cont
+            view_contable.Item(0, i).Value = DataSet1.Tables("contabilidad").Rows(i).Item("fecha")
+            view_contable.Item(1, i).Value = DataSet1.Tables("contabilidad").Rows(i).Item("descripcion")
+
+            If IsNumeric(DataSet1.Tables("contabilidad").Rows(i).Item("haber")) Then
+                view_contable.Item(3, i).Value = DataSet1.Tables("contabilidad").Rows(i).Item("haber")
+            End If
+
+            If IsNumeric(DataSet1.Tables("contabilidad").Rows(i).Item("deber")) Then
+                view_contable.Item(2, i).Value = DataSet1.Tables("contabilidad").Rows(i).Item("deber")
+            End If
+
+            view_contable.Item(4, i).Value = 0
+            view_contable.Rows.Add()
+        Next
+    End Sub
+
+    Private Sub Button28_Click(sender As Object, e As EventArgs) Handles Button28.Click
+        Dim desde As String
+        Dim hasta As String
+
+        desde = fecha_desde.Value
+        desde = desde.Substring(0, 10)
+
+        hasta = fecha_hasta.Value
+        hasta = hasta.Substring(0, 10)
+
+        MsgBox("desde " + desde + " hasta " + hasta)
+    End Sub
 End Class

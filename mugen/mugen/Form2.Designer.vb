@@ -259,6 +259,8 @@ Partial Class Form2
         Me.boton_vender = New System.Windows.Forms.Button()
         Me.boton_servicios = New System.Windows.Forms.Button()
         Me.panel_vender = New System.Windows.Forms.Panel()
+        Me.n_factura_textbox = New System.Windows.Forms.TextBox()
+        Me.label_n_factura = New System.Windows.Forms.Label()
         Me.Button24 = New System.Windows.Forms.Button()
         Me.label_ruc_venta = New System.Windows.Forms.Label()
         Me.text_total = New System.Windows.Forms.TextBox()
@@ -458,8 +460,19 @@ Partial Class Form2
         Me.Button24NuevoProducto = New System.Windows.Forms.Button()
         Me.ServicioTableAdapter = New mugen.DataSet1TableAdapters.servicioTableAdapter()
         Me.Venta_servicioTableAdapter = New mugen.DataSet1TableAdapters.venta_servicioTableAdapter()
-        Me.label_n_factura = New System.Windows.Forms.Label()
-        Me.n_factura_textbox = New System.Windows.Forms.TextBox()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.view_contable = New System.Windows.Forms.DataGridView()
+        Me.Mostrar_contabilidad = New System.Windows.Forms.Button()
+        Me.Fecha = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Descripcion = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Deber = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Haber = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Saldo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Button28 = New System.Windows.Forms.Button()
+        Me.fecha_desde = New System.Windows.Forms.DateTimePicker()
+        Me.fecha_hasta = New System.Windows.Forms.DateTimePicker()
+        Me.Label65 = New System.Windows.Forms.Label()
+        Me.Label66 = New System.Windows.Forms.Label()
         MailLabelM = New System.Windows.Forms.Label()
         NumeroLabelN = New System.Windows.Forms.Label()
         RucLabelR = New System.Windows.Forms.Label()
@@ -525,6 +538,8 @@ Partial Class Form2
         Me.GroupBoxModificarProducto.SuspendLayout()
         Me.GroupBoxIngresodeProducto.SuspendLayout()
         Me.GroupBoxNuevoProducto.SuspendLayout()
+        Me.Panel2.SuspendLayout()
+        CType(Me.view_contable, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'MailLabelM
@@ -2378,6 +2393,22 @@ Partial Class Form2
         Me.panel_vender.TabIndex = 26
         Me.panel_vender.Visible = False
         '
+        'n_factura_textbox
+        '
+        Me.n_factura_textbox.Location = New System.Drawing.Point(519, 41)
+        Me.n_factura_textbox.Name = "n_factura_textbox"
+        Me.n_factura_textbox.Size = New System.Drawing.Size(109, 20)
+        Me.n_factura_textbox.TabIndex = 17
+        '
+        'label_n_factura
+        '
+        Me.label_n_factura.AutoSize = True
+        Me.label_n_factura.Location = New System.Drawing.Point(439, 46)
+        Me.label_n_factura.Name = "label_n_factura"
+        Me.label_n_factura.Size = New System.Drawing.Size(66, 13)
+        Me.label_n_factura.TabIndex = 16
+        Me.label_n_factura.Text = "Nro. Factura"
+        '
         'Button24
         '
         Me.Button24.Location = New System.Drawing.Point(110, 483)
@@ -4169,21 +4200,109 @@ Partial Class Form2
         '
         Me.Venta_servicioTableAdapter.ClearBeforeFill = True
         '
-        'label_n_factura
+        'Panel2
         '
-        Me.label_n_factura.AutoSize = True
-        Me.label_n_factura.Location = New System.Drawing.Point(439, 46)
-        Me.label_n_factura.Name = "label_n_factura"
-        Me.label_n_factura.Size = New System.Drawing.Size(66, 13)
-        Me.label_n_factura.TabIndex = 16
-        Me.label_n_factura.Text = "Nro. Factura"
+        Me.Panel2.Controls.Add(Me.Label66)
+        Me.Panel2.Controls.Add(Me.Label65)
+        Me.Panel2.Controls.Add(Me.fecha_hasta)
+        Me.Panel2.Controls.Add(Me.fecha_desde)
+        Me.Panel2.Controls.Add(Me.Button28)
+        Me.Panel2.Controls.Add(Me.Mostrar_contabilidad)
+        Me.Panel2.Controls.Add(Me.view_contable)
+        Me.Panel2.Location = New System.Drawing.Point(5, 79)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(1318, 520)
+        Me.Panel2.TabIndex = 43
         '
-        'n_factura_textbox
+        'view_contable
         '
-        Me.n_factura_textbox.Location = New System.Drawing.Point(519, 41)
-        Me.n_factura_textbox.Name = "n_factura_textbox"
-        Me.n_factura_textbox.Size = New System.Drawing.Size(109, 20)
-        Me.n_factura_textbox.TabIndex = 17
+        Me.view_contable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.view_contable.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Fecha, Me.Descripcion, Me.Deber, Me.Haber, Me.Saldo})
+        Me.view_contable.Location = New System.Drawing.Point(48, 56)
+        Me.view_contable.Name = "view_contable"
+        Me.view_contable.Size = New System.Drawing.Size(694, 440)
+        Me.view_contable.TabIndex = 0
+        '
+        'Mostrar_contabilidad
+        '
+        Me.Mostrar_contabilidad.Location = New System.Drawing.Point(825, 267)
+        Me.Mostrar_contabilidad.Name = "Mostrar_contabilidad"
+        Me.Mostrar_contabilidad.Size = New System.Drawing.Size(131, 23)
+        Me.Mostrar_contabilidad.TabIndex = 1
+        Me.Mostrar_contabilidad.Text = "Mostrar Todo"
+        Me.Mostrar_contabilidad.UseVisualStyleBackColor = True
+        '
+        'Fecha
+        '
+        Me.Fecha.HeaderText = "Fecha"
+        Me.Fecha.Name = "Fecha"
+        Me.Fecha.ReadOnly = True
+        '
+        'Descripcion
+        '
+        Me.Descripcion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.Descripcion.HeaderText = "Descripcion"
+        Me.Descripcion.Name = "Descripcion"
+        Me.Descripcion.ReadOnly = True
+        '
+        'Deber
+        '
+        Me.Deber.HeaderText = "Deber"
+        Me.Deber.Name = "Deber"
+        Me.Deber.ReadOnly = True
+        '
+        'Haber
+        '
+        Me.Haber.HeaderText = "Haber"
+        Me.Haber.Name = "Haber"
+        Me.Haber.ReadOnly = True
+        '
+        'Saldo
+        '
+        Me.Saldo.HeaderText = "Saldo"
+        Me.Saldo.Name = "Saldo"
+        Me.Saldo.ReadOnly = True
+        '
+        'Button28
+        '
+        Me.Button28.Location = New System.Drawing.Point(825, 241)
+        Me.Button28.Name = "Button28"
+        Me.Button28.Size = New System.Drawing.Size(131, 23)
+        Me.Button28.TabIndex = 2
+        Me.Button28.Text = "Filtrar"
+        Me.Button28.UseVisualStyleBackColor = True
+        '
+        'fecha_desde
+        '
+        Me.fecha_desde.Location = New System.Drawing.Point(825, 180)
+        Me.fecha_desde.Name = "fecha_desde"
+        Me.fecha_desde.Size = New System.Drawing.Size(200, 20)
+        Me.fecha_desde.TabIndex = 5
+        '
+        'fecha_hasta
+        '
+        Me.fecha_hasta.Location = New System.Drawing.Point(1034, 180)
+        Me.fecha_hasta.Name = "fecha_hasta"
+        Me.fecha_hasta.Size = New System.Drawing.Size(200, 20)
+        Me.fecha_hasta.TabIndex = 6
+        '
+        'Label65
+        '
+        Me.Label65.AutoSize = True
+        Me.Label65.Location = New System.Drawing.Point(827, 212)
+        Me.Label65.Name = "Label65"
+        Me.Label65.Size = New System.Drawing.Size(38, 13)
+        Me.Label65.TabIndex = 7
+        Me.Label65.Text = "Desde"
+        '
+        'Label66
+        '
+        Me.Label66.AutoSize = True
+        Me.Label66.Location = New System.Drawing.Point(1031, 213)
+        Me.Label66.Name = "Label66"
+        Me.Label66.Size = New System.Drawing.Size(35, 13)
+        Me.Label66.TabIndex = 8
+        Me.Label66.Text = "Hasta"
         '
         'Form2
         '
@@ -4191,6 +4310,7 @@ Partial Class Form2
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoScroll = True
         Me.ClientSize = New System.Drawing.Size(1669, 679)
+        Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.boton_servicios)
         Me.Controls.Add(Me.panel_botones_mugen)
         Me.Controls.Add(Me.Button7)
@@ -4280,6 +4400,9 @@ Partial Class Form2
         Me.GroupBoxIngresodeProducto.PerformLayout()
         Me.GroupBoxNuevoProducto.ResumeLayout(False)
         Me.GroupBoxNuevoProducto.PerformLayout()
+        Me.Panel2.ResumeLayout(False)
+        Me.Panel2.PerformLayout()
+        CType(Me.view_contable, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -4706,4 +4829,17 @@ Partial Class Form2
     Friend WithEvents DataGridViewTextBoxColumn112 As DataGridViewTextBoxColumn
     Friend WithEvents n_factura_textbox As TextBox
     Friend WithEvents label_n_factura As Label
+    Friend WithEvents Panel2 As Panel
+    Friend WithEvents Mostrar_contabilidad As Button
+    Friend WithEvents view_contable As DataGridView
+    Friend WithEvents fecha_desde As DateTimePicker
+    Friend WithEvents Button28 As Button
+    Friend WithEvents Fecha As DataGridViewTextBoxColumn
+    Friend WithEvents Descripcion As DataGridViewTextBoxColumn
+    Friend WithEvents Deber As DataGridViewTextBoxColumn
+    Friend WithEvents Haber As DataGridViewTextBoxColumn
+    Friend WithEvents Saldo As DataGridViewTextBoxColumn
+    Friend WithEvents Label66 As Label
+    Friend WithEvents Label65 As Label
+    Friend WithEvents fecha_hasta As DateTimePicker
 End Class

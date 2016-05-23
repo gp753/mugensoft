@@ -33,12 +33,12 @@ Partial Class Form2
         Dim ApellidoLabel1A As System.Windows.Forms.Label
         Dim NombreLabel1N As System.Windows.Forms.Label
         Dim RucLabel1R As System.Windows.Forms.Label
-        Dim ChartArea3 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend3 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series3 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim ChartArea4 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend4 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series4 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea2 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend2 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series2 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form2))
         Me.Ingreso_productoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DataSet1 = New mugen.DataSet1()
@@ -458,6 +458,7 @@ Partial Class Form2
         Me.LabelModificarProducto = New System.Windows.Forms.Label()
         Me.ButtonBuscara = New System.Windows.Forms.Button()
         Me.GroupBox4Stock = New System.Windows.Forms.GroupBox()
+        Me.CheckBoxIVAincluido = New System.Windows.Forms.CheckBox()
         MailLabelM = New System.Windows.Forms.Label()
         NumeroLabelN = New System.Windows.Forms.Label()
         RucLabelR = New System.Windows.Forms.Label()
@@ -3156,16 +3157,16 @@ Partial Class Form2
         '
         'graficoTrabajos
         '
-        ChartArea3.Name = "ChartArea1"
-        Me.graficoTrabajos.ChartAreas.Add(ChartArea3)
-        Legend3.Name = "Legend1"
-        Me.graficoTrabajos.Legends.Add(Legend3)
+        ChartArea1.Name = "ChartArea1"
+        Me.graficoTrabajos.ChartAreas.Add(ChartArea1)
+        Legend1.Name = "Legend1"
+        Me.graficoTrabajos.Legends.Add(Legend1)
         Me.graficoTrabajos.Location = New System.Drawing.Point(573, 145)
         Me.graficoTrabajos.Name = "graficoTrabajos"
-        Series3.ChartArea = "ChartArea1"
-        Series3.Legend = "Legend1"
-        Series3.Name = "Series1"
-        Me.graficoTrabajos.Series.Add(Series3)
+        Series1.ChartArea = "ChartArea1"
+        Series1.Legend = "Legend1"
+        Series1.Name = "Series1"
+        Me.graficoTrabajos.Series.Add(Series1)
         Me.graficoTrabajos.Size = New System.Drawing.Size(416, 244)
         Me.graficoTrabajos.TabIndex = 41
         Me.graficoTrabajos.Text = "Chart2"
@@ -3173,16 +3174,16 @@ Partial Class Form2
         '
         'graficoPagados
         '
-        ChartArea4.Name = "ChartArea1"
-        Me.graficoPagados.ChartAreas.Add(ChartArea4)
-        Legend4.Name = "Legend1"
-        Me.graficoPagados.Legends.Add(Legend4)
+        ChartArea2.Name = "ChartArea1"
+        Me.graficoPagados.ChartAreas.Add(ChartArea2)
+        Legend2.Name = "Legend1"
+        Me.graficoPagados.Legends.Add(Legend2)
         Me.graficoPagados.Location = New System.Drawing.Point(369, 143)
         Me.graficoPagados.Name = "graficoPagados"
-        Series4.ChartArea = "ChartArea1"
-        Series4.Legend = "Legend1"
-        Series4.Name = "Series1"
-        Me.graficoPagados.Series.Add(Series4)
+        Series2.ChartArea = "ChartArea1"
+        Series2.Legend = "Legend1"
+        Series2.Name = "Series1"
+        Me.graficoPagados.Series.Add(Series2)
         Me.graficoPagados.Size = New System.Drawing.Size(416, 244)
         Me.graficoPagados.TabIndex = 40
         Me.graficoPagados.Text = "Chart1"
@@ -3861,6 +3862,7 @@ Partial Class Form2
         '
         'GroupBoxIngresodeProducto
         '
+        Me.GroupBoxIngresodeProducto.Controls.Add(Me.CheckBoxIVAincluido)
         Me.GroupBoxIngresodeProducto.Controls.Add(Me.TextBoxDeshabilitado3)
         Me.GroupBoxIngresodeProducto.Controls.Add(Me.TextBoxPrecioUnitario)
         Me.GroupBoxIngresodeProducto.Controls.Add(Me.Label57)
@@ -4005,7 +4007,7 @@ Partial Class Form2
         'LabelIngresoProducto
         '
         Me.LabelIngresoProducto.AutoSize = True
-        Me.LabelIngresoProducto.Location = New System.Drawing.Point(71, 289)
+        Me.LabelIngresoProducto.Location = New System.Drawing.Point(71, 298)
         Me.LabelIngresoProducto.Name = "LabelIngresoProducto"
         Me.LabelIngresoProducto.Size = New System.Drawing.Size(111, 13)
         Me.LabelIngresoProducto.TabIndex = 9
@@ -4167,6 +4169,16 @@ Partial Class Form2
         Me.GroupBox4Stock.TabStop = False
         Me.GroupBox4Stock.Text = "Stock"
         Me.GroupBox4Stock.Visible = False
+        '
+        'CheckBoxIVAincluido
+        '
+        Me.CheckBoxIVAincluido.AutoSize = True
+        Me.CheckBoxIVAincluido.Location = New System.Drawing.Point(144, 270)
+        Me.CheckBoxIVAincluido.Name = "CheckBoxIVAincluido"
+        Me.CheckBoxIVAincluido.Size = New System.Drawing.Size(83, 17)
+        Me.CheckBoxIVAincluido.TabIndex = 19
+        Me.CheckBoxIVAincluido.Text = "IVA Incluido"
+        Me.CheckBoxIVAincluido.UseVisualStyleBackColor = True
         '
         'Form2
         '
@@ -4687,4 +4699,5 @@ Partial Class Form2
     Friend WithEvents TextBoxCodigo2 As TextBox
     Friend WithEvents LabelCodigo As Label
     Friend WithEvents GroupBox4Stock As GroupBox
+    Friend WithEvents CheckBoxIVAincluido As CheckBox
 End Class

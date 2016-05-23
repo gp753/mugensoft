@@ -33,12 +33,12 @@ Partial Class Form2
         Dim ApellidoLabel1A As System.Windows.Forms.Label
         Dim NombreLabel1N As System.Windows.Forms.Label
         Dim RucLabel1R As System.Windows.Forms.Label
-        Dim ChartArea9 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend9 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series9 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim ChartArea10 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend10 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series10 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea11 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend11 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series11 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea12 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend12 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series12 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form2))
         Me.Ingreso_productoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DataSet1 = New mugen.DataSet1()
@@ -403,7 +403,7 @@ Partial Class Form2
         Me.Label45 = New System.Windows.Forms.Label()
         Me.Label46 = New System.Windows.Forms.Label()
         Me.lbEstado = New System.Windows.Forms.Label()
-        Me.botonBuscar = New System.Windows.Forms.Button()
+        Me.buscarSerBtn = New System.Windows.Forms.Button()
         Me.calendarioEntregas = New System.Windows.Forms.MonthCalendar()
         Me.resultadosPedidos = New System.Windows.Forms.ListBox()
         Me.Label44 = New System.Windows.Forms.Label()
@@ -474,6 +474,45 @@ Partial Class Form2
         Me.Deber = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Haber = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Saldo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.panelServicios = New System.Windows.Forms.Panel()
+        Me.editarServicios = New System.Windows.Forms.GroupBox()
+        Me.verServicios = New System.Windows.Forms.Panel()
+        Me.verSerPanel = New System.Windows.Forms.GroupBox()
+        Me.errorBuscar = New System.Windows.Forms.Label()
+        Me.serBusBtn = New System.Windows.Forms.Button()
+        Me.serBusTxt = New System.Windows.Forms.TextBox()
+        Me.verBusLab = New System.Windows.Forms.Label()
+        Me.verSerLab = New System.Windows.Forms.Label()
+        Me.lisBusSer = New System.Windows.Forms.ListBox()
+        Me.CheckBoxCom2 = New System.Windows.Forms.CheckBox()
+        Me.CheckBoxMano2 = New System.Windows.Forms.CheckBox()
+        Me.CheckBoxDias2 = New System.Windows.Forms.CheckBox()
+        Me.borSerBtn2 = New System.Windows.Forms.Button()
+        Me.modSerBtn = New System.Windows.Forms.Button()
+        Me.error3Ser2 = New System.Windows.Forms.Label()
+        Me.desSerTxt2 = New System.Windows.Forms.TextBox()
+        Me.Label67 = New System.Windows.Forms.Label()
+        Me.error2Ser2 = New System.Windows.Forms.Label()
+        Me.Label68 = New System.Windows.Forms.Label()
+        Me.error1Ser2 = New System.Windows.Forms.Label()
+        Me.Label72 = New System.Windows.Forms.Label()
+        Me.nomSerTxt2 = New System.Windows.Forms.TextBox()
+        Me.ingresarServicios = New System.Windows.Forms.GroupBox()
+        Me.CheckBoxCom = New System.Windows.Forms.CheckBox()
+        Me.CheckBoxMano = New System.Windows.Forms.CheckBox()
+        Me.CheckBoxDias = New System.Windows.Forms.CheckBox()
+        Me.borSerBtn = New System.Windows.Forms.Button()
+        Me.editSerBtn = New System.Windows.Forms.Button()
+        Me.carSerBtn = New System.Windows.Forms.Button()
+        Me.error3Ser = New System.Windows.Forms.Label()
+        Me.desSerTxt = New System.Windows.Forms.TextBox()
+        Me.calSerLabel = New System.Windows.Forms.Label()
+        Me.error2Ser = New System.Windows.Forms.Label()
+        Me.desSerLabel = New System.Windows.Forms.Label()
+        Me.error1Ser = New System.Windows.Forms.Label()
+        Me.nomSerLabel = New System.Windows.Forms.Label()
+        Me.nomSerTxt = New System.Windows.Forms.TextBox()
+        Me.Buscar = New System.Windows.Forms.Button()
         MailLabelM = New System.Windows.Forms.Label()
         NumeroLabelN = New System.Windows.Forms.Label()
         RucLabelR = New System.Windows.Forms.Label()
@@ -541,6 +580,11 @@ Partial Class Form2
         Me.GroupBoxIngresodeProducto.SuspendLayout()
         Me.GroupBoxNuevoProducto.SuspendLayout()
         CType(Me.view_contable, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.panelServicios.SuspendLayout()
+        Me.editarServicios.SuspendLayout()
+        Me.verServicios.SuspendLayout()
+        Me.verSerPanel.SuspendLayout()
+        Me.ingresarServicios.SuspendLayout()
         Me.SuspendLayout()
         '
         'MailLabelM
@@ -2984,7 +3028,7 @@ Partial Class Form2
         Me.PanelTrabajosPendientes.Controls.Add(Me.calendarioCobro)
         Me.PanelTrabajosPendientes.Controls.Add(Me.Label52)
         Me.PanelTrabajosPendientes.Controls.Add(Me.TableLayoutPanel1)
-        Me.PanelTrabajosPendientes.Controls.Add(Me.botonBuscar)
+        Me.PanelTrabajosPendientes.Controls.Add(Me.buscarSerBtn)
         Me.PanelTrabajosPendientes.Controls.Add(Me.calendarioEntregas)
         Me.PanelTrabajosPendientes.Controls.Add(Me.resultadosPedidos)
         Me.PanelTrabajosPendientes.Controls.Add(Me.Label44)
@@ -3192,16 +3236,16 @@ Partial Class Form2
         '
         'graficoTrabajos
         '
-        ChartArea9.Name = "ChartArea1"
-        Me.graficoTrabajos.ChartAreas.Add(ChartArea9)
-        Legend9.Name = "Legend1"
-        Me.graficoTrabajos.Legends.Add(Legend9)
+        ChartArea11.Name = "ChartArea1"
+        Me.graficoTrabajos.ChartAreas.Add(ChartArea11)
+        Legend11.Name = "Legend1"
+        Me.graficoTrabajos.Legends.Add(Legend11)
         Me.graficoTrabajos.Location = New System.Drawing.Point(573, 145)
         Me.graficoTrabajos.Name = "graficoTrabajos"
-        Series9.ChartArea = "ChartArea1"
-        Series9.Legend = "Legend1"
-        Series9.Name = "Series1"
-        Me.graficoTrabajos.Series.Add(Series9)
+        Series11.ChartArea = "ChartArea1"
+        Series11.Legend = "Legend1"
+        Series11.Name = "Series1"
+        Me.graficoTrabajos.Series.Add(Series11)
         Me.graficoTrabajos.Size = New System.Drawing.Size(416, 244)
         Me.graficoTrabajos.TabIndex = 41
         Me.graficoTrabajos.Text = "Chart2"
@@ -3209,16 +3253,16 @@ Partial Class Form2
         '
         'graficoPagados
         '
-        ChartArea10.Name = "ChartArea1"
-        Me.graficoPagados.ChartAreas.Add(ChartArea10)
-        Legend10.Name = "Legend1"
-        Me.graficoPagados.Legends.Add(Legend10)
+        ChartArea12.Name = "ChartArea1"
+        Me.graficoPagados.ChartAreas.Add(ChartArea12)
+        Legend12.Name = "Legend1"
+        Me.graficoPagados.Legends.Add(Legend12)
         Me.graficoPagados.Location = New System.Drawing.Point(369, 143)
         Me.graficoPagados.Name = "graficoPagados"
-        Series10.ChartArea = "ChartArea1"
-        Series10.Legend = "Legend1"
-        Series10.Name = "Series1"
-        Me.graficoPagados.Series.Add(Series10)
+        Series12.ChartArea = "ChartArea1"
+        Series12.Legend = "Legend1"
+        Series12.Name = "Series1"
+        Me.graficoPagados.Series.Add(Series12)
         Me.graficoPagados.Size = New System.Drawing.Size(416, 244)
         Me.graficoPagados.TabIndex = 40
         Me.graficoPagados.Text = "Chart1"
@@ -3687,14 +3731,14 @@ Partial Class Form2
         Me.lbEstado.TabIndex = 29
         Me.lbEstado.Text = "ESTADO"
         '
-        'botonBuscar
+        'buscarSerBtn
         '
-        Me.botonBuscar.Location = New System.Drawing.Point(184, 164)
-        Me.botonBuscar.Name = "botonBuscar"
-        Me.botonBuscar.Size = New System.Drawing.Size(75, 24)
-        Me.botonBuscar.TabIndex = 11
-        Me.botonBuscar.Text = "Buscar"
-        Me.botonBuscar.UseVisualStyleBackColor = True
+        Me.buscarSerBtn.Location = New System.Drawing.Point(184, 164)
+        Me.buscarSerBtn.Name = "buscarSerBtn"
+        Me.buscarSerBtn.Size = New System.Drawing.Size(75, 24)
+        Me.buscarSerBtn.TabIndex = 11
+        Me.buscarSerBtn.Text = "Buscar"
+        Me.buscarSerBtn.UseVisualStyleBackColor = True
         '
         'calendarioEntregas
         '
@@ -4320,12 +4364,400 @@ Partial Class Form2
         Me.Saldo.Name = "Saldo"
         Me.Saldo.ReadOnly = True
         '
+        'panelServicios
+        '
+        Me.panelServicios.Controls.Add(Me.verServicios)
+        Me.panelServicios.Controls.Add(Me.editarServicios)
+        Me.panelServicios.Controls.Add(Me.ingresarServicios)
+        Me.panelServicios.Location = New System.Drawing.Point(5, 79)
+        Me.panelServicios.Name = "panelServicios"
+        Me.panelServicios.Size = New System.Drawing.Size(1367, 601)
+        Me.panelServicios.TabIndex = 13
+        Me.panelServicios.Visible = False
+        '
+        'editarServicios
+        '
+        Me.editarServicios.Controls.Add(Me.CheckBoxCom2)
+        Me.editarServicios.Controls.Add(Me.CheckBoxMano2)
+        Me.editarServicios.Controls.Add(Me.CheckBoxDias2)
+        Me.editarServicios.Controls.Add(Me.borSerBtn2)
+        Me.editarServicios.Controls.Add(Me.modSerBtn)
+        Me.editarServicios.Controls.Add(Me.error3Ser2)
+        Me.editarServicios.Controls.Add(Me.desSerTxt2)
+        Me.editarServicios.Controls.Add(Me.Label67)
+        Me.editarServicios.Controls.Add(Me.error2Ser2)
+        Me.editarServicios.Controls.Add(Me.Label68)
+        Me.editarServicios.Controls.Add(Me.error1Ser2)
+        Me.editarServicios.Controls.Add(Me.Label72)
+        Me.editarServicios.Controls.Add(Me.nomSerTxt2)
+        Me.editarServicios.Location = New System.Drawing.Point(492, 23)
+        Me.editarServicios.Name = "editarServicios"
+        Me.editarServicios.Size = New System.Drawing.Size(462, 404)
+        Me.editarServicios.TabIndex = 1
+        Me.editarServicios.TabStop = False
+        Me.editarServicios.Text = "Editar Servicios"
+        Me.editarServicios.Visible = False
+        '
+        'verServicios
+        '
+        Me.verServicios.Controls.Add(Me.verSerPanel)
+        Me.verServicios.Location = New System.Drawing.Point(3, 25)
+        Me.verServicios.Name = "verServicios"
+        Me.verServicios.Size = New System.Drawing.Size(474, 423)
+        Me.verServicios.TabIndex = 2
+        Me.verServicios.Visible = False
+        '
+        'verSerPanel
+        '
+        Me.verSerPanel.Controls.Add(Me.errorBuscar)
+        Me.verSerPanel.Controls.Add(Me.serBusBtn)
+        Me.verSerPanel.Controls.Add(Me.serBusTxt)
+        Me.verSerPanel.Controls.Add(Me.verBusLab)
+        Me.verSerPanel.Controls.Add(Me.verSerLab)
+        Me.verSerPanel.Controls.Add(Me.lisBusSer)
+        Me.verSerPanel.Location = New System.Drawing.Point(11, 3)
+        Me.verSerPanel.Name = "verSerPanel"
+        Me.verSerPanel.Size = New System.Drawing.Size(458, 402)
+        Me.verSerPanel.TabIndex = 0
+        Me.verSerPanel.TabStop = False
+        Me.verSerPanel.Text = "Ver Servicios"
+        '
+        'errorBuscar
+        '
+        Me.errorBuscar.AutoSize = True
+        Me.errorBuscar.Location = New System.Drawing.Point(274, 358)
+        Me.errorBuscar.Name = "errorBuscar"
+        Me.errorBuscar.Size = New System.Drawing.Size(10, 13)
+        Me.errorBuscar.TabIndex = 5
+        Me.errorBuscar.Text = "."
+        '
+        'serBusBtn
+        '
+        Me.serBusBtn.Location = New System.Drawing.Point(374, 348)
+        Me.serBusBtn.Name = "serBusBtn"
+        Me.serBusBtn.Size = New System.Drawing.Size(75, 23)
+        Me.serBusBtn.TabIndex = 4
+        Me.serBusBtn.Text = "Buscar"
+        Me.serBusBtn.UseVisualStyleBackColor = True
+        '
+        'serBusTxt
+        '
+        Me.serBusTxt.Location = New System.Drawing.Point(291, 323)
+        Me.serBusTxt.Name = "serBusTxt"
+        Me.serBusTxt.Size = New System.Drawing.Size(162, 20)
+        Me.serBusTxt.TabIndex = 3
+        '
+        'verBusLab
+        '
+        Me.verBusLab.AutoSize = True
+        Me.verBusLab.Location = New System.Drawing.Point(288, 306)
+        Me.verBusLab.Name = "verBusLab"
+        Me.verBusLab.Size = New System.Drawing.Size(109, 13)
+        Me.verBusLab.TabIndex = 2
+        Me.verBusLab.Text = "Buscar Coincidencias"
+        '
+        'verSerLab
+        '
+        Me.verSerLab.AutoSize = True
+        Me.verSerLab.Location = New System.Drawing.Point(0, 66)
+        Me.verSerLab.Name = "verSerLab"
+        Me.verSerLab.Size = New System.Drawing.Size(145, 13)
+        Me.verSerLab.TabIndex = 1
+        Me.verSerLab.Text = "Lista de servicios registrados:"
+        '
+        'lisBusSer
+        '
+        Me.lisBusSer.FormattingEnabled = True
+        Me.lisBusSer.Location = New System.Drawing.Point(0, 81)
+        Me.lisBusSer.Name = "lisBusSer"
+        Me.lisBusSer.Size = New System.Drawing.Size(452, 199)
+        Me.lisBusSer.TabIndex = 0
+        '
+        'CheckBoxCom2
+        '
+        Me.CheckBoxCom2.AutoSize = True
+        Me.CheckBoxCom2.Location = New System.Drawing.Point(322, 267)
+        Me.CheckBoxCom2.Name = "CheckBoxCom2"
+        Me.CheckBoxCom2.Size = New System.Drawing.Size(88, 17)
+        Me.CheckBoxCom2.TabIndex = 22
+        Me.CheckBoxCom2.Text = "xComplejidad"
+        Me.CheckBoxCom2.UseVisualStyleBackColor = True
+        '
+        'CheckBoxMano2
+        '
+        Me.CheckBoxMano2.AutoSize = True
+        Me.CheckBoxMano2.Location = New System.Drawing.Point(322, 251)
+        Me.CheckBoxMano2.Name = "CheckBoxMano2"
+        Me.CheckBoxMano2.Size = New System.Drawing.Size(97, 17)
+        Me.CheckBoxMano2.TabIndex = 21
+        Me.CheckBoxMano2.Text = "xMano de obra"
+        Me.CheckBoxMano2.UseVisualStyleBackColor = True
+        '
+        'CheckBoxDias2
+        '
+        Me.CheckBoxDias2.AutoSize = True
+        Me.CheckBoxDias2.Location = New System.Drawing.Point(322, 234)
+        Me.CheckBoxDias2.Name = "CheckBoxDias2"
+        Me.CheckBoxDias2.Size = New System.Drawing.Size(52, 17)
+        Me.CheckBoxDias2.TabIndex = 20
+        Me.CheckBoxDias2.Text = "xDias"
+        Me.CheckBoxDias2.UseVisualStyleBackColor = True
+        '
+        'borSerBtn2
+        '
+        Me.borSerBtn2.Location = New System.Drawing.Point(315, 348)
+        Me.borSerBtn2.Name = "borSerBtn2"
+        Me.borSerBtn2.Size = New System.Drawing.Size(94, 23)
+        Me.borSerBtn2.TabIndex = 19
+        Me.borSerBtn2.Text = "Borrar Campos "
+        Me.borSerBtn2.UseVisualStyleBackColor = True
+        '
+        'modSerBtn
+        '
+        Me.modSerBtn.Location = New System.Drawing.Point(233, 348)
+        Me.modSerBtn.Name = "modSerBtn"
+        Me.modSerBtn.Size = New System.Drawing.Size(75, 23)
+        Me.modSerBtn.TabIndex = 18
+        Me.modSerBtn.Text = "Modificar"
+        Me.modSerBtn.UseVisualStyleBackColor = True
+        '
+        'error3Ser2
+        '
+        Me.error3Ser2.AutoSize = True
+        Me.error3Ser2.Location = New System.Drawing.Point(109, 280)
+        Me.error3Ser2.Name = "error3Ser2"
+        Me.error3Ser2.Size = New System.Drawing.Size(0, 13)
+        Me.error3Ser2.TabIndex = 17
+        Me.error3Ser2.Visible = False
+        '
+        'desSerTxt2
+        '
+        Me.desSerTxt2.Location = New System.Drawing.Point(115, 103)
+        Me.desSerTxt2.Multiline = True
+        Me.desSerTxt2.Name = "desSerTxt2"
+        Me.desSerTxt2.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
+        Me.desSerTxt2.Size = New System.Drawing.Size(295, 111)
+        Me.desSerTxt2.TabIndex = 16
+        '
+        'Label67
+        '
+        Me.Label67.AutoSize = True
+        Me.Label67.Location = New System.Drawing.Point(24, 240)
+        Me.Label67.Name = "Label67"
+        Me.Label67.Size = New System.Drawing.Size(89, 13)
+        Me.Label67.TabIndex = 14
+        Me.Label67.Text = "Calculo de costo:"
+        '
+        'error2Ser2
+        '
+        Me.error2Ser2.AutoSize = True
+        Me.error2Ser2.Location = New System.Drawing.Point(115, 223)
+        Me.error2Ser2.Name = "error2Ser2"
+        Me.error2Ser2.Size = New System.Drawing.Size(0, 13)
+        Me.error2Ser2.TabIndex = 13
+        Me.error2Ser2.Visible = False
+        '
+        'Label68
+        '
+        Me.Label68.AutoSize = True
+        Me.Label68.Location = New System.Drawing.Point(24, 104)
+        Me.Label68.Name = "Label68"
+        Me.Label68.Size = New System.Drawing.Size(66, 13)
+        Me.Label68.TabIndex = 12
+        Me.Label68.Text = "Descripcion:"
+        '
+        'error1Ser2
+        '
+        Me.error1Ser2.AutoSize = True
+        Me.error1Ser2.Location = New System.Drawing.Point(115, 80)
+        Me.error1Ser2.Name = "error1Ser2"
+        Me.error1Ser2.Size = New System.Drawing.Size(0, 13)
+        Me.error1Ser2.TabIndex = 11
+        Me.error1Ser2.UseMnemonic = False
+        '
+        'Label72
+        '
+        Me.Label72.AutoSize = True
+        Me.Label72.Location = New System.Drawing.Point(24, 60)
+        Me.Label72.Name = "Label72"
+        Me.Label72.Size = New System.Drawing.Size(47, 13)
+        Me.Label72.TabIndex = 10
+        Me.Label72.Text = "Nombre:"
+        '
+        'nomSerTxt2
+        '
+        Me.nomSerTxt2.Location = New System.Drawing.Point(115, 57)
+        Me.nomSerTxt2.Name = "nomSerTxt2"
+        Me.nomSerTxt2.Size = New System.Drawing.Size(295, 20)
+        Me.nomSerTxt2.TabIndex = 9
+        '
+        'ingresarServicios
+        '
+        Me.ingresarServicios.Controls.Add(Me.Buscar)
+        Me.ingresarServicios.Controls.Add(Me.CheckBoxCom)
+        Me.ingresarServicios.Controls.Add(Me.CheckBoxMano)
+        Me.ingresarServicios.Controls.Add(Me.CheckBoxDias)
+        Me.ingresarServicios.Controls.Add(Me.borSerBtn)
+        Me.ingresarServicios.Controls.Add(Me.editSerBtn)
+        Me.ingresarServicios.Controls.Add(Me.carSerBtn)
+        Me.ingresarServicios.Controls.Add(Me.error3Ser)
+        Me.ingresarServicios.Controls.Add(Me.desSerTxt)
+        Me.ingresarServicios.Controls.Add(Me.calSerLabel)
+        Me.ingresarServicios.Controls.Add(Me.error2Ser)
+        Me.ingresarServicios.Controls.Add(Me.desSerLabel)
+        Me.ingresarServicios.Controls.Add(Me.error1Ser)
+        Me.ingresarServicios.Controls.Add(Me.nomSerLabel)
+        Me.ingresarServicios.Controls.Add(Me.nomSerTxt)
+        Me.ingresarServicios.Location = New System.Drawing.Point(16, 23)
+        Me.ingresarServicios.Name = "ingresarServicios"
+        Me.ingresarServicios.Size = New System.Drawing.Size(462, 404)
+        Me.ingresarServicios.TabIndex = 0
+        Me.ingresarServicios.TabStop = False
+        Me.ingresarServicios.Text = "Ingresar Servicios"
+        '
+        'CheckBoxCom
+        '
+        Me.CheckBoxCom.AutoSize = True
+        Me.CheckBoxCom.Location = New System.Drawing.Point(312, 267)
+        Me.CheckBoxCom.Name = "CheckBoxCom"
+        Me.CheckBoxCom.Size = New System.Drawing.Size(88, 17)
+        Me.CheckBoxCom.TabIndex = 15
+        Me.CheckBoxCom.Text = "xComplejidad"
+        Me.CheckBoxCom.UseVisualStyleBackColor = True
+        '
+        'CheckBoxMano
+        '
+        Me.CheckBoxMano.AutoSize = True
+        Me.CheckBoxMano.Location = New System.Drawing.Point(312, 251)
+        Me.CheckBoxMano.Name = "CheckBoxMano"
+        Me.CheckBoxMano.Size = New System.Drawing.Size(97, 17)
+        Me.CheckBoxMano.TabIndex = 14
+        Me.CheckBoxMano.Text = "xMano de obra"
+        Me.CheckBoxMano.UseVisualStyleBackColor = True
+        '
+        'CheckBoxDias
+        '
+        Me.CheckBoxDias.AutoSize = True
+        Me.CheckBoxDias.Location = New System.Drawing.Point(312, 234)
+        Me.CheckBoxDias.Name = "CheckBoxDias"
+        Me.CheckBoxDias.Size = New System.Drawing.Size(52, 17)
+        Me.CheckBoxDias.TabIndex = 13
+        Me.CheckBoxDias.Text = "xDias"
+        Me.CheckBoxDias.UseVisualStyleBackColor = True
+        '
+        'borSerBtn
+        '
+        Me.borSerBtn.Location = New System.Drawing.Point(327, 360)
+        Me.borSerBtn.Name = "borSerBtn"
+        Me.borSerBtn.Size = New System.Drawing.Size(89, 23)
+        Me.borSerBtn.TabIndex = 11
+        Me.borSerBtn.Text = "Borrar Campos"
+        Me.borSerBtn.UseVisualStyleBackColor = True
+        '
+        'editSerBtn
+        '
+        Me.editSerBtn.Location = New System.Drawing.Point(246, 360)
+        Me.editSerBtn.Name = "editSerBtn"
+        Me.editSerBtn.Size = New System.Drawing.Size(75, 23)
+        Me.editSerBtn.TabIndex = 10
+        Me.editSerBtn.Text = "Editar"
+        Me.editSerBtn.UseVisualStyleBackColor = True
+        '
+        'carSerBtn
+        '
+        Me.carSerBtn.Location = New System.Drawing.Point(165, 360)
+        Me.carSerBtn.Name = "carSerBtn"
+        Me.carSerBtn.Size = New System.Drawing.Size(75, 23)
+        Me.carSerBtn.TabIndex = 9
+        Me.carSerBtn.Text = "Cargar"
+        Me.carSerBtn.UseVisualStyleBackColor = True
+        '
+        'error3Ser
+        '
+        Me.error3Ser.AutoSize = True
+        Me.error3Ser.Location = New System.Drawing.Point(309, 297)
+        Me.error3Ser.Name = "error3Ser"
+        Me.error3Ser.Size = New System.Drawing.Size(0, 13)
+        Me.error3Ser.TabIndex = 8
+        Me.error3Ser.Visible = False
+        '
+        'desSerTxt
+        '
+        Me.desSerTxt.Location = New System.Drawing.Point(113, 101)
+        Me.desSerTxt.Multiline = True
+        Me.desSerTxt.Name = "desSerTxt"
+        Me.desSerTxt.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
+        Me.desSerTxt.Size = New System.Drawing.Size(295, 111)
+        Me.desSerTxt.TabIndex = 7
+        '
+        'calSerLabel
+        '
+        Me.calSerLabel.AutoSize = True
+        Me.calSerLabel.Location = New System.Drawing.Point(22, 238)
+        Me.calSerLabel.Name = "calSerLabel"
+        Me.calSerLabel.Size = New System.Drawing.Size(89, 13)
+        Me.calSerLabel.TabIndex = 5
+        Me.calSerLabel.Text = "Calculo de costo:"
+        '
+        'error2Ser
+        '
+        Me.error2Ser.AutoSize = True
+        Me.error2Ser.Location = New System.Drawing.Point(117, 223)
+        Me.error2Ser.Name = "error2Ser"
+        Me.error2Ser.Size = New System.Drawing.Size(0, 13)
+        Me.error2Ser.TabIndex = 4
+        Me.error2Ser.Visible = False
+        '
+        'desSerLabel
+        '
+        Me.desSerLabel.AutoSize = True
+        Me.desSerLabel.Location = New System.Drawing.Point(22, 102)
+        Me.desSerLabel.Name = "desSerLabel"
+        Me.desSerLabel.Size = New System.Drawing.Size(66, 13)
+        Me.desSerLabel.TabIndex = 3
+        Me.desSerLabel.Text = "Descripcion:"
+        '
+        'error1Ser
+        '
+        Me.error1Ser.AutoSize = True
+        Me.error1Ser.Location = New System.Drawing.Point(117, 76)
+        Me.error1Ser.Name = "error1Ser"
+        Me.error1Ser.Size = New System.Drawing.Size(0, 13)
+        Me.error1Ser.TabIndex = 2
+        Me.error1Ser.UseMnemonic = False
+        '
+        'nomSerLabel
+        '
+        Me.nomSerLabel.AutoSize = True
+        Me.nomSerLabel.Location = New System.Drawing.Point(22, 58)
+        Me.nomSerLabel.Name = "nomSerLabel"
+        Me.nomSerLabel.Size = New System.Drawing.Size(47, 13)
+        Me.nomSerLabel.TabIndex = 1
+        Me.nomSerLabel.Text = "Nombre:"
+        '
+        'nomSerTxt
+        '
+        Me.nomSerTxt.Location = New System.Drawing.Point(113, 55)
+        Me.nomSerTxt.Name = "nomSerTxt"
+        Me.nomSerTxt.Size = New System.Drawing.Size(295, 20)
+        Me.nomSerTxt.TabIndex = 0
+        '
+        'Buscar
+        '
+        Me.Buscar.Location = New System.Drawing.Point(83, 360)
+        Me.Buscar.Name = "Buscar"
+        Me.Buscar.Size = New System.Drawing.Size(75, 23)
+        Me.Buscar.TabIndex = 16
+        Me.Buscar.Text = "Buscar"
+        Me.Buscar.UseVisualStyleBackColor = True
+        '
         'Form2
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoScroll = True
-        Me.ClientSize = New System.Drawing.Size(1788, 679)
+        Me.ClientSize = New System.Drawing.Size(1771, 679)
+        Me.Controls.Add(Me.panelServicios)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.boton_servicios)
         Me.Controls.Add(Me.panel_botones_mugen)
@@ -4418,6 +4850,14 @@ Partial Class Form2
         Me.GroupBoxNuevoProducto.ResumeLayout(False)
         Me.GroupBoxNuevoProducto.PerformLayout()
         CType(Me.view_contable, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.panelServicios.ResumeLayout(False)
+        Me.editarServicios.ResumeLayout(False)
+        Me.editarServicios.PerformLayout()
+        Me.verServicios.ResumeLayout(False)
+        Me.verSerPanel.ResumeLayout(False)
+        Me.verSerPanel.PerformLayout()
+        Me.ingresarServicios.ResumeLayout(False)
+        Me.ingresarServicios.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -4666,7 +5106,7 @@ Partial Class Form2
     Friend WithEvents Label45 As Label
     Friend WithEvents Label46 As Label
     Friend WithEvents lbEstado As Label
-    Friend WithEvents botonBuscar As Button
+    Friend WithEvents buscarSerBtn As Button
     Friend WithEvents calendarioEntregas As MonthCalendar
     Friend WithEvents resultadosPedidos As ListBox
     Friend WithEvents Label44 As Label
@@ -4858,4 +5298,43 @@ Partial Class Form2
     Friend WithEvents Button26 As Button
     Friend WithEvents Button25 As Button
     Friend WithEvents Button24NuevoProducto As Button
+    Friend WithEvents panelServicios As Panel
+    Friend WithEvents editarServicios As GroupBox
+    Friend WithEvents CheckBoxCom2 As CheckBox
+    Friend WithEvents CheckBoxMano2 As CheckBox
+    Friend WithEvents CheckBoxDias2 As CheckBox
+    Friend WithEvents borSerBtn2 As Button
+    Friend WithEvents modSerBtn As Button
+    Friend WithEvents error3Ser2 As Label
+    Friend WithEvents desSerTxt2 As TextBox
+    Friend WithEvents Label67 As Label
+    Friend WithEvents error2Ser2 As Label
+    Friend WithEvents Label68 As Label
+    Friend WithEvents error1Ser2 As Label
+    Friend WithEvents Label72 As Label
+    Friend WithEvents nomSerTxt2 As TextBox
+    Friend WithEvents ingresarServicios As GroupBox
+    Friend WithEvents verServicios As Panel
+    Friend WithEvents verSerPanel As GroupBox
+    Friend WithEvents errorBuscar As Label
+    Friend WithEvents serBusBtn As Button
+    Friend WithEvents serBusTxt As TextBox
+    Friend WithEvents verBusLab As Label
+    Friend WithEvents verSerLab As Label
+    Friend WithEvents lisBusSer As ListBox
+    Friend WithEvents CheckBoxCom As CheckBox
+    Friend WithEvents CheckBoxMano As CheckBox
+    Friend WithEvents CheckBoxDias As CheckBox
+    Friend WithEvents borSerBtn As Button
+    Friend WithEvents editSerBtn As Button
+    Friend WithEvents carSerBtn As Button
+    Friend WithEvents error3Ser As Label
+    Friend WithEvents desSerTxt As TextBox
+    Friend WithEvents calSerLabel As Label
+    Friend WithEvents error2Ser As Label
+    Friend WithEvents desSerLabel As Label
+    Friend WithEvents error1Ser As Label
+    Friend WithEvents nomSerLabel As Label
+    Friend WithEvents nomSerTxt As TextBox
+    Friend WithEvents Buscar As Button
 End Class

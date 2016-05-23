@@ -1147,7 +1147,7 @@ Public Class Form2
         TextIden.Text = ""
     End Sub
 
-    Private Sub botonBuscar_Click(sender As Object, e As EventArgs) Handles botonBuscar.Click
+    Private Sub botonBuscar_Click(sender As Object, e As EventArgs) Handles buscarSerBtn.Click
         Dim nombreCliente As String
         Dim apellidoCliente As String
         Dim identiCliente As String
@@ -2211,5 +2211,207 @@ Public Class Form2
     Private Sub ButtonCerrar3_Click_1(sender As Object, e As EventArgs) Handles ButtonCerrar3.Click
 
         GroupBoxModificarProducto.Hide()
+    End Sub
+    Private Sub mostrarErrores(ByRef label As Object, ByVal mensaje As String, ByVal codigoError As Boolean) ' para mostrar los labels que sirven para indicar errores
+
+        ' 0 no hay error ocultar labels 1 hay error pintar de rojo y cargar mensaje
+        If codigoError Then
+            label.Text = mensaje
+            label.BackColor = Color.Red
+            label.Show()
+        Else
+            label.Hide()
+        End If
+
+    End Sub
+    Private Sub serBusBtn_Click(sender As Object, e As EventArgs) Handles serBusBtn.Click
+
+        'nueva puerquesa
+        Dim i, j, k, s As Integer
+        Dim resul As String
+        Dim bandera As Boolean = False
+
+        mostrarErrores(errorBuscar, "", False)
+        i = DataSet1.Tables("servicio").Rows.Count
+        s = serBusBtn.Text.ToString.Length
+        If i > 0 Then
+            For j = 0 To i - 1
+
+                resul = ServicioDataGridView.Item(1, j).Value().ToString()
+                k = resul.Length
+                If k >= s And serBusBtn.Text <> "" Then
+                    If resul.Substring(0, s).Equals(serBusBtn.Text) Then
+                        lisBusSer.Items.Add(resul + " " + ServicioDataGridView.Item(2, j).Value().ToString() + " " + ServicioDataGridView.Item(3, j).Value().ToString())
+                        bandera = True
+                    End If
+                ElseIf serBusBtn.Text = "" Then
+                    lisBusSer.Items.Add(resul + " " + ServicioDataGridView.Item(2, j).Value().ToString() + " " + ServicioDataGridView.Item(3, j).Value().ToString())
+                    bandera = -True
+                End If
+            Next
+        Else
+            mostrarErrores(errorBuscar, "No existe registros en la base de datos", True)
+            verServicios.Hide()
+        End If
+
+        If bandera Then
+            mostrarErrores(errorBuscar, "No existen coincidencias", True)
+        End If
+    End Sub
+
+    Private Sub carSerBtn_Click(sender As Object, e As EventArgs) Handles carSerBtn.Click
+        Dim resul As Integer
+
+        If nomSerTxt.Text = "" Then
+            mostrarErrores(error1Ser, "Complete este campo", True)
+        ElseIf desSerTxt.Text = "" Then
+            mostrarErrores(error2Ser, "Complete este campo", True)
+        ElseIf Not (CheckBoxDias.Checked <> False Or CheckBoxMano.Checked <> False Or CheckBoxCom.Checked <> False) Then
+            mostrarErrores(error3Ser, "Marque al menos un campo", True)
+        Else
+            mostrarErrores(error1Ser, "", False)
+            mostrarErrores(error2Ser, "", False)
+            mostrarErrores(error3Ser, "", False)
+            resul = buscar_en_tablas("servicio", "nombre_servicio", nomSerTxt.Text)
+
+            If resul = -1 Then
+                Dim nuevo_servicio As DataRow = DataSet1.Tables("servicio").NewRow()
+
+                nuevo_servicio("nombre_servicio") = nomSerTxt.Text
+                nuevo_servicio("descripcion_servicio") = desSerTxt.Text
+                If CheckBoxDias.Checked And Not CheckBoxMano.Checked And Not CheckBoxCom.Checked Then
+                    nuevo_servicio("forma_calculo") = CheckBoxDias.Text
+                ElseIf CheckBoxMano.Checked And Not CheckBoxCom.Checked And Not CheckBoxDias.Checked Then
+                    nuevo_servicio("forma_calculo") = CheckBoxMano.Text
+                ElseIf CheckBoxCom.Checked And Not CheckBoxMano.Checked And Not CheckBoxDias.Checked Then
+                    nuevo_servicio("forma_calculo") = CheckBoxCom.Text
+                ElseIf CheckBoxMano.Checked And CheckBoxCom.Checked And Not CheckBoxDias.Checked Then
+                    nuevo_servicio("forma_calculo") = CheckBoxMano.Text + " " + CheckBoxCom.Text
+                ElseIf CheckBoxDias.Checked And CheckBoxMano.Checked And Not CheckBoxCom.Checked Then
+                    nuevo_servicio("forma_calculo") = CheckBoxDias.Text + " " + CheckBoxMano.Text
+                ElseIf CheckBoxDias.Checked And Not CheckBoxMano.Checked And CheckBoxCom.Checked Then
+                    nuevo_servicio("forma_calculo") = CheckBoxDias.Text + " " + CheckBoxCom.Text
+                Else
+                    nuevo_servicio("forma_calculo") = CheckBoxDias.Text + " " + CheckBoxMano.Text + " " + CheckBoxCom.Text
+                End If
+                MsgBox("Servicio cargado exitosamente")
+                DataSet1.Tables("servicio").Rows.Add(nuevo_servicio)
+                Validate()
+                ServicioTableAdapter.Update(DataSet1.servicio)
+
+            Else
+                mostrarErrores(error1Ser, "Ya existe!", True)
+            End If
+        End If
+    End Sub
+
+
+    Private Sub editSerBtn_Click(sender As Object, e As EventArgs) Handles editSerBtn.Click
+        Dim resul As Integer
+        Dim cadena As String
+        If nomSerTxt.Text <> "" Then
+            editarServicios.Show()
+            mostrarErrores(error1Ser, "", False)
+            mostrarErrores(error2Ser, "", False)
+            mostrarErrores(error3Ser, "", False)
+            CheckBoxDias2.Checked = False
+            CheckBoxMano2.Checked = False
+            CheckBoxCom2.Checked = False
+            resul = buscar_en_tablas("servicio", "nombre_servicio", nomSerTxt.Text)
+            MsgBox(resul)
+            If resul > -1 Then
+                nomSerTxt2.Text = ServicioDataGridView.Item(1, resul).Value.ToString
+                desSerTxt2.Text = ServicioDataGridView.Item(2, resul).Value.ToString
+                cadena = ServicioDataGridView.Item(3, resul).Value.ToString
+                cadena = String.Concat(cadena, "                                                                                                             ")
+                ' MsgBox(cadena.Substring(6, 18).ToString)
+
+                If cadena.Substring(0, 5).Equals("xDias") And cadena.Substring(6, 13).Equals("             ") And cadena.Substring(14, 12).Equals("            ") Then
+                    CheckBoxDias2.Checked = True
+                ElseIf cadena.Substring(0, 13).Equals("xMano de obra") And cadena.Substring(14, 12).Equals("            ") Then
+                    CheckBoxMano2.Checked = True
+                ElseIf cadena.Substring(0, 12).Equals("xComplejidad") Then
+                    CheckBoxCom2.Checked = True
+
+                ElseIf cadena.Substring(0, 5).Equals("xDias") And cadena.Substring(6, 13).Equals("xMano de obra") And cadena.Substring(20, 12).Equals("            ") Then
+                    CheckBoxDias2.Checked = True
+                    CheckBoxMano2.Checked = True
+                ElseIf cadena.Substring(0, 5).Equals("xDias") And cadena.Substring(6, 12).Equals("xComplejidad") Then
+                    CheckBoxDias2.Checked = True
+                    CheckBoxCom2.Checked = True
+
+                ElseIf cadena.Substring(0, 13).Equals("xMano de obra") And cadena.Substring(14, 12).Equals("xComplejidad") Then
+                    CheckBoxCom2.Checked = True
+                    CheckBoxMano2.Checked = True
+                Else
+                    CheckBoxDias2.Checked = True
+                    CheckBoxMano2.Checked = True
+                    CheckBoxCom2.Checked = True
+                End If
+            Else
+                nomSerTxt2.Text = nomSerTxt.Text
+                mostrarErrores(error1Ser2, "No existe es servicio,No se puede editar", True)
+            End If
+
+        Else
+            mostrarErrores(error1Ser, "¿Cual es el nombre del servicio a editar?", True)
+        End If
+    End Sub
+
+    Private Sub modSerBtn_Click(sender As Object, e As EventArgs) Handles modSerBtn.Click
+        Dim resul As Integer
+        Dim cadena As String
+
+        cadena = ""
+        resul = buscar_en_tablas("servicio", "nombre_servicio", nomSerTxt.Text)
+        MsgBox(resul)
+        If resul > -1 Then
+            DataSet1.Tables("servicio").Rows(resul).Item(1) = nomSerTxt2.Text
+            DataSet1.Tables("servicio").Rows(resul).Item(2) = desSerTxt2.Text
+            If CheckBoxDias2.Checked Then
+                cadena = String.Concat(cadena, CheckBoxDias2.Text)
+                cadena = String.Concat(cadena, " ")
+            End If
+            If CheckBoxMano2.Checked Then
+                cadena = String.Concat(cadena, CheckBoxMano2.Text)
+                cadena = String.Concat(cadena, " ")
+            End If
+            If CheckBoxCom2.Checked Then
+                cadena = String.Concat(cadena, CheckBoxCom2.Text)
+                cadena = String.Concat(cadena, " ")
+            End If
+            cadena = cadena.Remove(cadena.Length - 1)
+            DataSet1.Tables("servicio").Rows(resul).Item(3) = cadena
+            Validate()
+            ServicioTableAdapter.Update(DataSet1)
+        End If
+    End Sub
+
+    Private Sub borSerBtn2_Click(sender As Object, e As EventArgs) Handles borSerBtn2.Click
+        nomSerTxt2.Clear()
+        desSerTxt2.Clear()
+        CheckBoxCom2.Checked = False
+        CheckBoxDias2.Checked = False
+        CheckBoxMano2.Checked = False
+        ingresarServicios.Hide()
+    End Sub
+
+    Private Sub borSerBtn_Click(sender As Object, e As EventArgs) Handles borSerBtn.Click
+        nomSerTxt.Clear()
+        desSerTxt.Clear()
+        CheckBoxCom.Checked = False
+        CheckBoxDias.Checked = False
+        CheckBoxMano.Checked = False
+    End Sub
+
+    Private Sub Buscar_Click(sender As Object, e As EventArgs) Handles Buscar.Click
+        verSerPanel.Show()
+    End Sub
+
+    Private Sub boton_servicios_Click(sender As Object, e As EventArgs) Handles boton_servicios.Click
+        panel_cuentas.Hide()
+        panel_carga_presupuesto.Hide()
+        PanelTrabajosPendientes.Hide()
+        panelServicios.Show()
     End Sub
 End Class

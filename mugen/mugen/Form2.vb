@@ -1721,6 +1721,10 @@ Public Class Form2
 
     Private Sub boton_stock_Click(sender As Object, e As EventArgs) Handles boton_stock.Click
         GroupBox4Stock.Show()
+        Panel2.Hide()
+        'ESTO ME DIJO PASTORE
+        'datos_loguin.id_usuario
+
     End Sub
 
     Private Sub Button24NuevoProducto_Click(sender As Object, e As EventArgs)
@@ -1846,6 +1850,7 @@ Public Class Form2
         GroupBoxNuevoProducto.Show()
         GroupBoxIngresodeProducto.Hide()
         GroupBoxModificarProducto.Hide()
+        GroupBoxProveedor.Hide()
 
         GroupBoxIngresodeProducto.Text = ""
         GroupBoxModificarProducto.Text = ""
@@ -1861,6 +1866,7 @@ Public Class Form2
         GroupBoxIngresodeProducto.Show()
         GroupBoxModificarProducto.Hide()
         LabelIngresoProducto.Hide()
+        GroupBoxProveedor.Hide()
 
         TextBoxProveedor.Text = ""
         TextBoxDeshabilitado2.Text = ""
@@ -1877,6 +1883,7 @@ Public Class Form2
 
     Private Sub Button26_Click_1(sender As Object, e As EventArgs) Handles Button26.Click
         GroupBoxNuevoProducto.Hide()
+        GroupBoxProveedor.Hide()
         GroupBoxIngresodeProducto.Hide()
         GroupBoxModificarProducto.Show()
     End Sub
@@ -2112,12 +2119,237 @@ Public Class Form2
             LabelIngresoProducto.Text = "Producto creado"
             LabelIngresoProducto.ForeColor = Color.Green
 
+            ''''CONTABILIDAD''''
 
+            'SI EL IVA ESTÁ INCLUÍDO
+            If CheckBoxIVAincluido.Checked Then
+                ' ===ACTUALIZAR TABLA CONTABILIDAD I===
+
+                ' 1) ITEM
+                Dim nueva_contabilidad4 As DataRow = DataSet1.Tables("contabilidad").NewRow()
+
+                nueva_contabilidad4("descripcion") = "Ingresa(n) " + TextBoxCantidad.Text + " " + TextBoxDeshabilitado3.Text
+                nueva_contabilidad4("deber") = (TextBoxPreciodeCompra.Text / 110) * 100
+                'nueva_contabilidad4("haber") = TextBoxNroFactura.Text
+                nueva_contabilidad4("fecha") = TextBoxFecha.Text
+                'nueva_contabilidad4("saldo") = TextBoxNroFactura.Text
+                nueva_contabilidad4("numero_factura") = TextBoxNroFactura.Text
+
+                DataSet1.Tables("contabilidad").Rows.Add(nueva_contabilidad4)
+
+                Validate()
+                ContabilidadBindingSource.EndEdit()
+                ContabilidadTableAdapter.Update(DataSet1.contabilidad)
+
+                ' 2) IVA
+                Dim nueva_contabilidad5 As DataRow = DataSet1.Tables("contabilidad").NewRow()
+
+                nueva_contabilidad5("descripcion") = "IVA"
+                nueva_contabilidad5("deber") = TextBoxPreciodeCompra.Text - ((TextBoxPreciodeCompra.Text / 110) * 100)
+                'nueva_contabilidad5("haber") = TextBoxNroFactura.Text
+                nueva_contabilidad5("fecha") = TextBoxFecha.Text
+                'nueva_contabilidad5("saldo") = TextBoxNroFactura.Text
+                nueva_contabilidad5("numero_factura") = TextBoxNroFactura.Text
+
+                DataSet1.Tables("contabilidad").Rows.Add(nueva_contabilidad5)
+
+                Validate()
+                ContabilidadBindingSource.EndEdit()
+                ContabilidadTableAdapter.Update(DataSet1.contabilidad)
+
+                ' 3) CAJA
+                Dim nueva_contabilidad6 As DataRow = DataSet1.Tables("contabilidad").NewRow()
+
+                nueva_contabilidad6("descripcion") = "Caja"
+                'nueva_contabilidad6("deber") = 
+                nueva_contabilidad6("haber") = ((TextBoxPreciodeCompra.Text / 110) * 100) + (TextBoxPreciodeCompra.Text - ((TextBoxPreciodeCompra.Text / 110) * 100))
+                nueva_contabilidad6("fecha") = TextBoxFecha.Text
+                'nueva_contabilidad6("saldo") = TextBoxNroFactura.Text
+                'nueva_contabilidad6("numero_factura") = TextBoxNroFactura.Text
+
+                DataSet1.Tables("contabilidad").Rows.Add(nueva_contabilidad6)
+
+                Validate()
+                ContabilidadBindingSource.EndEdit()
+                ContabilidadTableAdapter.Update(DataSet1.contabilidad)
+
+
+                ' ===ACTUALIZAR TABLA CONTABILIDAD II===
+
+                ' 1) ITEM
+                Dim nueva_contabilidad7 As DataRow = DataSet1.Tables("contabilidad2").NewRow()
+
+                nueva_contabilidad7("id_usuario") = datos_loguin.id_usuario
+                nueva_contabilidad7("descripcion_modificacion") = "Ingreso de Producto"
+                nueva_contabilidad7("fecha_modificacion") = TextBoxFecha.Text
+                nueva_contabilidad7("descripcion2") = "Ingresa(n) " + TextBoxCantidad.Text + " " + TextBoxDeshabilitado3.Text
+                nueva_contabilidad7("deber2") = (TextBoxPreciodeCompra.Text / 110) * 100
+                'nueva_contabilidad7("haber2") = TextBoxNroFactura.Text
+                nueva_contabilidad7("fecha2") = TextBoxFecha.Text
+                'nueva_contabilidad7("saldo2") = TextBoxNroFactura.Text
+                nueva_contabilidad7("numero_factura2") = TextBoxNroFactura.Text
+
+                DataSet1.Tables("contabilidad2").Rows.Add(nueva_contabilidad7)
+
+                Validate()
+                Contabilidad2BindingSource.EndEdit()
+                Contabilidad2TableAdapter.Update(DataSet1.contabilidad2)
+
+                ' 2) IVA
+                Dim nueva_contabilidad8 As DataRow = DataSet1.Tables("contabilidad2").NewRow()
+
+                nueva_contabilidad8("id_usuario") = datos_loguin.id_usuario
+                nueva_contabilidad8("descripcion_modificacion") = "Ingreso de Producto"
+                nueva_contabilidad8("fecha_modificacion") = TextBoxFecha.Text
+                nueva_contabilidad8("descripcion2") = "IVA"
+                nueva_contabilidad8("deber2") = TextBoxPreciodeCompra.Text - ((TextBoxPreciodeCompra.Text / 110) * 100)
+                'nueva_contabilidad8("haber2") = TextBoxNroFactura.Text
+                nueva_contabilidad8("fecha2") = TextBoxFecha.Text
+                'nueva_contabilidad8("saldo2") = TextBoxNroFactura.Text
+                nueva_contabilidad8("numero_factura2") = TextBoxNroFactura.Text
+
+                DataSet1.Tables("contabilidad2").Rows.Add(nueva_contabilidad8)
+
+                Validate()
+                Contabilidad2BindingSource.EndEdit()
+                Contabilidad2TableAdapter.Update(DataSet1.contabilidad2)
+
+                ' 3) CAJA
+                Dim nueva_contabilidad9 As DataRow = DataSet1.Tables("contabilidad2").NewRow()
+
+                nueva_contabilidad9("id_usuario") = datos_loguin.id_usuario
+                nueva_contabilidad9("descripcion_modificacion") = "Ingreso de Producto"
+                nueva_contabilidad9("fecha_modificacion") = TextBoxFecha.Text
+                nueva_contabilidad9("descripcion2") = "Caja"
+                'nueva_contabilidad9("deber2") = 
+                nueva_contabilidad9("haber2") = ((TextBoxPreciodeCompra.Text / 110) * 100) + (TextBoxPreciodeCompra.Text - ((TextBoxPreciodeCompra.Text / 110) * 100))
+                nueva_contabilidad9("fecha2") = TextBoxFecha.Text
+                'nueva_contabilidad9("saldo2") = TextBoxNroFactura.Text
+                'nueva_contabilidad9("numero_factura2") = TextBoxNroFactura.Text
+
+                DataSet1.Tables("contabilidad2").Rows.Add(nueva_contabilidad9)
+
+                Validate()
+                Contabilidad2BindingSource.EndEdit()
+                Contabilidad2TableAdapter.Update(DataSet1.contabilidad2)
+
+            Else 'SI EL IVA NO ESTÁ INCLUIDO
+                ' ===ACTUALIZAR TABLA CONTABILIDAD I===
+
+                ' 1) ITEM
+                Dim nueva_contabilidad1 As DataRow = DataSet1.Tables("contabilidad").NewRow()
+
+                nueva_contabilidad1("descripcion") = "Ingresa(n) " + TextBoxCantidad.Text + " " + TextBoxDeshabilitado3.Text
+                nueva_contabilidad1("deber") = TextBoxPreciodeCompra.Text
+                'nueva_contabilidad1("haber") = TextBoxNroFactura.Text
+                nueva_contabilidad1("fecha") = TextBoxFecha.Text
+                'nueva_contabilidad1("saldo") = TextBoxNroFactura.Text
+                nueva_contabilidad1("numero_factura") = TextBoxNroFactura.Text
+
+                DataSet1.Tables("contabilidad").Rows.Add(nueva_contabilidad1)
+
+                Validate()
+                ContabilidadBindingSource.EndEdit()
+                ContabilidadTableAdapter.Update(DataSet1.contabilidad)
+
+                ' 2) IVA
+                Dim nueva_contabilidad2 As DataRow = DataSet1.Tables("contabilidad").NewRow()
+
+                nueva_contabilidad2("descripcion") = "IVA"
+                nueva_contabilidad2("deber") = TextBoxPreciodeCompra.Text / 10
+                'nueva_contabilidad2("haber") = TextBoxNroFactura.Text
+                nueva_contabilidad2("fecha") = TextBoxFecha.Text
+                'nueva_contabilidad2("saldo") = TextBoxNroFactura.Text
+                nueva_contabilidad2("numero_factura") = TextBoxNroFactura.Text
+
+                DataSet1.Tables("contabilidad").Rows.Add(nueva_contabilidad2)
+
+                Validate()
+                ContabilidadBindingSource.EndEdit()
+                ContabilidadTableAdapter.Update(DataSet1.contabilidad)
+
+                ' 3) CAJA
+                Dim nueva_contabilidad3 As DataRow = DataSet1.Tables("contabilidad").NewRow()
+
+                nueva_contabilidad3("descripcion") = "Caja"
+                'nueva_contabilidad3("deber") = 
+                nueva_contabilidad3("haber") = TextBoxPreciodeCompra.Text + (TextBoxPreciodeCompra.Text / 10)
+                nueva_contabilidad3("fecha") = TextBoxFecha.Text
+                'nueva_contabilidad3("saldo") = TextBoxNroFactura.Text
+                'nueva_contabilidad3("numero_factura") = TextBoxNroFactura.Text
+
+                DataSet1.Tables("contabilidad").Rows.Add(nueva_contabilidad3)
+
+                Validate()
+                ContabilidadBindingSource.EndEdit()
+                ContabilidadTableAdapter.Update(DataSet1.contabilidad)
+
+
+                ' ===ACTUALIZAR TABLA CONTABILIDAD II===
+
+                ' 1) ITEM
+                Dim nueva_contabilidad10 As DataRow = DataSet1.Tables("contabilidad2").NewRow()
+
+                nueva_contabilidad10("id_usuario") = datos_loguin.id_usuario
+                nueva_contabilidad10("descripcion_modificacion") = "Ingreso de Producto"
+                nueva_contabilidad10("fecha_modificacion") = TextBoxFecha.Text
+                nueva_contabilidad10("descripcion2") = "Ingresa(n) " + TextBoxCantidad.Text + " " + TextBoxDeshabilitado3.Text
+                nueva_contabilidad10("deber2") = TextBoxPreciodeCompra.Text
+                'nueva_contabilidad10("haber2") = TextBoxNroFactura.Text
+                nueva_contabilidad10("fecha2") = TextBoxFecha.Text
+                'nueva_contabilidad10("saldo2") = TextBoxNroFactura.Text
+                nueva_contabilidad10("numero_factura2") = TextBoxNroFactura.Text
+
+                DataSet1.Tables("contabilidad2").Rows.Add(nueva_contabilidad10)
+
+                Validate()
+                Contabilidad2BindingSource.EndEdit()
+                Contabilidad2TableAdapter.Update(DataSet1.contabilidad2)
+
+                ' 2) IVA
+                Dim nueva_contabilidad11 As DataRow = DataSet1.Tables("contabilidad2").NewRow()
+
+                nueva_contabilidad11("id_usuario") = datos_loguin.id_usuario
+                nueva_contabilidad11("descripcion_modificacion") = "Ingreso de Producto"
+                nueva_contabilidad11("fecha_modificacion") = TextBoxFecha.Text
+                nueva_contabilidad11("descripcion2") = "IVA"
+                nueva_contabilidad11("deber2") = TextBoxPreciodeCompra.Text / 10
+                'nueva_contabilidad11("haber2") = TextBoxNroFactura.Text
+                nueva_contabilidad11("fecha2") = TextBoxFecha.Text
+                'nueva_contabilidad11("saldo2") = TextBoxNroFactura.Text
+                nueva_contabilidad11("numero_factura2") = TextBoxNroFactura.Text
+
+                DataSet1.Tables("contabilidad2").Rows.Add(nueva_contabilidad11)
+
+                Validate()
+                Contabilidad2BindingSource.EndEdit()
+                Contabilidad2TableAdapter.Update(DataSet1.contabilidad2)
+
+                ' 3) CAJA
+                Dim nueva_contabilidad12 As DataRow = DataSet1.Tables("contabilidad2").NewRow()
+
+                nueva_contabilidad12("id_usuario") = datos_loguin.id_usuario
+                nueva_contabilidad12("descripcion_modificacion") = "Ingreso de Producto"
+                nueva_contabilidad12("fecha_modificacion") = TextBoxFecha.Text
+                nueva_contabilidad12("descripcion2") = "Caja"
+                'nueva_contabilidad12("deber2") = 
+                nueva_contabilidad12("haber2") = TextBoxPreciodeCompra.Text + (TextBoxPreciodeCompra.Text / 10)
+                nueva_contabilidad12("fecha2") = TextBoxFecha.Text
+                'nueva_contabilidad12("saldo2") = TextBoxNroFactura.Text
+                'nueva_contabilidad12("numero_factura2") = TextBoxNroFactura.Text
+
+                DataSet1.Tables("contabilidad2").Rows.Add(nueva_contabilidad12)
+
+                Validate()
+                Contabilidad2BindingSource.EndEdit()
+                Contabilidad2TableAdapter.Update(DataSet1.contabilidad2)
+            End If
         Else
             LabelIngresoProducto.Show()
             LabelIngresoProducto.Text = "Complete los campos vacíos"
             LabelIngresoProducto.ForeColor = Color.Red
         End If
+
     End Sub
 
     Private Sub ButtonCerrar2_Click_1(sender As Object, e As EventArgs) Handles ButtonCerrar2.Click
@@ -2413,5 +2645,80 @@ Public Class Form2
         panel_carga_presupuesto.Hide()
         PanelTrabajosPendientes.Hide()
         panelServicios.Show()
+    End Sub
+
+    Private Sub Button29_Click(sender As Object, e As EventArgs) Handles Button29.Click
+        GroupBoxProveedor.Hide()
+    End Sub
+
+    Private Sub ButtonInsertarProveedor_Click(sender As Object, e As EventArgs) Handles ButtonInsertarProveedor.Click
+        LabelNuevoProveedor.Hide()
+
+        If TextBoxNombreProveedor.Text <> "" And TextBoxRUCproveedor.Text <> "" Then
+            Dim nuevo_proveedor As DataRow = DataSet1.Tables("proveedor").NewRow()
+
+
+            nuevo_proveedor("nombre_proveedor") = TextBoxNombreProveedor.Text
+            nuevo_proveedor("ruc_proveedor") = TextBoxRUCproveedor.Text
+
+            DataSet1.Tables("proveedor").Rows.Add(nuevo_proveedor)
+
+            Validate()
+            ProveedorBindingSource.EndEdit()
+            ProveedorTableAdapter.Update(DataSet1.proveedor)
+
+            LabelNuevoProveedor.Show()
+            LabelNuevoProveedor.Text = "Proveedor creado"
+            LabelNuevoProveedor.ForeColor = Color.Green
+
+
+        Else
+            LabelNuevoProveedor.Show()
+            LabelNuevoProveedor.Text = "Complete los campos vacíos"
+            LabelNuevoProveedor.ForeColor = Color.Red
+        End If
+    End Sub
+
+    Private Sub Button27_Click(sender As Object, e As EventArgs) Handles Button27.Click
+
+    End Sub
+
+    Private Sub BotonNuevoProveedor_Click(sender As Object, e As EventArgs) Handles BotonNuevoProveedor.Click
+        GroupBoxNuevoProducto.Hide()
+        GroupBoxIngresodeProducto.Hide()
+        GroupBoxModificarProducto.Hide()
+        LabelIngresoProducto.Hide()
+        GroupBoxProveedor.Show()
+    End Sub
+
+    Private Sub TextBoxRUCproveedor_TextChanged(sender As Object, e As EventArgs) Handles TextBoxRUCproveedor.TextChanged
+
+    End Sub
+
+    Private Sub TextBoxRUCproveedor_LostFocus(sender As Object, e As EventArgs) Handles TextBoxRUCproveedor.LostFocus
+
+
+        'ESTO FALTAAAAAAA'
+
+        LabelNuevoProveedor.Hide()
+        Dim cantidad_de_proveedores As Integer
+        cantidad_de_proveedores = DataSet1.Tables("proveedor").Rows.Count
+
+
+        If cantidad_de_proveedores > 0 Then
+            For i As Integer = 0 To (cantidad_de_proveedores - 1)
+                'Si el PROVEEDOR existe'
+                If DataSet1.Tables("proveedor").Rows(i).Item("ruc_proveedor") = TextBoxRUCproveedor.Text Then
+                    LabelNuevoProveedor.Show()
+                    LabelNuevoProveedor.Text = "El RUC de proveedor ingresado ya existe"
+                    LabelNuevoProveedor.ForeColor = Color.Red
+
+                    TextBoxRUCproveedor.Text = ""
+                    TextBoxRUCproveedor.Focus()
+                End If
+            Next
+
+        End If
+
     End Sub
 End Class

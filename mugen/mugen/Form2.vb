@@ -2329,6 +2329,7 @@ Public Class Form2
         Dim resul As Integer
         Dim cadena As String
 
+        actualizarDataset()
         cadena = ""
         resul = buscar_en_tablas("servicio", "nombre_servicio", nomSerTxt.Text)
         MsgBox(resul)
@@ -2389,49 +2390,7 @@ Public Class Form2
         auxSer.Items.Clear()
     End Sub
 
-    Private Sub serBusBtn_Click_1(sender As Object, e As EventArgs) Handles serBusBtn.Click
-        'nueva puerquesa
-        Dim i, j, k, s As Integer
-        Dim resul As String
-        Dim bandera As Boolean = False
 
-
-        mostrarErrores(errorBuscar, "", False)
-        i = DataSet1.Tables("servicio").Rows.Count
-        s = serBusTxt.Text.Length
-
-
-        If i > 0 Then
-            For j = 0 To i - 1
-
-                resul = ServicioDataGridView.Item(1, j).Value().ToString()
-                k = resul.Length
-
-                If k >= s And serBusTxt.Text <> "" Then
-                    MsgBox(resul.Substring(0, s))
-                    If resul.Substring(0, s).Equals(serBusTxt.Text.ToString) Then
-
-                        lisBusSer.Items.Add("Nombre: " + resul + "     " + "Descripcion: " + ServicioDataGridView.Item(2, j).Value().ToString() + "     " + "Se calcula: " + ServicioDataGridView.Item(3, j).Value().ToString())
-                        auxSer.Items.Add(resul)
-                        bandera = True
-                    End If
-                ElseIf serBusTxt.Text = "" Then
-                    lisBusSer.Items.Add("Nombre: " + resul + "     " + "Descripcion: " + ServicioDataGridView.Item(2, j).Value().ToString() + "     " + "Se calcula: " + ServicioDataGridView.Item(3, j).Value().ToString())
-                    auxSer.Items.Add(resul)
-                    bandera = -True
-                End If
-            Next
-        Else
-            mostrarErrores(errorBuscar, "No existe registros en la base de datos", True)
-
-        End If
-
-        If bandera = False Then
-            mostrarErrores(errorBuscar, "No existen coincidencias", True)
-
-
-        End If
-    End Sub
 
     Private Sub cancelSerBtn_Click_1(sender As Object, e As EventArgs) Handles cancelSerBtn.Click
         verSerPanel.Hide()
@@ -2441,5 +2400,64 @@ Public Class Form2
         nomSerTxt.Text = auxSer.Items(lisBusSer.SelectedIndex)
 
         verSerPanel.Hide()
+    End Sub
+
+    Private Sub actualizarDataset()
+        'TODO: esta línea de código carga datos en la tabla 'DataSet1.venta_servicio' Puede moverla o quitarla según sea necesario.
+        Me.Venta_servicioTableAdapter.Fill(Me.DataSet1.venta_servicio)
+        'TODO: esta línea de código carga datos en la tabla 'DataSet1.servicio' Puede moverla o quitarla según sea necesario.
+        Me.ServicioTableAdapter.Fill(Me.DataSet1.servicio)
+        'TODO: This line of code loads data into the 'DataSet1.venta_producto' table. You can move, or remove it, as needed.
+        Me.Venta_productoTableAdapter.Fill(Me.DataSet1.venta_producto)
+        'TODO: This line of code loads data into the 'DataSet1.usuario' table. You can move, or remove it, as needed.
+        Me.UsuarioTableAdapter.Fill(Me.DataSet1.usuario)
+        'TODO: This line of code loads data into the 'DataSet1.proveedor' table. You can move, or remove it, as needed.
+        Me.ProveedorTableAdapter.Fill(Me.DataSet1.proveedor)
+        'TODO: This line of code loads data into the 'DataSet1.producto' table. You can move, or remove it, as needed.
+        Me.ProductoTableAdapter.Fill(Me.DataSet1.producto)
+
+        'TODO: This line of code loads data into the 'DataSet1.pedido' table. You can move, or remove it, as needed.
+        Me.PedidoTableAdapter.Fill(Me.DataSet1.pedido)
+        'TODO: This line of code loads data into the 'DataSet1.ingreso_producto' table. You can move, or remove it, as needed.
+        Me.Ingreso_productoTableAdapter.Fill(Me.DataSet1.ingreso_producto)
+        'TODO: This line of code loads data into the 'DataSet1.contabilidad2' table. You can move, or remove it, as needed.
+        Me.Contabilidad2TableAdapter.Fill(Me.DataSet1.contabilidad2)
+        'TODO: This line of code loads data into the 'DataSet1.contabilidad' table. You can move, or remove it, as needed.
+        Me.ContabilidadTableAdapter.Fill(Me.DataSet1.contabilidad)
+        'TODO: This line of code loads data into the 'DataSet1.cliente' table. You can move, or remove it, as needed.
+        Me.ClienteTableAdapter.Fill(Me.DataSet1.cliente)
+        'TODO: This line of code loads data into the 'DataSet1.association_1' table. You can move, or remove it, as needed.
+        Me.Association_1TableAdapter.Fill(Me.DataSet1.association_1)
+    End Sub
+
+    Private Sub imprimirDataGridView_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles imprimirDataGridView.PrintPage
+        Dim data As DataGridView
+        Dim f, c, i, j As Integer
+        Dim fuente As Font
+        Dim x, y As Integer 'coordenadas
+        fuente = New Drawing.Font("Times New Roman", 9) 'tipo de letra y tamanho
+        data = PedidoDataGridView ' asisgnar que datagridview se quiere imprimir
+
+        f = data.RowCount ' se optienen la cantidad de filas
+        c = data.ColumnCount 'se optienen la cantidad de columnas
+        x = 100
+        y = 100
+        'MsgBox(f.ToString + " " + c.ToString + " " + data.Rows(0).Cells(0).Value.ToString)
+
+        For i = 0 To f - 2
+            For j = 3 To c - 1
+                e.Graphics.DrawString(data.Rows(i).Cells(j).Value.ToString, fuente, Brushes.Black, y, x)
+                y = y + 125
+            Next
+            x = x + 25
+            y = 100
+        Next
+
+
+
+    End Sub
+
+    Private Sub prueba_Click(sender As Object, e As EventArgs) Handles prueba.Click
+        imprimirDataGridView.Print()
     End Sub
 End Class

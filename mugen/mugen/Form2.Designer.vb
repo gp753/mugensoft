@@ -33,12 +33,12 @@ Partial Class Form2
         Dim ApellidoLabel1A As System.Windows.Forms.Label
         Dim NombreLabel1N As System.Windows.Forms.Label
         Dim RucLabel1R As System.Windows.Forms.Label
-        Dim ChartArea5 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend5 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series5 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim ChartArea6 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend6 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series6 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea2 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend2 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series2 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form2))
         Me.Ingreso_productoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DataSet1 = New mugen.DataSet1()
@@ -464,6 +464,16 @@ Partial Class Form2
         Me.Button25 = New System.Windows.Forms.Button()
         Me.Button24NuevoProducto = New System.Windows.Forms.Button()
         Me.panelServicios = New System.Windows.Forms.Panel()
+        Me.prueba = New System.Windows.Forms.Button()
+        Me.verSerPanel = New System.Windows.Forms.GroupBox()
+        Me.auxSer = New System.Windows.Forms.ListBox()
+        Me.cancelSerBtn = New System.Windows.Forms.Button()
+        Me.errorBuscar = New System.Windows.Forms.Label()
+        Me.serBusBtn = New System.Windows.Forms.Button()
+        Me.serBusTxt = New System.Windows.Forms.TextBox()
+        Me.verBusLab = New System.Windows.Forms.Label()
+        Me.verSerLab = New System.Windows.Forms.Label()
+        Me.lisBusSer = New System.Windows.Forms.ListBox()
         Me.editarServicios = New System.Windows.Forms.GroupBox()
         Me.CheckBoxCom2 = New System.Windows.Forms.CheckBox()
         Me.CheckBoxMano2 = New System.Windows.Forms.CheckBox()
@@ -506,15 +516,7 @@ Partial Class Form2
         Me.UsuarioTableAdapter = New mugen.DataSet1TableAdapters.usuarioTableAdapter()
         Me.Venta_productoTableAdapter = New mugen.DataSet1TableAdapters.venta_productoTableAdapter()
         Me.Venta_servicioTableAdapter = New mugen.DataSet1TableAdapters.venta_servicioTableAdapter()
-        Me.verSerPanel = New System.Windows.Forms.GroupBox()
-        Me.cancelSerBtn = New System.Windows.Forms.Button()
-        Me.errorBuscar = New System.Windows.Forms.Label()
-        Me.serBusBtn = New System.Windows.Forms.Button()
-        Me.serBusTxt = New System.Windows.Forms.TextBox()
-        Me.verBusLab = New System.Windows.Forms.Label()
-        Me.verSerLab = New System.Windows.Forms.Label()
-        Me.lisBusSer = New System.Windows.Forms.ListBox()
-        Me.auxSer = New System.Windows.Forms.ListBox()
+        Me.imprimirDataGridView = New System.Drawing.Printing.PrintDocument()
         MailLabelM = New System.Windows.Forms.Label()
         NumeroLabelN = New System.Windows.Forms.Label()
         RucLabelR = New System.Windows.Forms.Label()
@@ -583,9 +585,9 @@ Partial Class Form2
         Me.GroupBoxIngresodeProducto.SuspendLayout()
         Me.GroupBoxNuevoProducto.SuspendLayout()
         Me.panelServicios.SuspendLayout()
+        Me.verSerPanel.SuspendLayout()
         Me.editarServicios.SuspendLayout()
         Me.ingresarServicios.SuspendLayout()
-        Me.verSerPanel.SuspendLayout()
         Me.SuspendLayout()
         '
         'MailLabelM
@@ -3180,16 +3182,16 @@ Partial Class Form2
         '
         'graficoTrabajos
         '
-        ChartArea5.Name = "ChartArea1"
-        Me.graficoTrabajos.ChartAreas.Add(ChartArea5)
-        Legend5.Name = "Legend1"
-        Me.graficoTrabajos.Legends.Add(Legend5)
+        ChartArea1.Name = "ChartArea1"
+        Me.graficoTrabajos.ChartAreas.Add(ChartArea1)
+        Legend1.Name = "Legend1"
+        Me.graficoTrabajos.Legends.Add(Legend1)
         Me.graficoTrabajos.Location = New System.Drawing.Point(573, 145)
         Me.graficoTrabajos.Name = "graficoTrabajos"
-        Series5.ChartArea = "ChartArea1"
-        Series5.Legend = "Legend1"
-        Series5.Name = "Series1"
-        Me.graficoTrabajos.Series.Add(Series5)
+        Series1.ChartArea = "ChartArea1"
+        Series1.Legend = "Legend1"
+        Series1.Name = "Series1"
+        Me.graficoTrabajos.Series.Add(Series1)
         Me.graficoTrabajos.Size = New System.Drawing.Size(416, 244)
         Me.graficoTrabajos.TabIndex = 41
         Me.graficoTrabajos.Text = "Chart2"
@@ -3197,16 +3199,16 @@ Partial Class Form2
         '
         'graficoPagados
         '
-        ChartArea6.Name = "ChartArea1"
-        Me.graficoPagados.ChartAreas.Add(ChartArea6)
-        Legend6.Name = "Legend1"
-        Me.graficoPagados.Legends.Add(Legend6)
+        ChartArea2.Name = "ChartArea1"
+        Me.graficoPagados.ChartAreas.Add(ChartArea2)
+        Legend2.Name = "Legend1"
+        Me.graficoPagados.Legends.Add(Legend2)
         Me.graficoPagados.Location = New System.Drawing.Point(369, 143)
         Me.graficoPagados.Name = "graficoPagados"
-        Series6.ChartArea = "ChartArea1"
-        Series6.Legend = "Legend1"
-        Series6.Name = "Series1"
-        Me.graficoPagados.Series.Add(Series6)
+        Series2.ChartArea = "ChartArea1"
+        Series2.Legend = "Legend1"
+        Series2.Name = "Series1"
+        Me.graficoPagados.Series.Add(Series2)
         Me.graficoPagados.Size = New System.Drawing.Size(416, 244)
         Me.graficoPagados.TabIndex = 40
         Me.graficoPagados.Text = "Chart1"
@@ -4301,6 +4303,7 @@ Partial Class Form2
         '
         'panelServicios
         '
+        Me.panelServicios.Controls.Add(Me.prueba)
         Me.panelServicios.Controls.Add(Me.verSerPanel)
         Me.panelServicios.Controls.Add(Me.editarServicios)
         Me.panelServicios.Controls.Add(Me.ingresarServicios)
@@ -4309,6 +4312,102 @@ Partial Class Form2
         Me.panelServicios.Size = New System.Drawing.Size(1367, 601)
         Me.panelServicios.TabIndex = 13
         Me.panelServicios.Visible = False
+        '
+        'prueba
+        '
+        Me.prueba.Location = New System.Drawing.Point(154, 453)
+        Me.prueba.Name = "prueba"
+        Me.prueba.Size = New System.Drawing.Size(75, 23)
+        Me.prueba.TabIndex = 24
+        Me.prueba.Text = "Button29"
+        Me.prueba.UseVisualStyleBackColor = True
+        '
+        'verSerPanel
+        '
+        Me.verSerPanel.Controls.Add(Me.auxSer)
+        Me.verSerPanel.Controls.Add(Me.cancelSerBtn)
+        Me.verSerPanel.Controls.Add(Me.errorBuscar)
+        Me.verSerPanel.Controls.Add(Me.serBusBtn)
+        Me.verSerPanel.Controls.Add(Me.serBusTxt)
+        Me.verSerPanel.Controls.Add(Me.verBusLab)
+        Me.verSerPanel.Controls.Add(Me.verSerLab)
+        Me.verSerPanel.Controls.Add(Me.lisBusSer)
+        Me.verSerPanel.Location = New System.Drawing.Point(14, 23)
+        Me.verSerPanel.Name = "verSerPanel"
+        Me.verSerPanel.Size = New System.Drawing.Size(466, 404)
+        Me.verSerPanel.TabIndex = 2
+        Me.verSerPanel.TabStop = False
+        Me.verSerPanel.Text = "Ver Servicios"
+        Me.verSerPanel.Visible = False
+        '
+        'auxSer
+        '
+        Me.auxSer.FormattingEnabled = True
+        Me.auxSer.Location = New System.Drawing.Point(30, 289)
+        Me.auxSer.Name = "auxSer"
+        Me.auxSer.Size = New System.Drawing.Size(25, 95)
+        Me.auxSer.TabIndex = 7
+        Me.auxSer.Visible = False
+        '
+        'cancelSerBtn
+        '
+        Me.cancelSerBtn.Location = New System.Drawing.Point(372, 352)
+        Me.cancelSerBtn.Name = "cancelSerBtn"
+        Me.cancelSerBtn.Size = New System.Drawing.Size(75, 23)
+        Me.cancelSerBtn.TabIndex = 6
+        Me.cancelSerBtn.Text = "Cancelar"
+        Me.cancelSerBtn.UseVisualStyleBackColor = True
+        '
+        'errorBuscar
+        '
+        Me.errorBuscar.AutoSize = True
+        Me.errorBuscar.Location = New System.Drawing.Point(184, 329)
+        Me.errorBuscar.Name = "errorBuscar"
+        Me.errorBuscar.Size = New System.Drawing.Size(10, 13)
+        Me.errorBuscar.TabIndex = 5
+        Me.errorBuscar.Text = "."
+        '
+        'serBusBtn
+        '
+        Me.serBusBtn.Location = New System.Drawing.Point(288, 352)
+        Me.serBusBtn.Name = "serBusBtn"
+        Me.serBusBtn.Size = New System.Drawing.Size(75, 23)
+        Me.serBusBtn.TabIndex = 4
+        Me.serBusBtn.Text = "Buscar"
+        Me.serBusBtn.UseVisualStyleBackColor = True
+        '
+        'serBusTxt
+        '
+        Me.serBusTxt.Location = New System.Drawing.Point(291, 323)
+        Me.serBusTxt.Name = "serBusTxt"
+        Me.serBusTxt.Size = New System.Drawing.Size(162, 20)
+        Me.serBusTxt.TabIndex = 3
+        '
+        'verBusLab
+        '
+        Me.verBusLab.AutoSize = True
+        Me.verBusLab.Location = New System.Drawing.Point(288, 306)
+        Me.verBusLab.Name = "verBusLab"
+        Me.verBusLab.Size = New System.Drawing.Size(109, 13)
+        Me.verBusLab.TabIndex = 2
+        Me.verBusLab.Text = "Buscar Coincidencias"
+        '
+        'verSerLab
+        '
+        Me.verSerLab.AutoSize = True
+        Me.verSerLab.Location = New System.Drawing.Point(6, 65)
+        Me.verSerLab.Name = "verSerLab"
+        Me.verSerLab.Size = New System.Drawing.Size(145, 13)
+        Me.verSerLab.TabIndex = 1
+        Me.verSerLab.Text = "Lista de servicios registrados:"
+        '
+        'lisBusSer
+        '
+        Me.lisBusSer.FormattingEnabled = True
+        Me.lisBusSer.Location = New System.Drawing.Point(6, 82)
+        Me.lisBusSer.Name = "lisBusSer"
+        Me.lisBusSer.Size = New System.Drawing.Size(446, 199)
+        Me.lisBusSer.TabIndex = 0
         '
         'editarServicios
         '
@@ -4659,99 +4758,15 @@ Partial Class Form2
         '
         Me.Venta_servicioTableAdapter.ClearBeforeFill = True
         '
-        'verSerPanel
+        'imprimirDataGridView
         '
-        Me.verSerPanel.Controls.Add(Me.auxSer)
-        Me.verSerPanel.Controls.Add(Me.cancelSerBtn)
-        Me.verSerPanel.Controls.Add(Me.errorBuscar)
-        Me.verSerPanel.Controls.Add(Me.serBusBtn)
-        Me.verSerPanel.Controls.Add(Me.serBusTxt)
-        Me.verSerPanel.Controls.Add(Me.verBusLab)
-        Me.verSerPanel.Controls.Add(Me.verSerLab)
-        Me.verSerPanel.Controls.Add(Me.lisBusSer)
-        Me.verSerPanel.Location = New System.Drawing.Point(14, 23)
-        Me.verSerPanel.Name = "verSerPanel"
-        Me.verSerPanel.Size = New System.Drawing.Size(466, 404)
-        Me.verSerPanel.TabIndex = 2
-        Me.verSerPanel.TabStop = False
-        Me.verSerPanel.Text = "Ver Servicios"
-        Me.verSerPanel.Visible = False
-        '
-        'cancelSerBtn
-        '
-        Me.cancelSerBtn.Location = New System.Drawing.Point(372, 352)
-        Me.cancelSerBtn.Name = "cancelSerBtn"
-        Me.cancelSerBtn.Size = New System.Drawing.Size(75, 23)
-        Me.cancelSerBtn.TabIndex = 6
-        Me.cancelSerBtn.Text = "Cancelar"
-        Me.cancelSerBtn.UseVisualStyleBackColor = True
-        '
-        'errorBuscar
-        '
-        Me.errorBuscar.AutoSize = True
-        Me.errorBuscar.Location = New System.Drawing.Point(184, 329)
-        Me.errorBuscar.Name = "errorBuscar"
-        Me.errorBuscar.Size = New System.Drawing.Size(10, 13)
-        Me.errorBuscar.TabIndex = 5
-        Me.errorBuscar.Text = "."
-        '
-        'serBusBtn
-        '
-        Me.serBusBtn.Location = New System.Drawing.Point(288, 352)
-        Me.serBusBtn.Name = "serBusBtn"
-        Me.serBusBtn.Size = New System.Drawing.Size(75, 23)
-        Me.serBusBtn.TabIndex = 4
-        Me.serBusBtn.Text = "Buscar"
-        Me.serBusBtn.UseVisualStyleBackColor = True
-        '
-        'serBusTxt
-        '
-        Me.serBusTxt.Location = New System.Drawing.Point(291, 323)
-        Me.serBusTxt.Name = "serBusTxt"
-        Me.serBusTxt.Size = New System.Drawing.Size(162, 20)
-        Me.serBusTxt.TabIndex = 3
-        '
-        'verBusLab
-        '
-        Me.verBusLab.AutoSize = True
-        Me.verBusLab.Location = New System.Drawing.Point(288, 306)
-        Me.verBusLab.Name = "verBusLab"
-        Me.verBusLab.Size = New System.Drawing.Size(109, 13)
-        Me.verBusLab.TabIndex = 2
-        Me.verBusLab.Text = "Buscar Coincidencias"
-        '
-        'verSerLab
-        '
-        Me.verSerLab.AutoSize = True
-        Me.verSerLab.Location = New System.Drawing.Point(6, 65)
-        Me.verSerLab.Name = "verSerLab"
-        Me.verSerLab.Size = New System.Drawing.Size(145, 13)
-        Me.verSerLab.TabIndex = 1
-        Me.verSerLab.Text = "Lista de servicios registrados:"
-        '
-        'lisBusSer
-        '
-        Me.lisBusSer.FormattingEnabled = True
-        Me.lisBusSer.Location = New System.Drawing.Point(6, 81)
-        Me.lisBusSer.Name = "lisBusSer"
-        Me.lisBusSer.Size = New System.Drawing.Size(446, 199)
-        Me.lisBusSer.TabIndex = 0
-        '
-        'auxSer
-        '
-        Me.auxSer.FormattingEnabled = True
-        Me.auxSer.Location = New System.Drawing.Point(30, 289)
-        Me.auxSer.Name = "auxSer"
-        Me.auxSer.Size = New System.Drawing.Size(25, 95)
-        Me.auxSer.TabIndex = 7
-        Me.auxSer.Visible = False
         '
         'Form2
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoScroll = True
-        Me.ClientSize = New System.Drawing.Size(1362, 741)
+        Me.ClientSize = New System.Drawing.Size(1354, 733)
         Me.Controls.Add(Me.boton_servicios)
         Me.Controls.Add(Me.panel_botones_mugen)
         Me.Controls.Add(Me.Button7)
@@ -4847,12 +4862,12 @@ Partial Class Form2
         Me.GroupBoxNuevoProducto.ResumeLayout(False)
         Me.GroupBoxNuevoProducto.PerformLayout()
         Me.panelServicios.ResumeLayout(False)
+        Me.verSerPanel.ResumeLayout(False)
+        Me.verSerPanel.PerformLayout()
         Me.editarServicios.ResumeLayout(False)
         Me.editarServicios.PerformLayout()
         Me.ingresarServicios.ResumeLayout(False)
         Me.ingresarServicios.PerformLayout()
-        Me.verSerPanel.ResumeLayout(False)
-        Me.verSerPanel.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -5334,4 +5349,6 @@ Partial Class Form2
     Friend WithEvents verSerLab As Label
     Friend WithEvents lisBusSer As ListBox
     Friend WithEvents auxSer As ListBox
+    Friend WithEvents imprimirDataGridView As Printing.PrintDocument
+    Friend WithEvents prueba As Button
 End Class

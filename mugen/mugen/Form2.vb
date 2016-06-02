@@ -263,8 +263,7 @@ Public Class Form2
 
     End Structure
     Dim cliente_buscado As clien
-
-
+    Public Property DataGridDataGridViewTrabajos As Object
 
     Private Sub Button14_Click(sender As Object, e As EventArgs) Handles aceptar_carga_presupuesto.Click
 
@@ -1409,213 +1408,152 @@ Public Class Form2
     End Sub
 
     Private Sub btpGenerar_Click(sender As Object, e As EventArgs) Handles btpGenerar.Click
-        'Dim user() As String
-        'Dim i, k, canUsuario, userId() As Integer
-        'canUsuario = DataSet1.Tables("usuario").Rows.Count
 
-        'graficoPagados.Series.Clear()
-        'graficoTrabajos.Series.Clear()
-        'graficoTrabajos.Series.Add("Pendientes")
-        'graficoTrabajos.Series.Add("Terminados")
-        'graficoTrabajos.Series.Add("Entregados")
-        'graficoPagados.Series.Add("Cobrados")
-        'graficoPagados.Series("Cobrados").ChartType = DataVisualization.Charting.SeriesChartType.Area
-        'ReDim user(1)
-        'ReDim userId(1)
-        'k = 0
-        'user(0) = ""
-        'If canUsuario > 0 Then
-        '    For i = 1 To canUsuario - 1
-        '        If controlarRepetidos(user, UsuarioDataGridView.Item(1, i).Value.ToString) Then
-        '            user(k) = UsuarioDataGridView.Item(1, i).Value.ToString
-        '            userId(k) = UsuarioDataGridView.Item(0, i).Value
-        '            'MsgBox(user(k) + userId(k).ToString)
-        '            k = k + 1
-        '            ReDim Preserve user(k + 1)
-        '            ReDim Preserve userId(k + 1)
-        '        End If
-        '    Next
-        'End If
-        'ReDim Preserve user(k)
-        'ReDim Preserve userId(k)
-        'Dim j, p(k), t(k), en(k), canPedidos As Integer
-        'Dim entrega, cobrado As Date
-        'Dim monto As Double
-        'Dim bandera As Boolean
-        'bandera = False
-        'canPedidos = DataSet1.Tables("pedido").Rows.Count
-        'If canPedidos > 0 Then
-        '    For i = 0 To k - 1
-        '        p(i) = 0
-        '        t(i) = 0
-        '        en(i) = 0
+        Dim user() As String
+        Dim i, k, canUsuario, userId() As Integer
+        canUsuario = DataSet1.Tables("usuario").Rows.Count
 
-        '    Next
+        graficoPagados.Series.Clear()
+        graficoTrabajos.Series.Clear()
+        graficoTrabajos.Series.Add("Pendientes")
+        graficoTrabajos.Series.Add("Terminados")
+        graficoTrabajos.Series.Add("Entregados")
+        graficoPagados.Series.Add("Cobrados")
+        graficoPagados.Series("Cobrados").ChartType = DataVisualization.Charting.SeriesChartType.Area
+        ReDim user(1)
+        ReDim userId(1)
+        k = 0
+        user(0) = ""
+        If canUsuario > 0 Then
+            For i = 1 To canUsuario - 1
+                If controlarRepetidos(user, UsuarioDataGridView.Item(1, i).Value.ToString) Then
+                    user(k) = UsuarioDataGridView.Item(1, i).Value.ToString
+                    userId(k) = UsuarioDataGridView.Item(0, i).Value
+                    'MsgBox(user(k) + userId(k).ToString)
+                    k = k + 1
+                    ReDim Preserve user(k + 1)
+                    ReDim Preserve userId(k + 1)
+                End If
+            Next
+        End If
 
-        '    'MsgBox(k)
-        '    If user(0) <> "" Then
+        ReDim Preserve user(k)
+        ReDim Preserve userId(k)
+        Dim j, p(k), t(k), en(k), canPedidos As Integer
+        Dim entrega, cobrado As Date
+        Dim monto As Double
+        Dim bandera, bandera2 As Boolean
+        bandera = bandera2 = False
+        canPedidos = DataSet1.Tables("pedido").Rows.Count
 
-        '        For i = 0 To k - 1
-        '            For j = 0 To canPedidos - 1
-        '                entrega = pedidoGridView.Item(3, j).Value
-        '                If userId(i) = pedidoGridView.Item(2, j).Value And entrega.Month = Now.Month Then ' se puede mejorar
-        '                    bandera = True
-        '                    If pedidoGridView.Item(7, j).Value.ToString = "pendiente" Then
-        '                        p(i) = p(i) + 1
-        '                        'MsgBox("entra")
-        '                    ElseIf pedidoGridView.Item(7, j).Value.ToString = "terminado" Then
-        '                        t(i) = t(i) + 1
-        '                    ElseIf pedidoGridView.Item(7, j).Value.ToString = "entregado" Then
-        '                        en(i) = en(i) + 1
+            If canPedidos > 0 Then
 
-        '                    End If
+                For i = 0 To k - 1
+                    p(i) = 0
+                    t(i) = 0
+                    en(i) = 0
 
+                Next
 
-        '                End If
-        '            Next
-        '        Next
-        '        If bandera Then
-        '            For i = 0 To k - 1
-        '                'MsgBox(p(i))
+                'MsgBox(k)
+                If user(0) <> "" Then
 
-        '                If p(i) > 0 Then
-        '                    graficoTrabajos.Series("Pendientes").Points.AddXY(user(i), p(i))
+                    For i = 0 To k - 1
+                        For j = 0 To canPedidos - 1
+                            entrega = pedidoGridView.Item(3, j).Value
+                            If userId(i) = pedidoGridView.Item(2, j).Value And entrega.Month = Now.Month Then ' se puede mejorar
+                                bandera = True
+                                If pedidoGridView.Item(7, j).Value.ToString = "pendiente" Then
+                                    p(i) = p(i) + 1
+                                    'MsgBox("entra")
+                                ElseIf pedidoGridView.Item(7, j).Value.ToString = "terminado" Then
+                                    t(i) = t(i) + 1
+                                ElseIf pedidoGridView.Item(7, j).Value.ToString = "entregado" Then
+                                    en(i) = en(i) + 1
 
-        '                End If
-        '                If t(i) > 0 Then
-        '                    graficoTrabajos.Series("Terminados").Points.AddXY(user(i), t(i))
-        '                End If
-        '                If en(i) > 0 Then
-        '                    graficoTrabajos.Series("Entregados").Points.AddXY(user(i), en(i))
-        '                End If
-        '                'If c(i) > 0 Then
-        '                'graficoTrabajos.Series("Cobrados").Points.AddXY(user(i), c(i))
-        '                'End If
-        '                graficoTrabajos.AlignDataPointsByAxisLabel()
-        '            Next
+                                End If
+                            End If
+                        Next
+                    Next
+                    If bandera Then
+                        For i = 0 To k - 1
+                        'MsgBox(p(i))
+                        bandera2 = True
+                        If p(i) > 0 Then
+                                graficoTrabajos.Series("Pendientes").Points.AddXY(user(i), p(i))
 
-        '        End If
-        '    Else
-        '        MsgBox("No hay trabajos este mes")
-        '    End If
-        '    bandera = False
-        '    For i = 0 To canPedidos - 1
-        '        cobrado = pedidoGridView.Item(4, i).Value
-        '        monto = pedidoGridView.Item(6, i).Value
-        '        If cobrado.Month = Now.Month Then
-        '            graficoPagados.Series("Cobrados").Points.AddXY(cobrado, monto)
-        '            bandera = True
-        '        End If
-        '    Next
-        '    If Not bandera Then
-        '        MsgBox("No hay trabajos cobrados en el mes")
-        '    End If
+                            End If
+                            If t(i) > 0 Then
+                                graficoTrabajos.Series("Terminados").Points.AddXY(user(i), t(i))
+                            End If
+                            If en(i) > 0 Then
+                                graficoTrabajos.Series("Entregados").Points.AddXY(user(i), en(i))
+                            End If
 
-        '    Dim imagen1, imagen2 As New Bitmap(400, 230)
-        '    Dim table As New PdfPTable(7)
-        '    Dim table2 As New PdfPTable(7)
-        '    Dim cell As New PdfPCell(New Phrase("                                   Trabajos realizados por los Usuarios"))
-        '    Dim cell2 As New PdfPCell(New Phrase("                                   Trabajos cobrados por los Usuarios"))
+                            graficoTrabajos.AlignDataPointsByAxisLabel()
+                        Next
 
-        '    ' Dim base As iTextSharp.text.pdf.BaseFont
-        '    '  Dim fuente As iTextSharp.text.Font
-        '    ' base = FontFactory.GetFont(FontFactory.TIMES_ROMAN, iTextSharp.text.Font.DEFAULTSIZE, iTextSharp.text.Font.NORMAL).BaseFont
-        '    'fuente.Style(base, 12, Font.Italic, Color.Red)
-        '    'MsgBox(Environment.UserName.ToString)
-        '    graficoTrabajos.DrawToBitmap(imagen1, graficoTrabajos.DisplayRectangle)
-        '    imagen1.Save("C:\Users\" + Environment.UserName.ToString + "\AppData\Local\Temp\grafico1.jpg", System.Drawing.Imaging.ImageFormat.Jpeg)
-        '    graficoPagados.DrawToBitmap(imagen2, graficoPagados.DisplayRectangle)
-        '    imagen2.Save("C:\Users\" + Environment.UserName.ToString + "\AppData\Local\Temp\grafico2.jpg", System.Drawing.Imaging.ImageFormat.Jpeg)
-        '    SaveFileDialog1.DefaultExt = "pdf"
-        '    SaveFileDialog1.FileName = "informe"
+                    End If
+                Else
+                    MsgBox("No hay trabajos este mes")
+                End If
+                bandera = False
+                For i = 0 To canPedidos - 1
+                    cobrado = pedidoGridView.Item(4, i).Value
+                    monto = pedidoGridView.Item(6, i).Value
+                    If cobrado.Month = Now.Month Then
+                        graficoPagados.Series("Cobrados").Points.AddXY(cobrado, monto)
+                        bandera = True
+                    End If
+                Next
+            If Not bandera Then
+                MsgBox("No hay trabajos cobrados en el mes")
+            End If
 
-        '    cell.Colspan = 7
-        '    cell.HorizontalAlignment = 0
-        '    table.SpacingBefore = 20.0F
-        '    table.SpacingAfter = 30.0F
-        '    table.AddCell(cell)
-        '    table.SetWidths({0.55F, 0.7F, 0.7F, 0.9F, 0.7F, 0.7F, 0.8F})
-        '    If SaveFileDialog1.ShowDialog = System.Windows.Forms.DialogResult.OK Then
-        '        Try
-        '            Dim salida1 As iTextSharp.text.Image = iTextSharp.text.Image.GetInstance("C:\Users\" + Environment.UserName.ToString + "\AppData\Local\Temp\grafico1.jpg")
-        '            Dim salida2 As iTextSharp.text.Image = iTextSharp.text.Image.GetInstance("C:\Users\" + Environment.UserName.ToString + "\AppData\Local\Temp\grafico2.jpg")
-        '            Dim DOCUMENTO As New Document
-        '            Dim ESCRITOR As PdfWriter = PdfWriter.GetInstance(DOCUMENTO, New FileStream(SaveFileDialog1.FileName, FileMode.Create))
-        '            DOCUMENTO.Open()
-        '            DOCUMENTO.Add(New Paragraph("                                                                 Resumen del mes"))
-        '            DOCUMENTO.Add(New Paragraph(vbCrLf))
-        '            DOCUMENTO.Add(New Paragraph(vbCrLf))
-        '            DOCUMENTO.Add(New Paragraph("Estadisticas de trabajos correspondiente a el mes actual"))
-        '            DOCUMENTO.Add(New Paragraph(vbCrLf))
-        '            DOCUMENTO.Add(salida1)
-        '            DOCUMENTO.Add(New Paragraph(vbCrLf))
-        '            table.AddCell("Usuario")
-        '            table.AddCell("Fecha de Entrega")
-        '            table.AddCell("Fecha de Cobro")
-        '            table.AddCell("Descripcion")
-        '            table.AddCell("Precio")
-        '            table.AddCell("Nombre del Pedido")
-        '            table.AddCell("Estado")
+            Dim y As Integer
+            y = 0
+            If bandera2 Then
+                For i = 0 To canPedidos - 1
+                    If pedidoGridView.Item(7, i).Value <> "cobrado" Then
+                        For j = 0 To k - 1
+                            If pedidoGridView.Item(2, i).Value = userId(j) Then
+                                DataGridViewTrabajos.Item(0, y).Value = user(j).ToString
+                            End If
+                        Next
+                        DataGridViewTrabajos.Item(1, y).Value = pedidoGridView.Item(8, i).Value.ToString()
+                        DataGridViewTrabajos.Item(2, y).Value = pedidoGridView.Item(3, i).Value.ToString()
+                        DataGridViewTrabajos.Item(3, y).Value = pedidoGridView.Item(4, i).Value.ToString()
+                        DataGridViewTrabajos.Item(4, y).Value = pedidoGridView.Item(5, i).Value.ToString()
+                        DataGridViewTrabajos.Item(5, y).Value = pedidoGridView.Item(6, i).Value.ToString()
+                        DataGridViewTrabajos.Item(6, y).Value = pedidoGridView.Item(7, i).Value.ToString()
+                        DataGridViewTrabajos.Rows.Add()
+                        y = y + 1
+                        resulTrabajos.Show()
+                        PanelTrabajosPendientes.Hide()
+                    End If
+                Next
+            End If
+            If bandera Then
+                y = 0
+                For i = 0 To canPedidos - 1
+                    If pedidoGridView.Item(7, i).Value = "cobrado" Then
+                        For j = 0 To k - 1
+                            If pedidoGridView.Item(2, i).Value = userId(j) Then
+                                DataGridViewTrabajos.Item(0, y).Value = user(j).ToString
+                            End If
+                        Next
+                        DataGridViewCobrados.Item(1, y).Value = pedidoGridView.Item(8, i).Value.ToString()
+                        DataGridViewCobrados.Item(2, y).Value = pedidoGridView.Item(3, i).Value.ToString()
+                        DataGridViewCobrados.Item(3, y).Value = pedidoGridView.Item(4, i).Value.ToString()
+                        DataGridViewCobrados.Item(4, y).Value = pedidoGridView.Item(5, i).Value.ToString()
+                        DataGridViewCobrados.Rows.Add()
+                        y = y + 1
+                    End If
+                Next
 
-        '            For i = 0 To canPedidos - 1
-        '                If pedidoGridView.Item(7, i).Value <> "cobrado" Then
-        '                    For j = 0 To k - 1
-        '                        If pedidoGridView.Item(2, i).Value = userId(j) Then
-        '                            table.AddCell(user(j).ToString)
-        '                        End If
-        '                    Next
-        '                    table.AddCell(pedidoGridView.Item(3, i).Value.ToString)
-        '                    table.AddCell(pedidoGridView.Item(4, i).Value.ToString)
-        '                    table.AddCell(pedidoGridView.Item(5, i).Value.ToString)
-        '                    table.AddCell(pedidoGridView.Item(6, i).Value.ToString)
-        '                    table.AddCell(pedidoGridView.Item(8, i).Value.ToString)
-        '                    table.AddCell(pedidoGridView.Item(7, i).Value.ToString)
-        '                End If
-        '            Next
-        '            DOCUMENTO.Add(table)
-        '            DOCUMENTO.Add(New Paragraph(vbCrLf))
-        '            DOCUMENTO.Add(salida2)
-        '            DOCUMENTO.Add(New Paragraph(vbCrLf))
-        '            cell2.Colspan = 7
-        '            cell2.HorizontalAlignment = 0
-        '            table2.SpacingBefore = 20.0F
-        '            table2.SpacingAfter = 30.0F
-        '            table2.AddCell(cell2)
-        '            table2.SetWidths({0.55F, 0.7F, 0.7F, 0.9F, 0.7F, 0.7F, 0.8F})
-
-        '            table2.AddCell("Usuario")
-        '            table2.AddCell("Fecha de Entrega")
-        '            table2.AddCell("Fecha de Cobro")
-        '            table2.AddCell("Descripcion")
-        '            table2.AddCell("Precio")
-        '            table2.AddCell("Nombre del Pedido")
-        '            table2.AddCell("Estado")
-
-        '            For i = 0 To canPedidos - 1
-        '                If pedidoGridView.Item(7, i).Value = "cobrado" Then
-        '                    For j = 0 To k - 1
-        '                        If pedidoGridView.Item(2, i).Value = userId(j) Then
-        '                            table2.AddCell(user(j).ToString)
-        '                        End If
-        '                    Next
-        '                    table2.AddCell(pedidoGridView.Item(3, i).Value.ToString)
-        '                    table2.AddCell(pedidoGridView.Item(4, i).Value.ToString)
-        '                    table2.AddCell(pedidoGridView.Item(5, i).Value.ToString)
-        '                    table2.AddCell(pedidoGridView.Item(6, i).Value.ToString)
-        '                    table2.AddCell(pedidoGridView.Item(8, i).Value.ToString)
-        '                    table2.AddCell(pedidoGridView.Item(7, i).Value.ToString)
-        '                End If
-        '            Next
-        '            DOCUMENTO.Add(table2)
-        '            DOCUMENTO.Close()
-        '            MsgBox("Resumen generado con exito")
-
-        '        Catch ex As Exception
-        '            MsgBox(ex.Message)
-        '        End Try
-        '    End If
-        'End If
-
+            End If
+            'las cosas terminan aca
+        End If
 
     End Sub
 
@@ -1714,7 +1652,9 @@ Public Class Form2
 
         panel_cuentas.Hide()
         panel_carga_presupuesto.Hide()
+        panelServicios.Hide()
         PanelTrabajosPendientes.Show()
+        resulTrabajos.Hide()
         actualizarCalendarios()
 
     End Sub
@@ -2435,22 +2375,28 @@ Public Class Form2
         Dim f, c, i, j As Integer
         Dim fuente As Font
         Dim x, y As Integer 'coordenadas
-        fuente = New Drawing.Font("Times New Roman", 9) 'tipo de letra y tamanho
+        fuente = New Drawing.Font("Arial", 9) 'tipo de letra y tamanho
         data = PedidoDataGridView ' asisgnar que datagridview se quiere imprimir
-
+        e.Graphics.DrawString("Fecha: " + fechaFactura.ToString, fuente, Brushes.Black, 500, 100)
+        e.Graphics.DrawString("RUC: " + ruc, fuente, Brushes.Black, 100, 100)
+        e.Graphics.DrawString("Nombre: " + nombre, fuente, Brushes.Black, 100, 150)
+        e.Graphics.DrawString("Sub Total: " + sub_total.ToString, fuente, Brushes.Black, 100, 500)
+        e.Graphics.DrawString("Total a Pagar: " + total_a_pagar.ToString, fuente, Brushes.Black, 100, 550)
+        e.Graphics.DrawString("IVA: " + iva.ToString, fuente, Brushes.Black, 400, 550)
+        e.Graphics.DrawString("Total: " + total.ToString, fuente, Brushes.Black, 500, 550)
         f = data.RowCount ' se optienen la cantidad de filas
         c = data.ColumnCount 'se optienen la cantidad de columnas
         x = 100
-        y = 100
+        y = 200
         'MsgBox(f.ToString + " " + c.ToString + " " + data.Rows(0).Cells(0).Value.ToString)
 
         For i = 0 To f - 2
             For j = 3 To c - 1
-                e.Graphics.DrawString(data.Rows(i).Cells(j).Value.ToString, fuente, Brushes.Black, y, x)
-                y = y + 125
+                e.Graphics.DrawString(data.Rows(i).Cells(j).Value.ToString, fuente, Brushes.Black, x, y)
+                x = x + 125
             Next
-            x = x + 25
-            y = 100
+            y = y + 25
+            x = 100
         Next
 
 
@@ -2460,4 +2406,9 @@ Public Class Form2
     Private Sub prueba_Click(sender As Object, e As EventArgs) Handles prueba.Click
         imprimirDataGridView.Print()
     End Sub
+
+
+
+
+
 End Class

@@ -315,6 +315,26 @@ Partial Class Form2
         Me.ModificarClienteBoton = New System.Windows.Forms.Button()
         Me.CrearClienteBoton = New System.Windows.Forms.Button()
         Me.PanelTrabajosPendientes = New System.Windows.Forms.Panel()
+        Me.resulTrabajos = New System.Windows.Forms.Panel()
+        Me.DataGridViewCobrados = New System.Windows.Forms.DataGridView()
+        Me.nomUsuario2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.nomPedido2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.cobro2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.des2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.precio2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTrabajos = New System.Windows.Forms.DataGridView()
+        Me.nomUsuario = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.nomPedido = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.entrega = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.cobro = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.des = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.precio = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.estado = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Label74 = New System.Windows.Forms.Label()
+        Me.Label73 = New System.Windows.Forms.Label()
+        Me.Label71 = New System.Windows.Forms.Label()
+        Me.graficoTrabajos = New System.Windows.Forms.DataVisualization.Charting.Chart()
+        Me.graficoPagados = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.pedidoGridView = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn88 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn89 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -344,8 +364,6 @@ Partial Class Form2
         Me.DataGridViewTextBoxColumn75 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn76 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn78 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.graficoTrabajos = New System.Windows.Forms.DataVisualization.Charting.Chart()
-        Me.graficoPagados = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.btpGenerar = New System.Windows.Forms.Button()
         Me.BindingNavigator1 = New System.Windows.Forms.BindingNavigator(Me.components)
         Me.BindingNavigatorAddNewItem1 = New System.Windows.Forms.ToolStripButton()
@@ -570,11 +588,14 @@ Partial Class Form2
         Me.GroupBoxEstadisticasdelCliente.SuspendLayout()
         Me.GroupBoxModificarClienteasd.SuspendLayout()
         Me.PanelTrabajosPendientes.SuspendLayout()
+        Me.resulTrabajos.SuspendLayout()
+        CType(Me.DataGridViewCobrados, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataGridViewTrabajos, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.graficoTrabajos, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.graficoPagados, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.pedidoGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.UsuarioDataGrid, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ClienteGridView, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.graficoTrabajos, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.graficoPagados, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingNavigator1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.BindingNavigator1.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
@@ -2950,11 +2971,10 @@ Partial Class Form2
         'PanelTrabajosPendientes
         '
         Me.PanelTrabajosPendientes.AutoScroll = True
+        Me.PanelTrabajosPendientes.Controls.Add(Me.resulTrabajos)
         Me.PanelTrabajosPendientes.Controls.Add(Me.pedidoGridView)
         Me.PanelTrabajosPendientes.Controls.Add(Me.UsuarioDataGrid)
         Me.PanelTrabajosPendientes.Controls.Add(Me.ClienteGridView)
-        Me.PanelTrabajosPendientes.Controls.Add(Me.graficoTrabajos)
-        Me.PanelTrabajosPendientes.Controls.Add(Me.graficoPagados)
         Me.PanelTrabajosPendientes.Controls.Add(Me.btpGenerar)
         Me.PanelTrabajosPendientes.Controls.Add(Me.BindingNavigator1)
         Me.PanelTrabajosPendientes.Controls.Add(Me.idClientesAux)
@@ -2987,6 +3007,175 @@ Partial Class Form2
         Me.PanelTrabajosPendientes.Size = New System.Drawing.Size(1517, 563)
         Me.PanelTrabajosPendientes.TabIndex = 41
         Me.PanelTrabajosPendientes.Visible = False
+        '
+        'resulTrabajos
+        '
+        Me.resulTrabajos.Controls.Add(Me.DataGridViewCobrados)
+        Me.resulTrabajos.Controls.Add(Me.DataGridViewTrabajos)
+        Me.resulTrabajos.Controls.Add(Me.Label74)
+        Me.resulTrabajos.Controls.Add(Me.Label73)
+        Me.resulTrabajos.Controls.Add(Me.Label71)
+        Me.resulTrabajos.Controls.Add(Me.graficoTrabajos)
+        Me.resulTrabajos.Controls.Add(Me.graficoPagados)
+        Me.resulTrabajos.Location = New System.Drawing.Point(-4, -14)
+        Me.resulTrabajos.Name = "resulTrabajos"
+        Me.resulTrabajos.Size = New System.Drawing.Size(1417, 636)
+        Me.resulTrabajos.TabIndex = 25
+        Me.resulTrabajos.Visible = False
+        '
+        'DataGridViewCobrados
+        '
+        Me.DataGridViewCobrados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridViewCobrados.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.nomUsuario2, Me.nomPedido2, Me.cobro2, Me.des2, Me.precio2})
+        Me.DataGridViewCobrados.Location = New System.Drawing.Point(865, 369)
+        Me.DataGridViewCobrados.Name = "DataGridViewCobrados"
+        Me.DataGridViewCobrados.Size = New System.Drawing.Size(544, 205)
+        Me.DataGridViewCobrados.TabIndex = 48
+        '
+        'nomUsuario2
+        '
+        Me.nomUsuario2.HeaderText = "Nombre de usuario"
+        Me.nomUsuario2.Name = "nomUsuario2"
+        Me.nomUsuario2.ReadOnly = True
+        '
+        'nomPedido2
+        '
+        Me.nomPedido2.HeaderText = "Nombre del pedido"
+        Me.nomPedido2.Name = "nomPedido2"
+        Me.nomPedido2.ReadOnly = True
+        '
+        'cobro2
+        '
+        Me.cobro2.HeaderText = "Fecha de cobro"
+        Me.cobro2.Name = "cobro2"
+        Me.cobro2.ReadOnly = True
+        '
+        'des2
+        '
+        Me.des2.HeaderText = "Descripcion"
+        Me.des2.Name = "des2"
+        Me.des2.ReadOnly = True
+        '
+        'precio2
+        '
+        Me.precio2.HeaderText = "Precio"
+        Me.precio2.Name = "precio2"
+        Me.precio2.ReadOnly = True
+        '
+        'DataGridViewTrabajos
+        '
+        Me.DataGridViewTrabajos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridViewTrabajos.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.nomUsuario, Me.nomPedido, Me.entrega, Me.cobro, Me.des, Me.precio, Me.estado})
+        Me.DataGridViewTrabajos.Location = New System.Drawing.Point(36, 370)
+        Me.DataGridViewTrabajos.Name = "DataGridViewTrabajos"
+        Me.DataGridViewTrabajos.Size = New System.Drawing.Size(743, 205)
+        Me.DataGridViewTrabajos.TabIndex = 47
+        '
+        'nomUsuario
+        '
+        Me.nomUsuario.HeaderText = "Nombre de usuario"
+        Me.nomUsuario.Name = "nomUsuario"
+        Me.nomUsuario.ReadOnly = True
+        '
+        'nomPedido
+        '
+        Me.nomPedido.HeaderText = "Nombre del pedido"
+        Me.nomPedido.Name = "nomPedido"
+        Me.nomPedido.ReadOnly = True
+        '
+        'entrega
+        '
+        Me.entrega.HeaderText = "Fecha de entrega"
+        Me.entrega.Name = "entrega"
+        Me.entrega.ReadOnly = True
+        '
+        'cobro
+        '
+        Me.cobro.HeaderText = "Fecha de cobro"
+        Me.cobro.Name = "cobro"
+        Me.cobro.ReadOnly = True
+        '
+        'des
+        '
+        Me.des.HeaderText = "Descripcion"
+        Me.des.Name = "des"
+        Me.des.ReadOnly = True
+        '
+        'precio
+        '
+        Me.precio.HeaderText = "Precio"
+        Me.precio.Name = "precio"
+        Me.precio.ReadOnly = True
+        '
+        'estado
+        '
+        Me.estado.HeaderText = "Estado"
+        Me.estado.Name = "estado"
+        Me.estado.ReadOnly = True
+        '
+        'Label74
+        '
+        Me.Label74.AutoSize = True
+        Me.Label74.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label74.Location = New System.Drawing.Point(512, 43)
+        Me.Label74.Name = "Label74"
+        Me.Label74.Size = New System.Drawing.Size(287, 37)
+        Me.Label74.TabIndex = 46
+        Me.Label74.Text = "Resumen del mes"
+        '
+        'Label73
+        '
+        Me.Label73.AutoSize = True
+        Me.Label73.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label73.Location = New System.Drawing.Point(980, 98)
+        Me.Label73.Name = "Label73"
+        Me.Label73.Size = New System.Drawing.Size(256, 29)
+        Me.Label73.TabIndex = 45
+        Me.Label73.Text = "Trabajos entregados"
+        '
+        'Label71
+        '
+        Me.Label71.AutoSize = True
+        Me.Label71.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label71.Location = New System.Drawing.Point(149, 103)
+        Me.Label71.Name = "Label71"
+        Me.Label71.Size = New System.Drawing.Size(245, 29)
+        Me.Label71.TabIndex = 44
+        Me.Label71.Text = "Trabajos realizados"
+        '
+        'graficoTrabajos
+        '
+        ChartArea1.Name = "ChartArea1"
+        Me.graficoTrabajos.ChartAreas.Add(ChartArea1)
+        Legend1.Name = "Legend1"
+        Me.graficoTrabajos.Legends.Add(Legend1)
+        Me.graficoTrabajos.Location = New System.Drawing.Point(863, 127)
+        Me.graficoTrabajos.Name = "graficoTrabajos"
+        Series1.ChartArea = "ChartArea1"
+        Series1.Legend = "Legend1"
+        Series1.Name = "Series1"
+        Me.graficoTrabajos.Series.Add(Series1)
+        Me.graficoTrabajos.Size = New System.Drawing.Size(416, 244)
+        Me.graficoTrabajos.TabIndex = 43
+        Me.graficoTrabajos.Text = "Chart2"
+        Me.graficoTrabajos.Visible = False
+        '
+        'graficoPagados
+        '
+        ChartArea2.Name = "ChartArea1"
+        Me.graficoPagados.ChartAreas.Add(ChartArea2)
+        Legend2.Name = "Legend1"
+        Me.graficoPagados.Legends.Add(Legend2)
+        Me.graficoPagados.Location = New System.Drawing.Point(33, 129)
+        Me.graficoPagados.Name = "graficoPagados"
+        Series2.ChartArea = "ChartArea1"
+        Series2.Legend = "Legend1"
+        Series2.Name = "Series1"
+        Me.graficoPagados.Series.Add(Series2)
+        Me.graficoPagados.Size = New System.Drawing.Size(416, 244)
+        Me.graficoPagados.TabIndex = 42
+        Me.graficoPagados.Text = "Chart1"
+        Me.graficoPagados.Visible = False
         '
         'pedidoGridView
         '
@@ -3180,40 +3369,6 @@ Partial Class Form2
         Me.DataGridViewTextBoxColumn78.HeaderText = "cliente_prioritario"
         Me.DataGridViewTextBoxColumn78.Name = "DataGridViewTextBoxColumn78"
         '
-        'graficoTrabajos
-        '
-        ChartArea1.Name = "ChartArea1"
-        Me.graficoTrabajos.ChartAreas.Add(ChartArea1)
-        Legend1.Name = "Legend1"
-        Me.graficoTrabajos.Legends.Add(Legend1)
-        Me.graficoTrabajos.Location = New System.Drawing.Point(573, 145)
-        Me.graficoTrabajos.Name = "graficoTrabajos"
-        Series1.ChartArea = "ChartArea1"
-        Series1.Legend = "Legend1"
-        Series1.Name = "Series1"
-        Me.graficoTrabajos.Series.Add(Series1)
-        Me.graficoTrabajos.Size = New System.Drawing.Size(416, 244)
-        Me.graficoTrabajos.TabIndex = 41
-        Me.graficoTrabajos.Text = "Chart2"
-        Me.graficoTrabajos.Visible = False
-        '
-        'graficoPagados
-        '
-        ChartArea2.Name = "ChartArea1"
-        Me.graficoPagados.ChartAreas.Add(ChartArea2)
-        Legend2.Name = "Legend1"
-        Me.graficoPagados.Legends.Add(Legend2)
-        Me.graficoPagados.Location = New System.Drawing.Point(369, 143)
-        Me.graficoPagados.Name = "graficoPagados"
-        Series2.ChartArea = "ChartArea1"
-        Series2.Legend = "Legend1"
-        Series2.Name = "Series1"
-        Me.graficoPagados.Series.Add(Series2)
-        Me.graficoPagados.Size = New System.Drawing.Size(416, 244)
-        Me.graficoPagados.TabIndex = 40
-        Me.graficoPagados.Text = "Chart1"
-        Me.graficoPagados.Visible = False
-        '
         'btpGenerar
         '
         Me.btpGenerar.Location = New System.Drawing.Point(513, 206)
@@ -3237,7 +3392,7 @@ Partial Class Form2
         Me.BindingNavigator1.MovePreviousItem = Me.BindingNavigatorMovePreviousItem1
         Me.BindingNavigator1.Name = "BindingNavigator1"
         Me.BindingNavigator1.PositionItem = Me.BindingNavigatorPositionItem1
-        Me.BindingNavigator1.Size = New System.Drawing.Size(1517, 27)
+        Me.BindingNavigator1.Size = New System.Drawing.Size(1500, 27)
         Me.BindingNavigator1.TabIndex = 38
         Me.BindingNavigator1.Text = "BindingNavigator1"
         '
@@ -4309,7 +4464,7 @@ Partial Class Form2
         Me.panelServicios.Controls.Add(Me.ingresarServicios)
         Me.panelServicios.Location = New System.Drawing.Point(5, 70)
         Me.panelServicios.Name = "panelServicios"
-        Me.panelServicios.Size = New System.Drawing.Size(1367, 601)
+        Me.panelServicios.Size = New System.Drawing.Size(1367, 639)
         Me.panelServicios.TabIndex = 13
         Me.panelServicios.Visible = False
         '
@@ -4776,6 +4931,7 @@ Partial Class Form2
         Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.PanelTrabajosPendientes)
         Me.Controls.Add(Me.panelServicios)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.GroupBox4Stock)
@@ -4784,7 +4940,6 @@ Partial Class Form2
         Me.Controls.Add(Me.panel_cuentas)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.PanelClientes)
-        Me.Controls.Add(Me.PanelTrabajosPendientes)
         Me.Name = "Form2"
         Me.Text = "Form2"
         CType(Me.Ingreso_productoBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
@@ -4841,11 +4996,15 @@ Partial Class Form2
         Me.GroupBoxModificarClienteasd.PerformLayout()
         Me.PanelTrabajosPendientes.ResumeLayout(False)
         Me.PanelTrabajosPendientes.PerformLayout()
+        Me.resulTrabajos.ResumeLayout(False)
+        Me.resulTrabajos.PerformLayout()
+        CType(Me.DataGridViewCobrados, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataGridViewTrabajos, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.graficoTrabajos, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.graficoPagados, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.pedidoGridView, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.UsuarioDataGrid, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ClienteGridView, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.graficoTrabajos, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.graficoPagados, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BindingNavigator1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.BindingNavigator1.ResumeLayout(False)
         Me.BindingNavigator1.PerformLayout()
@@ -5056,8 +5215,6 @@ Partial Class Form2
     Friend WithEvents CrearClienteBoton As Button
     Friend WithEvents Button24 As Button
     Friend WithEvents PanelTrabajosPendientes As Panel
-    Friend WithEvents graficoTrabajos As DataVisualization.Charting.Chart
-    Friend WithEvents graficoPagados As DataVisualization.Charting.Chart
     Friend WithEvents btpGenerar As Button
     Friend WithEvents BindingNavigator1 As BindingNavigator
     Friend WithEvents BindingNavigatorAddNewItem1 As ToolStripButton
@@ -5351,4 +5508,24 @@ Partial Class Form2
     Friend WithEvents auxSer As ListBox
     Friend WithEvents imprimirDataGridView As Printing.PrintDocument
     Friend WithEvents prueba As Button
+    Friend WithEvents resulTrabajos As Panel
+    Friend WithEvents DataGridViewCobrados As DataGridView
+    Friend WithEvents DataGridViewTrabajos As DataGridView
+    Friend WithEvents Label74 As Label
+    Friend WithEvents Label73 As Label
+    Friend WithEvents Label71 As Label
+    Friend WithEvents graficoTrabajos As DataVisualization.Charting.Chart
+    Friend WithEvents graficoPagados As DataVisualization.Charting.Chart
+    Friend WithEvents nomUsuario As DataGridViewTextBoxColumn
+    Friend WithEvents nomPedido As DataGridViewTextBoxColumn
+    Friend WithEvents entrega As DataGridViewTextBoxColumn
+    Friend WithEvents cobro As DataGridViewTextBoxColumn
+    Friend WithEvents des As DataGridViewTextBoxColumn
+    Friend WithEvents precio As DataGridViewTextBoxColumn
+    Friend WithEvents estado As DataGridViewTextBoxColumn
+    Friend WithEvents nomUsuario2 As DataGridViewTextBoxColumn
+    Friend WithEvents nomPedido2 As DataGridViewTextBoxColumn
+    Friend WithEvents cobro2 As DataGridViewTextBoxColumn
+    Friend WithEvents des2 As DataGridViewTextBoxColumn
+    Friend WithEvents precio2 As DataGridViewTextBoxColumn
 End Class

@@ -1169,16 +1169,6 @@ Public Class Form2
         TextBox16.Clear()
         DataGridView1.Rows.Clear()
 
-        Dim astring As String
-        Dim bstring As String
-
-        astring = "10-200-123456"
-        bstring = astring.Substring(7)
-        bstring = bstring + 1
-        MsgBox("el usuario es " + datos_loguin.id_usuario.ToString)
-
-
-
     End Sub
 
     Private Sub pbBorrar_Click(sender As Object, e As EventArgs) Handles pbBorrar.Click
@@ -2622,11 +2612,41 @@ Public Class Form2
         End If
     End Sub
 
+    Private Function pos_ultimo_guion(n_factura As String)
+        Dim i As Integer
+
+        Dim aux As Integer
+        aux = -1
+
+        For i = 0 To n_factura.Length - 1
+            If n_factura.Chars(i) = "-" Then
+                aux = i + 1
+            End If
+
+        Next
+        Return aux
+
+    End Function
+
     Private Sub Button31_Click(sender As Object, e As EventArgs) Handles Button31.Click
+
+        Dim pos As Integer
+        Dim num As Integer
+        pos = pos_ultimo_guion(n_factura_textbox.Text)
+        num = n_factura_textbox.Text.Substring(pos)
+        MsgBox("posicion " + pos.ToString + "como queda " + num)
+
+
+
+
 
     End Sub
 
     Private Sub Button36_Click(sender As Object, e As EventArgs) Handles Button36.Click
+
+    End Sub
+
+    Private Sub DataGridView2_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView2.CellContentClick
 
     End Sub
 End Class

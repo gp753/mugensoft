@@ -49,8 +49,16 @@ Public Class Form2
     End Sub
 
     Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
-        panel_cuentas.Show()
+        GroupBox4Stock.Hide()
         panel_carga_presupuesto.Hide()
+        panel_vender.Hide()
+        panel_cuentas.Hide()
+        Panel1.Hide()
+        PanelClientes.Hide()
+        PanelTrabajosPendientes.Hide()
+        panelServicios.Hide()
+        panel_contabilidad.Hide()
+        panel_cuentas.Show()
 
 
     End Sub
@@ -252,7 +260,17 @@ Public Class Form2
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         panel_carga_presupuesto.Show()
+        GroupBox4Stock.Hide()
+        panel_vender.Hide()
         panel_cuentas.Hide()
+        Panel1.Hide()
+        PanelClientes.Hide()
+        PanelTrabajosPendientes.Hide()
+        panelServicios.Hide()
+        panel_contabilidad.Hide()
+
+
+
 
 
     End Sub
@@ -713,7 +731,7 @@ Public Class Form2
 
 
             If cantidad_product - DataGridView1.Item(3, curen).Value < 0 Then
-                MsgBox("cantidad de " + DataGridView1.Item(1, curen).Value.ToString + " supera stock: " + cantidad_product.ToString)
+                MsgBox("cantidad de " + DataGridView1.Item(1, curen).Value.ToString + " supera stock:  " + cantidad_product.ToString)
                 DataGridView1.CurrentCell.Value = 0
 
 
@@ -836,12 +854,31 @@ Public Class Form2
     End Sub
 
     Private Sub boton_vender_Click(sender As Object, e As EventArgs) Handles boton_vender.Click
+        GroupBox4Stock.Hide()
+        panel_carga_presupuesto.Hide()
+
+        panel_cuentas.Hide()
+        Panel1.Hide()
+        PanelClientes.Hide()
+        PanelTrabajosPendientes.Hide()
+        panelServicios.Hide()
+        panel_contabilidad.Hide()
+
         panel_vender.Show()
 
     End Sub
 
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+        GroupBox4Stock.Hide()
+        panel_carga_presupuesto.Hide()
+        panel_vender.Hide()
+
+        panel_cuentas.Hide()
+        Panel1.Hide()
         PanelClientes.Show()
+        PanelTrabajosPendientes.Hide()
+        panelServicios.Hide()
+        panel_contabilidad.Hide()
     End Sub
 
     Private Sub CrearClienteBoton_Click(sender As Object, e As EventArgs) Handles CrearClienteBoton.Click
@@ -1714,22 +1751,45 @@ Public Class Form2
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
-
-        panel_cuentas.Hide()
+        GroupBox4Stock.Hide()
         panel_carga_presupuesto.Hide()
+        panel_vender.Hide()
+        panel_cuentas.Hide()
+        Panel1.Hide()
+        PanelClientes.Hide()
+        PanelTrabajosPendientes.Hide()
+        panelServicios.Hide()
+        panel_contabilidad.Hide()
         PanelTrabajosPendientes.Show()
         actualizarCalendarios()
 
     End Sub
 
     Private Sub boton_stock_Click(sender As Object, e As EventArgs) Handles boton_stock.Click
+        panel_carga_presupuesto.Hide()
+        panel_vender.Hide()
+        panel_cuentas.Hide()
+        Panel1.Hide()
+        PanelClientes.Hide()
+        PanelTrabajosPendientes.Hide()
+        panelServicios.Hide()
+        panel_contabilidad.Hide()
         GroupBox4Stock.Show()
     End Sub
 
     Private Sub Button24NuevoProducto_Click(sender As Object, e As EventArgs)
+
+        panel_carga_presupuesto.Hide()
+        panel_vender.Hide()
+        panel_cuentas.Hide()
+        Panel1.Hide()
+        PanelClientes.Hide()
+        PanelTrabajosPendientes.Hide()
+        panelServicios.Hide()
+        panel_contabilidad.Hide()
+
         GroupBoxNuevoProducto.Show()
-        GroupBoxIngresodeProducto.Hide()
-        GroupBoxModificarProducto.Hide()
+
 
         GroupBoxIngresodeProducto.Text = ""
         GroupBoxModificarProducto.Text = ""
@@ -2412,9 +2472,15 @@ Public Class Form2
     End Sub
 
     Private Sub boton_servicios_Click(sender As Object, e As EventArgs) Handles boton_servicios.Click
-        panel_cuentas.Hide()
+        GroupBox4Stock.Hide()
         panel_carga_presupuesto.Hide()
+        panel_vender.Hide()
+        panel_cuentas.Hide()
+        Panel1.Hide()
+        PanelClientes.Hide()
         PanelTrabajosPendientes.Hide()
+        panelServicios.Hide()
+        panel_contabilidad.Hide()
         panelServicios.Show()
     End Sub
 
@@ -2471,6 +2537,96 @@ Public Class Form2
             MsgBox("Factura no existe")
         End If
 
+
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        GroupBox4Stock.Hide()
+        panel_carga_presupuesto.Hide()
+        panel_vender.Show()
+        panel_cuentas.Hide()
+        Panel1.Hide()
+        PanelClientes.Hide()
+        PanelTrabajosPendientes.Hide()
+        panelServicios.Hide()
+        panel_contabilidad.Hide()
+    End Sub
+
+    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
+        panel_carga_presupuesto.Hide()
+        panel_vender.Hide()
+        panel_cuentas.Hide()
+        Panel1.Hide()
+        PanelClientes.Hide()
+        PanelTrabajosPendientes.Hide()
+        panelServicios.Hide()
+        panel_contabilidad.Hide()
+    End Sub
+
+    Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
+        GroupBox4Stock.Hide()
+        panel_carga_presupuesto.Hide()
+        panel_vender.Hide()
+        panel_cuentas.Hide()
+        Panel1.Hide()
+        PanelClientes.Hide()
+        PanelTrabajosPendientes.Hide()
+        panelServicios.Hide()
+        panel_contabilidad.Show()
+    End Sub
+
+    Private Sub TextBox5_TextChanged(sender As Object, e As EventArgs) Handles TextBox5.TextChanged
+        list_clientes.Items.Clear()
+
+
+
+        Dim i As Integer
+        Dim cantidad As Integer
+        Dim posicion As Integer
+        Dim ban As Integer
+        list_clientes.Show()
+
+        ban = 0
+        cantidad = DataSet1.Tables("cliente").Rows.Count
+        cantidad = cantidad - 1
+
+        For i = 0 To cantidad
+            If TextBox5.TextLength <= DataSet1.Tables("cliente").Rows(i).Item("nombre").ToString.Length Then
+                If TextBox5.Text.Substring(0, TextBox5.TextLength) = DataSet1.Tables("cliente").Rows(i).Item("nombre").Substring(0, TextBox5.TextLength) Then
+                    list_clientes.Items.Add(i.ToString + "   " + DataSet1.Tables("cliente").Rows(i).Item("ruc") + ", " + DataSet1.Tables("cliente").Rows(i).Item("nombre") + " " + DataSet1.Tables("cliente").Rows(i).Item("apellido"))
+                End If
+            End If
+        Next
+
+    End Sub
+
+    Private Sub TextBox5_DragOver(sender As Object, e As DragEventArgs) Handles TextBox5.DragOver
+
+
+    End Sub
+
+    Private Sub list_clientes_SelectedIndexChanged(sender As Object, e As EventArgs) Handles list_clientes.SelectedIndexChanged
+
+        TextBox5.Text = list_clientes.SelectedItem.ToString.Substring(0, 4)
+        list_clientes.Hide()
+
+
+    End Sub
+
+    Private Sub TextBox5_LostFocus(sender As Object, e As EventArgs) Handles TextBox5.LostFocus
+        If list_clientes.Visible = True Then
+            list_clientes.Focus()
+        Else
+            list_clientes.Hide()
+
+        End If
+    End Sub
+
+    Private Sub Button31_Click(sender As Object, e As EventArgs) Handles Button31.Click
+
+    End Sub
+
+    Private Sub Button36_Click(sender As Object, e As EventArgs) Handles Button36.Click
 
     End Sub
 End Class

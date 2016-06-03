@@ -842,9 +842,10 @@ Public Class Form2
     End Sub
 
     Private Sub CrearClienteBoton_Click(sender As Object, e As EventArgs) Handles CrearClienteBoton.Click
+        DataGridMugen.Hide()
         GroupBoxCrearClienteasd.Show()
         GroupBoxModificarClienteasd.Hide()
-        GroupBoxEstadisticasdelCliente.Hide()
+        DataGridEstadisticasCliente.Hide()
 
         NombreTextBoxCrearCliente.Clear()
         ApellidoTextBoxCrearCliente.Clear()
@@ -854,9 +855,10 @@ Public Class Form2
     End Sub
 
     Private Sub ModificarClienteBoton_Click(sender As Object, e As EventArgs) Handles ModificarClienteBoton.Click
+        DataGridMugen.Hide()
         GroupBoxCrearClienteasd.Hide()
         GroupBoxModificarClienteasd.Show()
-        GroupBoxEstadisticasdelCliente.Hide()
+        DataGridEstadisticasCliente.Hide()
 
         NombreTextBox1ModificarCliente.Clear()
         ApellidoTextBox1ModificarCliente.Clear()
@@ -866,9 +868,147 @@ Public Class Form2
     End Sub
 
     Private Sub EstadisticasDeClienteBoton_Click(sender As Object, e As EventArgs) Handles EstadisticasDeClienteBoton.Click
+        DataGridMugen.Hide()
         GroupBoxCrearClienteasd.Hide()
         GroupBoxModificarClienteasd.Hide()
-        GroupBoxEstadisticasdelCliente.Show()
+        DataGridEstadisticasCliente.Show()
+
+        Dim i As Integer
+        Dim j As Integer
+        Dim k As Integer
+        Dim l As Integer
+
+        Dim cant_cliente As Integer
+        cant_cliente = DataSet1.Tables("cliente").Rows.Count - 1
+
+        Dim cant_venta_servicio As Integer
+        cant_venta_servicio = DataSet1.Tables("venta_servicio").Rows.Count - 1
+
+        Dim cant_pedido As Integer
+        cant_pedido = DataSet1.Tables("pedido").Rows.Count - 1
+
+        Dim cantidad_final_venta_servicio As Integer
+        Dim cantidad_final_pedidos_entregados As Integer
+
+        Dim cant_pendiente As Integer
+        Dim cant_terminado As Integer
+        Dim cant_entregado As Integer
+        Dim cant_cobrado As Integer
+
+        Dim cantidad_pendiente As Integer
+        Dim cantidad_terminado As Integer
+        Dim cantidad_entregado As Integer
+        Dim cantidad_cobrado As Integer
+
+        Dim costo_pendiente As Integer
+        Dim costo_entregado As Integer
+
+
+        For i = 0 To cant_cliente
+
+            cantidad_final_venta_servicio = 0
+            cantidad_final_pedidos_entregados = 0
+
+            cant_pendiente = 0
+            cant_terminado = 0
+            cant_entregado = 0
+            cant_cobrado = 0
+
+            cantidad_pendiente = 0
+            cantidad_terminado = 0
+            cantidad_entregado = 0
+            cantidad_cobrado = 0
+
+            costo_pendiente = 0
+            costo_entregado = 0
+
+
+            DataGridEstadisticasCliente.Rows.Add()
+
+            DataGridEstadisticasCliente.Item(0, i).Value = DataSet1.Tables("cliente").Rows(i).Item("ruc")
+            DataGridEstadisticasCliente.Item(1, i).Value = DataSet1.Tables("cliente").Rows(i).Item("nombre") + " " + DataSet1.Tables("cliente").Rows(i).Item("apellido")
+
+            For j = 0 To cant_venta_servicio
+                If DataSet1.Tables("venta_servicio").Rows(j).Item("id_cliente") = DataSet1.Tables("cliente").Rows(i).Item("id_cliente") Then
+                    cantidad_final_venta_servicio = cantidad_final_venta_servicio + DataSet1.Tables("venta_servicio").Rows(j).Item("precio_venta_servicio")
+                End If
+            Next
+
+            For k = 0 To cant_pedido
+                If DataSet1.Tables("pedido").Rows(k).Item("id_cliente") = DataSet1.Tables("cliente").Rows(i).Item("id_cliente") Then
+                    If DataSet1.Tables("pedido").Rows(k).Item("estado") = "entregado" Then
+                        cantidad_final_pedidos_entregados = cantidad_final_pedidos_entregados + DataSet1.Tables("pedido").Rows(k).Item("precio")
+                    End If
+                End If
+            Next
+
+            'Deuda
+            DataGridEstadisticasCliente.Item(2, i).Value = cantidad_final_venta_servicio - cantidad_final_pedidos_entregados
+
+
+            For l = 0 To cant_pendiente
+                If DataSet1.Tables("pedido").Rows(l).Item("id_cliente") = DataSet1.Tables("cliente").Rows(i).Item("id_cliente") Then
+                    If DataSet1.Tables("pedido").Rows(l).Item("estado") = "pendiente" Then
+                        cantidad_pendiente = cantidad_pendiente + 1
+                        costo_pendiente = costo_pendiente + DataSet1.Tables("pedido").Rows(l).Item("precio")
+                    End If
+                End If
+            Next
+
+            'Trabajos Pendientes
+            DataGridEstadisticasCliente.Item(3, i).Value = cantidad_pendiente
+
+
+            For l = 0 To cant_terminado
+                If DataSet1.Tables("pedido").Rows(l).Item("id_cliente") = DataSet1.Tables("cliente").Rows(i).Item("id_cliente") Then
+                    If DataSet1.Tables("pedido").Rows(l).Item("estado") = "pendiente" Then
+                        cantidad_terminado = cantidad_terminado + 1
+                    End If
+                End If
+            Next
+
+            'Trabajos Terminados
+            DataGridEstadisticasCliente.Item(4, i).Value = cantidad_terminado
+
+
+            For l = 0 To cant_terminado
+                If DataSet1.Tables("pedido").Rows(l).Item("id_cliente") = DataSet1.Tables("cliente").Rows(i).Item("id_cliente") Then
+                    If DataSet1.Tables("pedido").Rows(l).Item("estado") = "pendiente" Then
+                        cantidad_entregado = cantidad_entregado + 1
+                        costo_entregado = costo_entregado + 1
+                    End If
+                End If
+            Next
+
+            'Trabajos Entregados
+            DataGridEstadisticasCliente.Item(5, i).Value = cantidad_entregado
+
+
+            For l = 0 To cant_cobrado
+                If DataSet1.Tables("pedido").Rows(l).Item("id_cliente") = DataSet1.Tables("cliente").Rows(i).Item("id_cliente") Then
+                    If DataSet1.Tables("pedido").Rows(l).Item("estado") = "pendiente" Then
+                        cantidad_cobrado = cantidad_cobrado + 1
+                    End If
+                End If
+            Next
+
+            'Trabajos Cobrados
+            DataGridEstadisticasCliente.Item(6, i).Value = cantidad_cobrado
+
+            'Costo (trabajos entregados)
+            DataGridEstadisticasCliente.Item(7, i).Value = costo_entregado
+
+            'Costo (trabajos pendientes)
+            DataGridEstadisticasCliente.Item(8, i).Value = costo_pendiente
+
+            'Prioritario
+            If DataSet1.Tables("cliente").Rows(i).Item("cliente_prioritario") = True Then
+                DataGridEstadisticasCliente.Item(9, i).Value = "Si"
+            Else
+                DataGridEstadisticasCliente.Item(9, i).Value = "No"
+            End If
+
+        Next
     End Sub
 
     Private Sub CrearClienteBotonCrearCliente_Click(sender As Object, e As EventArgs) Handles CrearClienteBotonCrearCliente.Click
@@ -1851,6 +1991,7 @@ Public Class Form2
         GroupBoxIngresodeProducto.Hide()
         GroupBoxModificarProducto.Hide()
         GroupBoxProveedor.Hide()
+        DataGridEstadoStock.Hide()
 
         GroupBoxIngresodeProducto.Text = ""
         GroupBoxModificarProducto.Text = ""
@@ -1867,6 +2008,7 @@ Public Class Form2
         GroupBoxModificarProducto.Hide()
         LabelIngresoProducto.Hide()
         GroupBoxProveedor.Hide()
+        DataGridEstadoStock.Hide()
 
         TextBoxProveedor.Text = ""
         TextBoxDeshabilitado2.Text = ""
@@ -1886,6 +2028,7 @@ Public Class Form2
         GroupBoxProveedor.Hide()
         GroupBoxIngresodeProducto.Hide()
         GroupBoxModificarProducto.Show()
+        DataGridEstadoStock.Hide()
     End Sub
 
     Private Sub TextBoxCodigo_TextChanged_1(sender As Object, e As EventArgs) Handles TextBoxCodigo.TextChanged
@@ -2679,8 +2822,53 @@ Public Class Form2
         End If
     End Sub
 
-    Private Sub Button27_Click(sender As Object, e As EventArgs) Handles Button27.Click
+    Private Sub Button27_Click(sender As Object, e As EventArgs) Handles ButtonEstadodeStock.Click
+        GroupBoxNuevoProducto.Hide()
+        GroupBoxIngresodeProducto.Hide()
+        GroupBoxModificarProducto.Hide()
+        LabelIngresoProducto.Hide()
+        GroupBoxProveedor.Hide()
+        DataGridEstadoStock.Show()
 
+        Dim i As Integer
+        Dim j As Integer
+        Dim k As Integer
+
+        Dim cant_producto As Integer
+        cant_producto = DataSet1.Tables("producto").Rows.Count - 1
+
+        Dim cant_ingreso_producto As Integer
+        cant_ingreso_producto = DataSet1.Tables("ingreso_producto").Rows.Count - 1
+
+        Dim cant_egreso_producto As Integer
+        cant_egreso_producto = DataSet1.Tables("venta_producto").Rows.Count - 1
+
+        Dim cantidad_final_de_ingreso As Integer
+        Dim cantidad_final_de_egreso As Integer
+
+        For i = 0 To cant_producto
+            cantidad_final_de_ingreso = 0
+            cantidad_final_de_egreso = 0
+
+            DataGridEstadoStock.Rows.Add()
+
+            DataGridEstadoStock.Item(0, i).Value = DataSet1.Tables("producto").Rows(i).Item("codigo")
+            DataGridEstadoStock.Item(1, i).Value = DataSet1.Tables("producto").Rows(i).Item("descripcion")
+
+            For j = 0 To cant_ingreso_producto
+                If DataSet1.Tables("ingreso_producto").Rows(j).Item("id_stock_mugen") = DataSet1.Tables("producto").Rows(i).Item("id_stock_mugen") Then
+                    cantidad_final_de_ingreso = cantidad_final_de_ingreso + DataSet1.Tables("ingreso_producto").Rows(j).Item("cantidad_ingreso")
+                End If
+            Next
+
+            For k = 0 To cant_egreso_producto
+                If DataSet1.Tables("venta_producto").Rows(k).Item("id_stock_mugen") = DataSet1.Tables("producto").Rows(i).Item("id_stock_mugen") Then
+                    cantidad_final_de_egreso = cantidad_final_de_egreso + DataSet1.Tables("venta_producto").Rows(k).Item("cantidad")
+                End If
+            Next
+
+            DataGridEstadoStock.Item(2, i).Value = cantidad_final_de_ingreso - cantidad_final_de_egreso
+        Next
     End Sub
 
     Private Sub BotonNuevoProveedor_Click(sender As Object, e As EventArgs) Handles BotonNuevoProveedor.Click
@@ -2689,6 +2877,7 @@ Public Class Form2
         GroupBoxModificarProducto.Hide()
         LabelIngresoProducto.Hide()
         GroupBoxProveedor.Show()
+        DataGridEstadoStock.Hide()
     End Sub
 
     Private Sub TextBoxRUCproveedor_TextChanged(sender As Object, e As EventArgs) Handles TextBoxRUCproveedor.TextChanged
@@ -2719,6 +2908,68 @@ Public Class Form2
             Next
 
         End If
+
+    End Sub
+
+    Private Sub DataGridView2_CellContentClick(sender As Object, e As DataGridViewCellEventArgs)
+
+    End Sub
+
+    Private Sub DataGridView2_CellContentClick_1(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridEstadoStock.CellContentClick
+
+    End Sub
+
+    Private Sub ButtonClientesMugen_Click(sender As Object, e As EventArgs) Handles ButtonClientesMugen.Click
+        GroupBoxCrearClienteasd.Hide()
+        GroupBoxModificarClienteasd.Hide()
+        DataGridEstadisticasCliente.Hide()
+        DataGridMugen.Show()
+
+
+        Dim i As Integer
+        Dim j As Integer
+        Dim k As Integer
+
+        Dim cant_cliente As Integer
+        cant_cliente = DataSet1.Tables("cliente").Rows.Count - 1
+
+        Dim cant_venta_producto As Integer
+        cant_venta_producto = DataSet1.Tables("venta_producto").Rows.Count - 1
+
+
+        Dim cant_producto As Integer
+        cant_producto = DataSet1.Tables("producto").Rows.Count - 1
+
+        Dim cantidad_final_venta_producto As Integer
+
+        Dim precio_del_producto As Integer
+        precio_del_producto = 0
+
+        For i = 0 To cant_cliente
+
+            cantidad_final_venta_producto = 0
+
+            DataGridMugen.Rows.Add()
+
+            DataGridMugen.Item(0, i).Value = DataSet1.Tables("cliente").Rows(i).Item("ruc")
+            DataGridMugen.Item(1, i).Value = DataSet1.Tables("cliente").Rows(i).Item("nombre") + " " + DataSet1.Tables("cliente").Rows(i).Item("apellido")
+
+            For j = 0 To cant_venta_producto
+                If DataSet1.Tables("venta_producto").Rows(j).Item("id_cliente") = DataSet1.Tables("cliente").Rows(i).Item("id_cliente") Then
+                    For k = 0 To cant_producto
+                        If DataSet1.Tables("producto").Rows(k).Item("id_stock_mugen") = DataSet1.Tables("venta_producto").Rows(j).Item("id_stock_mugen") Then
+                            precio_del_producto = DataSet1.Tables("producto").Rows(k).Item("precio_venta")
+                        End If
+                    Next
+
+                    cantidad_final_venta_producto = cantidad_final_venta_producto + (DataSet1.Tables("venta_producto").Rows(j).Item("cantidad") * precio_del_producto)
+                End If
+            Next
+
+            DataGridMugen.Item(2, i).Value = cantidad_final_venta_producto
+
+
+        Next
 
     End Sub
 End Class

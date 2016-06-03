@@ -155,13 +155,16 @@ Partial Class Form1
         Me.TableAdapterManager.clienteTableAdapter = Nothing
         Me.TableAdapterManager.contabilidad2TableAdapter = Nothing
         Me.TableAdapterManager.contabilidadTableAdapter = Nothing
+        Me.TableAdapterManager.gastoTableAdapter = Nothing
         Me.TableAdapterManager.ingreso_productoTableAdapter = Nothing
         Me.TableAdapterManager.pedidoTableAdapter = Nothing
         Me.TableAdapterManager.productoTableAdapter = Nothing
         Me.TableAdapterManager.proveedorTableAdapter = Nothing
+        Me.TableAdapterManager.servicioTableAdapter = Nothing
         Me.TableAdapterManager.UpdateOrder = mugen.DataSet1TableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         Me.TableAdapterManager.usuarioTableAdapter = Me.UsuarioTableAdapter
         Me.TableAdapterManager.venta_productoTableAdapter = Nothing
+        Me.TableAdapterManager.venta_servicioTableAdapter = Nothing
         '
         'UsuarioBindingNavigator
         '
@@ -193,8 +196,8 @@ Partial Class Form1
         'BindingNavigatorCountItem
         '
         Me.BindingNavigatorCountItem.Name = "BindingNavigatorCountItem"
-        Me.BindingNavigatorCountItem.Size = New System.Drawing.Size(35, 22)
-        Me.BindingNavigatorCountItem.Text = "of {0}"
+        Me.BindingNavigatorCountItem.Size = New System.Drawing.Size(37, 22)
+        Me.BindingNavigatorCountItem.Text = "de {0}"
         Me.BindingNavigatorCountItem.ToolTipText = "Total number of items"
         '
         'BindingNavigatorDeleteItem
@@ -356,6 +359,7 @@ Partial Class Form1
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Name = "Form1"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Form1"
         CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.UsuarioBindingSource, System.ComponentModel.ISupportInitialize).EndInit()

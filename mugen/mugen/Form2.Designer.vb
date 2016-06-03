@@ -33,12 +33,12 @@ Partial Class Form2
         Dim ApellidoLabel1A As System.Windows.Forms.Label
         Dim NombreLabel1N As System.Windows.Forms.Label
         Dim RucLabel1R As System.Windows.Forms.Label
-        Dim ChartArea3 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend3 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series3 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim ChartArea4 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend4 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series4 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea5 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend5 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series5 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea6 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend6 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series6 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form2))
         Me.Ingreso_productoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DataSet1 = New mugen.DataSet1()
@@ -525,17 +525,17 @@ Partial Class Form2
         Me.Label76 = New System.Windows.Forms.Label()
         Me.Button36 = New System.Windows.Forms.Button()
         Me.DataGridView2 = New System.Windows.Forms.DataGridView()
-        Me.DataGridViewTextBoxColumn61 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn62 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn63 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn64 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn65 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TextBox21 = New System.Windows.Forms.TextBox()
         Me.Label77 = New System.Windows.Forms.Label()
         Me.TextBox23 = New System.Windows.Forms.TextBox()
         Me.Label78 = New System.Windows.Forms.Label()
         Me.TextBox24 = New System.Windows.Forms.TextBox()
         Me.Label79 = New System.Windows.Forms.Label()
+        Me.DataGridViewTextBoxColumn61 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn62 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn63 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn64 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn65 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         MailLabelM = New System.Windows.Forms.Label()
         NumeroLabelN = New System.Windows.Forms.Label()
         RucLabelR = New System.Windows.Forms.Label()
@@ -2426,6 +2426,7 @@ Partial Class Form2
         Me.Button31.TabIndex = 20
         Me.Button31.Text = "Anterior"
         Me.Button31.UseVisualStyleBackColor = True
+        Me.Button31.Visible = False
         '
         'Button30
         '
@@ -2435,6 +2436,7 @@ Partial Class Form2
         Me.Button30.TabIndex = 19
         Me.Button30.Text = "Siguiente"
         Me.Button30.UseVisualStyleBackColor = True
+        Me.Button30.Visible = False
         '
         'Button29
         '
@@ -2986,7 +2988,7 @@ Partial Class Form2
         Me.PanelTrabajosPendientes.Controls.Add(Me.Label41)
         Me.PanelTrabajosPendientes.Location = New System.Drawing.Point(9, 84)
         Me.PanelTrabajosPendientes.Name = "PanelTrabajosPendientes"
-        Me.PanelTrabajosPendientes.Size = New System.Drawing.Size(1517, 563)
+        Me.PanelTrabajosPendientes.Size = New System.Drawing.Size(1399, 563)
         Me.PanelTrabajosPendientes.TabIndex = 41
         Me.PanelTrabajosPendientes.Visible = False
         '
@@ -3184,16 +3186,16 @@ Partial Class Form2
         '
         'graficoTrabajos
         '
-        ChartArea3.Name = "ChartArea1"
-        Me.graficoTrabajos.ChartAreas.Add(ChartArea3)
-        Legend3.Name = "Legend1"
-        Me.graficoTrabajos.Legends.Add(Legend3)
+        ChartArea5.Name = "ChartArea1"
+        Me.graficoTrabajos.ChartAreas.Add(ChartArea5)
+        Legend5.Name = "Legend1"
+        Me.graficoTrabajos.Legends.Add(Legend5)
         Me.graficoTrabajos.Location = New System.Drawing.Point(573, 145)
         Me.graficoTrabajos.Name = "graficoTrabajos"
-        Series3.ChartArea = "ChartArea1"
-        Series3.Legend = "Legend1"
-        Series3.Name = "Series1"
-        Me.graficoTrabajos.Series.Add(Series3)
+        Series5.ChartArea = "ChartArea1"
+        Series5.Legend = "Legend1"
+        Series5.Name = "Series1"
+        Me.graficoTrabajos.Series.Add(Series5)
         Me.graficoTrabajos.Size = New System.Drawing.Size(416, 244)
         Me.graficoTrabajos.TabIndex = 41
         Me.graficoTrabajos.Text = "Chart2"
@@ -3201,16 +3203,16 @@ Partial Class Form2
         '
         'graficoPagados
         '
-        ChartArea4.Name = "ChartArea1"
-        Me.graficoPagados.ChartAreas.Add(ChartArea4)
-        Legend4.Name = "Legend1"
-        Me.graficoPagados.Legends.Add(Legend4)
+        ChartArea6.Name = "ChartArea1"
+        Me.graficoPagados.ChartAreas.Add(ChartArea6)
+        Legend6.Name = "Legend1"
+        Me.graficoPagados.Legends.Add(Legend6)
         Me.graficoPagados.Location = New System.Drawing.Point(369, 143)
         Me.graficoPagados.Name = "graficoPagados"
-        Series4.ChartArea = "ChartArea1"
-        Series4.Legend = "Legend1"
-        Series4.Name = "Series1"
-        Me.graficoPagados.Series.Add(Series4)
+        Series6.ChartArea = "ChartArea1"
+        Series6.Legend = "Legend1"
+        Series6.Name = "Series1"
+        Me.graficoPagados.Series.Add(Series6)
         Me.graficoPagados.Size = New System.Drawing.Size(416, 244)
         Me.graficoPagados.TabIndex = 40
         Me.graficoPagados.Text = "Chart1"
@@ -3239,7 +3241,7 @@ Partial Class Form2
         Me.BindingNavigator1.MovePreviousItem = Me.BindingNavigatorMovePreviousItem1
         Me.BindingNavigator1.Name = "BindingNavigator1"
         Me.BindingNavigator1.PositionItem = Me.BindingNavigatorPositionItem1
-        Me.BindingNavigator1.Size = New System.Drawing.Size(1517, 27)
+        Me.BindingNavigator1.Size = New System.Drawing.Size(1399, 27)
         Me.BindingNavigator1.TabIndex = 38
         Me.BindingNavigator1.Text = "BindingNavigator1"
         '
@@ -3255,8 +3257,8 @@ Partial Class Form2
         'BindingNavigatorCountItem1
         '
         Me.BindingNavigatorCountItem1.Name = "BindingNavigatorCountItem1"
-        Me.BindingNavigatorCountItem1.Size = New System.Drawing.Size(35, 24)
-        Me.BindingNavigatorCountItem1.Text = "of {0}"
+        Me.BindingNavigatorCountItem1.Size = New System.Drawing.Size(37, 24)
+        Me.BindingNavigatorCountItem1.Text = "de {0}"
         Me.BindingNavigatorCountItem1.ToolTipText = "Total number of items"
         '
         'BindingNavigatorDeleteItem1
@@ -4775,6 +4777,7 @@ Partial Class Form2
         Me.Button32.TabIndex = 41
         Me.Button32.Text = "Anterior"
         Me.Button32.UseVisualStyleBackColor = True
+        Me.Button32.Visible = False
         '
         'Button33
         '
@@ -4784,6 +4787,7 @@ Partial Class Form2
         Me.Button33.TabIndex = 40
         Me.Button33.Text = "Siguiente"
         Me.Button33.UseVisualStyleBackColor = True
+        Me.Button33.Visible = False
         '
         'Button34
         '
@@ -4901,36 +4905,6 @@ Partial Class Form2
         Me.DataGridView2.Size = New System.Drawing.Size(543, 206)
         Me.DataGridView2.TabIndex = 27
         '
-        'DataGridViewTextBoxColumn61
-        '
-        Me.DataGridViewTextBoxColumn61.Frozen = True
-        Me.DataGridViewTextBoxColumn61.HeaderText = "Codigo"
-        Me.DataGridViewTextBoxColumn61.Name = "DataGridViewTextBoxColumn61"
-        '
-        'DataGridViewTextBoxColumn62
-        '
-        Me.DataGridViewTextBoxColumn62.Frozen = True
-        Me.DataGridViewTextBoxColumn62.HeaderText = "Producto"
-        Me.DataGridViewTextBoxColumn62.Name = "DataGridViewTextBoxColumn62"
-        Me.DataGridViewTextBoxColumn62.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn63
-        '
-        Me.DataGridViewTextBoxColumn63.HeaderText = "P/unid"
-        Me.DataGridViewTextBoxColumn63.Name = "DataGridViewTextBoxColumn63"
-        Me.DataGridViewTextBoxColumn63.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn64
-        '
-        Me.DataGridViewTextBoxColumn64.HeaderText = "Cant"
-        Me.DataGridViewTextBoxColumn64.Name = "DataGridViewTextBoxColumn64"
-        '
-        'DataGridViewTextBoxColumn65
-        '
-        Me.DataGridViewTextBoxColumn65.HeaderText = "Importe"
-        Me.DataGridViewTextBoxColumn65.Name = "DataGridViewTextBoxColumn65"
-        Me.DataGridViewTextBoxColumn65.ReadOnly = True
-        '
         'TextBox21
         '
         Me.TextBox21.Location = New System.Drawing.Point(508, 24)
@@ -4978,6 +4952,36 @@ Partial Class Form2
         Me.Label79.Size = New System.Drawing.Size(30, 13)
         Me.Label79.TabIndex = 21
         Me.Label79.Text = "RUC"
+        '
+        'DataGridViewTextBoxColumn61
+        '
+        Me.DataGridViewTextBoxColumn61.Frozen = True
+        Me.DataGridViewTextBoxColumn61.HeaderText = "Codigo"
+        Me.DataGridViewTextBoxColumn61.Name = "DataGridViewTextBoxColumn61"
+        '
+        'DataGridViewTextBoxColumn62
+        '
+        Me.DataGridViewTextBoxColumn62.Frozen = True
+        Me.DataGridViewTextBoxColumn62.HeaderText = "Servicio"
+        Me.DataGridViewTextBoxColumn62.Name = "DataGridViewTextBoxColumn62"
+        Me.DataGridViewTextBoxColumn62.ReadOnly = True
+        '
+        'DataGridViewTextBoxColumn63
+        '
+        Me.DataGridViewTextBoxColumn63.HeaderText = "P/unid"
+        Me.DataGridViewTextBoxColumn63.Name = "DataGridViewTextBoxColumn63"
+        Me.DataGridViewTextBoxColumn63.ReadOnly = True
+        '
+        'DataGridViewTextBoxColumn64
+        '
+        Me.DataGridViewTextBoxColumn64.HeaderText = "Cant"
+        Me.DataGridViewTextBoxColumn64.Name = "DataGridViewTextBoxColumn64"
+        '
+        'DataGridViewTextBoxColumn65
+        '
+        Me.DataGridViewTextBoxColumn65.HeaderText = "Importe"
+        Me.DataGridViewTextBoxColumn65.Name = "DataGridViewTextBoxColumn65"
+        Me.DataGridViewTextBoxColumn65.ReadOnly = True
         '
         'Form2
         '
@@ -5581,15 +5585,15 @@ Partial Class Form2
     Friend WithEvents Label76 As Label
     Friend WithEvents Button36 As Button
     Friend WithEvents DataGridView2 As DataGridView
-    Friend WithEvents DataGridViewTextBoxColumn61 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn62 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn63 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn64 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn65 As DataGridViewTextBoxColumn
     Friend WithEvents TextBox21 As TextBox
     Friend WithEvents Label77 As Label
     Friend WithEvents TextBox23 As TextBox
     Friend WithEvents Label78 As Label
     Friend WithEvents TextBox24 As TextBox
     Friend WithEvents Label79 As Label
+    Friend WithEvents DataGridViewTextBoxColumn61 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn62 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn63 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn64 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn65 As DataGridViewTextBoxColumn
 End Class

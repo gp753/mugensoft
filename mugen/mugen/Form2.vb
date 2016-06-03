@@ -2409,6 +2409,462 @@ Public Class Form2
 
 
 
+    Private Sub fechaGastoTxt_GotFocus(sender As Object, e As EventArgs) Handles fechaGastoTxt.GotFocus
+        calendarioGasto.Show()
+    End Sub
+
+    Private Sub fechaGastoTxt_LostFocus(sender As Object, e As EventArgs) Handles fechaGastoTxt.LostFocus
+        calendarioGasto.Hide()
+    End Sub
+
+    Private Sub fechaGastoTxt2_GotFocus(sender As Object, e As EventArgs) Handles fechaGastoTxt2.GotFocus
+        calendarioGasto2.Show()
+    End Sub
+
+    Private Sub fechaGastoTxt2_LostFocus(sender As Object, e As EventArgs) Handles fechaGastoTxt2.LostFocus
+        calendarioGasto2.Hide()
+    End Sub
+    Private Sub calendarioGasto_DateChanged(sender As Object, e As DateRangeEventArgs) Handles calendarioGasto.DateChanged
+        fechaGastoTxt.Text = calendarioGasto.SelectionStart
+    End Sub
+    Private Sub calendarGasto2_DateSelected(sender As Object, e As DateRangeEventArgs) Handles calendarioGasto2.DateSelected
+        fechaGastoTxt2.Text = calendarioGasto2.SelectionStart
+    End Sub
+
+    Private Sub cargarGastoBtn_Click(sender As Object, e As EventArgs) Handles cargarGastoBtn.Click
+        mostrarErrores(errorGasto, "", False)
+        If nFacturaGastoTxt.Text = "" And montoGastoTxt.Text And fechaGastoTxt.Text = "" And detalleGastoTxt.Text = "" Then
+            If IsDate(fechaGastoTxt.Text) Then
+                Dim nuevo_gasto As DataRow = DataSet1.Tables("gasto").NewRow()
+                Dim nueva_contabilidad As DataRow = DataSet1.Tables("contabilidad").NewRow()
+                Dim nueva_contabilidad2 As DataRow = DataSet1.Tables("contabilidad2").NewRow()
+
+                'se carga la tabla de gastos
+                nuevo_gasto("n_factura_gasto") = nFacturaGastoTxt.Text
+                nuevo_gasto("detalle_gasto") = detalleGastoTxt.Text
+                nuevo_gasto("monto_factura") = montoGastoTxt.Text
+                nuevo_gasto("fecha_gasto") = fechaGastoTxt.Text
+                DataSet1.Tables("gasto").Rows.Add(nuevo_gasto)
+                Validate()
+                'GastoBindingSource.EndEdit()
+                'GastoTableAdapter.Update(DataSet1.gasto)
+                'con iva?
+                If ivaCbGasto.Checked Then
+                    'cargando contabiidad 1
+                    Dim nueva_contabilidad4 As DataRow = DataSet1.Tables("contabilidad").NewRow()
+
+                    nueva_contabilidad4("descripcion") = "Ingresa Gasto"
+                    nueva_contabilidad4("deber") = (montoGastoTxt.Text / 110) * 100
+                    nueva_contabilidad4("fecha") = fechaGastoTxt.Text
+                    nueva_contabilidad4("numero_factura") = nFacturaGastoTxt.Text
+
+                    DataSet1.Tables("contabilidad").Rows.Add(nueva_contabilidad4)
+                    Validate()
+                    ContabilidadBindingSource.EndEdit()
+                    ContabilidadTableAdapter.Update(DataSet1.contabilidad)
+
+                    ' 2) IVA
+                    Dim nueva_contabilidad5 As DataRow = DataSet1.Tables("contabilidad").NewRow()
+
+                    nueva_contabilidad5("descripcion") = "IVA"
+                    nueva_contabilidad5("deber") = montoGastoTxt.Text - ((montoGastoTxt.Text / 110) * 100)
+                    nueva_contabilidad5("fecha") = fechaGastoTxt.Text
+                    nueva_contabilidad5("numero_factura") = nFacturaGastoTxt.Text
+
+                    DataSet1.Tables("contabilidad").Rows.Add(nueva_contabilidad5)
+                    Validate()
+                    ContabilidadBindingSource.EndEdit()
+                    ContabilidadTableAdapter.Update(DataSet1.contabilidad)
+
+                    ' 3) CAJA
+                    Dim nueva_contabilidad6 As DataRow = DataSet1.Tables("contabilidad").NewRow()
+
+                    nueva_contabilidad6("descripcion") = "Caja"
+                    nueva_contabilidad6("haber") = ((montoGastoTxt.Text / 110) * 100) + (montoGastoTxt.Text - ((montoGastoTxt.Text / 110) * 100))
+                    nueva_contabilidad6("fecha") = fechaGastoTxt.Text
 
 
+                    DataSet1.Tables("contabilidad").Rows.Add(nueva_contabilidad6)
+
+                    Validate()
+                    ContabilidadBindingSource.EndEdit()
+                    ContabilidadTableAdapter.Update(DataSet1.contabilidad)
+
+
+                    ' ===ACTUALIZAR TABLA CONTABILIDAD II===
+
+                    ' 1) ITEM
+                    Dim nueva_contabilidad7 As DataRow = DataSet1.Tables("contabilidad2").NewRow()
+
+                    nueva_contabilidad7("id_usuario") = datos_loguin.id_usuario
+                    nueva_contabilidad7("descripcion_modificacion") = "Ingreso de Gasto"
+                    nueva_contabilidad7("fecha_modificacion") = fechaGastoTxt.Text
+                    nueva_contabilidad7("descripcion2") = detalleGastoTxt.Text
+                    nueva_contabilidad7("deber2") = (montoGastoTxt.Text / 110) * 100
+                    nueva_contabilidad7("fecha2") = fechaGastoTxt.Text
+                    nueva_contabilidad7("numero_factura2") = nFacturaGastoTxt.Text
+
+                    DataSet1.Tables("contabilidad2").Rows.Add(nueva_contabilidad7)
+
+                    Validate()
+                    Contabilidad2BindingSource.EndEdit()
+                    Contabilidad2TableAdapter.Update(DataSet1.contabilidad2)
+
+                    ' 2) IVA
+                    Dim nueva_contabilidad8 As DataRow = DataSet1.Tables("contabilidad2").NewRow()
+
+                    nueva_contabilidad8("id_usuario") = datos_loguin.id_usuario
+                    nueva_contabilidad8("descripcion_modificacion") = "Ingreso de Gasto"
+                    nueva_contabilidad8("fecha_modificacion") = fechaGastoTxt.Text
+                    nueva_contabilidad8("descripcion2") = "IVA"
+                    nueva_contabilidad8("deber2") = montoGastoTxt.Text - ((montoGastoTxt.Text / 110) * 100)
+                    nueva_contabilidad8("fecha2") = fechaGastoTxt.Text
+                    nueva_contabilidad8("numero_factura2") = nFacturaGastoTxt.Text
+
+                    DataSet1.Tables("contabilidad2").Rows.Add(nueva_contabilidad8)
+
+                    Validate()
+                    Contabilidad2BindingSource.EndEdit()
+                    Contabilidad2TableAdapter.Update(DataSet1.contabilidad2)
+
+                Else 'SI EL IVA NO ESTÁ INCLUIDO
+                    ' ===ACTUALIZAR TABLA CONTABILIDAD I===
+
+                    ' 1) ITEM
+                    Dim nueva_contabilidad1 As DataRow = DataSet1.Tables("contabilidad").NewRow()
+
+                    nueva_contabilidad1("descripcion") = "Ingreso de Gasto"
+                    nueva_contabilidad1("deber") = montoGastoTxt.Text
+                    nueva_contabilidad1("fecha") = fechaGastoTxt.Text
+                    nueva_contabilidad1("numero_factura") = nFacturaGastoTxt.Text
+
+                    DataSet1.Tables("contabilidad").Rows.Add(nueva_contabilidad1)
+
+                    Validate()
+                    ContabilidadBindingSource.EndEdit()
+                    ContabilidadTableAdapter.Update(DataSet1.contabilidad)
+
+                    ' 2) IVA
+                    Dim nueva_contabilidad22 As DataRow = DataSet1.Tables("contabilidad").NewRow()
+
+                    nueva_contabilidad2("descripcion") = "IVA"
+                    nueva_contabilidad2("deber") = montoGastoTxt.Text / 10
+                    nueva_contabilidad2("fecha") = fechaGastoTxt.Text
+                    nueva_contabilidad2("numero_factura") = nFacturaGastoTxt.Text
+
+                    DataSet1.Tables("contabilidad").Rows.Add(nueva_contabilidad22)
+
+                    Validate()
+                    ContabilidadBindingSource.EndEdit()
+                    ContabilidadTableAdapter.Update(DataSet1.contabilidad)
+
+                    ' 3) CAJA
+                    Dim nueva_contabilidad3 As DataRow = DataSet1.Tables("contabilidad").NewRow()
+
+                    nueva_contabilidad3("descripcion") = "Caja"
+                    nueva_contabilidad3("haber") = montoGastoTxt.Text + (montoGastoTxt.Text / 10)
+                    nueva_contabilidad3("fecha") = fechaGastoTxt.Text
+
+                    DataSet1.Tables("contabilidad").Rows.Add(nueva_contabilidad3)
+
+                    Validate()
+                    ContabilidadBindingSource.EndEdit()
+                    ContabilidadTableAdapter.Update(DataSet1.contabilidad)
+
+
+                    ' ===ACTUALIZAR TABLA CONTABILIDAD II===
+
+                    ' 1) ITEM
+                    Dim nueva_contabilidad10 As DataRow = DataSet1.Tables("contabilidad2").NewRow()
+
+                    nueva_contabilidad10("id_usuario") = datos_loguin.id_usuario
+                    nueva_contabilidad10("descripcion_modificacion") = "Ingreso de Gasto"
+                    nueva_contabilidad10("fecha_modificacion") = fechaGastoTxt.Text
+                    nueva_contabilidad10("descripcion2") = detalleGastoTxt.Text
+                    nueva_contabilidad10("deber2") = montoGastoTxt.Text
+                    nueva_contabilidad10("fecha2") = fechaGastoTxt.Text
+                    nueva_contabilidad10("numero_factura2") = nFacturaGastoTxt.Text
+
+                    DataSet1.Tables("contabilidad2").Rows.Add(nueva_contabilidad10)
+
+                    Validate()
+                    Contabilidad2BindingSource.EndEdit()
+                    Contabilidad2TableAdapter.Update(DataSet1.contabilidad2)
+
+                    ' 2) IVA
+                    Dim nueva_contabilidad11 As DataRow = DataSet1.Tables("contabilidad2").NewRow()
+
+                    nueva_contabilidad11("id_usuario") = datos_loguin.id_usuario
+                    nueva_contabilidad11("descripcion_modificacion") = "Ingreso de Gasto"
+                    nueva_contabilidad11("fecha_modificacion") = fechaGastoTxt.Text
+                    nueva_contabilidad11("descripcion2") = "IVA"
+                    nueva_contabilidad11("deber2") = montoGastoTxt.Text / 10
+                    nueva_contabilidad11("fecha2") = fechaGastoTxt.Text
+                    nueva_contabilidad11("numero_factura2") = nFacturaGastoTxt.Text
+
+                    DataSet1.Tables("contabilidad2").Rows.Add(nueva_contabilidad11)
+
+                    Validate()
+                    Contabilidad2BindingSource.EndEdit()
+                    Contabilidad2TableAdapter.Update(DataSet1.contabilidad2)
+
+                    ' 3) CAJA
+                    Dim nueva_contabilidad12 As DataRow = DataSet1.Tables("contabilidad2").NewRow()
+
+                    nueva_contabilidad12("id_usuario") = datos_loguin.id_usuario
+                    nueva_contabilidad12("descripcion_modificacion") = "Ingreso de Gasto"
+                    nueva_contabilidad12("fecha_modificacion") = fechaGastoTxt.Text
+                    nueva_contabilidad12("descripcion2") = "Caja"
+                    nueva_contabilidad12("haber2") = montoGastoTxt.Text + (montoGastoTxt.Text / 10)
+                    nueva_contabilidad12("fecha2") = fechaGastoTxt.Text
+
+                    DataSet1.Tables("contabilidad2").Rows.Add(nueva_contabilidad12)
+
+                    Validate()
+                    Contabilidad2BindingSource.EndEdit()
+                    Contabilidad2TableAdapter.Update(DataSet1.contabilidad2)
+                End If
+            Else
+                mostrarErrores(errorGasto, "La fecha no es valida", True)
+            End If
+        Else
+            mostrarErrores(errorGasto, "Porfavor, complete todos los campos", True)
+        End If
+    End Sub
+
+    Private Sub aceptarGastoBtn_Click(sender As Object, e As EventArgs) Handles aceptarGastoBtn.Click
+
+        mostrarErrores(errorGasto2, "", False)
+        If nFacturaGastoTxt2.Text = "" And montoGastoTxt2.Text And fechaGastoTxt2.Text = "" And detalleGastoTxt2.Text = "" Then
+            If IsDate(fechaGastoTxt2.Text) Then
+                Dim nuevo_gasto As DataRow = DataSet1.Tables("gasto").NewRow()
+                Dim nueva_contabilidad As DataRow = DataSet1.Tables("contabilidad").NewRow()
+                Dim nueva_contabilidad2 As DataRow = DataSet1.Tables("contabilidad2").NewRow()
+
+                'se carga la tabla de gastos
+                nuevo_gasto("n_factura_gasto") = nFacturaGastoTxt2.Text
+                nuevo_gasto("detalle_gasto") = detalleGastoTxt2.Text
+                nuevo_gasto("monto_factura") = montoGastoTxt2.Text
+                nuevo_gasto("fecha_gasto") = fechaGastoTxt2.Text
+                DataSet1.Tables("gasto").Rows.Add(nuevo_gasto)
+                Validate()
+                'GastoBindingSource.EndEdit()
+                'GastoTableAdapter.Update(DataSet1.gasto)
+                'con iva?
+                If ivaCbGasto2.Checked Then
+                    'cargando contabiidad 1
+                    Dim nueva_contabilidad4 As DataRow = DataSet1.Tables("contabilidad").NewRow()
+
+                    nueva_contabilidad4("descripcion") = "Ingresa Gasto"
+                    nueva_contabilidad4("deber") = (montoGastoTxt2.Text / 110) * 100
+                    nueva_contabilidad4("fecha") = fechaGastoTxt2.Text
+                    nueva_contabilidad4("numero_factura") = nFacturaGastoTxt2.Text
+
+                    DataSet1.Tables("contabilidad").Rows.Add(nueva_contabilidad4)
+                    Validate()
+                    ContabilidadBindingSource.EndEdit()
+                    ContabilidadTableAdapter.Update(DataSet1.contabilidad)
+
+                    ' 2) IVA
+                    Dim nueva_contabilidad5 As DataRow = DataSet1.Tables("contabilidad").NewRow()
+
+                    nueva_contabilidad5("descripcion") = "IVA"
+                    nueva_contabilidad5("deber") = montoGastoTxt2.Text - ((montoGastoTxt2.Text / 110) * 100)
+                    nueva_contabilidad5("fecha") = fechaGastoTxt2.Text
+                    nueva_contabilidad5("numero_factura") = nFacturaGastoTxt2.Text
+
+                    DataSet1.Tables("contabilidad").Rows.Add(nueva_contabilidad5)
+                    Validate()
+                    ContabilidadBindingSource.EndEdit()
+                    ContabilidadTableAdapter.Update(DataSet1.contabilidad)
+
+                    ' 3) CAJA
+                    Dim nueva_contabilidad6 As DataRow = DataSet1.Tables("contabilidad").NewRow()
+
+                    nueva_contabilidad6("descripcion") = "Caja"
+                    nueva_contabilidad6("haber") = ((montoGastoTxt2.Text / 110) * 100) + (montoGastoTxt2.Text - ((montoGastoTxt2.Text / 110) * 100))
+                    nueva_contabilidad6("fecha") = fechaGastoTxt2.Text
+
+
+                    DataSet1.Tables("contabilidad").Rows.Add(nueva_contabilidad6)
+
+                    Validate()
+                    ContabilidadBindingSource.EndEdit()
+                    ContabilidadTableAdapter.Update(DataSet1.contabilidad)
+
+
+                    ' ===ACTUALIZAR TABLA CONTABILIDAD II===
+
+                    ' 1) ITEM
+                    Dim nueva_contabilidad7 As DataRow = DataSet1.Tables("contabilidad2").NewRow()
+
+                    nueva_contabilidad7("id_usuario") = datos_loguin.id_usuario
+                    nueva_contabilidad7("descripcion_modificacion") = "Ingreso de Gasto"
+                    nueva_contabilidad7("fecha_modificacion") = fechaGastoTxt2.Text
+                    nueva_contabilidad7("descripcion2") = detalleGastoTxt2.Text
+                    nueva_contabilidad7("deber2") = (montoGastoTxt2.Text / 110) * 100
+                    nueva_contabilidad7("fecha2") = fechaGastoTxt2.Text
+                    nueva_contabilidad7("numero_factura2") = nFacturaGastoTxt2.Text
+
+                    DataSet1.Tables("contabilidad2").Rows.Add(nueva_contabilidad7)
+
+                    Validate()
+                    Contabilidad2BindingSource.EndEdit()
+                    Contabilidad2TableAdapter.Update(DataSet1.contabilidad2)
+
+                    ' 2) IVA
+                    Dim nueva_contabilidad8 As DataRow = DataSet1.Tables("contabilidad2").NewRow()
+
+                    nueva_contabilidad8("id_usuario") = datos_loguin.id_usuario
+                    nueva_contabilidad8("descripcion_modificacion") = "Ingreso de Gasto"
+                    nueva_contabilidad8("fecha_modificacion") = fechaGastoTxt2.Text
+                    nueva_contabilidad8("descripcion2") = "IVA"
+                    nueva_contabilidad8("deber2") = montoGastoTxt2.Text - ((montoGastoTxt2.Text / 110) * 100)
+                    nueva_contabilidad8("fecha2") = fechaGastoTxt2.Text
+                    nueva_contabilidad8("numero_factura2") = nFacturaGastoTxt2.Text
+
+                    DataSet1.Tables("contabilidad2").Rows.Add(nueva_contabilidad8)
+
+                    Validate()
+                    Contabilidad2BindingSource.EndEdit()
+                    Contabilidad2TableAdapter.Update(DataSet1.contabilidad2)
+
+                Else 'SI EL IVA NO ESTÁ INCLUIDO
+                    ' ===ACTUALIZAR TABLA CONTABILIDAD I===
+
+                    ' 1) ITEM
+                    Dim nueva_contabilidad1 As DataRow = DataSet1.Tables("contabilidad").NewRow()
+
+                    nueva_contabilidad1("descripcion") = "Ingreso de Gasto"
+                    nueva_contabilidad1("deber") = montoGastoTxt2.Text
+                    nueva_contabilidad1("fecha") = fechaGastoTxt2.Text
+                    nueva_contabilidad1("numero_factura") = nFacturaGastoTxt2.Text
+
+                    DataSet1.Tables("contabilidad").Rows.Add(nueva_contabilidad1)
+
+                    Validate()
+                    ContabilidadBindingSource.EndEdit()
+                    ContabilidadTableAdapter.Update(DataSet1.contabilidad)
+
+                    ' 2) IVA
+                    Dim nueva_contabilidad22 As DataRow = DataSet1.Tables("contabilidad").NewRow()
+
+                    nueva_contabilidad2("descripcion") = "IVA"
+                    nueva_contabilidad2("deber") = montoGastoTxt2.Text / 10
+                    nueva_contabilidad2("fecha") = fechaGastoTxt2.Text
+                    nueva_contabilidad2("numero_factura") = nFacturaGastoTxt2.Text
+
+                    DataSet1.Tables("contabilidad").Rows.Add(nueva_contabilidad22)
+
+                    Validate()
+                    ContabilidadBindingSource.EndEdit()
+                    ContabilidadTableAdapter.Update(DataSet1.contabilidad)
+
+                    ' 3) CAJA
+                    Dim nueva_contabilidad3 As DataRow = DataSet1.Tables("contabilidad").NewRow()
+
+                    nueva_contabilidad3("descripcion") = "Caja"
+                    nueva_contabilidad3("haber") = montoGastoTxt2.Text + (montoGastoTxt2.Text / 10)
+                    nueva_contabilidad3("fecha") = fechaGastoTxt2.Text
+
+                    DataSet1.Tables("contabilidad").Rows.Add(nueva_contabilidad3)
+
+                    Validate()
+                    ContabilidadBindingSource.EndEdit()
+                    ContabilidadTableAdapter.Update(DataSet1.contabilidad)
+
+
+                    ' ===ACTUALIZAR TABLA CONTABILIDAD II===
+
+                    ' 1) ITEM
+                    Dim nueva_contabilidad10 As DataRow = DataSet1.Tables("contabilidad2").NewRow()
+
+                    nueva_contabilidad10("id_usuario") = datos_loguin.id_usuario
+                    nueva_contabilidad10("descripcion_modificacion") = "Ingreso de Gasto"
+                    nueva_contabilidad10("fecha_modificacion") = fechaGastoTxt2.Text
+                    nueva_contabilidad10("descripcion2") = detalleGastoTxt2.Text
+                    nueva_contabilidad10("deber2") = montoGastoTxt2.Text
+                    nueva_contabilidad10("fecha2") = fechaGastoTxt2.Text
+                    nueva_contabilidad10("numero_factura2") = nFacturaGastoTxt2.Text
+
+                    DataSet1.Tables("contabilidad2").Rows.Add(nueva_contabilidad10)
+
+                    Validate()
+                    Contabilidad2BindingSource.EndEdit()
+                    Contabilidad2TableAdapter.Update(DataSet1.contabilidad2)
+
+                    ' 2) IVA
+                    Dim nueva_contabilidad11 As DataRow = DataSet1.Tables("contabilidad2").NewRow()
+
+                    nueva_contabilidad11("id_usuario") = datos_loguin.id_usuario
+                    nueva_contabilidad11("descripcion_modificacion") = "Ingreso de Gasto"
+                    nueva_contabilidad11("fecha_modificacion") = fechaGastoTxt2.Text
+                    nueva_contabilidad11("descripcion2") = "IVA"
+                    nueva_contabilidad11("deber2") = montoGastoTxt2.Text / 10
+                    nueva_contabilidad11("fecha2") = fechaGastoTxt2.Text
+                    nueva_contabilidad11("numero_factura2") = nFacturaGastoTxt2.Text
+
+                    DataSet1.Tables("contabilidad2").Rows.Add(nueva_contabilidad11)
+
+                    Validate()
+                    Contabilidad2BindingSource.EndEdit()
+                    Contabilidad2TableAdapter.Update(DataSet1.contabilidad2)
+
+                    ' 3) CAJA
+                    Dim nueva_contabilidad12 As DataRow = DataSet1.Tables("contabilidad2").NewRow()
+
+                    nueva_contabilidad12("id_usuario") = datos_loguin.id_usuario
+                    nueva_contabilidad12("descripcion_modificacion") = "Ingreso de Gasto"
+                    nueva_contabilidad12("fecha_modificacion") = fechaGastoTxt2.Text
+                    nueva_contabilidad12("descripcion2") = "Caja"
+                    nueva_contabilidad12("haber2") = montoGastoTxt2.Text + (montoGastoTxt2.Text / 10)
+                    nueva_contabilidad12("fecha2") = fechaGastoTxt2.Text
+
+                    DataSet1.Tables("contabilidad2").Rows.Add(nueva_contabilidad12)
+
+                    Validate()
+                    Contabilidad2BindingSource.EndEdit()
+                    Contabilidad2TableAdapter.Update(DataSet1.contabilidad2)
+                End If
+            Else
+                mostrarErrores(errorGasto2, "La fecha no es valida", True)
+            End If
+        Else
+            mostrarErrores(errorGasto2, "Porfavor, complete todos los campos", True)
+        End If
+    End Sub
+
+    Private Sub cancelarGastoBtn_Click(sender As Object, e As EventArgs) Handles cancelarGastoBtn.Click
+        modificarGasto.Hide()
+
+    End Sub
+
+    Private Sub modificarGastoBtn_Click(sender As Object, e As EventArgs) Handles modificarGastoBtn.Click
+        modificarGasto.Show()
+        nFacturaGastoTxt2.Text = nFacturaGastoTxt.Text
+        If montoGastoTxt2.Text <> "" Then
+            mostrarErrores(errorGasto2, "Ingrese el gasto a modificar,numero de factura", True)
+        Else
+            Dim i As Integer = buscar_en_tablas("gasto", "n_factura_gasto", nFacturaGastoTxt2.Text)
+            If i > -1 Then
+                fechaGastoTxt2.Text = DataSet1.Tables("gasto").Rows(i).Item("fecha_gasto")
+                montoGastoTxt2.Text = DataSet1.Tables("gasto").Rows(i).Item("monto_gasto")
+                detalleGastoTxt2.Text = DataSet1.Tables("gasto").Rows(i).Item("detalle_gasto")
+            End If
+        End If
+    End Sub
+
+    Private Sub borrarGastoBtn_Click(sender As Object, e As EventArgs) Handles borrarGastoBtn.Click
+        nFacturaGastoTxt.Text = ""
+        fechaGastoTxt.Text = ""
+        montoGastoTxt.Text = ""
+        detalleGastoTxt.Text = ""
+    End Sub
+
+    Private Sub borrarGastoBtn2_Click(sender As Object, e As EventArgs) Handles borrarGastoBtn2.Click
+        nFacturaGastoTxt2.Text = ""
+        fechaGastoTxt2.Text = ""
+        montoGastoTxt2.Text = ""
+        detalleGastoTxt2.Text = ""
+    End Sub
 End Class

@@ -33,13 +33,12 @@ Partial Class Form2
         Dim ApellidoLabel1A As System.Windows.Forms.Label
         Dim NombreLabel1N As System.Windows.Forms.Label
         Dim RucLabel1R As System.Windows.Forms.Label
-        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim ChartArea2 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend2 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series2 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form2))
+        Dim ChartArea11 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend11 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series11 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea12 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend12 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series12 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Me.Ingreso_productoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DataSet1 = New mugen.DataSet1()
         Me.Contabilidad2BindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -314,7 +313,6 @@ Partial Class Form2
         Me.Button24ModificarCliente = New System.Windows.Forms.Button()
         Me.ModificarClienteBoton = New System.Windows.Forms.Button()
         Me.CrearClienteBoton = New System.Windows.Forms.Button()
-        Me.PanelTrabajosPendientes = New System.Windows.Forms.Panel()
         Me.resulTrabajos = New System.Windows.Forms.Panel()
         Me.DataGridViewCobrados = New System.Windows.Forms.DataGridView()
         Me.nomUsuario2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -335,91 +333,6 @@ Partial Class Form2
         Me.Label71 = New System.Windows.Forms.Label()
         Me.graficoTrabajos = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.graficoPagados = New System.Windows.Forms.DataVisualization.Charting.Chart()
-        Me.pedidoGridView = New System.Windows.Forms.DataGridView()
-        Me.DataGridViewTextBoxColumn88 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn89 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn90 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn91 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn92 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn93 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn94 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn95 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn96 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.UsuarioDataGrid = New System.Windows.Forms.DataGridView()
-        Me.DataGridViewTextBoxColumn79 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn80 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn81 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn82 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn83 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn84 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn85 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn86 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn87 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ClienteGridView = New System.Windows.Forms.DataGridView()
-        Me.DataGridViewTextBoxColumn70 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn71 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn72 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn73 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn74 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn75 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn76 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn78 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.btpGenerar = New System.Windows.Forms.Button()
-        Me.BindingNavigator1 = New System.Windows.Forms.BindingNavigator(Me.components)
-        Me.BindingNavigatorAddNewItem1 = New System.Windows.Forms.ToolStripButton()
-        Me.BindingNavigatorCountItem1 = New System.Windows.Forms.ToolStripLabel()
-        Me.BindingNavigatorDeleteItem1 = New System.Windows.Forms.ToolStripButton()
-        Me.BindingNavigatorMoveFirstItem1 = New System.Windows.Forms.ToolStripButton()
-        Me.BindingNavigatorMovePreviousItem1 = New System.Windows.Forms.ToolStripButton()
-        Me.BindingNavigatorSeparator3 = New System.Windows.Forms.ToolStripSeparator()
-        Me.BindingNavigatorPositionItem1 = New System.Windows.Forms.ToolStripTextBox()
-        Me.BindingNavigatorSeparator4 = New System.Windows.Forms.ToolStripSeparator()
-        Me.BindingNavigatorMoveNextItem1 = New System.Windows.Forms.ToolStripButton()
-        Me.BindingNavigatorMoveLastItem1 = New System.Windows.Forms.ToolStripButton()
-        Me.BindingNavigatorSeparator5 = New System.Windows.Forms.ToolStripSeparator()
-        Me.idClientesAux = New System.Windows.Forms.ListBox()
-        Me.pbBorrar = New System.Windows.Forms.Button()
-        Me.pbCambiar = New System.Windows.Forms.Button()
-        Me.label47 = New System.Windows.Forms.Label()
-        Me.pcEstado = New System.Windows.Forms.ComboBox()
-        Me.idClienteActual = New System.Windows.Forms.Label()
-        Me.noHayPendientes = New System.Windows.Forms.Label()
-        Me.noExiste = New System.Windows.Forms.Label()
-        Me.sinDatos = New System.Windows.Forms.Label()
-        Me.Label55 = New System.Windows.Forms.Label()
-        Me.TextIden = New System.Windows.Forms.TextBox()
-        Me.Label54 = New System.Windows.Forms.Label()
-        Me.TextApellido = New System.Windows.Forms.TextBox()
-        Me.Label53 = New System.Windows.Forms.Label()
-        Me.calendarioCobro = New System.Windows.Forms.MonthCalendar()
-        Me.Label52 = New System.Windows.Forms.Label()
-        Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
-        Me.Label51 = New System.Windows.Forms.Label()
-        Me.Label50 = New System.Windows.Forms.Label()
-        Me.Label49 = New System.Windows.Forms.Label()
-        Me.Label56 = New System.Windows.Forms.Label()
-        Me.labelRuc = New System.Windows.Forms.Label()
-        Me.Label58 = New System.Windows.Forms.Label()
-        Me.pcProyecto = New System.Windows.Forms.ComboBox()
-        Me.ptNombre = New System.Windows.Forms.TextBox()
-        Me.ptApellido = New System.Windows.Forms.TextBox()
-        Me.ptRuc = New System.Windows.Forms.TextBox()
-        Me.ptDescrip = New System.Windows.Forms.TextBox()
-        Me.ptEntrega = New System.Windows.Forms.TextBox()
-        Me.ptCobro = New System.Windows.Forms.TextBox()
-        Me.Label48 = New System.Windows.Forms.Label()
-        Me.ptPrecio = New System.Windows.Forms.TextBox()
-        Me.Label45 = New System.Windows.Forms.Label()
-        Me.Label46 = New System.Windows.Forms.Label()
-        Me.lbEstado = New System.Windows.Forms.Label()
-        Me.buscarSerBtn = New System.Windows.Forms.Button()
-        Me.calendarioEntregas = New System.Windows.Forms.MonthCalendar()
-        Me.resultadosPedidos = New System.Windows.Forms.ListBox()
-        Me.Label44 = New System.Windows.Forms.Label()
-        Me.Label43 = New System.Windows.Forms.Label()
-        Me.TextCliente = New System.Windows.Forms.TextBox()
-        Me.Label42 = New System.Windows.Forms.Label()
-        Me.Label41 = New System.Windows.Forms.Label()
         Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Label66 = New System.Windows.Forms.Label()
@@ -535,6 +448,113 @@ Partial Class Form2
         Me.Venta_productoTableAdapter = New mugen.DataSet1TableAdapters.venta_productoTableAdapter()
         Me.Venta_servicioTableAdapter = New mugen.DataSet1TableAdapters.venta_servicioTableAdapter()
         Me.imprimirDataGridView = New System.Drawing.Printing.PrintDocument()
+        Me.PanelTrabajosPendientes = New System.Windows.Forms.Panel()
+        Me.pedidoGridView = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewTextBoxColumn88 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn89 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn90 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn91 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn92 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn93 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn94 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn95 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn96 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.UsuarioDataGrid = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewTextBoxColumn79 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn80 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn81 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn82 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn83 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn84 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn85 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn86 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn87 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ClienteGridView = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewTextBoxColumn70 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn71 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn72 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn73 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn74 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn75 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn76 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn78 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.btpGenerar = New System.Windows.Forms.Button()
+        Me.idClientesAux = New System.Windows.Forms.ListBox()
+        Me.pbBorrar = New System.Windows.Forms.Button()
+        Me.pbCambiar = New System.Windows.Forms.Button()
+        Me.label47 = New System.Windows.Forms.Label()
+        Me.pcEstado = New System.Windows.Forms.ComboBox()
+        Me.idClienteActual = New System.Windows.Forms.Label()
+        Me.noHayPendientes = New System.Windows.Forms.Label()
+        Me.noExiste = New System.Windows.Forms.Label()
+        Me.sinDatos = New System.Windows.Forms.Label()
+        Me.Label55 = New System.Windows.Forms.Label()
+        Me.TextIden = New System.Windows.Forms.TextBox()
+        Me.Label54 = New System.Windows.Forms.Label()
+        Me.TextApellido = New System.Windows.Forms.TextBox()
+        Me.Label53 = New System.Windows.Forms.Label()
+        Me.calendarioCobro = New System.Windows.Forms.MonthCalendar()
+        Me.Label52 = New System.Windows.Forms.Label()
+        Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
+        Me.Label51 = New System.Windows.Forms.Label()
+        Me.Label50 = New System.Windows.Forms.Label()
+        Me.Label49 = New System.Windows.Forms.Label()
+        Me.Label56 = New System.Windows.Forms.Label()
+        Me.labelRuc = New System.Windows.Forms.Label()
+        Me.Label58 = New System.Windows.Forms.Label()
+        Me.pcProyecto = New System.Windows.Forms.ComboBox()
+        Me.ptNombre = New System.Windows.Forms.TextBox()
+        Me.ptApellido = New System.Windows.Forms.TextBox()
+        Me.ptRuc = New System.Windows.Forms.TextBox()
+        Me.ptDescrip = New System.Windows.Forms.TextBox()
+        Me.ptEntrega = New System.Windows.Forms.TextBox()
+        Me.ptCobro = New System.Windows.Forms.TextBox()
+        Me.Label48 = New System.Windows.Forms.Label()
+        Me.ptPrecio = New System.Windows.Forms.TextBox()
+        Me.Label45 = New System.Windows.Forms.Label()
+        Me.Label46 = New System.Windows.Forms.Label()
+        Me.lbEstado = New System.Windows.Forms.Label()
+        Me.buscarSerBtn = New System.Windows.Forms.Button()
+        Me.calendarioEntregas = New System.Windows.Forms.MonthCalendar()
+        Me.resultadosPedidos = New System.Windows.Forms.ListBox()
+        Me.Label44 = New System.Windows.Forms.Label()
+        Me.Label43 = New System.Windows.Forms.Label()
+        Me.TextCliente = New System.Windows.Forms.TextBox()
+        Me.Label42 = New System.Windows.Forms.Label()
+        Me.Label41 = New System.Windows.Forms.Label()
+        Me.PanelCargarGastos = New System.Windows.Forms.Panel()
+        Me.modificarGasto = New System.Windows.Forms.GroupBox()
+        Me.errorGasto2 = New System.Windows.Forms.Label()
+        Me.calendarioGasto2 = New System.Windows.Forms.MonthCalendar()
+        Me.detalleGastoTxt2 = New System.Windows.Forms.TextBox()
+        Me.Label79 = New System.Windows.Forms.Label()
+        Me.fechaGastoTxt2 = New System.Windows.Forms.TextBox()
+        Me.Label80 = New System.Windows.Forms.Label()
+        Me.montoGastoTxt2 = New System.Windows.Forms.TextBox()
+        Me.Label81 = New System.Windows.Forms.Label()
+        Me.nFacturaGastoTxt2 = New System.Windows.Forms.TextBox()
+        Me.Label82 = New System.Windows.Forms.Label()
+        Me.aceptarGastoBtn = New System.Windows.Forms.Button()
+        Me.borrarGastoBtn2 = New System.Windows.Forms.Button()
+        Me.cancelarGastoBtn = New System.Windows.Forms.Button()
+        Me.GroupBox4 = New System.Windows.Forms.GroupBox()
+        Me.errorGasto = New System.Windows.Forms.Label()
+        Me.calendarioGasto = New System.Windows.Forms.MonthCalendar()
+        Me.ivaCbGasto = New System.Windows.Forms.CheckBox()
+        Me.detalleGastoTxt = New System.Windows.Forms.TextBox()
+        Me.Label78 = New System.Windows.Forms.Label()
+        Me.fechaGastoTxt = New System.Windows.Forms.TextBox()
+        Me.Label77 = New System.Windows.Forms.Label()
+        Me.montoGastoTxt = New System.Windows.Forms.TextBox()
+        Me.Label76 = New System.Windows.Forms.Label()
+        Me.nFacturaGastoTxt = New System.Windows.Forms.TextBox()
+        Me.Label75 = New System.Windows.Forms.Label()
+        Me.cargarGastoBtn = New System.Windows.Forms.Button()
+        Me.borrarGastoBtn = New System.Windows.Forms.Button()
+        Me.modificarGastoBtn = New System.Windows.Forms.Button()
+        Me.ivaCbGasto2 = New System.Windows.Forms.CheckBox()
+        Me.DataGridView2 = New System.Windows.Forms.DataGridView()
+        Me.Label83 = New System.Windows.Forms.Label()
         MailLabelM = New System.Windows.Forms.Label()
         NumeroLabelN = New System.Windows.Forms.Label()
         RucLabelR = New System.Windows.Forms.Label()
@@ -587,18 +607,11 @@ Partial Class Form2
         Me.GroupBoxCrearClienteasd.SuspendLayout()
         Me.GroupBoxEstadisticasdelCliente.SuspendLayout()
         Me.GroupBoxModificarClienteasd.SuspendLayout()
-        Me.PanelTrabajosPendientes.SuspendLayout()
         Me.resulTrabajos.SuspendLayout()
         CType(Me.DataGridViewCobrados, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridViewTrabajos, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.graficoTrabajos, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.graficoPagados, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.pedidoGridView, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.UsuarioDataGrid, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ClienteGridView, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.BindingNavigator1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.BindingNavigator1.SuspendLayout()
-        Me.TableLayoutPanel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         CType(Me.view_contable, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox4Stock.SuspendLayout()
@@ -609,6 +622,15 @@ Partial Class Form2
         Me.verSerPanel.SuspendLayout()
         Me.editarServicios.SuspendLayout()
         Me.ingresarServicios.SuspendLayout()
+        Me.PanelTrabajosPendientes.SuspendLayout()
+        CType(Me.pedidoGridView, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.UsuarioDataGrid, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ClienteGridView, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.TableLayoutPanel1.SuspendLayout()
+        Me.PanelCargarGastos.SuspendLayout()
+        Me.modificarGasto.SuspendLayout()
+        Me.GroupBox4.SuspendLayout()
+        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'MailLabelM
@@ -768,7 +790,7 @@ Partial Class Form2
         Me.Panel1.Controls.Add(Me.ContabilidadDataGridView)
         Me.Panel1.Controls.Add(Me.ClienteDataGridView)
         Me.Panel1.Controls.Add(Me.Association_1DataGridView)
-        Me.Panel1.Location = New System.Drawing.Point(90, 93)
+        Me.Panel1.Location = New System.Drawing.Point(7, 67)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(1241, 715)
         Me.Panel1.TabIndex = 0
@@ -1462,7 +1484,7 @@ Partial Class Form2
         Me.panel_cuentas.Controls.Add(Me.Button8)
         Me.panel_cuentas.Controls.Add(Me.Label1)
         Me.panel_cuentas.Controls.Add(Me.Panel_mod_user)
-        Me.panel_cuentas.Location = New System.Drawing.Point(21, 88)
+        Me.panel_cuentas.Location = New System.Drawing.Point(4, 72)
         Me.panel_cuentas.Name = "panel_cuentas"
         Me.panel_cuentas.Size = New System.Drawing.Size(1167, 684)
         Me.panel_cuentas.TabIndex = 22
@@ -1990,7 +2012,7 @@ Partial Class Form2
         Me.panel_carga_presupuesto.Controls.Add(Me.Label26)
         Me.panel_carga_presupuesto.Controls.Add(Me.Label25)
         Me.panel_carga_presupuesto.Controls.Add(Me.Label24)
-        Me.panel_carga_presupuesto.Location = New System.Drawing.Point(18, 93)
+        Me.panel_carga_presupuesto.Location = New System.Drawing.Point(3, 72)
         Me.panel_carga_presupuesto.Name = "panel_carga_presupuesto"
         Me.panel_carga_presupuesto.Size = New System.Drawing.Size(1167, 606)
         Me.panel_carga_presupuesto.TabIndex = 23
@@ -2399,7 +2421,7 @@ Partial Class Form2
         Me.panel_vender.Controls.Add(Me.label_venta_cliente)
         Me.panel_vender.Controls.Add(Me.text_ruc_venta)
         Me.panel_vender.Controls.Add(Me.label_ruc)
-        Me.panel_vender.Location = New System.Drawing.Point(12, 96)
+        Me.panel_vender.Location = New System.Drawing.Point(9, 75)
         Me.panel_vender.Name = "panel_vender"
         Me.panel_vender.Size = New System.Drawing.Size(1319, 530)
         Me.panel_vender.TabIndex = 26
@@ -2597,7 +2619,7 @@ Partial Class Form2
         Me.PanelClientes.Controls.Add(Me.GroupBoxModificarClienteasd)
         Me.PanelClientes.Controls.Add(Me.ModificarClienteBoton)
         Me.PanelClientes.Controls.Add(Me.CrearClienteBoton)
-        Me.PanelClientes.Location = New System.Drawing.Point(35, 84)
+        Me.PanelClientes.Location = New System.Drawing.Point(10, 67)
         Me.PanelClientes.Name = "PanelClientes"
         Me.PanelClientes.Size = New System.Drawing.Size(1341, 605)
         Me.PanelClientes.TabIndex = 40
@@ -2968,46 +2990,6 @@ Partial Class Form2
         Me.CrearClienteBoton.Text = "Crear Cliente"
         Me.CrearClienteBoton.UseVisualStyleBackColor = True
         '
-        'PanelTrabajosPendientes
-        '
-        Me.PanelTrabajosPendientes.AutoScroll = True
-        Me.PanelTrabajosPendientes.Controls.Add(Me.resulTrabajos)
-        Me.PanelTrabajosPendientes.Controls.Add(Me.pedidoGridView)
-        Me.PanelTrabajosPendientes.Controls.Add(Me.UsuarioDataGrid)
-        Me.PanelTrabajosPendientes.Controls.Add(Me.ClienteGridView)
-        Me.PanelTrabajosPendientes.Controls.Add(Me.btpGenerar)
-        Me.PanelTrabajosPendientes.Controls.Add(Me.BindingNavigator1)
-        Me.PanelTrabajosPendientes.Controls.Add(Me.idClientesAux)
-        Me.PanelTrabajosPendientes.Controls.Add(Me.pbBorrar)
-        Me.PanelTrabajosPendientes.Controls.Add(Me.pbCambiar)
-        Me.PanelTrabajosPendientes.Controls.Add(Me.label47)
-        Me.PanelTrabajosPendientes.Controls.Add(Me.pcEstado)
-        Me.PanelTrabajosPendientes.Controls.Add(Me.idClienteActual)
-        Me.PanelTrabajosPendientes.Controls.Add(Me.noHayPendientes)
-        Me.PanelTrabajosPendientes.Controls.Add(Me.noExiste)
-        Me.PanelTrabajosPendientes.Controls.Add(Me.sinDatos)
-        Me.PanelTrabajosPendientes.Controls.Add(Me.Label55)
-        Me.PanelTrabajosPendientes.Controls.Add(Me.TextIden)
-        Me.PanelTrabajosPendientes.Controls.Add(Me.Label54)
-        Me.PanelTrabajosPendientes.Controls.Add(Me.TextApellido)
-        Me.PanelTrabajosPendientes.Controls.Add(Me.Label53)
-        Me.PanelTrabajosPendientes.Controls.Add(Me.calendarioCobro)
-        Me.PanelTrabajosPendientes.Controls.Add(Me.Label52)
-        Me.PanelTrabajosPendientes.Controls.Add(Me.TableLayoutPanel1)
-        Me.PanelTrabajosPendientes.Controls.Add(Me.buscarSerBtn)
-        Me.PanelTrabajosPendientes.Controls.Add(Me.calendarioEntregas)
-        Me.PanelTrabajosPendientes.Controls.Add(Me.resultadosPedidos)
-        Me.PanelTrabajosPendientes.Controls.Add(Me.Label44)
-        Me.PanelTrabajosPendientes.Controls.Add(Me.Label43)
-        Me.PanelTrabajosPendientes.Controls.Add(Me.TextCliente)
-        Me.PanelTrabajosPendientes.Controls.Add(Me.Label42)
-        Me.PanelTrabajosPendientes.Controls.Add(Me.Label41)
-        Me.PanelTrabajosPendientes.Location = New System.Drawing.Point(9, 84)
-        Me.PanelTrabajosPendientes.Name = "PanelTrabajosPendientes"
-        Me.PanelTrabajosPendientes.Size = New System.Drawing.Size(1517, 563)
-        Me.PanelTrabajosPendientes.TabIndex = 41
-        Me.PanelTrabajosPendientes.Visible = False
-        '
         'resulTrabajos
         '
         Me.resulTrabajos.Controls.Add(Me.DataGridViewCobrados)
@@ -3017,7 +2999,7 @@ Partial Class Form2
         Me.resulTrabajos.Controls.Add(Me.Label71)
         Me.resulTrabajos.Controls.Add(Me.graficoTrabajos)
         Me.resulTrabajos.Controls.Add(Me.graficoPagados)
-        Me.resulTrabajos.Location = New System.Drawing.Point(-4, -14)
+        Me.resulTrabajos.Location = New System.Drawing.Point(3, 66)
         Me.resulTrabajos.Name = "resulTrabajos"
         Me.resulTrabajos.Size = New System.Drawing.Size(1417, 636)
         Me.resulTrabajos.TabIndex = 25
@@ -3027,10 +3009,10 @@ Partial Class Form2
         '
         Me.DataGridViewCobrados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridViewCobrados.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.nomUsuario2, Me.nomPedido2, Me.cobro2, Me.des2, Me.precio2})
-        Me.DataGridViewCobrados.Location = New System.Drawing.Point(865, 369)
+        Me.DataGridViewCobrados.Location = New System.Drawing.Point(852, 382)
         Me.DataGridViewCobrados.Name = "DataGridViewCobrados"
-        Me.DataGridViewCobrados.Size = New System.Drawing.Size(544, 205)
-        Me.DataGridViewCobrados.TabIndex = 48
+        Me.DataGridViewCobrados.Size = New System.Drawing.Size(544, 199)
+        Me.DataGridViewCobrados.TabIndex = 62
         '
         'nomUsuario2
         '
@@ -3066,10 +3048,10 @@ Partial Class Form2
         '
         Me.DataGridViewTrabajos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridViewTrabajos.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.nomUsuario, Me.nomPedido, Me.entrega, Me.cobro, Me.des, Me.precio, Me.estado})
-        Me.DataGridViewTrabajos.Location = New System.Drawing.Point(36, 370)
+        Me.DataGridViewTrabajos.Location = New System.Drawing.Point(23, 383)
         Me.DataGridViewTrabajos.Name = "DataGridViewTrabajos"
-        Me.DataGridViewTrabajos.Size = New System.Drawing.Size(743, 205)
-        Me.DataGridViewTrabajos.TabIndex = 47
+        Me.DataGridViewTrabajos.Size = New System.Drawing.Size(743, 198)
+        Me.DataGridViewTrabajos.TabIndex = 61
         '
         'nomUsuario
         '
@@ -3117,789 +3099,65 @@ Partial Class Form2
         '
         Me.Label74.AutoSize = True
         Me.Label74.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label74.Location = New System.Drawing.Point(512, 43)
+        Me.Label74.Location = New System.Drawing.Point(499, 56)
         Me.Label74.Name = "Label74"
         Me.Label74.Size = New System.Drawing.Size(287, 37)
-        Me.Label74.TabIndex = 46
+        Me.Label74.TabIndex = 60
         Me.Label74.Text = "Resumen del mes"
         '
         'Label73
         '
         Me.Label73.AutoSize = True
         Me.Label73.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label73.Location = New System.Drawing.Point(980, 98)
+        Me.Label73.Location = New System.Drawing.Point(967, 111)
         Me.Label73.Name = "Label73"
         Me.Label73.Size = New System.Drawing.Size(256, 29)
-        Me.Label73.TabIndex = 45
+        Me.Label73.TabIndex = 59
         Me.Label73.Text = "Trabajos entregados"
         '
         'Label71
         '
         Me.Label71.AutoSize = True
         Me.Label71.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label71.Location = New System.Drawing.Point(149, 103)
+        Me.Label71.Location = New System.Drawing.Point(136, 116)
         Me.Label71.Name = "Label71"
         Me.Label71.Size = New System.Drawing.Size(245, 29)
-        Me.Label71.TabIndex = 44
+        Me.Label71.TabIndex = 58
         Me.Label71.Text = "Trabajos realizados"
         '
         'graficoTrabajos
         '
-        ChartArea1.Name = "ChartArea1"
-        Me.graficoTrabajos.ChartAreas.Add(ChartArea1)
-        Legend1.Name = "Legend1"
-        Me.graficoTrabajos.Legends.Add(Legend1)
-        Me.graficoTrabajos.Location = New System.Drawing.Point(863, 127)
+        ChartArea11.Name = "ChartArea1"
+        Me.graficoTrabajos.ChartAreas.Add(ChartArea11)
+        Legend11.Name = "Legend1"
+        Me.graficoTrabajos.Legends.Add(Legend11)
+        Me.graficoTrabajos.Location = New System.Drawing.Point(850, 140)
         Me.graficoTrabajos.Name = "graficoTrabajos"
-        Series1.ChartArea = "ChartArea1"
-        Series1.Legend = "Legend1"
-        Series1.Name = "Series1"
-        Me.graficoTrabajos.Series.Add(Series1)
+        Series11.ChartArea = "ChartArea1"
+        Series11.Legend = "Legend1"
+        Series11.Name = "Series1"
+        Me.graficoTrabajos.Series.Add(Series11)
         Me.graficoTrabajos.Size = New System.Drawing.Size(416, 244)
-        Me.graficoTrabajos.TabIndex = 43
+        Me.graficoTrabajos.TabIndex = 57
         Me.graficoTrabajos.Text = "Chart2"
         Me.graficoTrabajos.Visible = False
         '
         'graficoPagados
         '
-        ChartArea2.Name = "ChartArea1"
-        Me.graficoPagados.ChartAreas.Add(ChartArea2)
-        Legend2.Name = "Legend1"
-        Me.graficoPagados.Legends.Add(Legend2)
-        Me.graficoPagados.Location = New System.Drawing.Point(33, 129)
+        ChartArea12.Name = "ChartArea1"
+        Me.graficoPagados.ChartAreas.Add(ChartArea12)
+        Legend12.Name = "Legend1"
+        Me.graficoPagados.Legends.Add(Legend12)
+        Me.graficoPagados.Location = New System.Drawing.Point(20, 142)
         Me.graficoPagados.Name = "graficoPagados"
-        Series2.ChartArea = "ChartArea1"
-        Series2.Legend = "Legend1"
-        Series2.Name = "Series1"
-        Me.graficoPagados.Series.Add(Series2)
+        Series12.ChartArea = "ChartArea1"
+        Series12.Legend = "Legend1"
+        Series12.Name = "Series1"
+        Me.graficoPagados.Series.Add(Series12)
         Me.graficoPagados.Size = New System.Drawing.Size(416, 244)
-        Me.graficoPagados.TabIndex = 42
+        Me.graficoPagados.TabIndex = 56
         Me.graficoPagados.Text = "Chart1"
         Me.graficoPagados.Visible = False
-        '
-        'pedidoGridView
-        '
-        Me.pedidoGridView.AutoGenerateColumns = False
-        Me.pedidoGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.pedidoGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn88, Me.DataGridViewTextBoxColumn89, Me.DataGridViewTextBoxColumn90, Me.DataGridViewTextBoxColumn91, Me.DataGridViewTextBoxColumn92, Me.DataGridViewTextBoxColumn93, Me.DataGridViewTextBoxColumn94, Me.DataGridViewTextBoxColumn95, Me.DataGridViewTextBoxColumn96})
-        Me.pedidoGridView.DataSource = Me.PedidoBindingSource
-        Me.pedidoGridView.Location = New System.Drawing.Point(1149, 7)
-        Me.pedidoGridView.Name = "pedidoGridView"
-        Me.pedidoGridView.Size = New System.Drawing.Size(114, 138)
-        Me.pedidoGridView.TabIndex = 41
-        Me.pedidoGridView.Visible = False
-        '
-        'DataGridViewTextBoxColumn88
-        '
-        Me.DataGridViewTextBoxColumn88.DataPropertyName = "id_pedido"
-        Me.DataGridViewTextBoxColumn88.HeaderText = "id_pedido"
-        Me.DataGridViewTextBoxColumn88.Name = "DataGridViewTextBoxColumn88"
-        '
-        'DataGridViewTextBoxColumn89
-        '
-        Me.DataGridViewTextBoxColumn89.DataPropertyName = "id_cliente"
-        Me.DataGridViewTextBoxColumn89.HeaderText = "id_cliente"
-        Me.DataGridViewTextBoxColumn89.Name = "DataGridViewTextBoxColumn89"
-        '
-        'DataGridViewTextBoxColumn90
-        '
-        Me.DataGridViewTextBoxColumn90.DataPropertyName = "id_usuario"
-        Me.DataGridViewTextBoxColumn90.HeaderText = "id_usuario"
-        Me.DataGridViewTextBoxColumn90.Name = "DataGridViewTextBoxColumn90"
-        '
-        'DataGridViewTextBoxColumn91
-        '
-        Me.DataGridViewTextBoxColumn91.DataPropertyName = "plazo_entrega"
-        Me.DataGridViewTextBoxColumn91.HeaderText = "plazo_entrega"
-        Me.DataGridViewTextBoxColumn91.Name = "DataGridViewTextBoxColumn91"
-        '
-        'DataGridViewTextBoxColumn92
-        '
-        Me.DataGridViewTextBoxColumn92.DataPropertyName = "plazo_cobro"
-        Me.DataGridViewTextBoxColumn92.HeaderText = "plazo_cobro"
-        Me.DataGridViewTextBoxColumn92.Name = "DataGridViewTextBoxColumn92"
-        '
-        'DataGridViewTextBoxColumn93
-        '
-        Me.DataGridViewTextBoxColumn93.DataPropertyName = "oferta"
-        Me.DataGridViewTextBoxColumn93.HeaderText = "oferta"
-        Me.DataGridViewTextBoxColumn93.Name = "DataGridViewTextBoxColumn93"
-        '
-        'DataGridViewTextBoxColumn94
-        '
-        Me.DataGridViewTextBoxColumn94.DataPropertyName = "precio"
-        Me.DataGridViewTextBoxColumn94.HeaderText = "precio"
-        Me.DataGridViewTextBoxColumn94.Name = "DataGridViewTextBoxColumn94"
-        '
-        'DataGridViewTextBoxColumn95
-        '
-        Me.DataGridViewTextBoxColumn95.DataPropertyName = "estado"
-        Me.DataGridViewTextBoxColumn95.HeaderText = "estado"
-        Me.DataGridViewTextBoxColumn95.Name = "DataGridViewTextBoxColumn95"
-        '
-        'DataGridViewTextBoxColumn96
-        '
-        Me.DataGridViewTextBoxColumn96.DataPropertyName = "nombre_pedido"
-        Me.DataGridViewTextBoxColumn96.HeaderText = "nombre_pedido"
-        Me.DataGridViewTextBoxColumn96.Name = "DataGridViewTextBoxColumn96"
-        '
-        'UsuarioDataGrid
-        '
-        Me.UsuarioDataGrid.AutoGenerateColumns = False
-        Me.UsuarioDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.UsuarioDataGrid.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn79, Me.DataGridViewTextBoxColumn80, Me.DataGridViewTextBoxColumn81, Me.DataGridViewTextBoxColumn82, Me.DataGridViewTextBoxColumn83, Me.DataGridViewTextBoxColumn84, Me.DataGridViewTextBoxColumn85, Me.DataGridViewTextBoxColumn86, Me.DataGridViewTextBoxColumn87})
-        Me.UsuarioDataGrid.DataSource = Me.UsuarioBindingSource
-        Me.UsuarioDataGrid.Location = New System.Drawing.Point(995, 136)
-        Me.UsuarioDataGrid.Name = "UsuarioDataGrid"
-        Me.UsuarioDataGrid.Size = New System.Drawing.Size(130, 125)
-        Me.UsuarioDataGrid.TabIndex = 41
-        Me.UsuarioDataGrid.Visible = False
-        '
-        'DataGridViewTextBoxColumn79
-        '
-        Me.DataGridViewTextBoxColumn79.DataPropertyName = "id_usuario"
-        Me.DataGridViewTextBoxColumn79.HeaderText = "id_usuario"
-        Me.DataGridViewTextBoxColumn79.Name = "DataGridViewTextBoxColumn79"
-        '
-        'DataGridViewTextBoxColumn80
-        '
-        Me.DataGridViewTextBoxColumn80.DataPropertyName = "cuenta"
-        Me.DataGridViewTextBoxColumn80.HeaderText = "cuenta"
-        Me.DataGridViewTextBoxColumn80.Name = "DataGridViewTextBoxColumn80"
-        '
-        'DataGridViewTextBoxColumn81
-        '
-        Me.DataGridViewTextBoxColumn81.DataPropertyName = "pass"
-        Me.DataGridViewTextBoxColumn81.HeaderText = "pass"
-        Me.DataGridViewTextBoxColumn81.Name = "DataGridViewTextBoxColumn81"
-        '
-        'DataGridViewTextBoxColumn82
-        '
-        Me.DataGridViewTextBoxColumn82.DataPropertyName = "nivel"
-        Me.DataGridViewTextBoxColumn82.HeaderText = "nivel"
-        Me.DataGridViewTextBoxColumn82.Name = "DataGridViewTextBoxColumn82"
-        '
-        'DataGridViewTextBoxColumn83
-        '
-        Me.DataGridViewTextBoxColumn83.DataPropertyName = "estado_usuario"
-        Me.DataGridViewTextBoxColumn83.HeaderText = "estado_usuario"
-        Me.DataGridViewTextBoxColumn83.Name = "DataGridViewTextBoxColumn83"
-        '
-        'DataGridViewTextBoxColumn84
-        '
-        Me.DataGridViewTextBoxColumn84.DataPropertyName = "nombre_usuario"
-        Me.DataGridViewTextBoxColumn84.HeaderText = "nombre_usuario"
-        Me.DataGridViewTextBoxColumn84.Name = "DataGridViewTextBoxColumn84"
-        '
-        'DataGridViewTextBoxColumn85
-        '
-        Me.DataGridViewTextBoxColumn85.DataPropertyName = "apellido_usuario"
-        Me.DataGridViewTextBoxColumn85.HeaderText = "apellido_usuario"
-        Me.DataGridViewTextBoxColumn85.Name = "DataGridViewTextBoxColumn85"
-        '
-        'DataGridViewTextBoxColumn86
-        '
-        Me.DataGridViewTextBoxColumn86.DataPropertyName = "numero_usuario"
-        Me.DataGridViewTextBoxColumn86.HeaderText = "numero_usuario"
-        Me.DataGridViewTextBoxColumn86.Name = "DataGridViewTextBoxColumn86"
-        '
-        'DataGridViewTextBoxColumn87
-        '
-        Me.DataGridViewTextBoxColumn87.DataPropertyName = "mail_usuario"
-        Me.DataGridViewTextBoxColumn87.HeaderText = "mail_usuario"
-        Me.DataGridViewTextBoxColumn87.Name = "DataGridViewTextBoxColumn87"
-        '
-        'ClienteGridView
-        '
-        Me.ClienteGridView.AutoGenerateColumns = False
-        Me.ClienteGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.ClienteGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn70, Me.DataGridViewTextBoxColumn71, Me.DataGridViewTextBoxColumn72, Me.DataGridViewTextBoxColumn73, Me.DataGridViewTextBoxColumn74, Me.DataGridViewTextBoxColumn75, Me.DataGridViewTextBoxColumn76, Me.DataGridViewTextBoxColumn78})
-        Me.ClienteGridView.DataSource = Me.ClienteBindingSource
-        Me.ClienteGridView.Location = New System.Drawing.Point(972, 4)
-        Me.ClienteGridView.Name = "ClienteGridView"
-        Me.ClienteGridView.Size = New System.Drawing.Size(154, 116)
-        Me.ClienteGridView.TabIndex = 41
-        Me.ClienteGridView.Visible = False
-        '
-        'DataGridViewTextBoxColumn70
-        '
-        Me.DataGridViewTextBoxColumn70.DataPropertyName = "id_cliente"
-        Me.DataGridViewTextBoxColumn70.HeaderText = "id_cliente"
-        Me.DataGridViewTextBoxColumn70.Name = "DataGridViewTextBoxColumn70"
-        '
-        'DataGridViewTextBoxColumn71
-        '
-        Me.DataGridViewTextBoxColumn71.DataPropertyName = "nombre"
-        Me.DataGridViewTextBoxColumn71.HeaderText = "nombre"
-        Me.DataGridViewTextBoxColumn71.Name = "DataGridViewTextBoxColumn71"
-        '
-        'DataGridViewTextBoxColumn72
-        '
-        Me.DataGridViewTextBoxColumn72.DataPropertyName = "apellido"
-        Me.DataGridViewTextBoxColumn72.HeaderText = "apellido"
-        Me.DataGridViewTextBoxColumn72.Name = "DataGridViewTextBoxColumn72"
-        '
-        'DataGridViewTextBoxColumn73
-        '
-        Me.DataGridViewTextBoxColumn73.DataPropertyName = "ruc"
-        Me.DataGridViewTextBoxColumn73.HeaderText = "ruc"
-        Me.DataGridViewTextBoxColumn73.Name = "DataGridViewTextBoxColumn73"
-        '
-        'DataGridViewTextBoxColumn74
-        '
-        Me.DataGridViewTextBoxColumn74.DataPropertyName = "numero"
-        Me.DataGridViewTextBoxColumn74.HeaderText = "numero"
-        Me.DataGridViewTextBoxColumn74.Name = "DataGridViewTextBoxColumn74"
-        '
-        'DataGridViewTextBoxColumn75
-        '
-        Me.DataGridViewTextBoxColumn75.DataPropertyName = "mail"
-        Me.DataGridViewTextBoxColumn75.HeaderText = "mail"
-        Me.DataGridViewTextBoxColumn75.Name = "DataGridViewTextBoxColumn75"
-        '
-        'DataGridViewTextBoxColumn76
-        '
-        Me.DataGridViewTextBoxColumn76.DataPropertyName = "estado_cliente"
-        Me.DataGridViewTextBoxColumn76.HeaderText = "estado_cliente"
-        Me.DataGridViewTextBoxColumn76.Name = "DataGridViewTextBoxColumn76"
-        '
-        'DataGridViewTextBoxColumn78
-        '
-        Me.DataGridViewTextBoxColumn78.DataPropertyName = "cliente_prioritario"
-        Me.DataGridViewTextBoxColumn78.HeaderText = "cliente_prioritario"
-        Me.DataGridViewTextBoxColumn78.Name = "DataGridViewTextBoxColumn78"
-        '
-        'btpGenerar
-        '
-        Me.btpGenerar.Location = New System.Drawing.Point(513, 206)
-        Me.btpGenerar.Name = "btpGenerar"
-        Me.btpGenerar.Size = New System.Drawing.Size(194, 23)
-        Me.btpGenerar.TabIndex = 39
-        Me.btpGenerar.Text = "Generar Resumen"
-        Me.btpGenerar.UseVisualStyleBackColor = True
-        '
-        'BindingNavigator1
-        '
-        Me.BindingNavigator1.AddNewItem = Me.BindingNavigatorAddNewItem1
-        Me.BindingNavigator1.CountItem = Me.BindingNavigatorCountItem1
-        Me.BindingNavigator1.DeleteItem = Me.BindingNavigatorDeleteItem1
-        Me.BindingNavigator1.ImageScalingSize = New System.Drawing.Size(20, 20)
-        Me.BindingNavigator1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BindingNavigatorMoveFirstItem1, Me.BindingNavigatorMovePreviousItem1, Me.BindingNavigatorSeparator3, Me.BindingNavigatorPositionItem1, Me.BindingNavigatorCountItem1, Me.BindingNavigatorSeparator4, Me.BindingNavigatorMoveNextItem1, Me.BindingNavigatorMoveLastItem1, Me.BindingNavigatorSeparator5, Me.BindingNavigatorAddNewItem1, Me.BindingNavigatorDeleteItem1})
-        Me.BindingNavigator1.Location = New System.Drawing.Point(0, 0)
-        Me.BindingNavigator1.MoveFirstItem = Me.BindingNavigatorMoveFirstItem1
-        Me.BindingNavigator1.MoveLastItem = Me.BindingNavigatorMoveLastItem1
-        Me.BindingNavigator1.MoveNextItem = Me.BindingNavigatorMoveNextItem1
-        Me.BindingNavigator1.MovePreviousItem = Me.BindingNavigatorMovePreviousItem1
-        Me.BindingNavigator1.Name = "BindingNavigator1"
-        Me.BindingNavigator1.PositionItem = Me.BindingNavigatorPositionItem1
-        Me.BindingNavigator1.Size = New System.Drawing.Size(1500, 27)
-        Me.BindingNavigator1.TabIndex = 38
-        Me.BindingNavigator1.Text = "BindingNavigator1"
-        '
-        'BindingNavigatorAddNewItem1
-        '
-        Me.BindingNavigatorAddNewItem1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.BindingNavigatorAddNewItem1.Image = CType(resources.GetObject("BindingNavigatorAddNewItem1.Image"), System.Drawing.Image)
-        Me.BindingNavigatorAddNewItem1.Name = "BindingNavigatorAddNewItem1"
-        Me.BindingNavigatorAddNewItem1.RightToLeftAutoMirrorImage = True
-        Me.BindingNavigatorAddNewItem1.Size = New System.Drawing.Size(24, 24)
-        Me.BindingNavigatorAddNewItem1.Text = "Add new"
-        '
-        'BindingNavigatorCountItem1
-        '
-        Me.BindingNavigatorCountItem1.Name = "BindingNavigatorCountItem1"
-        Me.BindingNavigatorCountItem1.Size = New System.Drawing.Size(35, 24)
-        Me.BindingNavigatorCountItem1.Text = "of {0}"
-        Me.BindingNavigatorCountItem1.ToolTipText = "Total number of items"
-        '
-        'BindingNavigatorDeleteItem1
-        '
-        Me.BindingNavigatorDeleteItem1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.BindingNavigatorDeleteItem1.Image = CType(resources.GetObject("BindingNavigatorDeleteItem1.Image"), System.Drawing.Image)
-        Me.BindingNavigatorDeleteItem1.Name = "BindingNavigatorDeleteItem1"
-        Me.BindingNavigatorDeleteItem1.RightToLeftAutoMirrorImage = True
-        Me.BindingNavigatorDeleteItem1.Size = New System.Drawing.Size(24, 24)
-        Me.BindingNavigatorDeleteItem1.Text = "Delete"
-        '
-        'BindingNavigatorMoveFirstItem1
-        '
-        Me.BindingNavigatorMoveFirstItem1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.BindingNavigatorMoveFirstItem1.Image = CType(resources.GetObject("BindingNavigatorMoveFirstItem1.Image"), System.Drawing.Image)
-        Me.BindingNavigatorMoveFirstItem1.Name = "BindingNavigatorMoveFirstItem1"
-        Me.BindingNavigatorMoveFirstItem1.RightToLeftAutoMirrorImage = True
-        Me.BindingNavigatorMoveFirstItem1.Size = New System.Drawing.Size(24, 24)
-        Me.BindingNavigatorMoveFirstItem1.Text = "Move first"
-        '
-        'BindingNavigatorMovePreviousItem1
-        '
-        Me.BindingNavigatorMovePreviousItem1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.BindingNavigatorMovePreviousItem1.Image = CType(resources.GetObject("BindingNavigatorMovePreviousItem1.Image"), System.Drawing.Image)
-        Me.BindingNavigatorMovePreviousItem1.Name = "BindingNavigatorMovePreviousItem1"
-        Me.BindingNavigatorMovePreviousItem1.RightToLeftAutoMirrorImage = True
-        Me.BindingNavigatorMovePreviousItem1.Size = New System.Drawing.Size(24, 24)
-        Me.BindingNavigatorMovePreviousItem1.Text = "Move previous"
-        '
-        'BindingNavigatorSeparator3
-        '
-        Me.BindingNavigatorSeparator3.Name = "BindingNavigatorSeparator3"
-        Me.BindingNavigatorSeparator3.Size = New System.Drawing.Size(6, 27)
-        '
-        'BindingNavigatorPositionItem1
-        '
-        Me.BindingNavigatorPositionItem1.AccessibleName = "Position"
-        Me.BindingNavigatorPositionItem1.AutoSize = False
-        Me.BindingNavigatorPositionItem1.Name = "BindingNavigatorPositionItem1"
-        Me.BindingNavigatorPositionItem1.Size = New System.Drawing.Size(38, 23)
-        Me.BindingNavigatorPositionItem1.Text = "0"
-        Me.BindingNavigatorPositionItem1.ToolTipText = "Current position"
-        '
-        'BindingNavigatorSeparator4
-        '
-        Me.BindingNavigatorSeparator4.Name = "BindingNavigatorSeparator4"
-        Me.BindingNavigatorSeparator4.Size = New System.Drawing.Size(6, 27)
-        '
-        'BindingNavigatorMoveNextItem1
-        '
-        Me.BindingNavigatorMoveNextItem1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.BindingNavigatorMoveNextItem1.Image = CType(resources.GetObject("BindingNavigatorMoveNextItem1.Image"), System.Drawing.Image)
-        Me.BindingNavigatorMoveNextItem1.Name = "BindingNavigatorMoveNextItem1"
-        Me.BindingNavigatorMoveNextItem1.RightToLeftAutoMirrorImage = True
-        Me.BindingNavigatorMoveNextItem1.Size = New System.Drawing.Size(24, 24)
-        Me.BindingNavigatorMoveNextItem1.Text = "Move next"
-        '
-        'BindingNavigatorMoveLastItem1
-        '
-        Me.BindingNavigatorMoveLastItem1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.BindingNavigatorMoveLastItem1.Image = CType(resources.GetObject("BindingNavigatorMoveLastItem1.Image"), System.Drawing.Image)
-        Me.BindingNavigatorMoveLastItem1.Name = "BindingNavigatorMoveLastItem1"
-        Me.BindingNavigatorMoveLastItem1.RightToLeftAutoMirrorImage = True
-        Me.BindingNavigatorMoveLastItem1.Size = New System.Drawing.Size(24, 24)
-        Me.BindingNavigatorMoveLastItem1.Text = "Move last"
-        '
-        'BindingNavigatorSeparator5
-        '
-        Me.BindingNavigatorSeparator5.Name = "BindingNavigatorSeparator5"
-        Me.BindingNavigatorSeparator5.Size = New System.Drawing.Size(6, 27)
-        '
-        'idClientesAux
-        '
-        Me.idClientesAux.FormattingEnabled = True
-        Me.idClientesAux.Location = New System.Drawing.Point(626, 71)
-        Me.idClientesAux.Name = "idClientesAux"
-        Me.idClientesAux.Size = New System.Drawing.Size(40, 69)
-        Me.idClientesAux.TabIndex = 35
-        Me.idClientesAux.Visible = False
-        '
-        'pbBorrar
-        '
-        Me.pbBorrar.Location = New System.Drawing.Point(117, 164)
-        Me.pbBorrar.Margin = New System.Windows.Forms.Padding(2)
-        Me.pbBorrar.Name = "pbBorrar"
-        Me.pbBorrar.Size = New System.Drawing.Size(60, 24)
-        Me.pbBorrar.TabIndex = 34
-        Me.pbBorrar.Text = "Borrar"
-        Me.pbBorrar.UseVisualStyleBackColor = True
-        '
-        'pbCambiar
-        '
-        Me.pbCambiar.Location = New System.Drawing.Point(478, 496)
-        Me.pbCambiar.Margin = New System.Windows.Forms.Padding(2)
-        Me.pbCambiar.Name = "pbCambiar"
-        Me.pbCambiar.Size = New System.Drawing.Size(64, 21)
-        Me.pbCambiar.TabIndex = 33
-        Me.pbCambiar.Text = "Cambiar"
-        Me.pbCambiar.UseVisualStyleBackColor = True
-        '
-        'label47
-        '
-        Me.label47.AutoSize = True
-        Me.label47.Location = New System.Drawing.Point(279, 503)
-        Me.label47.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.label47.Name = "label47"
-        Me.label47.Size = New System.Drawing.Size(107, 13)
-        Me.label47.TabIndex = 31
-        Me.label47.Text = "Cambiar de estado a:"
-        '
-        'pcEstado
-        '
-        Me.pcEstado.FormattingEnabled = True
-        Me.pcEstado.Location = New System.Drawing.Point(388, 496)
-        Me.pcEstado.Margin = New System.Windows.Forms.Padding(2)
-        Me.pcEstado.Name = "pcEstado"
-        Me.pcEstado.Size = New System.Drawing.Size(82, 21)
-        Me.pcEstado.TabIndex = 32
-        '
-        'idClienteActual
-        '
-        Me.idClienteActual.AutoSize = True
-        Me.idClienteActual.Location = New System.Drawing.Point(8, 175)
-        Me.idClienteActual.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.idClienteActual.Name = "idClienteActual"
-        Me.idClienteActual.Size = New System.Drawing.Size(0, 13)
-        Me.idClienteActual.TabIndex = 30
-        Me.idClienteActual.Visible = False
-        '
-        'noHayPendientes
-        '
-        Me.noHayPendientes.AutoSize = True
-        Me.noHayPendientes.ForeColor = System.Drawing.Color.Red
-        Me.noHayPendientes.Location = New System.Drawing.Point(6, 143)
-        Me.noHayPendientes.Name = "noHayPendientes"
-        Me.noHayPendientes.Size = New System.Drawing.Size(219, 13)
-        Me.noHayPendientes.TabIndex = 29
-        Me.noHayPendientes.Text = "No existe trabajos cargados para este cliente"
-        Me.noHayPendientes.Visible = False
-        '
-        'noExiste
-        '
-        Me.noExiste.AutoSize = True
-        Me.noExiste.ForeColor = System.Drawing.Color.Red
-        Me.noExiste.Location = New System.Drawing.Point(6, 145)
-        Me.noExiste.Name = "noExiste"
-        Me.noExiste.Size = New System.Drawing.Size(96, 13)
-        Me.noExiste.TabIndex = 28
-        Me.noExiste.Text = "No existe el cliente"
-        Me.noExiste.Visible = False
-        '
-        'sinDatos
-        '
-        Me.sinDatos.AutoSize = True
-        Me.sinDatos.ForeColor = System.Drawing.Color.Red
-        Me.sinDatos.Location = New System.Drawing.Point(7, 145)
-        Me.sinDatos.Name = "sinDatos"
-        Me.sinDatos.Size = New System.Drawing.Size(146, 13)
-        Me.sinDatos.TabIndex = 27
-        Me.sinDatos.Text = "Complete al menos un campo"
-        Me.sinDatos.Visible = False
-        '
-        'Label55
-        '
-        Me.Label55.AutoSize = True
-        Me.Label55.Location = New System.Drawing.Point(5, 121)
-        Me.Label55.Name = "Label55"
-        Me.Label55.Size = New System.Drawing.Size(108, 13)
-        Me.Label55.TabIndex = 26
-        Me.Label55.Text = "Identificacion o RUC:"
-        '
-        'TextIden
-        '
-        Me.TextIden.Location = New System.Drawing.Point(117, 119)
-        Me.TextIden.Name = "TextIden"
-        Me.TextIden.Size = New System.Drawing.Size(142, 20)
-        Me.TextIden.TabIndex = 25
-        Me.TextIden.Tag = ""
-        '
-        'Label54
-        '
-        Me.Label54.AutoSize = True
-        Me.Label54.Location = New System.Drawing.Point(5, 98)
-        Me.Label54.Name = "Label54"
-        Me.Label54.Size = New System.Drawing.Size(98, 13)
-        Me.Label54.TabIndex = 24
-        Me.Label54.Text = "Apellido del cliente:"
-        '
-        'TextApellido
-        '
-        Me.TextApellido.Location = New System.Drawing.Point(117, 95)
-        Me.TextApellido.Name = "TextApellido"
-        Me.TextApellido.Size = New System.Drawing.Size(142, 20)
-        Me.TextApellido.TabIndex = 23
-        Me.TextApellido.Tag = ""
-        '
-        'Label53
-        '
-        Me.Label53.AutoSize = True
-        Me.Label53.Location = New System.Drawing.Point(702, 0)
-        Me.Label53.Name = "Label53"
-        Me.Label53.Size = New System.Drawing.Size(252, 13)
-        Me.Label53.TabIndex = 19
-        Me.Label53.Text = "Trabajos pendientes agendados por fecha de cobro"
-        '
-        'calendarioCobro
-        '
-        Me.calendarioCobro.ForeColor = System.Drawing.SystemColors.Highlight
-        Me.calendarioCobro.Location = New System.Drawing.Point(705, 28)
-        Me.calendarioCobro.Name = "calendarioCobro"
-        Me.calendarioCobro.TabIndex = 18
-        '
-        'Label52
-        '
-        Me.Label52.AutoSize = True
-        Me.Label52.Location = New System.Drawing.Point(338, 0)
-        Me.Label52.Name = "Label52"
-        Me.Label52.Size = New System.Drawing.Size(261, 13)
-        Me.Label52.TabIndex = 17
-        Me.Label52.Text = "Trabajos pendientes agendados por fecha de entrega"
-        '
-        'TableLayoutPanel1
-        '
-        Me.TableLayoutPanel1.ColumnCount = 7
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 14.0!))
-        Me.TableLayoutPanel1.Controls.Add(Me.Label51, 6, 0)
-        Me.TableLayoutPanel1.Controls.Add(Me.Label50, 5, 0)
-        Me.TableLayoutPanel1.Controls.Add(Me.Label49, 4, 0)
-        Me.TableLayoutPanel1.Controls.Add(Me.Label56, 1, 0)
-        Me.TableLayoutPanel1.Controls.Add(Me.labelRuc, 2, 0)
-        Me.TableLayoutPanel1.Controls.Add(Me.Label58, 3, 0)
-        Me.TableLayoutPanel1.Controls.Add(Me.pcProyecto, 3, 1)
-        Me.TableLayoutPanel1.Controls.Add(Me.ptNombre, 0, 1)
-        Me.TableLayoutPanel1.Controls.Add(Me.ptApellido, 1, 1)
-        Me.TableLayoutPanel1.Controls.Add(Me.ptRuc, 2, 1)
-        Me.TableLayoutPanel1.Controls.Add(Me.ptDescrip, 6, 1)
-        Me.TableLayoutPanel1.Controls.Add(Me.ptEntrega, 4, 1)
-        Me.TableLayoutPanel1.Controls.Add(Me.ptCobro, 5, 1)
-        Me.TableLayoutPanel1.Controls.Add(Me.Label48, 0, 0)
-        Me.TableLayoutPanel1.Controls.Add(Me.ptPrecio, 6, 3)
-        Me.TableLayoutPanel1.Controls.Add(Me.Label45, 6, 2)
-        Me.TableLayoutPanel1.Controls.Add(Me.Label46, 0, 3)
-        Me.TableLayoutPanel1.Controls.Add(Me.lbEstado, 1, 3)
-        Me.TableLayoutPanel1.Location = New System.Drawing.Point(280, 294)
-        Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
-        Me.TableLayoutPanel1.RowCount = 4
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.542713!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 91.45728!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 16.0!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(848, 197)
-        Me.TableLayoutPanel1.TabIndex = 15
-        '
-        'Label51
-        '
-        Me.Label51.AutoSize = True
-        Me.Label51.Location = New System.Drawing.Point(646, 0)
-        Me.Label51.Name = "Label51"
-        Me.Label51.Size = New System.Drawing.Size(63, 13)
-        Me.Label51.TabIndex = 10
-        Me.Label51.Text = "Descripcion"
-        '
-        'Label50
-        '
-        Me.Label50.AutoSize = True
-        Me.Label50.Location = New System.Drawing.Point(530, 0)
-        Me.Label50.Name = "Label50"
-        Me.Label50.Size = New System.Drawing.Size(78, 13)
-        Me.Label50.TabIndex = 9
-        Me.Label50.Text = "Plazo de cobro"
-        '
-        'Label49
-        '
-        Me.Label49.AutoSize = True
-        Me.Label49.Location = New System.Drawing.Point(423, 0)
-        Me.Label49.Name = "Label49"
-        Me.Label49.Size = New System.Drawing.Size(87, 13)
-        Me.Label49.TabIndex = 8
-        Me.Label49.Text = "Plazo de entrega"
-        '
-        'Label56
-        '
-        Me.Label56.AutoSize = True
-        Me.Label56.Location = New System.Drawing.Point(104, 0)
-        Me.Label56.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.Label56.Name = "Label56"
-        Me.Label56.Size = New System.Drawing.Size(44, 13)
-        Me.Label56.TabIndex = 12
-        Me.Label56.Text = "Apellido"
-        '
-        'labelRuc
-        '
-        Me.labelRuc.AutoSize = True
-        Me.labelRuc.Location = New System.Drawing.Point(202, 0)
-        Me.labelRuc.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.labelRuc.Name = "labelRuc"
-        Me.labelRuc.Size = New System.Drawing.Size(30, 13)
-        Me.labelRuc.TabIndex = 13
-        Me.labelRuc.Text = "RUC"
-        '
-        'Label58
-        '
-        Me.Label58.AutoSize = True
-        Me.Label58.Location = New System.Drawing.Point(308, 0)
-        Me.Label58.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.Label58.Name = "Label58"
-        Me.Label58.Size = New System.Drawing.Size(49, 13)
-        Me.Label58.TabIndex = 14
-        Me.Label58.Text = "Proyecto"
-        '
-        'pcProyecto
-        '
-        Me.pcProyecto.FormattingEnabled = True
-        Me.pcProyecto.Location = New System.Drawing.Point(308, 15)
-        Me.pcProyecto.Margin = New System.Windows.Forms.Padding(2)
-        Me.pcProyecto.Name = "pcProyecto"
-        Me.pcProyecto.Size = New System.Drawing.Size(110, 21)
-        Me.pcProyecto.TabIndex = 17
-        '
-        'ptNombre
-        '
-        Me.ptNombre.Location = New System.Drawing.Point(2, 15)
-        Me.ptNombre.Margin = New System.Windows.Forms.Padding(2)
-        Me.ptNombre.Name = "ptNombre"
-        Me.ptNombre.Size = New System.Drawing.Size(98, 20)
-        Me.ptNombre.TabIndex = 18
-        '
-        'ptApellido
-        '
-        Me.ptApellido.Location = New System.Drawing.Point(104, 15)
-        Me.ptApellido.Margin = New System.Windows.Forms.Padding(2)
-        Me.ptApellido.Name = "ptApellido"
-        Me.ptApellido.Size = New System.Drawing.Size(94, 20)
-        Me.ptApellido.TabIndex = 19
-        '
-        'ptRuc
-        '
-        Me.ptRuc.Location = New System.Drawing.Point(202, 15)
-        Me.ptRuc.Margin = New System.Windows.Forms.Padding(2)
-        Me.ptRuc.Name = "ptRuc"
-        Me.ptRuc.Size = New System.Drawing.Size(102, 20)
-        Me.ptRuc.TabIndex = 20
-        '
-        'ptDescrip
-        '
-        Me.ptDescrip.Location = New System.Drawing.Point(645, 15)
-        Me.ptDescrip.Margin = New System.Windows.Forms.Padding(2)
-        Me.ptDescrip.Multiline = True
-        Me.ptDescrip.Name = "ptDescrip"
-        Me.ptDescrip.Size = New System.Drawing.Size(191, 139)
-        Me.ptDescrip.TabIndex = 21
-        '
-        'ptEntrega
-        '
-        Me.ptEntrega.Location = New System.Drawing.Point(422, 15)
-        Me.ptEntrega.Margin = New System.Windows.Forms.Padding(2)
-        Me.ptEntrega.Name = "ptEntrega"
-        Me.ptEntrega.Size = New System.Drawing.Size(103, 20)
-        Me.ptEntrega.TabIndex = 24
-        '
-        'ptCobro
-        '
-        Me.ptCobro.Location = New System.Drawing.Point(529, 15)
-        Me.ptCobro.Margin = New System.Windows.Forms.Padding(2)
-        Me.ptCobro.Name = "ptCobro"
-        Me.ptCobro.Size = New System.Drawing.Size(112, 20)
-        Me.ptCobro.TabIndex = 25
-        '
-        'Label48
-        '
-        Me.Label48.AutoSize = True
-        Me.Label48.Location = New System.Drawing.Point(3, 0)
-        Me.Label48.Name = "Label48"
-        Me.Label48.Size = New System.Drawing.Size(44, 13)
-        Me.Label48.TabIndex = 7
-        Me.Label48.Text = "Nombre"
-        '
-        'ptPrecio
-        '
-        Me.ptPrecio.Location = New System.Drawing.Point(645, 174)
-        Me.ptPrecio.Margin = New System.Windows.Forms.Padding(2)
-        Me.ptPrecio.Name = "ptPrecio"
-        Me.ptPrecio.Size = New System.Drawing.Size(122, 20)
-        Me.ptPrecio.TabIndex = 29
-        '
-        'Label45
-        '
-        Me.Label45.AutoSize = True
-        Me.Label45.Location = New System.Drawing.Point(645, 156)
-        Me.Label45.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.Label45.Name = "Label45"
-        Me.Label45.Size = New System.Drawing.Size(37, 13)
-        Me.Label45.TabIndex = 28
-        Me.Label45.Text = "Precio"
-        '
-        'Label46
-        '
-        Me.Label46.AutoSize = True
-        Me.Label46.Location = New System.Drawing.Point(2, 172)
-        Me.Label46.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.Label46.Name = "Label46"
-        Me.Label46.Size = New System.Drawing.Size(78, 13)
-        Me.Label46.TabIndex = 28
-        Me.Label46.Text = "Estado actual: "
-        '
-        'lbEstado
-        '
-        Me.lbEstado.AutoSize = True
-        Me.lbEstado.Location = New System.Drawing.Point(104, 172)
-        Me.lbEstado.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.lbEstado.Name = "lbEstado"
-        Me.lbEstado.Size = New System.Drawing.Size(51, 13)
-        Me.lbEstado.TabIndex = 29
-        Me.lbEstado.Text = "ESTADO"
-        '
-        'buscarSerBtn
-        '
-        Me.buscarSerBtn.Location = New System.Drawing.Point(184, 164)
-        Me.buscarSerBtn.Name = "buscarSerBtn"
-        Me.buscarSerBtn.Size = New System.Drawing.Size(75, 24)
-        Me.buscarSerBtn.TabIndex = 11
-        Me.buscarSerBtn.Text = "Buscar"
-        Me.buscarSerBtn.UseVisualStyleBackColor = True
-        '
-        'calendarioEntregas
-        '
-        Me.calendarioEntregas.BackColor = System.Drawing.SystemColors.Window
-        Me.calendarioEntregas.ForeColor = System.Drawing.SystemColors.Highlight
-        Me.calendarioEntregas.Location = New System.Drawing.Point(341, 28)
-        Me.calendarioEntregas.Name = "calendarioEntregas"
-        Me.calendarioEntregas.TabIndex = 10
-        Me.calendarioEntregas.TrailingForeColor = System.Drawing.SystemColors.Highlight
-        '
-        'resultadosPedidos
-        '
-        Me.resultadosPedidos.FormattingEnabled = True
-        Me.resultadosPedidos.Location = New System.Drawing.Point(10, 197)
-        Me.resultadosPedidos.Name = "resultadosPedidos"
-        Me.resultadosPedidos.Size = New System.Drawing.Size(248, 238)
-        Me.resultadosPedidos.TabIndex = 9
-        '
-        'Label44
-        '
-        Me.Label44.AutoSize = True
-        Me.Label44.Location = New System.Drawing.Point(6, 106)
-        Me.Label44.Name = "Label44"
-        Me.Label44.Size = New System.Drawing.Size(0, 13)
-        Me.Label44.TabIndex = 4
-        '
-        'Label43
-        '
-        Me.Label43.AutoSize = True
-        Me.Label43.Location = New System.Drawing.Point(5, 75)
-        Me.Label43.Name = "Label43"
-        Me.Label43.Size = New System.Drawing.Size(98, 13)
-        Me.Label43.TabIndex = 3
-        Me.Label43.Text = "Nombre del cliente:"
-        '
-        'TextCliente
-        '
-        Me.TextCliente.Location = New System.Drawing.Point(117, 71)
-        Me.TextCliente.Name = "TextCliente"
-        Me.TextCliente.Size = New System.Drawing.Size(142, 20)
-        Me.TextCliente.TabIndex = 2
-        Me.TextCliente.Tag = ""
-        '
-        'Label42
-        '
-        Me.Label42.AutoSize = True
-        Me.Label42.Location = New System.Drawing.Point(6, 49)
-        Me.Label42.Name = "Label42"
-        Me.Label42.Size = New System.Drawing.Size(156, 13)
-        Me.Label42.TabIndex = 1
-        Me.Label42.Text = "Buscar trabajos pendientes por:"
-        '
-        'Label41
-        '
-        Me.Label41.AutoSize = True
-        Me.Label41.Location = New System.Drawing.Point(6, 10)
-        Me.Label41.Name = "Label41"
-        Me.Label41.Size = New System.Drawing.Size(104, 13)
-        Me.Label41.TabIndex = 0
-        Me.Label41.Text = "Trabajos Pendientes"
         '
         'Panel2
         '
@@ -3910,7 +3168,7 @@ Partial Class Form2
         Me.Panel2.Controls.Add(Me.Button28)
         Me.Panel2.Controls.Add(Me.Mostrar_contabilidad)
         Me.Panel2.Controls.Add(Me.view_contable)
-        Me.Panel2.Location = New System.Drawing.Point(5, 79)
+        Me.Panel2.Location = New System.Drawing.Point(5, 71)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(1318, 520)
         Me.Panel2.TabIndex = 43
@@ -4014,7 +3272,7 @@ Partial Class Form2
         Me.GroupBox4Stock.Controls.Add(Me.Button26)
         Me.GroupBox4Stock.Controls.Add(Me.Button25)
         Me.GroupBox4Stock.Controls.Add(Me.Button24NuevoProducto)
-        Me.GroupBox4Stock.Location = New System.Drawing.Point(8, 70)
+        Me.GroupBox4Stock.Location = New System.Drawing.Point(8, 73)
         Me.GroupBox4Stock.Name = "GroupBox4Stock"
         Me.GroupBox4Stock.Size = New System.Drawing.Size(1317, 605)
         Me.GroupBox4Stock.TabIndex = 43
@@ -4462,7 +3720,7 @@ Partial Class Form2
         Me.panelServicios.Controls.Add(Me.verSerPanel)
         Me.panelServicios.Controls.Add(Me.editarServicios)
         Me.panelServicios.Controls.Add(Me.ingresarServicios)
-        Me.panelServicios.Location = New System.Drawing.Point(5, 70)
+        Me.panelServicios.Location = New System.Drawing.Point(6, 68)
         Me.panelServicios.Name = "panelServicios"
         Me.panelServicios.Size = New System.Drawing.Size(1367, 639)
         Me.panelServicios.TabIndex = 13
@@ -4916,6 +4174,980 @@ Partial Class Form2
         'imprimirDataGridView
         '
         '
+        'PanelTrabajosPendientes
+        '
+        Me.PanelTrabajosPendientes.AutoScroll = True
+        Me.PanelTrabajosPendientes.Controls.Add(Me.pedidoGridView)
+        Me.PanelTrabajosPendientes.Controls.Add(Me.UsuarioDataGrid)
+        Me.PanelTrabajosPendientes.Controls.Add(Me.ClienteGridView)
+        Me.PanelTrabajosPendientes.Controls.Add(Me.btpGenerar)
+        Me.PanelTrabajosPendientes.Controls.Add(Me.idClientesAux)
+        Me.PanelTrabajosPendientes.Controls.Add(Me.pbBorrar)
+        Me.PanelTrabajosPendientes.Controls.Add(Me.pbCambiar)
+        Me.PanelTrabajosPendientes.Controls.Add(Me.label47)
+        Me.PanelTrabajosPendientes.Controls.Add(Me.pcEstado)
+        Me.PanelTrabajosPendientes.Controls.Add(Me.idClienteActual)
+        Me.PanelTrabajosPendientes.Controls.Add(Me.noHayPendientes)
+        Me.PanelTrabajosPendientes.Controls.Add(Me.noExiste)
+        Me.PanelTrabajosPendientes.Controls.Add(Me.sinDatos)
+        Me.PanelTrabajosPendientes.Controls.Add(Me.Label55)
+        Me.PanelTrabajosPendientes.Controls.Add(Me.TextIden)
+        Me.PanelTrabajosPendientes.Controls.Add(Me.Label54)
+        Me.PanelTrabajosPendientes.Controls.Add(Me.TextApellido)
+        Me.PanelTrabajosPendientes.Controls.Add(Me.Label53)
+        Me.PanelTrabajosPendientes.Controls.Add(Me.calendarioCobro)
+        Me.PanelTrabajosPendientes.Controls.Add(Me.Label52)
+        Me.PanelTrabajosPendientes.Controls.Add(Me.TableLayoutPanel1)
+        Me.PanelTrabajosPendientes.Controls.Add(Me.buscarSerBtn)
+        Me.PanelTrabajosPendientes.Controls.Add(Me.calendarioEntregas)
+        Me.PanelTrabajosPendientes.Controls.Add(Me.resultadosPedidos)
+        Me.PanelTrabajosPendientes.Controls.Add(Me.Label44)
+        Me.PanelTrabajosPendientes.Controls.Add(Me.Label43)
+        Me.PanelTrabajosPendientes.Controls.Add(Me.TextCliente)
+        Me.PanelTrabajosPendientes.Controls.Add(Me.Label42)
+        Me.PanelTrabajosPendientes.Controls.Add(Me.Label41)
+        Me.PanelTrabajosPendientes.Location = New System.Drawing.Point(7, 66)
+        Me.PanelTrabajosPendientes.Name = "PanelTrabajosPendientes"
+        Me.PanelTrabajosPendientes.Size = New System.Drawing.Size(1517, 563)
+        Me.PanelTrabajosPendientes.TabIndex = 41
+        Me.PanelTrabajosPendientes.Visible = False
+        '
+        'pedidoGridView
+        '
+        Me.pedidoGridView.AutoGenerateColumns = False
+        Me.pedidoGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.pedidoGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn88, Me.DataGridViewTextBoxColumn89, Me.DataGridViewTextBoxColumn90, Me.DataGridViewTextBoxColumn91, Me.DataGridViewTextBoxColumn92, Me.DataGridViewTextBoxColumn93, Me.DataGridViewTextBoxColumn94, Me.DataGridViewTextBoxColumn95, Me.DataGridViewTextBoxColumn96})
+        Me.pedidoGridView.DataSource = Me.PedidoBindingSource
+        Me.pedidoGridView.Location = New System.Drawing.Point(1149, 7)
+        Me.pedidoGridView.Name = "pedidoGridView"
+        Me.pedidoGridView.Size = New System.Drawing.Size(114, 138)
+        Me.pedidoGridView.TabIndex = 41
+        Me.pedidoGridView.Visible = False
+        '
+        'DataGridViewTextBoxColumn88
+        '
+        Me.DataGridViewTextBoxColumn88.DataPropertyName = "id_pedido"
+        Me.DataGridViewTextBoxColumn88.HeaderText = "id_pedido"
+        Me.DataGridViewTextBoxColumn88.Name = "DataGridViewTextBoxColumn88"
+        '
+        'DataGridViewTextBoxColumn89
+        '
+        Me.DataGridViewTextBoxColumn89.DataPropertyName = "id_cliente"
+        Me.DataGridViewTextBoxColumn89.HeaderText = "id_cliente"
+        Me.DataGridViewTextBoxColumn89.Name = "DataGridViewTextBoxColumn89"
+        '
+        'DataGridViewTextBoxColumn90
+        '
+        Me.DataGridViewTextBoxColumn90.DataPropertyName = "id_usuario"
+        Me.DataGridViewTextBoxColumn90.HeaderText = "id_usuario"
+        Me.DataGridViewTextBoxColumn90.Name = "DataGridViewTextBoxColumn90"
+        '
+        'DataGridViewTextBoxColumn91
+        '
+        Me.DataGridViewTextBoxColumn91.DataPropertyName = "plazo_entrega"
+        Me.DataGridViewTextBoxColumn91.HeaderText = "plazo_entrega"
+        Me.DataGridViewTextBoxColumn91.Name = "DataGridViewTextBoxColumn91"
+        '
+        'DataGridViewTextBoxColumn92
+        '
+        Me.DataGridViewTextBoxColumn92.DataPropertyName = "plazo_cobro"
+        Me.DataGridViewTextBoxColumn92.HeaderText = "plazo_cobro"
+        Me.DataGridViewTextBoxColumn92.Name = "DataGridViewTextBoxColumn92"
+        '
+        'DataGridViewTextBoxColumn93
+        '
+        Me.DataGridViewTextBoxColumn93.DataPropertyName = "oferta"
+        Me.DataGridViewTextBoxColumn93.HeaderText = "oferta"
+        Me.DataGridViewTextBoxColumn93.Name = "DataGridViewTextBoxColumn93"
+        '
+        'DataGridViewTextBoxColumn94
+        '
+        Me.DataGridViewTextBoxColumn94.DataPropertyName = "precio"
+        Me.DataGridViewTextBoxColumn94.HeaderText = "precio"
+        Me.DataGridViewTextBoxColumn94.Name = "DataGridViewTextBoxColumn94"
+        '
+        'DataGridViewTextBoxColumn95
+        '
+        Me.DataGridViewTextBoxColumn95.DataPropertyName = "estado"
+        Me.DataGridViewTextBoxColumn95.HeaderText = "estado"
+        Me.DataGridViewTextBoxColumn95.Name = "DataGridViewTextBoxColumn95"
+        '
+        'DataGridViewTextBoxColumn96
+        '
+        Me.DataGridViewTextBoxColumn96.DataPropertyName = "nombre_pedido"
+        Me.DataGridViewTextBoxColumn96.HeaderText = "nombre_pedido"
+        Me.DataGridViewTextBoxColumn96.Name = "DataGridViewTextBoxColumn96"
+        '
+        'UsuarioDataGrid
+        '
+        Me.UsuarioDataGrid.AutoGenerateColumns = False
+        Me.UsuarioDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.UsuarioDataGrid.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn79, Me.DataGridViewTextBoxColumn80, Me.DataGridViewTextBoxColumn81, Me.DataGridViewTextBoxColumn82, Me.DataGridViewTextBoxColumn83, Me.DataGridViewTextBoxColumn84, Me.DataGridViewTextBoxColumn85, Me.DataGridViewTextBoxColumn86, Me.DataGridViewTextBoxColumn87})
+        Me.UsuarioDataGrid.DataSource = Me.UsuarioBindingSource
+        Me.UsuarioDataGrid.Location = New System.Drawing.Point(995, 136)
+        Me.UsuarioDataGrid.Name = "UsuarioDataGrid"
+        Me.UsuarioDataGrid.Size = New System.Drawing.Size(130, 125)
+        Me.UsuarioDataGrid.TabIndex = 41
+        Me.UsuarioDataGrid.Visible = False
+        '
+        'DataGridViewTextBoxColumn79
+        '
+        Me.DataGridViewTextBoxColumn79.DataPropertyName = "id_usuario"
+        Me.DataGridViewTextBoxColumn79.HeaderText = "id_usuario"
+        Me.DataGridViewTextBoxColumn79.Name = "DataGridViewTextBoxColumn79"
+        '
+        'DataGridViewTextBoxColumn80
+        '
+        Me.DataGridViewTextBoxColumn80.DataPropertyName = "cuenta"
+        Me.DataGridViewTextBoxColumn80.HeaderText = "cuenta"
+        Me.DataGridViewTextBoxColumn80.Name = "DataGridViewTextBoxColumn80"
+        '
+        'DataGridViewTextBoxColumn81
+        '
+        Me.DataGridViewTextBoxColumn81.DataPropertyName = "pass"
+        Me.DataGridViewTextBoxColumn81.HeaderText = "pass"
+        Me.DataGridViewTextBoxColumn81.Name = "DataGridViewTextBoxColumn81"
+        '
+        'DataGridViewTextBoxColumn82
+        '
+        Me.DataGridViewTextBoxColumn82.DataPropertyName = "nivel"
+        Me.DataGridViewTextBoxColumn82.HeaderText = "nivel"
+        Me.DataGridViewTextBoxColumn82.Name = "DataGridViewTextBoxColumn82"
+        '
+        'DataGridViewTextBoxColumn83
+        '
+        Me.DataGridViewTextBoxColumn83.DataPropertyName = "estado_usuario"
+        Me.DataGridViewTextBoxColumn83.HeaderText = "estado_usuario"
+        Me.DataGridViewTextBoxColumn83.Name = "DataGridViewTextBoxColumn83"
+        '
+        'DataGridViewTextBoxColumn84
+        '
+        Me.DataGridViewTextBoxColumn84.DataPropertyName = "nombre_usuario"
+        Me.DataGridViewTextBoxColumn84.HeaderText = "nombre_usuario"
+        Me.DataGridViewTextBoxColumn84.Name = "DataGridViewTextBoxColumn84"
+        '
+        'DataGridViewTextBoxColumn85
+        '
+        Me.DataGridViewTextBoxColumn85.DataPropertyName = "apellido_usuario"
+        Me.DataGridViewTextBoxColumn85.HeaderText = "apellido_usuario"
+        Me.DataGridViewTextBoxColumn85.Name = "DataGridViewTextBoxColumn85"
+        '
+        'DataGridViewTextBoxColumn86
+        '
+        Me.DataGridViewTextBoxColumn86.DataPropertyName = "numero_usuario"
+        Me.DataGridViewTextBoxColumn86.HeaderText = "numero_usuario"
+        Me.DataGridViewTextBoxColumn86.Name = "DataGridViewTextBoxColumn86"
+        '
+        'DataGridViewTextBoxColumn87
+        '
+        Me.DataGridViewTextBoxColumn87.DataPropertyName = "mail_usuario"
+        Me.DataGridViewTextBoxColumn87.HeaderText = "mail_usuario"
+        Me.DataGridViewTextBoxColumn87.Name = "DataGridViewTextBoxColumn87"
+        '
+        'ClienteGridView
+        '
+        Me.ClienteGridView.AutoGenerateColumns = False
+        Me.ClienteGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.ClienteGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn70, Me.DataGridViewTextBoxColumn71, Me.DataGridViewTextBoxColumn72, Me.DataGridViewTextBoxColumn73, Me.DataGridViewTextBoxColumn74, Me.DataGridViewTextBoxColumn75, Me.DataGridViewTextBoxColumn76, Me.DataGridViewTextBoxColumn78})
+        Me.ClienteGridView.DataSource = Me.ClienteBindingSource
+        Me.ClienteGridView.Location = New System.Drawing.Point(972, 4)
+        Me.ClienteGridView.Name = "ClienteGridView"
+        Me.ClienteGridView.Size = New System.Drawing.Size(154, 116)
+        Me.ClienteGridView.TabIndex = 41
+        Me.ClienteGridView.Visible = False
+        '
+        'DataGridViewTextBoxColumn70
+        '
+        Me.DataGridViewTextBoxColumn70.DataPropertyName = "id_cliente"
+        Me.DataGridViewTextBoxColumn70.HeaderText = "id_cliente"
+        Me.DataGridViewTextBoxColumn70.Name = "DataGridViewTextBoxColumn70"
+        '
+        'DataGridViewTextBoxColumn71
+        '
+        Me.DataGridViewTextBoxColumn71.DataPropertyName = "nombre"
+        Me.DataGridViewTextBoxColumn71.HeaderText = "nombre"
+        Me.DataGridViewTextBoxColumn71.Name = "DataGridViewTextBoxColumn71"
+        '
+        'DataGridViewTextBoxColumn72
+        '
+        Me.DataGridViewTextBoxColumn72.DataPropertyName = "apellido"
+        Me.DataGridViewTextBoxColumn72.HeaderText = "apellido"
+        Me.DataGridViewTextBoxColumn72.Name = "DataGridViewTextBoxColumn72"
+        '
+        'DataGridViewTextBoxColumn73
+        '
+        Me.DataGridViewTextBoxColumn73.DataPropertyName = "ruc"
+        Me.DataGridViewTextBoxColumn73.HeaderText = "ruc"
+        Me.DataGridViewTextBoxColumn73.Name = "DataGridViewTextBoxColumn73"
+        '
+        'DataGridViewTextBoxColumn74
+        '
+        Me.DataGridViewTextBoxColumn74.DataPropertyName = "numero"
+        Me.DataGridViewTextBoxColumn74.HeaderText = "numero"
+        Me.DataGridViewTextBoxColumn74.Name = "DataGridViewTextBoxColumn74"
+        '
+        'DataGridViewTextBoxColumn75
+        '
+        Me.DataGridViewTextBoxColumn75.DataPropertyName = "mail"
+        Me.DataGridViewTextBoxColumn75.HeaderText = "mail"
+        Me.DataGridViewTextBoxColumn75.Name = "DataGridViewTextBoxColumn75"
+        '
+        'DataGridViewTextBoxColumn76
+        '
+        Me.DataGridViewTextBoxColumn76.DataPropertyName = "estado_cliente"
+        Me.DataGridViewTextBoxColumn76.HeaderText = "estado_cliente"
+        Me.DataGridViewTextBoxColumn76.Name = "DataGridViewTextBoxColumn76"
+        '
+        'DataGridViewTextBoxColumn78
+        '
+        Me.DataGridViewTextBoxColumn78.DataPropertyName = "cliente_prioritario"
+        Me.DataGridViewTextBoxColumn78.HeaderText = "cliente_prioritario"
+        Me.DataGridViewTextBoxColumn78.Name = "DataGridViewTextBoxColumn78"
+        '
+        'btpGenerar
+        '
+        Me.btpGenerar.Location = New System.Drawing.Point(513, 206)
+        Me.btpGenerar.Name = "btpGenerar"
+        Me.btpGenerar.Size = New System.Drawing.Size(194, 23)
+        Me.btpGenerar.TabIndex = 39
+        Me.btpGenerar.Text = "Generar Resumen"
+        Me.btpGenerar.UseVisualStyleBackColor = True
+        '
+        'idClientesAux
+        '
+        Me.idClientesAux.FormattingEnabled = True
+        Me.idClientesAux.Location = New System.Drawing.Point(626, 71)
+        Me.idClientesAux.Name = "idClientesAux"
+        Me.idClientesAux.Size = New System.Drawing.Size(40, 69)
+        Me.idClientesAux.TabIndex = 35
+        Me.idClientesAux.Visible = False
+        '
+        'pbBorrar
+        '
+        Me.pbBorrar.Location = New System.Drawing.Point(117, 164)
+        Me.pbBorrar.Margin = New System.Windows.Forms.Padding(2)
+        Me.pbBorrar.Name = "pbBorrar"
+        Me.pbBorrar.Size = New System.Drawing.Size(60, 24)
+        Me.pbBorrar.TabIndex = 34
+        Me.pbBorrar.Text = "Borrar"
+        Me.pbBorrar.UseVisualStyleBackColor = True
+        '
+        'pbCambiar
+        '
+        Me.pbCambiar.Location = New System.Drawing.Point(478, 496)
+        Me.pbCambiar.Margin = New System.Windows.Forms.Padding(2)
+        Me.pbCambiar.Name = "pbCambiar"
+        Me.pbCambiar.Size = New System.Drawing.Size(64, 21)
+        Me.pbCambiar.TabIndex = 33
+        Me.pbCambiar.Text = "Cambiar"
+        Me.pbCambiar.UseVisualStyleBackColor = True
+        '
+        'label47
+        '
+        Me.label47.AutoSize = True
+        Me.label47.Location = New System.Drawing.Point(279, 503)
+        Me.label47.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.label47.Name = "label47"
+        Me.label47.Size = New System.Drawing.Size(107, 13)
+        Me.label47.TabIndex = 31
+        Me.label47.Text = "Cambiar de estado a:"
+        '
+        'pcEstado
+        '
+        Me.pcEstado.FormattingEnabled = True
+        Me.pcEstado.Location = New System.Drawing.Point(388, 496)
+        Me.pcEstado.Margin = New System.Windows.Forms.Padding(2)
+        Me.pcEstado.Name = "pcEstado"
+        Me.pcEstado.Size = New System.Drawing.Size(82, 21)
+        Me.pcEstado.TabIndex = 32
+        '
+        'idClienteActual
+        '
+        Me.idClienteActual.AutoSize = True
+        Me.idClienteActual.Location = New System.Drawing.Point(8, 175)
+        Me.idClienteActual.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.idClienteActual.Name = "idClienteActual"
+        Me.idClienteActual.Size = New System.Drawing.Size(0, 13)
+        Me.idClienteActual.TabIndex = 30
+        Me.idClienteActual.Visible = False
+        '
+        'noHayPendientes
+        '
+        Me.noHayPendientes.AutoSize = True
+        Me.noHayPendientes.ForeColor = System.Drawing.Color.Red
+        Me.noHayPendientes.Location = New System.Drawing.Point(6, 143)
+        Me.noHayPendientes.Name = "noHayPendientes"
+        Me.noHayPendientes.Size = New System.Drawing.Size(219, 13)
+        Me.noHayPendientes.TabIndex = 29
+        Me.noHayPendientes.Text = "No existe trabajos cargados para este cliente"
+        Me.noHayPendientes.Visible = False
+        '
+        'noExiste
+        '
+        Me.noExiste.AutoSize = True
+        Me.noExiste.ForeColor = System.Drawing.Color.Red
+        Me.noExiste.Location = New System.Drawing.Point(6, 145)
+        Me.noExiste.Name = "noExiste"
+        Me.noExiste.Size = New System.Drawing.Size(96, 13)
+        Me.noExiste.TabIndex = 28
+        Me.noExiste.Text = "No existe el cliente"
+        Me.noExiste.Visible = False
+        '
+        'sinDatos
+        '
+        Me.sinDatos.AutoSize = True
+        Me.sinDatos.ForeColor = System.Drawing.Color.Red
+        Me.sinDatos.Location = New System.Drawing.Point(7, 145)
+        Me.sinDatos.Name = "sinDatos"
+        Me.sinDatos.Size = New System.Drawing.Size(146, 13)
+        Me.sinDatos.TabIndex = 27
+        Me.sinDatos.Text = "Complete al menos un campo"
+        Me.sinDatos.Visible = False
+        '
+        'Label55
+        '
+        Me.Label55.AutoSize = True
+        Me.Label55.Location = New System.Drawing.Point(5, 121)
+        Me.Label55.Name = "Label55"
+        Me.Label55.Size = New System.Drawing.Size(108, 13)
+        Me.Label55.TabIndex = 26
+        Me.Label55.Text = "Identificacion o RUC:"
+        '
+        'TextIden
+        '
+        Me.TextIden.Location = New System.Drawing.Point(117, 119)
+        Me.TextIden.Name = "TextIden"
+        Me.TextIden.Size = New System.Drawing.Size(142, 20)
+        Me.TextIden.TabIndex = 25
+        Me.TextIden.Tag = ""
+        '
+        'Label54
+        '
+        Me.Label54.AutoSize = True
+        Me.Label54.Location = New System.Drawing.Point(5, 98)
+        Me.Label54.Name = "Label54"
+        Me.Label54.Size = New System.Drawing.Size(98, 13)
+        Me.Label54.TabIndex = 24
+        Me.Label54.Text = "Apellido del cliente:"
+        '
+        'TextApellido
+        '
+        Me.TextApellido.Location = New System.Drawing.Point(117, 95)
+        Me.TextApellido.Name = "TextApellido"
+        Me.TextApellido.Size = New System.Drawing.Size(142, 20)
+        Me.TextApellido.TabIndex = 23
+        Me.TextApellido.Tag = ""
+        '
+        'Label53
+        '
+        Me.Label53.AutoSize = True
+        Me.Label53.Location = New System.Drawing.Point(702, 0)
+        Me.Label53.Name = "Label53"
+        Me.Label53.Size = New System.Drawing.Size(252, 13)
+        Me.Label53.TabIndex = 19
+        Me.Label53.Text = "Trabajos pendientes agendados por fecha de cobro"
+        '
+        'calendarioCobro
+        '
+        Me.calendarioCobro.ForeColor = System.Drawing.SystemColors.Highlight
+        Me.calendarioCobro.Location = New System.Drawing.Point(705, 28)
+        Me.calendarioCobro.Name = "calendarioCobro"
+        Me.calendarioCobro.TabIndex = 18
+        '
+        'Label52
+        '
+        Me.Label52.AutoSize = True
+        Me.Label52.Location = New System.Drawing.Point(338, 0)
+        Me.Label52.Name = "Label52"
+        Me.Label52.Size = New System.Drawing.Size(261, 13)
+        Me.Label52.TabIndex = 17
+        Me.Label52.Text = "Trabajos pendientes agendados por fecha de entrega"
+        '
+        'TableLayoutPanel1
+        '
+        Me.TableLayoutPanel1.ColumnCount = 7
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 14.0!))
+        Me.TableLayoutPanel1.Controls.Add(Me.Label51, 6, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.Label50, 5, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.Label49, 4, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.Label56, 1, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.labelRuc, 2, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.Label58, 3, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.pcProyecto, 3, 1)
+        Me.TableLayoutPanel1.Controls.Add(Me.ptNombre, 0, 1)
+        Me.TableLayoutPanel1.Controls.Add(Me.ptApellido, 1, 1)
+        Me.TableLayoutPanel1.Controls.Add(Me.ptRuc, 2, 1)
+        Me.TableLayoutPanel1.Controls.Add(Me.ptDescrip, 6, 1)
+        Me.TableLayoutPanel1.Controls.Add(Me.ptEntrega, 4, 1)
+        Me.TableLayoutPanel1.Controls.Add(Me.ptCobro, 5, 1)
+        Me.TableLayoutPanel1.Controls.Add(Me.Label48, 0, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.ptPrecio, 6, 3)
+        Me.TableLayoutPanel1.Controls.Add(Me.Label45, 6, 2)
+        Me.TableLayoutPanel1.Controls.Add(Me.Label46, 0, 3)
+        Me.TableLayoutPanel1.Controls.Add(Me.lbEstado, 1, 3)
+        Me.TableLayoutPanel1.Location = New System.Drawing.Point(280, 294)
+        Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
+        Me.TableLayoutPanel1.RowCount = 4
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.542713!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 91.45728!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 16.0!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24.0!))
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(848, 197)
+        Me.TableLayoutPanel1.TabIndex = 15
+        '
+        'Label51
+        '
+        Me.Label51.AutoSize = True
+        Me.Label51.Location = New System.Drawing.Point(646, 0)
+        Me.Label51.Name = "Label51"
+        Me.Label51.Size = New System.Drawing.Size(63, 13)
+        Me.Label51.TabIndex = 10
+        Me.Label51.Text = "Descripcion"
+        '
+        'Label50
+        '
+        Me.Label50.AutoSize = True
+        Me.Label50.Location = New System.Drawing.Point(530, 0)
+        Me.Label50.Name = "Label50"
+        Me.Label50.Size = New System.Drawing.Size(78, 13)
+        Me.Label50.TabIndex = 9
+        Me.Label50.Text = "Plazo de cobro"
+        '
+        'Label49
+        '
+        Me.Label49.AutoSize = True
+        Me.Label49.Location = New System.Drawing.Point(423, 0)
+        Me.Label49.Name = "Label49"
+        Me.Label49.Size = New System.Drawing.Size(87, 13)
+        Me.Label49.TabIndex = 8
+        Me.Label49.Text = "Plazo de entrega"
+        '
+        'Label56
+        '
+        Me.Label56.AutoSize = True
+        Me.Label56.Location = New System.Drawing.Point(104, 0)
+        Me.Label56.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label56.Name = "Label56"
+        Me.Label56.Size = New System.Drawing.Size(44, 13)
+        Me.Label56.TabIndex = 12
+        Me.Label56.Text = "Apellido"
+        '
+        'labelRuc
+        '
+        Me.labelRuc.AutoSize = True
+        Me.labelRuc.Location = New System.Drawing.Point(202, 0)
+        Me.labelRuc.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.labelRuc.Name = "labelRuc"
+        Me.labelRuc.Size = New System.Drawing.Size(30, 13)
+        Me.labelRuc.TabIndex = 13
+        Me.labelRuc.Text = "RUC"
+        '
+        'Label58
+        '
+        Me.Label58.AutoSize = True
+        Me.Label58.Location = New System.Drawing.Point(308, 0)
+        Me.Label58.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label58.Name = "Label58"
+        Me.Label58.Size = New System.Drawing.Size(49, 13)
+        Me.Label58.TabIndex = 14
+        Me.Label58.Text = "Proyecto"
+        '
+        'pcProyecto
+        '
+        Me.pcProyecto.FormattingEnabled = True
+        Me.pcProyecto.Location = New System.Drawing.Point(308, 15)
+        Me.pcProyecto.Margin = New System.Windows.Forms.Padding(2)
+        Me.pcProyecto.Name = "pcProyecto"
+        Me.pcProyecto.Size = New System.Drawing.Size(110, 21)
+        Me.pcProyecto.TabIndex = 17
+        '
+        'ptNombre
+        '
+        Me.ptNombre.Location = New System.Drawing.Point(2, 15)
+        Me.ptNombre.Margin = New System.Windows.Forms.Padding(2)
+        Me.ptNombre.Name = "ptNombre"
+        Me.ptNombre.Size = New System.Drawing.Size(98, 20)
+        Me.ptNombre.TabIndex = 18
+        '
+        'ptApellido
+        '
+        Me.ptApellido.Location = New System.Drawing.Point(104, 15)
+        Me.ptApellido.Margin = New System.Windows.Forms.Padding(2)
+        Me.ptApellido.Name = "ptApellido"
+        Me.ptApellido.Size = New System.Drawing.Size(94, 20)
+        Me.ptApellido.TabIndex = 19
+        '
+        'ptRuc
+        '
+        Me.ptRuc.Location = New System.Drawing.Point(202, 15)
+        Me.ptRuc.Margin = New System.Windows.Forms.Padding(2)
+        Me.ptRuc.Name = "ptRuc"
+        Me.ptRuc.Size = New System.Drawing.Size(102, 20)
+        Me.ptRuc.TabIndex = 20
+        '
+        'ptDescrip
+        '
+        Me.ptDescrip.Location = New System.Drawing.Point(645, 15)
+        Me.ptDescrip.Margin = New System.Windows.Forms.Padding(2)
+        Me.ptDescrip.Multiline = True
+        Me.ptDescrip.Name = "ptDescrip"
+        Me.ptDescrip.Size = New System.Drawing.Size(191, 139)
+        Me.ptDescrip.TabIndex = 21
+        '
+        'ptEntrega
+        '
+        Me.ptEntrega.Location = New System.Drawing.Point(422, 15)
+        Me.ptEntrega.Margin = New System.Windows.Forms.Padding(2)
+        Me.ptEntrega.Name = "ptEntrega"
+        Me.ptEntrega.Size = New System.Drawing.Size(103, 20)
+        Me.ptEntrega.TabIndex = 24
+        '
+        'ptCobro
+        '
+        Me.ptCobro.Location = New System.Drawing.Point(529, 15)
+        Me.ptCobro.Margin = New System.Windows.Forms.Padding(2)
+        Me.ptCobro.Name = "ptCobro"
+        Me.ptCobro.Size = New System.Drawing.Size(112, 20)
+        Me.ptCobro.TabIndex = 25
+        '
+        'Label48
+        '
+        Me.Label48.AutoSize = True
+        Me.Label48.Location = New System.Drawing.Point(3, 0)
+        Me.Label48.Name = "Label48"
+        Me.Label48.Size = New System.Drawing.Size(44, 13)
+        Me.Label48.TabIndex = 7
+        Me.Label48.Text = "Nombre"
+        '
+        'ptPrecio
+        '
+        Me.ptPrecio.Location = New System.Drawing.Point(645, 174)
+        Me.ptPrecio.Margin = New System.Windows.Forms.Padding(2)
+        Me.ptPrecio.Name = "ptPrecio"
+        Me.ptPrecio.Size = New System.Drawing.Size(122, 20)
+        Me.ptPrecio.TabIndex = 29
+        '
+        'Label45
+        '
+        Me.Label45.AutoSize = True
+        Me.Label45.Location = New System.Drawing.Point(645, 156)
+        Me.Label45.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label45.Name = "Label45"
+        Me.Label45.Size = New System.Drawing.Size(37, 13)
+        Me.Label45.TabIndex = 28
+        Me.Label45.Text = "Precio"
+        '
+        'Label46
+        '
+        Me.Label46.AutoSize = True
+        Me.Label46.Location = New System.Drawing.Point(2, 172)
+        Me.Label46.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label46.Name = "Label46"
+        Me.Label46.Size = New System.Drawing.Size(78, 13)
+        Me.Label46.TabIndex = 28
+        Me.Label46.Text = "Estado actual: "
+        '
+        'lbEstado
+        '
+        Me.lbEstado.AutoSize = True
+        Me.lbEstado.Location = New System.Drawing.Point(104, 172)
+        Me.lbEstado.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.lbEstado.Name = "lbEstado"
+        Me.lbEstado.Size = New System.Drawing.Size(51, 13)
+        Me.lbEstado.TabIndex = 29
+        Me.lbEstado.Text = "ESTADO"
+        '
+        'buscarSerBtn
+        '
+        Me.buscarSerBtn.Location = New System.Drawing.Point(184, 164)
+        Me.buscarSerBtn.Name = "buscarSerBtn"
+        Me.buscarSerBtn.Size = New System.Drawing.Size(75, 24)
+        Me.buscarSerBtn.TabIndex = 11
+        Me.buscarSerBtn.Text = "Buscar"
+        Me.buscarSerBtn.UseVisualStyleBackColor = True
+        '
+        'calendarioEntregas
+        '
+        Me.calendarioEntregas.BackColor = System.Drawing.SystemColors.Window
+        Me.calendarioEntregas.ForeColor = System.Drawing.SystemColors.Highlight
+        Me.calendarioEntregas.Location = New System.Drawing.Point(341, 28)
+        Me.calendarioEntregas.Name = "calendarioEntregas"
+        Me.calendarioEntregas.TabIndex = 10
+        Me.calendarioEntregas.TrailingForeColor = System.Drawing.SystemColors.Highlight
+        '
+        'resultadosPedidos
+        '
+        Me.resultadosPedidos.FormattingEnabled = True
+        Me.resultadosPedidos.Location = New System.Drawing.Point(10, 197)
+        Me.resultadosPedidos.Name = "resultadosPedidos"
+        Me.resultadosPedidos.Size = New System.Drawing.Size(248, 238)
+        Me.resultadosPedidos.TabIndex = 9
+        '
+        'Label44
+        '
+        Me.Label44.AutoSize = True
+        Me.Label44.Location = New System.Drawing.Point(6, 106)
+        Me.Label44.Name = "Label44"
+        Me.Label44.Size = New System.Drawing.Size(0, 13)
+        Me.Label44.TabIndex = 4
+        '
+        'Label43
+        '
+        Me.Label43.AutoSize = True
+        Me.Label43.Location = New System.Drawing.Point(5, 75)
+        Me.Label43.Name = "Label43"
+        Me.Label43.Size = New System.Drawing.Size(98, 13)
+        Me.Label43.TabIndex = 3
+        Me.Label43.Text = "Nombre del cliente:"
+        '
+        'TextCliente
+        '
+        Me.TextCliente.Location = New System.Drawing.Point(117, 71)
+        Me.TextCliente.Name = "TextCliente"
+        Me.TextCliente.Size = New System.Drawing.Size(142, 20)
+        Me.TextCliente.TabIndex = 2
+        Me.TextCliente.Tag = ""
+        '
+        'Label42
+        '
+        Me.Label42.AutoSize = True
+        Me.Label42.Location = New System.Drawing.Point(6, 49)
+        Me.Label42.Name = "Label42"
+        Me.Label42.Size = New System.Drawing.Size(156, 13)
+        Me.Label42.TabIndex = 1
+        Me.Label42.Text = "Buscar trabajos pendientes por:"
+        '
+        'Label41
+        '
+        Me.Label41.AutoSize = True
+        Me.Label41.Location = New System.Drawing.Point(6, 10)
+        Me.Label41.Name = "Label41"
+        Me.Label41.Size = New System.Drawing.Size(104, 13)
+        Me.Label41.TabIndex = 0
+        Me.Label41.Text = "Trabajos Pendientes"
+        '
+        'PanelCargarGastos
+        '
+        Me.PanelCargarGastos.Controls.Add(Me.Label83)
+        Me.PanelCargarGastos.Controls.Add(Me.DataGridView2)
+        Me.PanelCargarGastos.Controls.Add(Me.modificarGasto)
+        Me.PanelCargarGastos.Controls.Add(Me.GroupBox4)
+        Me.PanelCargarGastos.Location = New System.Drawing.Point(3, 70)
+        Me.PanelCargarGastos.Name = "PanelCargarGastos"
+        Me.PanelCargarGastos.Size = New System.Drawing.Size(1501, 656)
+        Me.PanelCargarGastos.TabIndex = 56
+        '
+        'modificarGasto
+        '
+        Me.modificarGasto.Controls.Add(Me.errorGasto2)
+        Me.modificarGasto.Controls.Add(Me.calendarioGasto2)
+        Me.modificarGasto.Controls.Add(Me.detalleGastoTxt2)
+        Me.modificarGasto.Controls.Add(Me.Label79)
+        Me.modificarGasto.Controls.Add(Me.fechaGastoTxt2)
+        Me.modificarGasto.Controls.Add(Me.Label80)
+        Me.modificarGasto.Controls.Add(Me.montoGastoTxt2)
+        Me.modificarGasto.Controls.Add(Me.Label81)
+        Me.modificarGasto.Controls.Add(Me.nFacturaGastoTxt2)
+        Me.modificarGasto.Controls.Add(Me.Label82)
+        Me.modificarGasto.Controls.Add(Me.aceptarGastoBtn)
+        Me.modificarGasto.Controls.Add(Me.borrarGastoBtn2)
+        Me.modificarGasto.Controls.Add(Me.cancelarGastoBtn)
+        Me.modificarGasto.Controls.Add(Me.ivaCbGasto2)
+        Me.modificarGasto.Location = New System.Drawing.Point(415, 20)
+        Me.modificarGasto.Name = "modificarGasto"
+        Me.modificarGasto.Size = New System.Drawing.Size(371, 343)
+        Me.modificarGasto.TabIndex = 4
+        Me.modificarGasto.TabStop = False
+        Me.modificarGasto.Text = "Modificar Gasto"
+        Me.modificarGasto.Visible = False
+        '
+        'errorGasto2
+        '
+        Me.errorGasto2.AutoSize = True
+        Me.errorGasto2.Location = New System.Drawing.Point(127, 299)
+        Me.errorGasto2.Name = "errorGasto2"
+        Me.errorGasto2.Size = New System.Drawing.Size(10, 13)
+        Me.errorGasto2.TabIndex = 21
+        Me.errorGasto2.Text = "."
+        Me.errorGasto2.Visible = False
+        '
+        'calendarioGasto2
+        '
+        Me.calendarioGasto2.Location = New System.Drawing.Point(113, 119)
+        Me.calendarioGasto2.Name = "calendarioGasto2"
+        Me.calendarioGasto2.TabIndex = 20
+        Me.calendarioGasto2.Visible = False
+        '
+        'detalleGastoTxt2
+        '
+        Me.detalleGastoTxt2.Location = New System.Drawing.Point(112, 122)
+        Me.detalleGastoTxt2.Multiline = True
+        Me.detalleGastoTxt2.Name = "detalleGastoTxt2"
+        Me.detalleGastoTxt2.Size = New System.Drawing.Size(177, 113)
+        Me.detalleGastoTxt2.TabIndex = 19
+        '
+        'Label79
+        '
+        Me.Label79.AutoSize = True
+        Me.Label79.Location = New System.Drawing.Point(11, 124)
+        Me.Label79.Name = "Label79"
+        Me.Label79.Size = New System.Drawing.Size(43, 13)
+        Me.Label79.TabIndex = 18
+        Me.Label79.Text = "Detalle:"
+        '
+        'fechaGastoTxt2
+        '
+        Me.fechaGastoTxt2.Location = New System.Drawing.Point(114, 97)
+        Me.fechaGastoTxt2.Name = "fechaGastoTxt2"
+        Me.fechaGastoTxt2.Size = New System.Drawing.Size(100, 20)
+        Me.fechaGastoTxt2.TabIndex = 17
+        '
+        'Label80
+        '
+        Me.Label80.AutoSize = True
+        Me.Label80.Location = New System.Drawing.Point(11, 97)
+        Me.Label80.Name = "Label80"
+        Me.Label80.Size = New System.Drawing.Size(40, 13)
+        Me.Label80.TabIndex = 16
+        Me.Label80.Text = "Fecha:"
+        '
+        'montoGastoTxt2
+        '
+        Me.montoGastoTxt2.Location = New System.Drawing.Point(114, 69)
+        Me.montoGastoTxt2.Name = "montoGastoTxt2"
+        Me.montoGastoTxt2.Size = New System.Drawing.Size(130, 20)
+        Me.montoGastoTxt2.TabIndex = 15
+        '
+        'Label81
+        '
+        Me.Label81.AutoSize = True
+        Me.Label81.Location = New System.Drawing.Point(11, 69)
+        Me.Label81.Name = "Label81"
+        Me.Label81.Size = New System.Drawing.Size(40, 13)
+        Me.Label81.TabIndex = 14
+        Me.Label81.Text = "Monto:"
+        '
+        'nFacturaGastoTxt2
+        '
+        Me.nFacturaGastoTxt2.Location = New System.Drawing.Point(115, 37)
+        Me.nFacturaGastoTxt2.Name = "nFacturaGastoTxt2"
+        Me.nFacturaGastoTxt2.Size = New System.Drawing.Size(130, 20)
+        Me.nFacturaGastoTxt2.TabIndex = 13
+        '
+        'Label82
+        '
+        Me.Label82.AutoSize = True
+        Me.Label82.Location = New System.Drawing.Point(11, 41)
+        Me.Label82.Name = "Label82"
+        Me.Label82.Size = New System.Drawing.Size(98, 13)
+        Me.Label82.TabIndex = 12
+        Me.Label82.Text = "Numero de factura:"
+        '
+        'aceptarGastoBtn
+        '
+        Me.aceptarGastoBtn.Location = New System.Drawing.Point(127, 313)
+        Me.aceptarGastoBtn.Name = "aceptarGastoBtn"
+        Me.aceptarGastoBtn.Size = New System.Drawing.Size(75, 23)
+        Me.aceptarGastoBtn.TabIndex = 5
+        Me.aceptarGastoBtn.Text = "Aceptar"
+        Me.aceptarGastoBtn.UseVisualStyleBackColor = True
+        '
+        'borrarGastoBtn2
+        '
+        Me.borrarGastoBtn2.Location = New System.Drawing.Point(285, 313)
+        Me.borrarGastoBtn2.Name = "borrarGastoBtn2"
+        Me.borrarGastoBtn2.Size = New System.Drawing.Size(75, 23)
+        Me.borrarGastoBtn2.TabIndex = 4
+        Me.borrarGastoBtn2.Text = "Borrar"
+        Me.borrarGastoBtn2.UseVisualStyleBackColor = True
+        '
+        'cancelarGastoBtn
+        '
+        Me.cancelarGastoBtn.Location = New System.Drawing.Point(206, 313)
+        Me.cancelarGastoBtn.Name = "cancelarGastoBtn"
+        Me.cancelarGastoBtn.Size = New System.Drawing.Size(75, 23)
+        Me.cancelarGastoBtn.TabIndex = 3
+        Me.cancelarGastoBtn.Text = "Cancelar"
+        Me.cancelarGastoBtn.UseVisualStyleBackColor = True
+        '
+        'GroupBox4
+        '
+        Me.GroupBox4.Controls.Add(Me.errorGasto)
+        Me.GroupBox4.Controls.Add(Me.calendarioGasto)
+        Me.GroupBox4.Controls.Add(Me.ivaCbGasto)
+        Me.GroupBox4.Controls.Add(Me.detalleGastoTxt)
+        Me.GroupBox4.Controls.Add(Me.Label78)
+        Me.GroupBox4.Controls.Add(Me.fechaGastoTxt)
+        Me.GroupBox4.Controls.Add(Me.Label77)
+        Me.GroupBox4.Controls.Add(Me.montoGastoTxt)
+        Me.GroupBox4.Controls.Add(Me.Label76)
+        Me.GroupBox4.Controls.Add(Me.nFacturaGastoTxt)
+        Me.GroupBox4.Controls.Add(Me.Label75)
+        Me.GroupBox4.Controls.Add(Me.cargarGastoBtn)
+        Me.GroupBox4.Controls.Add(Me.borrarGastoBtn)
+        Me.GroupBox4.Controls.Add(Me.modificarGastoBtn)
+        Me.GroupBox4.Location = New System.Drawing.Point(19, 20)
+        Me.GroupBox4.Name = "GroupBox4"
+        Me.GroupBox4.Size = New System.Drawing.Size(367, 343)
+        Me.GroupBox4.TabIndex = 3
+        Me.GroupBox4.TabStop = False
+        Me.GroupBox4.Text = "Cargar Gasto"
+        '
+        'errorGasto
+        '
+        Me.errorGasto.AutoSize = True
+        Me.errorGasto.Location = New System.Drawing.Point(125, 299)
+        Me.errorGasto.Name = "errorGasto"
+        Me.errorGasto.Size = New System.Drawing.Size(10, 13)
+        Me.errorGasto.TabIndex = 13
+        Me.errorGasto.Text = "."
+        Me.errorGasto.Visible = False
+        '
+        'calendarioGasto
+        '
+        Me.calendarioGasto.Location = New System.Drawing.Point(109, 119)
+        Me.calendarioGasto.Name = "calendarioGasto"
+        Me.calendarioGasto.TabIndex = 12
+        Me.calendarioGasto.Visible = False
+        '
+        'ivaCbGasto
+        '
+        Me.ivaCbGasto.AutoSize = True
+        Me.ivaCbGasto.Location = New System.Drawing.Point(108, 251)
+        Me.ivaCbGasto.Name = "ivaCbGasto"
+        Me.ivaCbGasto.Size = New System.Drawing.Size(82, 17)
+        Me.ivaCbGasto.TabIndex = 11
+        Me.ivaCbGasto.Text = "IVA incluido"
+        Me.ivaCbGasto.UseVisualStyleBackColor = True
+        '
+        'detalleGastoTxt
+        '
+        Me.detalleGastoTxt.Location = New System.Drawing.Point(108, 122)
+        Me.detalleGastoTxt.Multiline = True
+        Me.detalleGastoTxt.Name = "detalleGastoTxt"
+        Me.detalleGastoTxt.Size = New System.Drawing.Size(177, 113)
+        Me.detalleGastoTxt.TabIndex = 10
+        '
+        'Label78
+        '
+        Me.Label78.AutoSize = True
+        Me.Label78.Location = New System.Drawing.Point(7, 124)
+        Me.Label78.Name = "Label78"
+        Me.Label78.Size = New System.Drawing.Size(43, 13)
+        Me.Label78.TabIndex = 9
+        Me.Label78.Text = "Detalle:"
+        '
+        'fechaGastoTxt
+        '
+        Me.fechaGastoTxt.Location = New System.Drawing.Point(111, 95)
+        Me.fechaGastoTxt.Name = "fechaGastoTxt"
+        Me.fechaGastoTxt.Size = New System.Drawing.Size(100, 20)
+        Me.fechaGastoTxt.TabIndex = 8
+        '
+        'Label77
+        '
+        Me.Label77.AutoSize = True
+        Me.Label77.Location = New System.Drawing.Point(7, 97)
+        Me.Label77.Name = "Label77"
+        Me.Label77.Size = New System.Drawing.Size(40, 13)
+        Me.Label77.TabIndex = 7
+        Me.Label77.Text = "Fecha:"
+        '
+        'montoGastoTxt
+        '
+        Me.montoGastoTxt.Location = New System.Drawing.Point(111, 65)
+        Me.montoGastoTxt.Name = "montoGastoTxt"
+        Me.montoGastoTxt.Size = New System.Drawing.Size(130, 20)
+        Me.montoGastoTxt.TabIndex = 6
+        '
+        'Label76
+        '
+        Me.Label76.AutoSize = True
+        Me.Label76.Location = New System.Drawing.Point(7, 69)
+        Me.Label76.Name = "Label76"
+        Me.Label76.Size = New System.Drawing.Size(40, 13)
+        Me.Label76.TabIndex = 5
+        Me.Label76.Text = "Monto:"
+        '
+        'nFacturaGastoTxt
+        '
+        Me.nFacturaGastoTxt.Location = New System.Drawing.Point(111, 37)
+        Me.nFacturaGastoTxt.Name = "nFacturaGastoTxt"
+        Me.nFacturaGastoTxt.Size = New System.Drawing.Size(130, 20)
+        Me.nFacturaGastoTxt.TabIndex = 4
+        '
+        'Label75
+        '
+        Me.Label75.AutoSize = True
+        Me.Label75.Location = New System.Drawing.Point(7, 41)
+        Me.Label75.Name = "Label75"
+        Me.Label75.Size = New System.Drawing.Size(98, 13)
+        Me.Label75.TabIndex = 3
+        Me.Label75.Text = "Numero de factura:"
+        '
+        'cargarGastoBtn
+        '
+        Me.cargarGastoBtn.Location = New System.Drawing.Point(122, 313)
+        Me.cargarGastoBtn.Name = "cargarGastoBtn"
+        Me.cargarGastoBtn.Size = New System.Drawing.Size(75, 23)
+        Me.cargarGastoBtn.TabIndex = 2
+        Me.cargarGastoBtn.Text = "Cargar"
+        Me.cargarGastoBtn.UseVisualStyleBackColor = True
+        '
+        'borrarGastoBtn
+        '
+        Me.borrarGastoBtn.Location = New System.Drawing.Point(280, 313)
+        Me.borrarGastoBtn.Name = "borrarGastoBtn"
+        Me.borrarGastoBtn.Size = New System.Drawing.Size(75, 23)
+        Me.borrarGastoBtn.TabIndex = 1
+        Me.borrarGastoBtn.Text = "Borrar"
+        Me.borrarGastoBtn.UseVisualStyleBackColor = True
+        '
+        'modificarGastoBtn
+        '
+        Me.modificarGastoBtn.Location = New System.Drawing.Point(201, 313)
+        Me.modificarGastoBtn.Name = "modificarGastoBtn"
+        Me.modificarGastoBtn.Size = New System.Drawing.Size(75, 23)
+        Me.modificarGastoBtn.TabIndex = 0
+        Me.modificarGastoBtn.Text = "Modificar"
+        Me.modificarGastoBtn.UseVisualStyleBackColor = True
+        '
+        'ivaCbGasto2
+        '
+        Me.ivaCbGasto2.AutoSize = True
+        Me.ivaCbGasto2.Location = New System.Drawing.Point(110, 251)
+        Me.ivaCbGasto2.Name = "ivaCbGasto2"
+        Me.ivaCbGasto2.Size = New System.Drawing.Size(82, 17)
+        Me.ivaCbGasto2.TabIndex = 22
+        Me.ivaCbGasto2.Text = "IVA incluido"
+        Me.ivaCbGasto2.UseVisualStyleBackColor = True
+        '
+        'DataGridView2
+        '
+        Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView2.Location = New System.Drawing.Point(21, 455)
+        Me.DataGridView2.Name = "DataGridView2"
+        Me.DataGridView2.ReadOnly = True
+        Me.DataGridView2.Size = New System.Drawing.Size(513, 182)
+        Me.DataGridView2.TabIndex = 5
+        '
+        'Label83
+        '
+        Me.Label83.AutoSize = True
+        Me.Label83.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label83.Location = New System.Drawing.Point(20, 424)
+        Me.Label83.Name = "Label83"
+        Me.Label83.Size = New System.Drawing.Size(171, 24)
+        Me.Label83.TabIndex = 10
+        Me.Label83.Text = "Gastos cargados:"
+        '
         'Form2
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -4931,7 +5163,7 @@ Partial Class Form2
         Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
-        Me.Controls.Add(Me.PanelTrabajosPendientes)
+        Me.Controls.Add(Me.PanelCargarGastos)
         Me.Controls.Add(Me.panelServicios)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.GroupBox4Stock)
@@ -4940,6 +5172,8 @@ Partial Class Form2
         Me.Controls.Add(Me.panel_cuentas)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.PanelClientes)
+        Me.Controls.Add(Me.resulTrabajos)
+        Me.Controls.Add(Me.PanelTrabajosPendientes)
         Me.Name = "Form2"
         Me.Text = "Form2"
         CType(Me.Ingreso_productoBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
@@ -4994,22 +5228,12 @@ Partial Class Form2
         Me.GroupBoxEstadisticasdelCliente.ResumeLayout(False)
         Me.GroupBoxModificarClienteasd.ResumeLayout(False)
         Me.GroupBoxModificarClienteasd.PerformLayout()
-        Me.PanelTrabajosPendientes.ResumeLayout(False)
-        Me.PanelTrabajosPendientes.PerformLayout()
         Me.resulTrabajos.ResumeLayout(False)
         Me.resulTrabajos.PerformLayout()
         CType(Me.DataGridViewCobrados, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGridViewTrabajos, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.graficoTrabajos, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.graficoPagados, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.pedidoGridView, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.UsuarioDataGrid, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ClienteGridView, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.BindingNavigator1, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.BindingNavigator1.ResumeLayout(False)
-        Me.BindingNavigator1.PerformLayout()
-        Me.TableLayoutPanel1.ResumeLayout(False)
-        Me.TableLayoutPanel1.PerformLayout()
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
         CType(Me.view_contable, System.ComponentModel.ISupportInitialize).EndInit()
@@ -5027,6 +5251,20 @@ Partial Class Form2
         Me.editarServicios.PerformLayout()
         Me.ingresarServicios.ResumeLayout(False)
         Me.ingresarServicios.PerformLayout()
+        Me.PanelTrabajosPendientes.ResumeLayout(False)
+        Me.PanelTrabajosPendientes.PerformLayout()
+        CType(Me.pedidoGridView, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.UsuarioDataGrid, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ClienteGridView, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.TableLayoutPanel1.ResumeLayout(False)
+        Me.TableLayoutPanel1.PerformLayout()
+        Me.PanelCargarGastos.ResumeLayout(False)
+        Me.PanelCargarGastos.PerformLayout()
+        Me.modificarGasto.ResumeLayout(False)
+        Me.modificarGasto.PerformLayout()
+        Me.GroupBox4.ResumeLayout(False)
+        Me.GroupBox4.PerformLayout()
+        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -5214,93 +5452,7 @@ Partial Class Form2
     Friend WithEvents ModificarClienteBoton As Button
     Friend WithEvents CrearClienteBoton As Button
     Friend WithEvents Button24 As Button
-    Friend WithEvents PanelTrabajosPendientes As Panel
-    Friend WithEvents btpGenerar As Button
-    Friend WithEvents BindingNavigator1 As BindingNavigator
-    Friend WithEvents BindingNavigatorAddNewItem1 As ToolStripButton
-    Friend WithEvents BindingNavigatorCountItem1 As ToolStripLabel
-    Friend WithEvents BindingNavigatorDeleteItem1 As ToolStripButton
-    Friend WithEvents BindingNavigatorMoveFirstItem1 As ToolStripButton
-    Friend WithEvents BindingNavigatorMovePreviousItem1 As ToolStripButton
-    Friend WithEvents BindingNavigatorSeparator3 As ToolStripSeparator
-    Friend WithEvents BindingNavigatorPositionItem1 As ToolStripTextBox
-    Friend WithEvents BindingNavigatorSeparator4 As ToolStripSeparator
-    Friend WithEvents BindingNavigatorMoveNextItem1 As ToolStripButton
-    Friend WithEvents BindingNavigatorMoveLastItem1 As ToolStripButton
-    Friend WithEvents BindingNavigatorSeparator5 As ToolStripSeparator
-    Friend WithEvents idClientesAux As ListBox
-    Friend WithEvents pbBorrar As Button
-    Friend WithEvents pbCambiar As Button
-    Friend WithEvents label47 As Label
-    Friend WithEvents pcEstado As ComboBox
-    Friend WithEvents idClienteActual As Label
-    Friend WithEvents noHayPendientes As Label
-    Friend WithEvents noExiste As Label
-    Friend WithEvents sinDatos As Label
-    Friend WithEvents Label55 As Label
-    Friend WithEvents TextIden As TextBox
-    Friend WithEvents Label54 As Label
-    Friend WithEvents TextApellido As TextBox
-    Friend WithEvents Label53 As Label
-    Friend WithEvents calendarioCobro As MonthCalendar
-    Friend WithEvents Label52 As Label
-    Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
-    Friend WithEvents Label51 As Label
-    Friend WithEvents Label50 As Label
-    Friend WithEvents Label49 As Label
-    Friend WithEvents Label56 As Label
-    Friend WithEvents labelRuc As Label
-    Friend WithEvents Label58 As Label
-    Friend WithEvents pcProyecto As ComboBox
-    Friend WithEvents ptNombre As TextBox
-    Friend WithEvents ptApellido As TextBox
-    Friend WithEvents ptRuc As TextBox
-    Friend WithEvents ptDescrip As TextBox
-    Friend WithEvents ptEntrega As TextBox
-    Friend WithEvents ptCobro As TextBox
-    Friend WithEvents Label48 As Label
-    Friend WithEvents ptPrecio As TextBox
-    Friend WithEvents Label45 As Label
-    Friend WithEvents Label46 As Label
-    Friend WithEvents lbEstado As Label
-    Friend WithEvents buscarSerBtn As Button
-    Friend WithEvents calendarioEntregas As MonthCalendar
-    Friend WithEvents resultadosPedidos As ListBox
-    Friend WithEvents Label44 As Label
-    Friend WithEvents Label43 As Label
-    Friend WithEvents TextCliente As TextBox
-    Friend WithEvents Label42 As Label
-    Friend WithEvents Label41 As Label
-    Friend WithEvents pedidoGridView As DataGridView
-    Friend WithEvents DataGridViewTextBoxColumn88 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn89 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn90 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn91 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn92 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn93 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn94 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn95 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn96 As DataGridViewTextBoxColumn
-    Friend WithEvents UsuarioDataGrid As DataGridView
-    Friend WithEvents DataGridViewTextBoxColumn79 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn80 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn81 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn82 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn83 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn84 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn85 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn86 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn87 As DataGridViewTextBoxColumn
-    Friend WithEvents ClienteGridView As DataGridView
-    Friend WithEvents DataGridViewTextBoxColumn70 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn71 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn72 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn73 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn74 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn75 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn76 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn77 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn78 As DataGridViewTextBoxColumn
     Friend WithEvents SaveFileDialog1 As SaveFileDialog
     Friend WithEvents ServicioBindingSource As BindingSource
     Friend WithEvents Venta_servicioBindingSource As BindingSource
@@ -5510,12 +5662,12 @@ Partial Class Form2
     Friend WithEvents prueba As Button
     Friend WithEvents resulTrabajos As Panel
     Friend WithEvents DataGridViewCobrados As DataGridView
+    Friend WithEvents nomUsuario2 As DataGridViewTextBoxColumn
+    Friend WithEvents nomPedido2 As DataGridViewTextBoxColumn
+    Friend WithEvents cobro2 As DataGridViewTextBoxColumn
+    Friend WithEvents des2 As DataGridViewTextBoxColumn
+    Friend WithEvents precio2 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTrabajos As DataGridView
-    Friend WithEvents Label74 As Label
-    Friend WithEvents Label73 As Label
-    Friend WithEvents Label71 As Label
-    Friend WithEvents graficoTrabajos As DataVisualization.Charting.Chart
-    Friend WithEvents graficoPagados As DataVisualization.Charting.Chart
     Friend WithEvents nomUsuario As DataGridViewTextBoxColumn
     Friend WithEvents nomPedido As DataGridViewTextBoxColumn
     Friend WithEvents entrega As DataGridViewTextBoxColumn
@@ -5523,9 +5675,116 @@ Partial Class Form2
     Friend WithEvents des As DataGridViewTextBoxColumn
     Friend WithEvents precio As DataGridViewTextBoxColumn
     Friend WithEvents estado As DataGridViewTextBoxColumn
-    Friend WithEvents nomUsuario2 As DataGridViewTextBoxColumn
-    Friend WithEvents nomPedido2 As DataGridViewTextBoxColumn
-    Friend WithEvents cobro2 As DataGridViewTextBoxColumn
-    Friend WithEvents des2 As DataGridViewTextBoxColumn
-    Friend WithEvents precio2 As DataGridViewTextBoxColumn
+    Friend WithEvents Label74 As Label
+    Friend WithEvents Label73 As Label
+    Friend WithEvents Label71 As Label
+    Friend WithEvents graficoTrabajos As DataVisualization.Charting.Chart
+    Friend WithEvents graficoPagados As DataVisualization.Charting.Chart
+    Friend WithEvents PanelTrabajosPendientes As Panel
+    Friend WithEvents pedidoGridView As DataGridView
+    Friend WithEvents DataGridViewTextBoxColumn88 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn89 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn90 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn91 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn92 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn93 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn94 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn95 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn96 As DataGridViewTextBoxColumn
+    Friend WithEvents UsuarioDataGrid As DataGridView
+    Friend WithEvents DataGridViewTextBoxColumn79 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn80 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn81 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn82 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn83 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn84 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn85 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn86 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn87 As DataGridViewTextBoxColumn
+    Friend WithEvents ClienteGridView As DataGridView
+    Friend WithEvents DataGridViewTextBoxColumn70 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn71 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn72 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn73 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn74 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn75 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn76 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn78 As DataGridViewTextBoxColumn
+    Friend WithEvents btpGenerar As Button
+    Friend WithEvents idClientesAux As ListBox
+    Friend WithEvents pbBorrar As Button
+    Friend WithEvents pbCambiar As Button
+    Friend WithEvents label47 As Label
+    Friend WithEvents pcEstado As ComboBox
+    Friend WithEvents idClienteActual As Label
+    Friend WithEvents noHayPendientes As Label
+    Friend WithEvents noExiste As Label
+    Friend WithEvents sinDatos As Label
+    Friend WithEvents Label55 As Label
+    Friend WithEvents TextIden As TextBox
+    Friend WithEvents Label54 As Label
+    Friend WithEvents TextApellido As TextBox
+    Friend WithEvents Label53 As Label
+    Friend WithEvents calendarioCobro As MonthCalendar
+    Friend WithEvents Label52 As Label
+    Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
+    Friend WithEvents Label51 As Label
+    Friend WithEvents Label50 As Label
+    Friend WithEvents Label49 As Label
+    Friend WithEvents Label56 As Label
+    Friend WithEvents labelRuc As Label
+    Friend WithEvents Label58 As Label
+    Friend WithEvents pcProyecto As ComboBox
+    Friend WithEvents ptNombre As TextBox
+    Friend WithEvents ptApellido As TextBox
+    Friend WithEvents ptRuc As TextBox
+    Friend WithEvents ptDescrip As TextBox
+    Friend WithEvents ptEntrega As TextBox
+    Friend WithEvents ptCobro As TextBox
+    Friend WithEvents Label48 As Label
+    Friend WithEvents ptPrecio As TextBox
+    Friend WithEvents Label45 As Label
+    Friend WithEvents Label46 As Label
+    Friend WithEvents lbEstado As Label
+    Friend WithEvents buscarSerBtn As Button
+    Friend WithEvents calendarioEntregas As MonthCalendar
+    Friend WithEvents resultadosPedidos As ListBox
+    Friend WithEvents Label44 As Label
+    Friend WithEvents Label43 As Label
+    Friend WithEvents TextCliente As TextBox
+    Friend WithEvents Label42 As Label
+    Friend WithEvents Label41 As Label
+    Friend WithEvents PanelCargarGastos As Panel
+    Friend WithEvents modificarGasto As GroupBox
+    Friend WithEvents detalleGastoTxt2 As TextBox
+    Friend WithEvents Label79 As Label
+    Friend WithEvents fechaGastoTxt2 As TextBox
+    Friend WithEvents Label80 As Label
+    Friend WithEvents montoGastoTxt2 As TextBox
+    Friend WithEvents Label81 As Label
+    Friend WithEvents nFacturaGastoTxt2 As TextBox
+    Friend WithEvents Label82 As Label
+    Friend WithEvents aceptarGastoBtn As Button
+    Friend WithEvents borrarGastoBtn2 As Button
+    Friend WithEvents cancelarGastoBtn As Button
+    Friend WithEvents GroupBox4 As GroupBox
+    Friend WithEvents ivaCbGasto As CheckBox
+    Friend WithEvents detalleGastoTxt As TextBox
+    Friend WithEvents Label78 As Label
+    Friend WithEvents fechaGastoTxt As TextBox
+    Friend WithEvents Label77 As Label
+    Friend WithEvents montoGastoTxt As TextBox
+    Friend WithEvents Label76 As Label
+    Friend WithEvents nFacturaGastoTxt As TextBox
+    Friend WithEvents Label75 As Label
+    Friend WithEvents cargarGastoBtn As Button
+    Friend WithEvents borrarGastoBtn As Button
+    Friend WithEvents modificarGastoBtn As Button
+    Friend WithEvents calendarioGasto2 As MonthCalendar
+    Friend WithEvents calendarioGasto As MonthCalendar
+    Friend WithEvents errorGasto2 As Label
+    Friend WithEvents errorGasto As Label
+    Friend WithEvents ivaCbGasto2 As CheckBox
+    Friend WithEvents Label83 As Label
+    Friend WithEvents DataGridView2 As DataGridView
 End Class

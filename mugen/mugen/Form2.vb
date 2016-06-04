@@ -50,6 +50,38 @@ Public Class Form2
 
     End Sub
 
+
+    Private Function update_cache()
+        'TODO: esta línea de código carga datos en la tabla 'DataSet1.gasto' Puede moverla o quitarla según sea necesario.
+        Me.GastoTableAdapter.Fill(Me.DataSet1.gasto)
+        'TODO: esta línea de código carga datos en la tabla 'DataSet1.venta_servicio' Puede moverla o quitarla según sea necesario.
+        Me.Venta_servicioTableAdapter.Fill(Me.DataSet1.venta_servicio)
+        'TODO: esta línea de código carga datos en la tabla 'DataSet1.servicio' Puede moverla o quitarla según sea necesario.
+        Me.ServicioTableAdapter.Fill(Me.DataSet1.servicio)
+        'TODO: This line of code loads data into the 'DataSet1.venta_producto' table. You can move, or remove it, as needed.
+        Me.Venta_productoTableAdapter.Fill(Me.DataSet1.venta_producto)
+        'TODO: This line of code loads data into the 'DataSet1.usuario' table. You can move, or remove it, as needed.
+        Me.UsuarioTableAdapter.Fill(Me.DataSet1.usuario)
+        'TODO: This line of code loads data into the 'DataSet1.proveedor' table. You can move, or remove it, as needed.
+        Me.ProveedorTableAdapter.Fill(Me.DataSet1.proveedor)
+        'TODO: This line of code loads data into the 'DataSet1.producto' table. You can move, or remove it, as needed.
+        Me.ProductoTableAdapter.Fill(Me.DataSet1.producto)
+
+        'TODO: This line of code loads data into the 'DataSet1.pedido' table. You can move, or remove it, as needed.
+        Me.PedidoTableAdapter.Fill(Me.DataSet1.pedido)
+        'TODO: This line of code loads data into the 'DataSet1.ingreso_producto' table. You can move, or remove it, as needed.
+        Me.Ingreso_productoTableAdapter.Fill(Me.DataSet1.ingreso_producto)
+        'TODO: This line of code loads data into the 'DataSet1.contabilidad2' table. You can move, or remove it, as needed.
+        Me.Contabilidad2TableAdapter.Fill(Me.DataSet1.contabilidad2)
+        'TODO: This line of code loads data into the 'DataSet1.contabilidad' table. You can move, or remove it, as needed.
+        Me.ContabilidadTableAdapter.Fill(Me.DataSet1.contabilidad)
+        'TODO: This line of code loads data into the 'DataSet1.cliente' table. You can move, or remove it, as needed.
+        Me.ClienteTableAdapter.Fill(Me.DataSet1.cliente)
+        'TODO: This line of code loads data into the 'DataSet1.association_1' table. You can move, or remove it, as needed.
+        Me.Association_1TableAdapter.Fill(Me.DataSet1.association_1)
+
+    End Function
+
     Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
         GroupBox4Stock.Hide()
         panel_carga_presupuesto.Hide()
@@ -74,6 +106,9 @@ Public Class Form2
     End Sub
 
     Private Sub Button10_Click(sender As Object, e As EventArgs) Handles Button10.Click
+        update_cache()
+
+
         Dim user As String
         Dim ban_login As Integer
         Dim cantidad_usuarios As Integer
@@ -160,6 +195,9 @@ Public Class Form2
     Dim user_to_mod As estructura_usuario
 
     Private Sub Button12_Click(sender As Object, e As EventArgs) Handles Button12.Click
+        update_cache()
+
+
         Dim user As String
         Dim pas As String
         Dim ban_login As Integer
@@ -212,6 +250,9 @@ Public Class Form2
     End Sub
 
     Private Sub Button16_Click(sender As Object, e As EventArgs) Handles Button16.Click
+
+        update_cache()
+
         If TextBox4.Text <> "" Then
             DataSet1.Tables("usuario").Rows(user_to_mod.posicion).Item("nombre_usuario") = TextBox4.Text
             Label23.Text = "Datos modificados con exito"
@@ -261,6 +302,9 @@ Public Class Form2
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+
+        Me.ClienteTableAdapter.Fill(Me.DataSet1.cliente) 'despues mejorar esto
+
         panel_carga_presupuesto.Show()
         GroupBox4Stock.Hide()
         panel_vender.Hide()
@@ -298,11 +342,12 @@ Public Class Form2
         If cliente_buscado.name <> "" Then
 
             For i As Integer = 0 To (cantidad_clientes - 1)
-                If DataSet1.Tables("cliente").Rows(i).Item("nombre") = cliente_buscado.name Then
-                    Label30.Hide()
-                    ban_cliente = 1
-                    cliente_buscado.pos = i
-                End If
+                ' If DataSet1.Tables("cliente").Rows(i).Item("nombre") = cliente_buscado.name Then
+                'Label30.Hide()
+                'ban_cliente = 1
+                cliente_buscado.pos = TextBox5.Text
+                ban_cliente = 1
+                'End If
             Next
         Else
             ban_cliente = 2
@@ -1682,6 +1727,9 @@ Public Class Form2
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        update_cache()
+
+
         GroupBox4Stock.Hide()
         panel_carga_presupuesto.Hide()
         panel_vender.Hide()
@@ -2473,6 +2521,8 @@ Public Class Form2
     End Sub
 
     Private Sub CrearClienteBoton_Click_1(sender As Object, e As EventArgs) Handles CrearClienteBoton.Click
+        update_cache()
+
         DataGridMugen.Hide()
         GroupBoxCrearClienteasd.Show()
         GroupBoxModificarClienteasd.Hide()
@@ -2486,6 +2536,8 @@ Public Class Form2
     End Sub
 
     Private Sub ModificarClienteBoton_Click_1(sender As Object, e As EventArgs) Handles ModificarClienteBoton.Click
+        update_cache()
+
         DataGridMugen.Hide()
         GroupBoxCrearClienteasd.Hide()
         GroupBoxModificarClienteasd.Show()
@@ -2643,6 +2695,8 @@ Public Class Form2
     End Sub
 
     Private Sub ButtonClientesMugen_Click(sender As Object, e As EventArgs) Handles ButtonClientesMugen.Click
+        update_cache()
+
         GroupBoxCrearClienteasd.Hide()
         GroupBoxModificarClienteasd.Hide()
         DataGridEstadisticasCliente.Hide()
@@ -2941,6 +2995,9 @@ Public Class Form2
     End Sub
 
     Private Sub Button24NuevoProducto_Click_2(sender As Object, e As EventArgs) Handles Button24NuevoProducto.Click
+        update_cache()
+
+
         GroupBoxNuevoProducto.Show()
         GroupBoxIngresodeProducto.Hide()
         GroupBoxModificarProducto.Hide()
@@ -2957,6 +3014,7 @@ Public Class Form2
     End Sub
 
     Private Sub Button25_Click(sender As Object, e As EventArgs) Handles Button25.Click
+        update_cache()
         GroupBoxNuevoProducto.Hide()
         GroupBoxIngresodeProducto.Show()
         GroupBoxModificarProducto.Hide()
@@ -2977,6 +3035,7 @@ Public Class Form2
     End Sub
 
     Private Sub Button26_Click_2(sender As Object, e As EventArgs) Handles Button26.Click
+        update_cache()
         GroupBoxNuevoProducto.Hide()
         GroupBoxProveedor.Hide()
         GroupBoxIngresodeProducto.Hide()
@@ -2985,6 +3044,7 @@ Public Class Form2
     End Sub
 
     Private Sub ButtonEstadodeStock_Click(sender As Object, e As EventArgs) Handles ButtonEstadodeStock.Click
+        update_cache()
         GroupBoxNuevoProducto.Hide()
         GroupBoxIngresodeProducto.Hide()
         GroupBoxModificarProducto.Hide()
@@ -3034,6 +3094,7 @@ Public Class Form2
     End Sub
 
     Private Sub BotonNuevoProveedor_Click(sender As Object, e As EventArgs) Handles BotonNuevoProveedor.Click
+        update_cache()
         GroupBoxNuevoProducto.Hide()
         GroupBoxIngresodeProducto.Hide()
         GroupBoxModificarProducto.Hide()

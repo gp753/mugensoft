@@ -14,6 +14,8 @@ Public Class Form2
     End Sub
 
     Private Sub Form2_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'TODO: esta línea de código carga datos en la tabla 'DataSet1.gasto_recurrente' Puede moverla o quitarla según sea necesario.
+        Me.Gasto_recurrenteTableAdapter.Fill(Me.DataSet1.gasto_recurrente)
         'TODO: esta línea de código carga datos en la tabla 'DataSet1.gasto' Puede moverla o quitarla según sea necesario.
         Me.GastoTableAdapter.Fill(Me.DataSet1.gasto)
         'TODO: esta línea de código carga datos en la tabla 'DataSet1.venta_servicio' Puede moverla o quitarla según sea necesario.

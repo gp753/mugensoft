@@ -14,6 +14,8 @@ Public Class Form2
     End Sub
 
     Private Sub Form2_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'TODO: esta línea de código carga datos en la tabla 'DataSet1.gasto_recurrente' Puede moverla o quitarla según sea necesario.
+        Me.Gasto_recurrenteTableAdapter.Fill(Me.DataSet1.gasto_recurrente)
         'TODO: esta línea de código carga datos en la tabla 'DataSet1.gasto' Puede moverla o quitarla según sea necesario.
         Me.GastoTableAdapter.Fill(Me.DataSet1.gasto)
         'TODO: esta línea de código carga datos en la tabla 'DataSet1.venta_servicio' Puede moverla o quitarla según sea necesario.
@@ -50,30 +52,8 @@ Public Class Form2
 
     End Sub
 
-    Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
-        GroupBox4Stock.Hide()
-        panel_carga_presupuesto.Hide()
-        panel_vender.Hide()
-        panel_cuentas.Hide()
-        Panel1.Hide()
-        PanelClientes.Hide()
-        PanelTrabajosPendientes.Hide()
-        panelServicios.Hide()
-        panel_contabilidad.Hide()
-        panel_cuentas.Show()
 
-
-    End Sub
-
-    Private Sub Button8_Click(sender As Object, e As EventArgs) Handles Button8.Click
-        panel_crear_usuarios.Show()
-    End Sub
-
-    Private Sub Button9_Click(sender As Object, e As EventArgs) Handles Button9.Click
-        Panel_mod_user.Show()
-    End Sub
-
-    Public Function update_cache()
+    Private Function update_cache()
         'TODO: esta línea de código carga datos en la tabla 'DataSet1.gasto' Puede moverla o quitarla según sea necesario.
         Me.GastoTableAdapter.Fill(Me.DataSet1.gasto)
         'TODO: esta línea de código carga datos en la tabla 'DataSet1.venta_servicio' Puede moverla o quitarla según sea necesario.
@@ -101,10 +81,36 @@ Public Class Form2
         Me.ClienteTableAdapter.Fill(Me.DataSet1.cliente)
         'TODO: This line of code loads data into the 'DataSet1.association_1' table. You can move, or remove it, as needed.
         Me.Association_1TableAdapter.Fill(Me.DataSet1.association_1)
+
     End Function
+
+    Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
+        GroupBox4Stock.Hide()
+        panel_carga_presupuesto.Hide()
+        panel_vender.Hide()
+        panel_cuentas.Hide()
+        Panel1.Hide()
+        PanelClientes.Hide()
+        PanelTrabajosPendientes.Hide()
+        panelServicios.Hide()
+        panel_contabilidad.Hide()
+        panel_cuentas.Show()
+
+
+    End Sub
+
+    Private Sub Button8_Click(sender As Object, e As EventArgs) Handles Button8.Click
+        panel_crear_usuarios.Show()
+    End Sub
+
+    Private Sub Button9_Click(sender As Object, e As EventArgs) Handles Button9.Click
+        Panel_mod_user.Show()
+    End Sub
 
     Private Sub Button10_Click(sender As Object, e As EventArgs) Handles Button10.Click
         update_cache()
+
+
         Dim user As String
         Dim ban_login As Integer
         Dim cantidad_usuarios As Integer
@@ -191,6 +197,9 @@ Public Class Form2
     Dim user_to_mod As estructura_usuario
 
     Private Sub Button12_Click(sender As Object, e As EventArgs) Handles Button12.Click
+        update_cache()
+
+
         Dim user As String
         Dim pas As String
         Dim ban_login As Integer
@@ -225,7 +234,6 @@ Public Class Form2
     End Sub
 
     Private Sub Button13_Click(sender As Object, e As EventArgs) Handles Button13.Click
-        update_cache()
 
         If textbox_nueva_pass.Text = texbox_nueva_pass_rep.Text Then
             DataSet1.Tables("usuario").Rows(user_to_mod.posicion).Item("pass") = textbox_nueva_pass.Text
@@ -244,6 +252,7 @@ Public Class Form2
     End Sub
 
     Private Sub Button16_Click(sender As Object, e As EventArgs) Handles Button16.Click
+
         update_cache()
 
         If TextBox4.Text <> "" Then
@@ -295,7 +304,8 @@ Public Class Form2
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        update_cache()
+
+        Me.ClienteTableAdapter.Fill(Me.DataSet1.cliente) 'despues mejorar esto
 
         panel_carga_presupuesto.Show()
         GroupBox4Stock.Hide()
@@ -334,11 +344,12 @@ Public Class Form2
         If cliente_buscado.name <> "" Then
 
             For i As Integer = 0 To (cantidad_clientes - 1)
-                If DataSet1.Tables("cliente").Rows(i).Item("nombre") = cliente_buscado.name Then
-                    Label30.Hide()
-                    ban_cliente = 1
-                    cliente_buscado.pos = i
-                End If
+                ' If DataSet1.Tables("cliente").Rows(i).Item("nombre") = cliente_buscado.name Then
+                'Label30.Hide()
+                'ban_cliente = 1
+                cliente_buscado.pos = TextBox5.Text
+                ban_cliente = 1
+                'End If
             Next
         Else
             ban_cliente = 2
@@ -377,8 +388,6 @@ Public Class Form2
             PedidoTableAdapter.Update(DataSet1.pedido)
             TableAdapterManager.UpdateAll(Me.DataSet1)
         End If
-
-        update_cache()
     End Sub
 
     Private Sub Button17_Click(sender As Object, e As EventArgs) Handles Button17.Click
@@ -386,7 +395,7 @@ Public Class Form2
     End Sub
 
     Private Sub Button18_Click(sender As Object, e As EventArgs) Handles Button18.Click
-        update_cache()
+
         Dim ban_error As Integer
         ban_error = 0
         Label39.Hide()
@@ -468,8 +477,6 @@ Public Class Form2
 
 
         End If
-
-        update_cache()
     End Sub
 
     Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs)
@@ -672,7 +679,6 @@ Public Class Form2
         End If
 
 
-        update_cache()
 
 
 
@@ -897,8 +903,6 @@ Public Class Form2
     End Sub
 
     Private Sub boton_vender_Click(sender As Object, e As EventArgs) Handles boton_vender.Click
-        update_cache()
-
         GroupBox4Stock.Hide()
         panel_carga_presupuesto.Hide()
 
@@ -1725,6 +1729,9 @@ Public Class Form2
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        update_cache()
+
+
         GroupBox4Stock.Hide()
         panel_carga_presupuesto.Hide()
         panel_vender.Hide()
@@ -1842,8 +1849,6 @@ Public Class Form2
 
 
     Private Sub Mostrar_contabilidad_Click(sender As Object, e As EventArgs) Handles Mostrar_contabilidad.Click
-
-        update_cache()
         view_contable.Rows.Add()
 
 
@@ -1869,8 +1874,6 @@ Public Class Form2
     End Sub
 
     Private Sub Button28_Click(sender As Object, e As EventArgs) Handles Button28.Click
-        update_cache()
-
         Dim desde As String
         Dim hasta As String
 
@@ -2513,166 +2516,6 @@ Public Class Form2
 
     Private Sub Button36_Click(sender As Object, e As EventArgs) Handles Button36.Click
 
-        Dim ban = 0
-        'comprobar existencia del cliente
-        Dim id_cliente
-        Dim ruc_cliente As Integer
-        Dim pos_servicio As Integer
-
-        ruc_cliente = buscar_en_tablas("cliente", "ruc", text_ruc_venta1.Text)
-        If ruc_cliente < 0 Then
-            ban = 1
-            MsgBox("Cliente sin registrar!")
-        End If
-
-
-        If buscar_en_tablas("venta_producto", "n_factura_venta_producto", n_factura_textbox1.Text) >= 0 Then
-            MsgBox("ya existe un registro con esa factura, cree una nueva factura si desea realizar una venta")
-        Else
-
-            'comprobar existencia del producto
-            Dim i As Integer
-
-            For i = 0 To DataGridView2.RowCount - 1
-
-                If DataGridView2.Item(0, i).Value IsNot "" Then
-                    If DataGridView2.Item(2, i).Value IsNot Nothing Then
-
-                        If DataGridView2.Item(2, i).Value.ToString = "" Then
-
-                        Else
-                            If DataGridView2.Item(2, i).Value IsNot "0" Then
-                                id_cliente = DataSet1.Tables("cliente").Rows(ruc_cliente).Item("id_cliente")
-                                cargar_venta(DataGridView2.Item(0, i).Value, id_cliente, TextBox21.Text, DataGridView2.Item(3, i).Value)
-
-                                pos_servicio = buscar_en_tablas("servicio", "nombre_servicio", DataGridView2.Item(0, i).Value)
-                                If pos_servicio < 0 Then
-                                    pos_servicio = 0
-                                End If
-
-
-
-
-                                Dim nueva_venta_servicio As DataRow = DataSet1.Tables("venta_servicio").NewRow
-                                nueva_venta_servicio("id_servicio") = DataSet1.Tables("servicio").Rows(pos_servicio).Item("id_servicio")
-                                nueva_venta_servicio("id_cliente") = id_cliente
-                                nueva_venta_servicio("fecha_venta_servicio") = TextBox21.Text
-                                nueva_venta_servicio("precio_venta_servicio") = DataGridView2.Item(3, i).Value
-                                nueva_venta_servicio("n_factura_venta_servicio") = n_factura_textbox1.Text
-                                DataSet1.Tables("venta_servicio").Rows.Add(nueva_venta_servicio)
-                                Validate()
-                                Venta_servicioBindingSource.EndEdit()
-                                Venta_servicioTableAdapter.Update(DataSet1.venta_servicio)
-
-
-                                Dim nueva_contabilidad As DataRow = DataSet1.Tables("contabilidad").NewRow
-                                nueva_contabilidad("descripcion") = "cobro de " + DataGridView2.Item(0, i).Value.ToString
-                                nueva_contabilidad("haber") = DataGridView2.Item(3, i).Value
-                                nueva_contabilidad("fecha") = TextBox21.Text
-                                nueva_contabilidad("numero_factura") = n_factura_textbox1.Text
-                                DataSet1.Tables("contabilidad").Rows.Add(nueva_contabilidad)
-                                Validate()
-                                ContabilidadBindingSource.EndEdit()
-                                ContabilidadTableAdapter.Update(DataSet1.contabilidad)
-
-                                Dim nueva_contabilidad6 As DataRow = DataSet1.Tables("contabilidad2").NewRow
-                                nueva_contabilidad6("descripcion_modificacion") = "Servicio cobrado"
-                                nueva_contabilidad6("fecha_modificacion") = TextBox21.Text
-                                nueva_contabilidad6("haber2") = DataGridView2.Item(3, i).Value
-                                nueva_contabilidad6("fecha2") = TextBox21.Text
-                                nueva_contabilidad6("numero_factura2") = n_factura_textbox1.Text
-                                nueva_contabilidad6("id_usuario") = datos_loguin.id_usuario
-                                nueva_contabilidad6("descripcion2") = "cobro de " + DataGridView2.Item(0, i).Value.ToString
-                                DataSet1.Tables("contabilidad2").Rows.Add(nueva_contabilidad6)
-                                Validate()
-                                Contabilidad2BindingSource.EndEdit()
-                                Contabilidad2TableAdapter.Update(DataSet1.contabilidad2)
-
-
-
-
-                            End If
-                        End If
-                    End If
-                End If
-
-
-            Next
-
-
-            Dim nueva_contabilidad2 As DataRow = DataSet1.Tables("contabilidad").NewRow
-            nueva_contabilidad2("descripcion") = "IVA"
-            nueva_contabilidad2("haber") = text_iva1.Text
-            nueva_contabilidad2("fecha") = TextBox21.Text
-            nueva_contabilidad2("numero_factura") = n_factura_textbox1.Text
-            DataSet1.Tables("contabilidad").Rows.Add(nueva_contabilidad2)
-            Validate()
-            ContabilidadBindingSource.EndEdit()
-            ContabilidadTableAdapter.Update(DataSet1.contabilidad)
-
-            Dim nueva_contabilidad3 As DataRow = DataSet1.Tables("contabilidad").NewRow
-            nueva_contabilidad3("descripcion") = "Caja"
-            nueva_contabilidad3("deber") = text_sub_total1.Text
-            nueva_contabilidad3("fecha") = TextBox21.Text
-            nueva_contabilidad3("numero_factura") = n_factura_textbox1.Text
-            DataSet1.Tables("contabilidad").Rows.Add(nueva_contabilidad3)
-            Validate()
-            ContabilidadBindingSource.EndEdit()
-            ContabilidadTableAdapter.Update(DataSet1.contabilidad)
-
-            Dim nueva_contabilidad4 As DataRow = DataSet1.Tables("contabilidad2").NewRow
-            nueva_contabilidad4("descripcion_modificacion") = "Servicio Cobrado"
-            nueva_contabilidad4("fecha_modificacion") = TextBox21.Text
-            nueva_contabilidad4("haber2") = text_iva1.Text
-            nueva_contabilidad4("fecha2") = TextBox21.Text
-            nueva_contabilidad4("numero_factura2") = n_factura_textbox1.Text
-            nueva_contabilidad4("descripcion2") = "IVA"
-            nueva_contabilidad4("id_usuario") = datos_loguin.id_usuario
-            DataSet1.Tables("contabilidad2").Rows.Add(nueva_contabilidad4)
-            Validate()
-            Contabilidad2BindingSource.EndEdit()
-            Contabilidad2TableAdapter.Update(DataSet1.contabilidad2)
-
-            Dim nueva_contabilidad5 As DataRow = DataSet1.Tables("contabilidad2").NewRow
-            nueva_contabilidad5("descripcion_modificacion") = "Venta realizada"
-            nueva_contabilidad5("fecha_modificacion") = TextBox21.Text
-            nueva_contabilidad5("deber2") = text_sub_total1.Text
-            nueva_contabilidad5("fecha2") = TextBox21.Text
-            nueva_contabilidad5("numero_factura2") = n_factura_textbox1.Text
-            nueva_contabilidad5("id_usuario") = datos_loguin.id_usuario
-            nueva_contabilidad5("descripcion2") = "Caja"
-            DataSet1.Tables("contabilidad2").Rows.Add(nueva_contabilidad5)
-            Validate()
-            Contabilidad2BindingSource.EndEdit()
-            Contabilidad2TableAdapter.Update(DataSet1.contabilidad2)
-
-
-
-            'salida de productos
-            'Dim nuevo_cliente As DataRow = DataSet1.Tables("cliente").NewRow()
-
-
-            'nuevo_cliente("nombre") = TextBox9.Text
-            'nuevo_cliente("apellido") = TextBox10.Text
-
-            'nuevo_cliente("ruc") = TextBox12.Text
-            'nuevo_cliente("numero") = TextBox13.Text
-            'nuevo_cliente("mail") = TextBox14.Text
-
-            'DataSet1.Tables("cliente").Rows.Add(nuevo_cliente)
-
-            'Validate()
-            'UsuarioBindingSource.EndEdit()
-            'ClienteBindingSource.EndEdit()
-
-            'ClienteTableAdapter.Update(DataSet1.cliente)
-
-
-        End If
-
-
-
-
     End Sub
 
     Private Sub DataGridView2_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView2.CellContentClick
@@ -2680,6 +2523,8 @@ Public Class Form2
     End Sub
 
     Private Sub CrearClienteBoton_Click_1(sender As Object, e As EventArgs) Handles CrearClienteBoton.Click
+        update_cache()
+
         DataGridMugen.Hide()
         GroupBoxCrearClienteasd.Show()
         GroupBoxModificarClienteasd.Hide()
@@ -2693,6 +2538,8 @@ Public Class Form2
     End Sub
 
     Private Sub ModificarClienteBoton_Click_1(sender As Object, e As EventArgs) Handles ModificarClienteBoton.Click
+        update_cache()
+
         DataGridMugen.Hide()
         GroupBoxCrearClienteasd.Hide()
         GroupBoxModificarClienteasd.Show()
@@ -2850,6 +2697,8 @@ Public Class Form2
     End Sub
 
     Private Sub ButtonClientesMugen_Click(sender As Object, e As EventArgs) Handles ButtonClientesMugen.Click
+        update_cache()
+
         GroupBoxCrearClienteasd.Hide()
         GroupBoxModificarClienteasd.Hide()
         DataGridEstadisticasCliente.Hide()
@@ -3148,6 +2997,9 @@ Public Class Form2
     End Sub
 
     Private Sub Button24NuevoProducto_Click_2(sender As Object, e As EventArgs) Handles Button24NuevoProducto.Click
+        update_cache()
+
+
         GroupBoxNuevoProducto.Show()
         GroupBoxIngresodeProducto.Hide()
         GroupBoxModificarProducto.Hide()
@@ -3164,6 +3016,7 @@ Public Class Form2
     End Sub
 
     Private Sub Button25_Click(sender As Object, e As EventArgs) Handles Button25.Click
+        update_cache()
         GroupBoxNuevoProducto.Hide()
         GroupBoxIngresodeProducto.Show()
         GroupBoxModificarProducto.Hide()
@@ -3184,6 +3037,7 @@ Public Class Form2
     End Sub
 
     Private Sub Button26_Click_2(sender As Object, e As EventArgs) Handles Button26.Click
+        update_cache()
         GroupBoxNuevoProducto.Hide()
         GroupBoxProveedor.Hide()
         GroupBoxIngresodeProducto.Hide()
@@ -3192,6 +3046,7 @@ Public Class Form2
     End Sub
 
     Private Sub ButtonEstadodeStock_Click(sender As Object, e As EventArgs) Handles ButtonEstadodeStock.Click
+        update_cache()
         GroupBoxNuevoProducto.Hide()
         GroupBoxIngresodeProducto.Hide()
         GroupBoxModificarProducto.Hide()
@@ -3241,6 +3096,7 @@ Public Class Form2
     End Sub
 
     Private Sub BotonNuevoProveedor_Click(sender As Object, e As EventArgs) Handles BotonNuevoProveedor.Click
+        update_cache()
         GroupBoxNuevoProducto.Hide()
         GroupBoxIngresodeProducto.Hide()
         GroupBoxModificarProducto.Hide()

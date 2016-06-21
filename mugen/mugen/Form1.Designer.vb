@@ -183,6 +183,7 @@ Partial Class Form1
         Me.UsuarioBindingNavigator.Size = New System.Drawing.Size(287, 25)
         Me.UsuarioBindingNavigator.TabIndex = 16
         Me.UsuarioBindingNavigator.Text = "BindingNavigator1"
+        Me.UsuarioBindingNavigator.Visible = False
         '
         'BindingNavigatorAddNewItem
         '
@@ -208,6 +209,7 @@ Partial Class Form1
         Me.BindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = True
         Me.BindingNavigatorDeleteItem.Size = New System.Drawing.Size(23, 22)
         Me.BindingNavigatorDeleteItem.Text = "Delete"
+        Me.BindingNavigatorDeleteItem.Visible = False
         '
         'BindingNavigatorMoveFirstItem
         '
@@ -274,7 +276,7 @@ Partial Class Form1
         Me.UsuarioBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
         Me.UsuarioBindingNavigatorSaveItem.Image = CType(resources.GetObject("UsuarioBindingNavigatorSaveItem.Image"), System.Drawing.Image)
         Me.UsuarioBindingNavigatorSaveItem.Name = "UsuarioBindingNavigatorSaveItem"
-        Me.UsuarioBindingNavigatorSaveItem.Size = New System.Drawing.Size(23, 22)
+        Me.UsuarioBindingNavigatorSaveItem.Size = New System.Drawing.Size(23, 20)
         Me.UsuarioBindingNavigatorSaveItem.Text = "Save Data"
         '
         'UsuarioDataGridView

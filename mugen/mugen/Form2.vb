@@ -85,18 +85,18 @@ Public Class Form2
     End Function
 
     Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
-        GroupBox4Stock.Hide()
-        panel_carga_presupuesto.Hide()
-        panel_vender.Hide()
-        panel_cuentas.Hide()
-        Panel1.Hide()
-        PanelClientes.Hide()
-        PanelTrabajosPendientes.Hide()
-        panelServicios.Hide()
-        panel_contabilidad.Hide()
-        panel_cuentas.Show()
-
-
+        If datos_loguin.nivel_usuario = 1 Then
+            GroupBox4Stock.Hide()
+            panel_carga_presupuesto.Hide()
+            panel_vender.Hide()
+            panel_cuentas.Hide()
+            Panel1.Hide()
+            PanelClientes.Hide()
+            PanelTrabajosPendientes.Hide()
+            panelServicios.Hide()
+            panel_contabilidad.Hide()
+            panel_cuentas.Show()
+        End If
     End Sub
 
     Private Sub Button8_Click(sender As Object, e As EventArgs) Handles Button8.Click
@@ -304,23 +304,18 @@ Public Class Form2
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-
-        Me.ClienteTableAdapter.Fill(Me.DataSet1.cliente) 'despues mejorar esto
-
-        panel_carga_presupuesto.Show()
-        GroupBox4Stock.Hide()
-        panel_vender.Hide()
-        panel_cuentas.Hide()
-        Panel1.Hide()
-        PanelClientes.Hide()
-        PanelTrabajosPendientes.Hide()
-        panelServicios.Hide()
-        panel_contabilidad.Hide()
-
-
-
-
-
+        If datos_loguin.nivel_usuario <> 2 Then
+            Me.ClienteTableAdapter.Fill(Me.DataSet1.cliente) 'despues mejorar esto
+            panel_carga_presupuesto.Show()
+            GroupBox4Stock.Hide()
+            panel_vender.Hide()
+            panel_cuentas.Hide()
+            Panel1.Hide()
+            PanelClientes.Hide()
+            PanelTrabajosPendientes.Hide()
+            panelServicios.Hide()
+            panel_contabilidad.Hide()
+        End If
     End Sub
 
     Public Structure clien
@@ -734,7 +729,18 @@ Public Class Form2
 
 
         curen = DataGridView1.CurrentRow.Index
+
         suma = 0
+
+        If DataGridView1.CurrentCellAddress.X = 2 Then
+            If IsNumeric(DataGridView1.Item(2, curen).Value) Then
+
+            Else
+                MsgBox("Ingrese un precio unitario numerico")
+                DataGridView1.Item(2, curen).Value = ""
+            End If
+        End If
+
 
         If (DataGridView1.Item(0, curen).Value = "") Then
 
@@ -750,7 +756,6 @@ Public Class Form2
                     DataGridView1.Item(2, curen).Value = DataSet1.Tables("producto").Rows(i).Item("precio_venta")
                     idproducto = DataSet1.Tables("producto").Rows(i).Item("id_stock_mugen")
                     ban_exist_product = 1
-
                 End If
 
             Next
@@ -784,33 +789,38 @@ Public Class Form2
 
             Next
 
+            If IsNumeric(DataGridView1.Item(3, curen).Value) = False Then
+                MsgBox("Ingrese numero")
+                DataGridView1.Item(3, curen).Value = ""
+            Else
 
-            If cantidad_product - DataGridView1.Item(3, curen).Value < 0 And seleccion_caja.SelectedIndex = 1 Then
-                MsgBox("cantidad de " + DataGridView1.Item(1, curen).Value.ToString + " supera stock:  " + cantidad_product.ToString)
-                DataGridView1.CurrentCell.Value = 0
-
-
-            End If
-            DataGridView1.Item(4, curen).Value = DataGridView1.Item(3, curen).Value * DataGridView1.Item(2, curen).Value
-            suma = 0
-            For i = 0 To DataGridView1.RowCount - 1
-                If DataGridView1.Item(4, i).Value IsNot "" Then
-                    suma = suma + DataGridView1.Item(4, i).Value
-                    text_sub_total.Text = suma.ToString
-                    iva = suma * 0.1
-                    text_iva.Text = iva.ToString
-                    total = suma + iva
-
-                    text_total.Text = total.ToString
+                If cantidad_product - DataGridView1.Item(3, curen).Value < 0 And seleccion_caja.SelectedIndex = 1 Then
+                    MsgBox("cantidad de " + DataGridView1.Item(1, curen).Value.ToString + " supera stock:  " + cantidad_product.ToString)
+                    DataGridView1.CurrentCell.Value = 0
                 End If
+                If IsNumeric(DataGridView1.Item(2, curen).Value) Then
+                    DataGridView1.Item(4, curen).Value = DataGridView1.Item(3, curen).Value * DataGridView1.Item(2, curen).Value
+                    suma = 0
+                    For i = 0 To DataGridView1.RowCount - 1
+                        If DataGridView1.Item(4, i).Value IsNot "" Then
+                            suma = suma + DataGridView1.Item(4, i).Value
+                            text_sub_total.Text = suma.ToString
+                            iva = suma * 0.1
+                            text_iva.Text = iva.ToString
+                            total = suma + iva
 
-
-            Next
-
+                            text_total.Text = total.ToString
+                        End If
+                    Next
+                Else
+                    MsgBox("Ingrese un precio unitario numerico")
+                    DataGridView1.Item(2, curen).Value = ""
+                End If
+            End If
         End If
 
-        'ordenar los los grid
-        Dim j, k As Integer
+            'ordenar los los grid
+            Dim j, k As Integer
         For k = 0 To DataGridView1.RowCount
             For i = 0 To DataGridView1.RowCount - 1
                 If DataGridView1.Item(0, i).Value = "" Then
@@ -887,21 +897,23 @@ Public Class Form2
             label_ruc_venta.Visible = False
             TextBox16.Text = DataSet1.Tables("cliente").Rows(ruc).Item("nombre") + " " + DataSet1.Tables("cliente").Rows(ruc).Item("apellido")
             TextBox17.Text = Date.Now.Date
+            If datos_loguin.nivel_usuario < 3 Then
 
-            If venta_producto_tam >= 0 Then
-                For i = 0 To venta_producto_tam
-                    aux = DataSet1.Tables("venta_producto").Rows(i).Item("n_factura_venta_producto")
-                    aux = aux.Substring(7)
-                    If aux > mayor Then
-                        mayor = aux
-                    End If
-                Next
+                If venta_producto_tam >= 0 Then
+                    For i = 0 To venta_producto_tam
+                        aux = DataSet1.Tables("venta_producto").Rows(i).Item("n_factura_venta_producto")
+                        aux = aux.Substring(7)
+                        If aux > mayor Then
+                            mayor = aux
+                        End If
+                    Next
+                End If
+                mayor = mayor + 1
+
+                n_factura_textbox.Text = "00-000-" + mayor.ToString
+            ElseIf datos_loguin.nivel_usuario = 3 Then
+                n_factura_textbox.Text = "00-000-0000"
             End If
-            mayor = mayor + 1
-
-            n_factura_textbox.Text = "00-000-" + mayor.ToString
-
-
         End If
 
 
@@ -909,17 +921,33 @@ Public Class Form2
     End Sub
 
     Private Sub boton_vender_Click(sender As Object, e As EventArgs) Handles boton_vender.Click
-        GroupBox4Stock.Hide()
-        panel_carga_presupuesto.Hide()
+        If datos_loguin.nivel_usuario <> 3 Then
+            GroupBox4Stock.Hide()
+            panel_carga_presupuesto.Hide()
 
-        panel_cuentas.Hide()
-        Panel1.Hide()
-        PanelClientes.Hide()
-        PanelTrabajosPendientes.Hide()
-        panelServicios.Hide()
-        panel_contabilidad.Hide()
+            panel_cuentas.Hide()
+            Panel1.Hide()
+            PanelClientes.Hide()
+            PanelTrabajosPendientes.Hide()
+            panelServicios.Hide()
+            panel_contabilidad.Hide()
 
-        panel_vender.Show()
+            panel_vender.Show()
+            If seleccion_caja.Items.Count < 1 Then
+                If datos_loguin.nivel_usuario = 1 Then
+                    seleccion_caja.Items.Add("Studio")
+                    seleccion_caja.Items.Add("Libreria")
+                    seleccion_caja.Items.Add("Eliptica")
+                ElseIf datos_loguin.nivel_usuario = 2 Then
+                    seleccion_caja.Items.Add("Studio")
+                    seleccion_caja.Items.Add("Libreria")
+                End If
+            End If
+            seleccion_caja.SelectedIndex = 1
+        End If
+
+
+
 
     End Sub
 
@@ -2469,15 +2497,17 @@ Public Class Form2
     End Sub
 
     Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
-        GroupBox4Stock.Hide()
-        panel_carga_presupuesto.Hide()
-        panel_vender.Hide()
-        panel_cuentas.Hide()
-        Panel1.Hide()
-        PanelClientes.Hide()
-        PanelTrabajosPendientes.Hide()
-        panelServicios.Hide()
-        panel_contabilidad.Show()
+        If datos_loguin.nivel_usuario = 1 Then
+            GroupBox4Stock.Hide()
+            panel_carga_presupuesto.Hide()
+            panel_vender.Hide()
+            panel_cuentas.Hide()
+            Panel1.Hide()
+            PanelClientes.Hide()
+            PanelTrabajosPendientes.Hide()
+            panelServicios.Hide()
+            panel_contabilidad.Show()
+        End If
     End Sub
 
     Private Sub TextBox5_TextChanged(sender As Object, e As EventArgs) Handles TextBox5.TextChanged
@@ -2557,11 +2587,11 @@ Public Class Form2
 
     End Sub
 
-    Private Sub Button36_Click(sender As Object, e As EventArgs) Handles Button36.Click
+    Private Sub Button36_Click(sender As Object, e As EventArgs)
 
     End Sub
 
-    Private Sub DataGridView2_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView2.CellContentClick
+    Private Sub DataGridView2_CellContentClick(sender As Object, e As DataGridViewCellEventArgs)
 
     End Sub
 
@@ -4189,5 +4219,19 @@ Public Class Form2
 
     Private Sub fechaGastoTxt2_LostFocus(sender As Object, e As EventArgs) Handles fechaGastoTxt2.LostFocus
         calendarioGasto2.Hide()
+    End Sub
+
+    Private Sub seleccion_caja_SelectedIndexChanged(sender As Object, e As EventArgs) Handles seleccion_caja.SelectedIndexChanged
+        If seleccion_caja.SelectedIndex = 0 Then
+            DataGridView1.Rows.Clear()
+
+            DataGridView1.Rows.Add()
+
+            DataGridView1.Item(0, 0).Value = "1"
+            DataGridView1.Item(1, 0).ReadOnly = False
+            DataGridView1.Item(2, 0).ReadOnly = False
+
+
+        End If
     End Sub
 End Class

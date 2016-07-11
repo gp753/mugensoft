@@ -29,7 +29,7 @@
             If TextBox1.Text = user And TextBox2.Text = pas Then
                 ban_login = 1
                 datos_loguin.id_usuario = DataSet1.Tables("usuario").Rows(i).Item("id_usuario")
-
+                datos_loguin.nivel_usuario = DataSet1.Tables("usuario").Rows(i).Item("nivel")
                 final_user.id = DataSet1.Tables("usuario").Rows(i).Item("id_usuario")
                 final_user.nombre = DataSet1.Tables("usuario").Rows(i).Item("nombre_usuario")
                 final_user.apellido = DataSet1.Tables("usuario").Rows(i).Item("apellido_usuario")
@@ -92,6 +92,7 @@
             If TextBox1.Text = user And TextBox2.Text = pas Then
                 ban_login = 1
                 datos_loguin.id_usuario = DataSet1.Tables("usuario").Rows(i).Item("id_usuario")
+                datos_loguin.nivel_usuario = DataSet1.Tables("usuario").Rows(i).Item("nivel")
                 final_user.id = DataSet1.Tables("usuario").Rows(i).Item("id_usuario")
                 final_user.nombre = DataSet1.Tables("usuario").Rows(i).Item("nombre_usuario")
                 final_user.apellido = DataSet1.Tables("usuario").Rows(i).Item("apellido_usuario")

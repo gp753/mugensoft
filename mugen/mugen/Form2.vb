@@ -580,34 +580,63 @@ Public Class Form2
                                 cargar_venta(DataGridView1.Item(0, i).Value, id_cliente, TextBox17.Text, DataGridView1.Item(3, i).Value)
 
 
-                                Dim nueva_contabilidad As DataRow = DataSet1.Tables("contabilidad").NewRow
-                                nueva_contabilidad("descripcion") = "Venta de " + DataGridView1.Item(3, i).Value.ToString + " " + DataGridView1.Item(1, i).Value.ToString
-                                nueva_contabilidad("haber") = DataGridView1.Item(4, i).Value
-                                nueva_contabilidad("fecha") = TextBox17.Text
-                                nueva_contabilidad("numero_factura") = n_factura_textbox.Text
-                                nueva_contabilidad("empresa") = caja_seleccionada
-                                DataSet1.Tables("contabilidad").Rows.Add(nueva_contabilidad)
-                                Validate()
-                                ContabilidadBindingSource.EndEdit()
-                                ContabilidadTableAdapter.Update(DataSet1.contabilidad)
-
-                                Dim nueva_contabilidad6 As DataRow = DataSet1.Tables("contabilidad2").NewRow
-                                nueva_contabilidad6("descripcion_modificacion") = "Venta realizada"
-                                nueva_contabilidad6("fecha_modificacion") = TextBox17.Text
-                                nueva_contabilidad6("haber2") = DataGridView1.Item(4, i).Value
-                                nueva_contabilidad6("fecha2") = TextBox17.Text
-                                nueva_contabilidad6("numero_factura2") = n_factura_textbox.Text
-                                nueva_contabilidad6("id_usuario") = datos_loguin.id_usuario
-                                nueva_contabilidad6("empresa") = caja_seleccionada
-                                nueva_contabilidad6("descripcion2") = "Venta de " + DataGridView1.Item(3, i).Value.ToString + " " + DataGridView1.Item(1, i).Value.ToString
-                                DataSet1.Tables("contabilidad2").Rows.Add(nueva_contabilidad6)
-                                Validate()
-                                Contabilidad2BindingSource.EndEdit()
-                                Contabilidad2TableAdapter.Update(DataSet1.contabilidad2)
-                                ban_operacion_realizada = 1
 
 
+                                If caja_seleccionada = 1 Then
 
+                                    Dim nueva_contabilidad As DataRow = DataSet1.Tables("contabilidad").NewRow
+                                    nueva_contabilidad("descripcion") = "Venta de " + DataGridView1.Item(3, i).Value.ToString + " " + DataGridView1.Item(1, i).Value.ToString
+                                    nueva_contabilidad("haber") = DataGridView1.Item(4, i).Value
+                                    nueva_contabilidad("fecha") = TextBox17.Text
+                                    nueva_contabilidad("numero_factura") = n_factura_textbox.Text
+                                    nueva_contabilidad("empresa") = caja_seleccionada
+                                    DataSet1.Tables("contabilidad").Rows.Add(nueva_contabilidad)
+                                    Validate()
+                                    ContabilidadBindingSource.EndEdit()
+                                    ContabilidadTableAdapter.Update(DataSet1.contabilidad)
+
+                                    Dim nueva_contabilidad6 As DataRow = DataSet1.Tables("contabilidad2").NewRow
+                                    nueva_contabilidad6("descripcion_modificacion") = "Venta realizada"
+                                    nueva_contabilidad6("fecha_modificacion") = TextBox17.Text
+                                    nueva_contabilidad6("haber2") = DataGridView1.Item(4, i).Value
+                                    nueva_contabilidad6("fecha2") = TextBox17.Text
+                                    nueva_contabilidad6("numero_factura2") = n_factura_textbox.Text
+                                    nueva_contabilidad6("id_usuario") = datos_loguin.id_usuario
+                                    nueva_contabilidad6("empresa") = caja_seleccionada
+                                    nueva_contabilidad6("descripcion2") = "Venta de " + DataGridView1.Item(3, i).Value.ToString + " " + DataGridView1.Item(1, i).Value.ToString
+                                    DataSet1.Tables("contabilidad2").Rows.Add(nueva_contabilidad6)
+                                    Validate()
+                                    Contabilidad2BindingSource.EndEdit()
+                                    Contabilidad2TableAdapter.Update(DataSet1.contabilidad2)
+                                    ban_operacion_realizada = 1
+                                Else
+
+                                    Dim nueva_contabilidad As DataRow = DataSet1.Tables("contabilidad").NewRow
+                                    nueva_contabilidad("descripcion") = "Cobro de " + DataGridView1.Item(3, i).Value.ToString + " " + DataGridView1.Item(1, i).Value.ToString
+                                    nueva_contabilidad("haber") = DataGridView1.Item(4, i).Value
+                                    nueva_contabilidad("fecha") = TextBox17.Text
+                                    nueva_contabilidad("numero_factura") = n_factura_textbox.Text
+                                    nueva_contabilidad("empresa") = caja_seleccionada
+                                    DataSet1.Tables("contabilidad").Rows.Add(nueva_contabilidad)
+                                    Validate()
+                                    ContabilidadBindingSource.EndEdit()
+                                    ContabilidadTableAdapter.Update(DataSet1.contabilidad)
+
+                                    Dim nueva_contabilidad6 As DataRow = DataSet1.Tables("contabilidad2").NewRow
+                                    nueva_contabilidad6("descripcion_modificacion") = "Servicio Cobrado"
+                                    nueva_contabilidad6("fecha_modificacion") = TextBox17.Text
+                                    nueva_contabilidad6("haber2") = DataGridView1.Item(4, i).Value
+                                    nueva_contabilidad6("fecha2") = TextBox17.Text
+                                    nueva_contabilidad6("numero_factura2") = n_factura_textbox.Text
+                                    nueva_contabilidad6("id_usuario") = datos_loguin.id_usuario
+                                    nueva_contabilidad6("empresa") = caja_seleccionada
+                                    nueva_contabilidad6("descripcion2") = "Venta de " + DataGridView1.Item(3, i).Value.ToString + " " + DataGridView1.Item(1, i).Value.ToString
+                                    DataSet1.Tables("contabilidad2").Rows.Add(nueva_contabilidad6)
+                                    Validate()
+                                    Contabilidad2BindingSource.EndEdit()
+                                    Contabilidad2TableAdapter.Update(DataSet1.contabilidad2)
+                                    ban_operacion_realizada = 1
+                                End If
 
                             End If
                         End If
@@ -782,6 +811,10 @@ Public Class Form2
                         total = suma + iva
 
                         text_total.Text = total.ToString
+
+
+
+
                     End If
                 End If
 
@@ -921,33 +954,33 @@ Public Class Form2
     End Sub
 
     Private Sub boton_vender_Click(sender As Object, e As EventArgs) Handles boton_vender.Click
-        If datos_loguin.nivel_usuario <> 3 Then
-            GroupBox4Stock.Hide()
-            panel_carga_presupuesto.Hide()
+        GroupBox4Stock.Hide()
+        panel_carga_presupuesto.Hide()
 
-            panel_cuentas.Hide()
-            Panel1.Hide()
-            PanelClientes.Hide()
-            PanelTrabajosPendientes.Hide()
-            panelServicios.Hide()
-            panel_contabilidad.Hide()
+        panel_cuentas.Hide()
+        Panel1.Hide()
+        PanelClientes.Hide()
+        PanelTrabajosPendientes.Hide()
+        panelServicios.Hide()
+        panel_contabilidad.Hide()
 
-            panel_vender.Show()
-            If seleccion_caja.Items.Count < 1 Then
-                If datos_loguin.nivel_usuario = 1 Then
-                    seleccion_caja.Items.Add("Studio")
-                    seleccion_caja.Items.Add("Libreria")
-                    seleccion_caja.Items.Add("Eliptica")
-                ElseIf datos_loguin.nivel_usuario = 2 Then
-                    seleccion_caja.Items.Add("Studio")
-                    seleccion_caja.Items.Add("Libreria")
-                End If
+        panel_vender.Show()
+
+        If seleccion_caja.Items.Count < 1 Then
+            If datos_loguin.nivel_usuario = 1 Then
+                seleccion_caja.Items.Add("Studio")
+                seleccion_caja.Items.Add("Libreria")
+                seleccion_caja.Items.Add("Eliptica")
+                seleccion_caja.SelectedIndex = 1
+            ElseIf datos_loguin.nivel_usuario = 2 Then
+                seleccion_caja.Items.Add("Studio")
+                seleccion_caja.Items.Add("Libreria")
+                seleccion_caja.SelectedIndex = 1
+            ElseIf datos_loguin.nivel_usuario = 3 Then
+                seleccion_caja.Items.Add("Eliptica")
+                seleccion_caja.SelectedIndex = 0
             End If
-            seleccion_caja.SelectedIndex = 1
         End If
-
-
-
 
     End Sub
 
@@ -2404,7 +2437,7 @@ Public Class Form2
         verSerPanel.Show()
     End Sub
 
-    Private Sub boton_servicios_Click(sender As Object, e As EventArgs) Handles boton_servicios.Click
+    Private Sub boton_servicios_Click(sender As Object, e As EventArgs)
         GroupBox4Stock.Hide()
         panel_carga_presupuesto.Hide()
         panel_vender.Hide()
@@ -2473,7 +2506,7 @@ Public Class Form2
 
     End Sub
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+    Private Sub Button2_Click(sender As Object, e As EventArgs)
         GroupBox4Stock.Hide()
         panel_carga_presupuesto.Hide()
         panel_vender.Show()

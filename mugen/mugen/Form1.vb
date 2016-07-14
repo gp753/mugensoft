@@ -43,13 +43,13 @@
         If ban_login = 1 Then
             Label3.Text = "Ingreso"
             Label3.ForeColor = Color.Green
-            If final_user.nivel = 1 Then
-                Dim f2 As New Form2
-                Me.Hide()
-                f2.Show()
-            ElseIf final_user.nivel = 2 Then
+            'If final_user.nivel = 1 Then
+            Dim f2 As New Form2
+            Me.Hide()
+            f2.Show()
+            'ElseIf final_user.nivel = 2 Then
 
-            End If
+            'End If
 
         Else
             Label3.Text = "Usuario o Contraseña incorrecto"
@@ -106,17 +106,26 @@
         If ban_login = 1 Then
             Label3.Text = "Ingreso"
             Label3.ForeColor = Color.Green
+            Dim f2 As New Form2
+            Me.Hide()
             If final_user.nivel = 1 Then
-                Dim f2 As New Form2
-                Me.Hide()
-                f2.Show()
+
+
             ElseIf final_user.nivel = 2 Then
-
+                f2.Button1.Hide()
+                f2.Button3.Hide()
+                f2.Button6.Hide()
+                f2.Button7.Hide()
+            ElseIf final_user.nivel = 3 Then
+                f2.Button1.Location = f2.boton_stock.Location
+                f2.boton_stock.Hide()
+                f2.Button6.Hide()
+                f2.Button7.Hide()
             End If
-
+            f2.Show()
         Else
 
-        End If
+            End If
 
     End Sub
 

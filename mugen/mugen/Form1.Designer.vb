@@ -59,11 +59,13 @@ Partial Class Form1
         Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.FileSystemWatcher1 = New System.IO.FileSystemWatcher()
         CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.UsuarioBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.UsuarioBindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.UsuarioBindingNavigator.SuspendLayout()
         CType(Me.UsuarioDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.FileSystemWatcher1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label3
@@ -155,6 +157,7 @@ Partial Class Form1
         Me.TableAdapterManager.clienteTableAdapter = Nothing
         Me.TableAdapterManager.contabilidad2TableAdapter = Nothing
         Me.TableAdapterManager.contabilidadTableAdapter = Nothing
+        Me.TableAdapterManager.gasto_recurrenteTableAdapter = Nothing
         Me.TableAdapterManager.gastoTableAdapter = Nothing
         Me.TableAdapterManager.ingreso_productoTableAdapter = Nothing
         Me.TableAdapterManager.pedidoTableAdapter = Nothing
@@ -276,7 +279,7 @@ Partial Class Form1
         Me.UsuarioBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
         Me.UsuarioBindingNavigatorSaveItem.Image = CType(resources.GetObject("UsuarioBindingNavigatorSaveItem.Image"), System.Drawing.Image)
         Me.UsuarioBindingNavigatorSaveItem.Name = "UsuarioBindingNavigatorSaveItem"
-        Me.UsuarioBindingNavigatorSaveItem.Size = New System.Drawing.Size(23, 20)
+        Me.UsuarioBindingNavigatorSaveItem.Size = New System.Drawing.Size(23, 22)
         Me.UsuarioBindingNavigatorSaveItem.Text = "Save Data"
         '
         'UsuarioDataGridView
@@ -345,6 +348,11 @@ Partial Class Form1
         Me.DataGridViewTextBoxColumn9.HeaderText = "mail_usuario"
         Me.DataGridViewTextBoxColumn9.Name = "DataGridViewTextBoxColumn9"
         '
+        'FileSystemWatcher1
+        '
+        Me.FileSystemWatcher1.EnableRaisingEvents = True
+        Me.FileSystemWatcher1.SynchronizingObject = Me
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -361,6 +369,7 @@ Partial Class Form1
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Name = "Form1"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Form1"
         CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.UsuarioBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
@@ -368,6 +377,7 @@ Partial Class Form1
         Me.UsuarioBindingNavigator.ResumeLayout(False)
         Me.UsuarioBindingNavigator.PerformLayout()
         CType(Me.UsuarioDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.FileSystemWatcher1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -408,4 +418,5 @@ Partial Class Form1
     Friend WithEvents DataGridViewTextBoxColumn7 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn8 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn9 As DataGridViewTextBoxColumn
+    Friend WithEvents FileSystemWatcher1 As IO.FileSystemWatcher
 End Class

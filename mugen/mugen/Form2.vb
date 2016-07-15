@@ -2423,6 +2423,7 @@ Public Class Form2
         PanelTrabajosPendientes.Hide()
         panelServicios.Hide()
         panel_contabilidad.Hide()
+        GroupBoxCargarGastos.Show()
     End Sub
 
     Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
@@ -4146,5 +4147,1328 @@ Public Class Form2
 
     Private Sub fechaGastoTxt2_LostFocus(sender As Object, e As EventArgs) Handles fechaGastoTxt2.LostFocus
         calendarioGasto2.Hide()
+    End Sub
+
+    Private Sub FillByToolStripButton_Click(sender As Object, e As EventArgs)
+        Try
+            Me.UsuarioTableAdapter.FillBy(Me.DataSet1.usuario)
+        Catch ex As System.Exception
+            System.Windows.Forms.MessageBox.Show(ex.Message)
+        End Try
+
+    End Sub
+
+    Private Sub FillBy1ToolStripButton_Click(sender As Object, e As EventArgs)
+        Try
+            Me.UsuarioTableAdapter.FillBy1(Me.DataSet1.usuario)
+        Catch ex As System.Exception
+            System.Windows.Forms.MessageBox.Show(ex.Message)
+        End Try
+
+    End Sub
+
+    Private Sub TextBox26_TextChanged(sender As Object, e As EventArgs) Handles TextBoxCrearMonto.TextChanged
+
+    End Sub
+
+    Private Sub TextBox26_LostFocus(sender As Object, e As EventArgs) Handles TextBoxCrearMonto.LostFocus
+
+        If IsNumeric(TextBoxCrearMonto.Text) = False Then
+            LabelCrearGastoRecurrente.Show()
+            LabelCrearGastoRecurrente.Text = "Ingrese un número"
+            LabelCrearGastoRecurrente.ForeColor = Color.Red
+
+            TextBoxCrearMonto.Text = ""
+            TextBoxCrearMonto.Focus()
+        Else
+            LabelCrearGastoRecurrente.Hide()
+        End If
+    End Sub
+
+    Private Sub ButtonCrearCrear_Click(sender As Object, e As EventArgs) Handles ButtonCrearCrear.Click
+        Dim ban_error As Integer
+
+        Dim cantidad_gastos_recurrentes As Integer
+
+        cantidad_gastos_recurrentes = DataSet1.Tables("gasto_recurrente").Rows.Count
+
+        If ComboBoxCrearEmpresa.SelectedIndex = -1 Or TextBoxCrearMonto.Text = "" Or TextBoxCrearMotivo.Text = "" Then
+            'SI FALTA RELLENAR ALGUN DATO
+            LabelCrearGastoRecurrente.Show()
+            LabelCrearGastoRecurrente.Text = "Rellene todos los campos."
+            LabelCrearGastoRecurrente.ForeColor = Color.Red
+        Else
+            Dim nuevo_gasto_recurrente As DataRow = DataSet1.Tables("gasto_recurrente").NewRow()
+
+            nuevo_gasto_recurrente("motivo") = TextBoxCrearMotivo.Text
+            nuevo_gasto_recurrente("monto") = TextBoxCrearMonto.Text
+            nuevo_gasto_recurrente("empresa_gasto_recurrente") = ComboBoxCrearEmpresa.SelectedIndex
+
+            DataSet1.Tables("gasto_recurrente").Rows.Add(nuevo_gasto_recurrente)
+
+            Validate()
+            Gasto_recurrenteBindingSource.EndEdit()
+            'ClienteBindingSource.EndEdit()
+
+            Gasto_recurrenteTableAdapter.Update(DataSet1.gasto_recurrente)
+
+            LabelCrearGastoRecurrente.Show()
+            LabelCrearGastoRecurrente.Text = "Cliente creado con exito!"
+            LabelCrearGastoRecurrente.ForeColor = Color.Green
+
+        End If
+
+
+        For i As Integer = 0 To (cantidad_gastos_recurrentes - 1)
+            If DataSet1.Tables("gasto_recurrente").Rows(i).Item("motivo") = TextBoxCrearMotivo.Text Then
+                LabelCrearGastoRecurrente.Show()
+                ban_error = 1
+                LabelCrearGastoRecurrente.Text = "El gasto recurrente ya existe"
+                LabelCrearGastoRecurrente.ForeColor = Color.Red
+            End If
+        Next
+
+
+
+
+
+
+    End Sub
+
+    Private Sub FillByToolStripButton1_Click(sender As Object, e As EventArgs)
+        Try
+            Me.Gasto_recurrenteTableAdapter.FillBy(Me.DataSet1.gasto_recurrente)
+        Catch ex As System.Exception
+            System.Windows.Forms.MessageBox.Show(ex.Message)
+        End Try
+
+    End Sub
+
+    Private Sub TextBoxModificarMonto_TextChanged(sender As Object, e As EventArgs) Handles TextBoxModificarMonto.TextChanged
+
+    End Sub
+
+    Private Sub TextBoxModificarMonto_LostFocus(sender As Object, e As EventArgs) Handles TextBoxModificarMonto.LostFocus
+
+        If IsNumeric(TextBoxModificarMonto.Text) = False Then
+            LabelModificarGastoRecurrente.Show()
+            LabelModificarGastoRecurrente.Text = "Ingrese un número"
+            LabelModificarGastoRecurrente.ForeColor = Color.Red
+
+            TextBoxModificarMonto.Text = ""
+            TextBoxModificarMonto.Focus()
+        Else
+            LabelModificarGastoRecurrente.Hide()
+        End If
+
+    End Sub
+
+    Private Sub ComboBoxModificarMotivo_SelectedIndexChanged(sender As Object, e As EventArgs)
+
+        TextBoxModificarMonto.Enabled = True
+        ComboBoxModificarEmpresa.Enabled = True
+
+        Dim cantidad_gastos_recurrentes As Integer
+        cantidad_gastos_recurrentes = DataSet1.Tables("gasto_recurrente").Rows.Count
+
+
+        'For i As Integer = 0 To (cantidad_gastos_recurrentes - 1)
+        '    If DataSet1.Tables("gasto_recurrente").Rows(i).Item("id_gasto_recurrente") = ComboBoxModificarMotivo.SelectedValue Then
+
+        '        TextBoxModificarMonto.Text = DataSet1.Tables("gasto_recurrente").Rows(i).Item("monto")
+        '        ComboBoxModificarEmpresa.SelectedIndex = DataSet1.Tables("gasto_recurrente").Rows(i).Item("empresa_gasto_recurrente")
+        '    End If
+        'Next
+
+
+    End Sub
+
+    Private Sub ComboBoxModificarMotivo_LostFocus(sender As Object, e As EventArgs)
+    End Sub
+
+    Private Sub ButtonModificarModificar_Click(sender As Object, e As EventArgs) Handles ButtonModificarModificar.Click
+
+        LabelModificarGastoRecurrente.Hide()
+
+        If TextBoxModificarMotivo.Text <> "" And TextBoxModificarMonto.Text <> "" And ComboBoxModificarEmpresa.SelectedIndex <> -1 Then
+
+            Dim cantidad_gasto_recurrente As Integer
+            cantidad_gasto_recurrente = DataSet1.Tables("gasto_recurrente").Rows.Count
+
+            Dim mmonto As Integer
+            mmonto = TextBoxModificarMonto.Text
+
+            Dim emmpresa As Integer
+            emmpresa = ComboBoxModificarEmpresa.SelectedIndex
+
+            For i As Integer = 0 To (cantidad_gasto_recurrente - 1)
+                If DataSet1.Tables("gasto_recurrente").Rows(i).Item("motivo") = ComboBoxModificarMotivo.SelectedValue Then
+
+                    DataSet1.Tables("gasto_recurrente").Rows(i).Item("motivo") = TextBoxModificarMotivo.Text
+                    DataSet1.Tables("gasto_recurrente").Rows(i).Item("monto") = mmonto
+                    DataSet1.Tables("gasto_recurrente").Rows(i).Item("empresa_gasto_recurrente") = emmpresa
+                End If
+            Next
+
+            Validate()
+            Gasto_recurrenteBindingSource.EndEdit()
+            Gasto_recurrenteTableAdapter.Update(DataSet1.gasto_recurrente)
+
+            LabelModificarGastoRecurrente.Show()
+            LabelModificarGastoRecurrente.Text = "Gasto Recurrente Modificado"
+            LabelModificarGastoRecurrente.ForeColor = Color.Green
+
+            update_cache()
+
+        Else
+            LabelModificarGastoRecurrente.Show()
+            LabelModificarGastoRecurrente.Text = "Complete los campos vacíos"
+            LabelModificarGastoRecurrente.ForeColor = Color.Red
+        End If
+
+
+    End Sub
+
+    Private Sub FillBy1ToolStripButton_Click_1(sender As Object, e As EventArgs)
+        Try
+            Me.Gasto_recurrenteTableAdapter.FillBy1(Me.DataSet1.gasto_recurrente)
+        Catch ex As System.Exception
+            System.Windows.Forms.MessageBox.Show(ex.Message)
+        End Try
+
+    End Sub
+
+    Private Sub FillBy2ToolStripButton_Click(sender As Object, e As EventArgs)
+        Try
+            Me.Gasto_recurrenteTableAdapter.FillBy2(Me.DataSet1.gasto_recurrente)
+        Catch ex As System.Exception
+            System.Windows.Forms.MessageBox.Show(ex.Message)
+        End Try
+
+    End Sub
+
+    Private Sub FillBy3ToolStripButton_Click(sender As Object, e As EventArgs)
+        Try
+            Me.Gasto_recurrenteTableAdapter.FillBy3(Me.DataSet1.gasto_recurrente)
+        Catch ex As System.Exception
+            System.Windows.Forms.MessageBox.Show(ex.Message)
+        End Try
+
+    End Sub
+
+    Private Sub FillBy4ToolStripButton_Click(sender As Object, e As EventArgs)
+        Try
+            Me.Gasto_recurrenteTableAdapter.FillBy4(Me.DataSet1.gasto_recurrente)
+        Catch ex As System.Exception
+            System.Windows.Forms.MessageBox.Show(ex.Message)
+        End Try
+
+    End Sub
+
+    Private Sub FillBy5ToolStripButton_Click(sender As Object, e As EventArgs)
+        Try
+            Me.Gasto_recurrenteTableAdapter.FillBy5(Me.DataSet1.gasto_recurrente)
+        Catch ex As System.Exception
+            System.Windows.Forms.MessageBox.Show(ex.Message)
+        End Try
+
+    End Sub
+
+    Private Sub TextBoxRegistrarRecurrenteMonto_TextChanged(sender As Object, e As EventArgs) Handles TextBoxRegistrarRecurrenteMonto.TextChanged
+
+    End Sub
+
+    Private Sub TextBoxRegistrarRecurrenteMonto_LostFocus(sender As Object, e As EventArgs) Handles TextBoxRegistrarRecurrenteMonto.LostFocus
+
+        If IsNumeric(TextBoxRegistrarRecurrenteMonto.Text) = False Then
+            LabelRegistrarGastoRecurrente.Show()
+            LabelRegistrarGastoRecurrente.Text = "Ingrese un número"
+            LabelRegistrarGastoRecurrente.ForeColor = Color.Red
+
+            TextBoxRegistrarRecurrenteMonto.Text = ""
+            TextBoxRegistrarRecurrenteMonto.Focus()
+        Else
+            LabelRegistrarGastoRecurrente.Hide()
+        End If
+
+    End Sub
+
+    Private Sub TextBoxRegistrarRecurrenteFecha_TextChanged(sender As Object, e As EventArgs) Handles TextBoxRegistrarRecurrenteFecha.TextChanged
+
+
+    End Sub
+
+    Private Sub FillBy6ToolStripButton_Click(sender As Object, e As EventArgs)
+        Try
+            Me.Gasto_recurrenteTableAdapter.FillBy6(Me.DataSet1.gasto_recurrente)
+        Catch ex As System.Exception
+            System.Windows.Forms.MessageBox.Show(ex.Message)
+        End Try
+
+    End Sub
+
+    Private Sub ButtonRegistrarRecurrenteRegistrar_Click(sender As Object, e As EventArgs) Handles ButtonRegistrarRecurrenteRegistrar.Click
+
+        Dim ban_error As Integer
+
+        'Dim cantidad_gastos_recurrentes As Integer
+        'cantidad_gastos_recurrentes = DataSet1.Tables("gasto_recurrente").Rows.Count
+
+        If TextBoxRegistrarRecurrenteFactura.Text = "" Or ComboBoxRegistrarRecurrenteDetalle.SelectedIndex = -1 Or TextBoxRegistrarRecurrenteMonto.Text = "" Or TextBoxRegistrarRecurrenteFecha.Text = "" Or ComboBoxRegistrarRecurrenteEmpresa.SelectedIndex = -1 Then
+            'SI FALTA RELLENAR ALGUN DATO
+            LabelRegistrarGastoRecurrente.Show()
+            LabelRegistrarGastoRecurrente.Text = "Rellene todos los campos."
+            LabelRegistrarGastoRecurrente.ForeColor = Color.Red
+        Else
+            Dim nuevo_gasto As DataRow = DataSet1.Tables("gasto").NewRow()
+
+            nuevo_gasto("n_factura_gasto") = TextBoxRegistrarRecurrenteFactura.Text
+            nuevo_gasto("detalle_gasto") = ComboBoxRegistrarRecurrenteDetalle.SelectedIndex
+            nuevo_gasto("monto_gasto") = TextBoxRegistrarRecurrenteMonto.Text
+            nuevo_gasto("fecha_gasto") = TextBoxRegistrarRecurrenteFecha.Text
+            nuevo_gasto("empresa_gasto") = ComboBoxRegistrarRecurrenteEmpresa.SelectedIndex
+
+            DataSet1.Tables("gasto").Rows.Add(nuevo_gasto)
+
+            Validate()
+            GastoBindingSource.EndEdit()
+            GastoBindingSource.EndEdit()
+
+            GastoTableAdapter.Update(DataSet1.gasto)
+
+            LabelRegistrarGastoRecurrente.Show()
+            LabelRegistrarGastoRecurrente.Text = "Cliente creado con exito!"
+            LabelRegistrarGastoRecurrente.ForeColor = Color.Green
+
+        End If
+
+
+        ''''CONTABILIDAD''''
+
+        'SI EL IVA ESTÁ INCLUÍDO
+        If CheckBoxRegistrarRecurrenteIVA.Checked Then
+            ' ===ACTUALIZAR TABLA CONTABILIDAD I===
+
+            ' 1) ITEM
+            Dim nueva_contabilidad4 As DataRow = DataSet1.Tables("contabilidad").NewRow()
+
+            nueva_contabilidad4("descripcion") = "Pago de " + ComboBoxRegistrarRecurrenteDetalle.Text
+            nueva_contabilidad4("deber") = (TextBoxRegistrarRecurrenteMonto.Text / 110) * 100
+            'nueva_contabilidad4("haber") = TextBoxNroFactura.Text
+            nueva_contabilidad4("fecha") = TextBoxRegistrarRecurrenteFecha.Text
+            'nueva_contabilidad4("saldo") = TextBoxNroFactura.Text
+            nueva_contabilidad4("numero_factura") = TextBoxRegistrarRecurrenteFactura.Text
+            nueva_contabilidad4("empresa") = ComboBoxRegistrarRecurrenteEmpresa.SelectedIndex
+
+            DataSet1.Tables("contabilidad").Rows.Add(nueva_contabilidad4)
+
+            Validate()
+            ContabilidadBindingSource.EndEdit()
+            ContabilidadTableAdapter.Update(DataSet1.contabilidad)
+
+            ' 2) IVA
+            Dim nueva_contabilidad5 As DataRow = DataSet1.Tables("contabilidad").NewRow()
+
+            nueva_contabilidad5("descripcion") = "IVA"
+            nueva_contabilidad5("deber") = TextBoxRegistrarRecurrenteMonto.Text - ((TextBoxRegistrarRecurrenteMonto.Text / 110) * 100)
+            'nueva_contabilidad5("haber") = TextBoxNroFactura.Text
+            nueva_contabilidad5("fecha") = TextBoxRegistrarRecurrenteFecha.Text
+            'nueva_contabilidad5("saldo") = TextBoxNroFactura.Text
+            nueva_contabilidad5("numero_factura") = TextBoxRegistrarRecurrenteFactura.Text
+            nueva_contabilidad5("empresa") = ComboBoxRegistrarRecurrenteEmpresa.SelectedIndex
+
+            DataSet1.Tables("contabilidad").Rows.Add(nueva_contabilidad5)
+
+            Validate()
+            ContabilidadBindingSource.EndEdit()
+            ContabilidadTableAdapter.Update(DataSet1.contabilidad)
+
+            ' 3) CAJA
+            Dim nueva_contabilidad6 As DataRow = DataSet1.Tables("contabilidad").NewRow()
+
+            nueva_contabilidad6("descripcion") = "Caja"
+            'nueva_contabilidad6("deber") = 
+            nueva_contabilidad6("haber") = ((TextBoxRegistrarRecurrenteMonto.Text / 110) * 100) + (TextBoxRegistrarRecurrenteMonto.Text - ((TextBoxRegistrarRecurrenteMonto.Text / 110) * 100))
+            nueva_contabilidad6("fecha") = TextBoxRegistrarRecurrenteFecha.Text
+            'nueva_contabilidad6("saldo") = TextBoxNroFactura.Text
+            'nueva_contabilidad6("numero_factura") = TextBoxNroFactura.Text
+            nueva_contabilidad6("empresa") = ComboBoxRegistrarRecurrenteEmpresa.SelectedIndex
+
+            DataSet1.Tables("contabilidad").Rows.Add(nueva_contabilidad6)
+
+            Validate()
+            ContabilidadBindingSource.EndEdit()
+            ContabilidadTableAdapter.Update(DataSet1.contabilidad)
+
+
+            ' ===ACTUALIZAR TABLA CONTABILIDAD II===
+
+            ' 1) ITEM
+            Dim nueva_contabilidad7 As DataRow = DataSet1.Tables("contabilidad2").NewRow()
+
+            nueva_contabilidad7("id_usuario") = datos_loguin.id_usuario
+            nueva_contabilidad7("descripcion_modificacion") = "Gasto"
+            nueva_contabilidad7("fecha_modificacion") = TextBoxRegistrarRecurrenteFecha.Text
+            nueva_contabilidad7("descripcion2") = "Pago de " + ComboBoxRegistrarRecurrenteDetalle.Text
+            nueva_contabilidad7("deber2") = (TextBoxRegistrarRecurrenteMonto.Text / 110) * 100
+            'nueva_contabilidad7("haber2") = TextBoxNroFactura.Text
+            nueva_contabilidad7("fecha2") = TextBoxRegistrarRecurrenteFecha.Text
+            'nueva_contabilidad7("saldo2") = TextBoxNroFactura.Text
+            nueva_contabilidad7("numero_factura2") = TextBoxRegistrarRecurrenteFactura.Text
+            nueva_contabilidad7("empresa") = ComboBoxRegistrarRecurrenteEmpresa.SelectedIndex
+
+            DataSet1.Tables("contabilidad2").Rows.Add(nueva_contabilidad7)
+
+            Validate()
+            Contabilidad2BindingSource.EndEdit()
+            Contabilidad2TableAdapter.Update(DataSet1.contabilidad2)
+
+            ' 2) IVA
+            Dim nueva_contabilidad8 As DataRow = DataSet1.Tables("contabilidad2").NewRow()
+
+            nueva_contabilidad8("id_usuario") = datos_loguin.id_usuario
+            nueva_contabilidad8("descripcion_modificacion") = "Gasto"
+            nueva_contabilidad8("fecha_modificacion") = TextBoxRegistrarRecurrenteFecha.Text
+            nueva_contabilidad8("descripcion2") = "IVA"
+            nueva_contabilidad8("deber2") = TextBoxRegistrarRecurrenteMonto.Text - ((TextBoxRegistrarRecurrenteMonto.Text / 110) * 100)
+            'nueva_contabilidad8("haber2") = TextBoxNroFactura.Text
+            nueva_contabilidad8("fecha2") = TextBoxRegistrarRecurrenteFecha.Text
+            'nueva_contabilidad8("saldo2") = TextBoxNroFactura.Text
+            nueva_contabilidad8("numero_factura2") = TextBoxRegistrarRecurrenteFactura.Text
+            nueva_contabilidad8("empresa") = ComboBoxRegistrarRecurrenteEmpresa.SelectedIndex
+
+            DataSet1.Tables("contabilidad2").Rows.Add(nueva_contabilidad8)
+
+            Validate()
+            Contabilidad2BindingSource.EndEdit()
+            Contabilidad2TableAdapter.Update(DataSet1.contabilidad2)
+
+            ' 3) CAJA
+            Dim nueva_contabilidad9 As DataRow = DataSet1.Tables("contabilidad2").NewRow()
+
+            nueva_contabilidad9("id_usuario") = datos_loguin.id_usuario
+            nueva_contabilidad9("descripcion_modificacion") = "Gasto"
+            nueva_contabilidad9("fecha_modificacion") = TextBoxRegistrarRecurrenteFecha.Text
+            nueva_contabilidad9("descripcion2") = "Caja"
+            'nueva_contabilidad9("deber2") = 
+            nueva_contabilidad9("haber2") = ((TextBoxRegistrarRecurrenteMonto.Text / 110) * 100) + (TextBoxRegistrarRecurrenteMonto.Text - ((TextBoxRegistrarRecurrenteMonto.Text / 110) * 100))
+            nueva_contabilidad9("fecha2") = TextBoxRegistrarRecurrenteFecha.Text
+            'nueva_contabilidad9("saldo2") = TextBoxNroFactura.Text
+            'nueva_contabilidad9("numero_factura2") = TextBoxNroFactura.Text
+            nueva_contabilidad9("empresa") = ComboBoxRegistrarRecurrenteEmpresa.SelectedIndex
+
+            DataSet1.Tables("contabilidad2").Rows.Add(nueva_contabilidad9)
+
+            Validate()
+            Contabilidad2BindingSource.EndEdit()
+            Contabilidad2TableAdapter.Update(DataSet1.contabilidad2)
+
+        Else 'SI EL IVA NO ESTÁ INCLUIDO
+            ' ===ACTUALIZAR TABLA CONTABILIDAD I===
+
+            ' 1) ITEM
+            Dim nueva_contabilidad1 As DataRow = DataSet1.Tables("contabilidad").NewRow()
+
+            nueva_contabilidad1("descripcion") = "Pago de " + ComboBoxRegistrarRecurrenteDetalle.Text
+            nueva_contabilidad1("deber") = TextBoxRegistrarRecurrenteMonto.Text
+            'nueva_contabilidad1("haber") = TextBoxNroFactura.Text
+            nueva_contabilidad1("fecha") = TextBoxRegistrarRecurrenteFecha.Text
+            'nueva_contabilidad1("saldo") = TextBoxNroFactura.Text
+            nueva_contabilidad1("numero_factura") = TextBoxRegistrarRecurrenteFactura.Text
+            nueva_contabilidad1("empresa") = ComboBoxRegistrarRecurrenteEmpresa.SelectedIndex
+
+            DataSet1.Tables("contabilidad").Rows.Add(nueva_contabilidad1)
+
+            Validate()
+            ContabilidadBindingSource.EndEdit()
+            ContabilidadTableAdapter.Update(DataSet1.contabilidad)
+
+            ' 2) IVA
+            Dim nueva_contabilidad2 As DataRow = DataSet1.Tables("contabilidad").NewRow()
+
+            nueva_contabilidad2("descripcion") = "IVA"
+            nueva_contabilidad2("deber") = TextBoxRegistrarRecurrenteMonto.Text / 10
+            'nueva_contabilidad2("haber") = TextBoxNroFactura.Text
+            nueva_contabilidad2("fecha") = TextBoxRegistrarRecurrenteFecha.Text
+            'nueva_contabilidad2("saldo") = TextBoxNroFactura.Text
+            nueva_contabilidad2("numero_factura") = TextBoxRegistrarRecurrenteFactura.Text
+            nueva_contabilidad2("empresa") = ComboBoxRegistrarRecurrenteEmpresa.SelectedIndex
+
+            DataSet1.Tables("contabilidad").Rows.Add(nueva_contabilidad2)
+
+            Validate()
+            ContabilidadBindingSource.EndEdit()
+            ContabilidadTableAdapter.Update(DataSet1.contabilidad)
+
+            ' 3) CAJA
+            Dim nueva_contabilidad3 As DataRow = DataSet1.Tables("contabilidad").NewRow()
+
+            nueva_contabilidad3("descripcion") = "Caja"
+            'nueva_contabilidad3("deber") = 
+            nueva_contabilidad3("haber") = TextBoxRegistrarRecurrenteMonto.Text + (TextBoxRegistrarRecurrenteMonto.Text / 10)
+            nueva_contabilidad3("fecha") = TextBoxRegistrarRecurrenteFecha.Text
+            'nueva_contabilidad3("saldo") = TextBoxNroFactura.Text
+            'nueva_contabilidad3("numero_factura") = TextBoxNroFactura.Text
+            nueva_contabilidad3("empresa") = ComboBoxRegistrarRecurrenteEmpresa.SelectedIndex
+
+            DataSet1.Tables("contabilidad").Rows.Add(nueva_contabilidad3)
+
+            Validate()
+            ContabilidadBindingSource.EndEdit()
+            ContabilidadTableAdapter.Update(DataSet1.contabilidad)
+
+
+            ' ===ACTUALIZAR TABLA CONTABILIDAD II===
+
+            ' 1) ITEM
+            Dim nueva_contabilidad10 As DataRow = DataSet1.Tables("contabilidad2").NewRow()
+
+            nueva_contabilidad10("id_usuario") = datos_loguin.id_usuario
+            nueva_contabilidad10("descripcion_modificacion") = "Gasto"
+            nueva_contabilidad10("fecha_modificacion") = TextBoxRegistrarRecurrenteFecha.Text
+            nueva_contabilidad10("descripcion2") = "Pago de " + ComboBoxRegistrarRecurrenteDetalle.Text
+            nueva_contabilidad10("deber2") = TextBoxRegistrarRecurrenteMonto.Text
+            'nueva_contabilidad10("haber2") = TextBoxNroFactura.Text
+            nueva_contabilidad10("fecha2") = TextBoxRegistrarRecurrenteFecha.Text
+            'nueva_contabilidad10("saldo2") = TextBoxNroFactura.Text
+            nueva_contabilidad10("numero_factura2") = TextBoxRegistrarRecurrenteFactura.Text
+            nueva_contabilidad10("empresa") = ComboBoxRegistrarRecurrenteEmpresa.SelectedIndex
+
+            DataSet1.Tables("contabilidad2").Rows.Add(nueva_contabilidad10)
+
+            Validate()
+            Contabilidad2BindingSource.EndEdit()
+            Contabilidad2TableAdapter.Update(DataSet1.contabilidad2)
+
+            ' 2) IVA
+            Dim nueva_contabilidad11 As DataRow = DataSet1.Tables("contabilidad2").NewRow()
+
+            nueva_contabilidad11("id_usuario") = datos_loguin.id_usuario
+            nueva_contabilidad11("descripcion_modificacion") = "Gasto"
+            nueva_contabilidad11("fecha_modificacion") = TextBoxRegistrarRecurrenteFecha.Text
+            nueva_contabilidad11("descripcion2") = "IVA"
+            nueva_contabilidad11("deber2") = TextBoxRegistrarRecurrenteMonto.Text / 10
+            'nueva_contabilidad11("haber2") = TextBoxNroFactura.Text
+            nueva_contabilidad11("fecha2") = TextBoxRegistrarRecurrenteFecha.Text
+            'nueva_contabilidad11("saldo2") = TextBoxNroFactura.Text
+            nueva_contabilidad11("numero_factura2") = TextBoxRegistrarRecurrenteFactura.Text
+            nueva_contabilidad11("empresa") = ComboBoxRegistrarRecurrenteEmpresa.SelectedIndex
+
+            DataSet1.Tables("contabilidad2").Rows.Add(nueva_contabilidad11)
+
+            Validate()
+            Contabilidad2BindingSource.EndEdit()
+            Contabilidad2TableAdapter.Update(DataSet1.contabilidad2)
+
+            ' 3) CAJA
+            Dim nueva_contabilidad12 As DataRow = DataSet1.Tables("contabilidad2").NewRow()
+
+            nueva_contabilidad12("id_usuario") = datos_loguin.id_usuario
+            nueva_contabilidad12("descripcion_modificacion") = "Gasto"
+            nueva_contabilidad12("fecha_modificacion") = TextBoxRegistrarRecurrenteFecha.Text
+            nueva_contabilidad12("descripcion2") = "Caja"
+            'nueva_contabilidad12("deber2") = 
+            nueva_contabilidad12("haber2") = TextBoxRegistrarRecurrenteMonto.Text + (TextBoxRegistrarRecurrenteMonto.Text / 10)
+            nueva_contabilidad12("fecha2") = TextBoxRegistrarRecurrenteFecha.Text
+            'nueva_contabilidad12("saldo2") = TextBoxNroFactura.Text
+            'nueva_contabilidad12("numero_factura2") = TextBoxNroFactura.Text
+            nueva_contabilidad12("empresa") = ComboBoxRegistrarRecurrenteEmpresa.SelectedIndex
+
+            DataSet1.Tables("contabilidad2").Rows.Add(nueva_contabilidad12)
+
+            Validate()
+            Contabilidad2BindingSource.EndEdit()
+            Contabilidad2TableAdapter.Update(DataSet1.contabilidad2)
+        End If
+        'Else
+        'LabelIngresoProducto.Show()
+        'LabelIngresoProducto.Text = "Complete los campos vacíos"
+        'LabelIngresoProducto.ForeColor = Color.Red
+        'End If
+
+    End Sub
+
+    Private Sub TextBoxRegistrarRecurrenteFecha_LostFocus(sender As Object, e As EventArgs) Handles TextBoxRegistrarRecurrenteFecha.LostFocus
+
+        LabelRegistrarGastoRecurrente.Hide()
+        If IsDate(TextBoxRegistrarRecurrenteFecha.Text) = False Then
+            LabelRegistrarGastoRecurrente.Show()
+            LabelRegistrarGastoRecurrente.Text = "Ingrese fecha válida"
+            LabelRegistrarGastoRecurrente.ForeColor = Color.Red
+
+            TextBoxRegistrarRecurrenteFecha.Focus()
+        End If
+
+    End Sub
+
+    Private Sub ButtonNoRecurrenteRegistrar_Click(sender As Object, e As EventArgs) Handles ButtonNoRecurrenteRegistrar.Click
+
+
+        Dim ban_error As Integer
+
+        If TextBoxNoRecurrenteFactura.Text = "" Or TextBoxNoRecurrenteDetalle.Text = "" Or TextBoxNoRecurrenteMonto.Text = "" Or TextBoxNoRecurrenteFecha.Text = "" Or ComboBoxNoRecurrenteEmpresa.SelectedIndex = -1 Then
+            'SI FALTA RELLENAR ALGUN DATO
+            LabelRegistrarGastosNoRecurrentes.Show()
+            LabelRegistrarGastosNoRecurrentes.Text = "Rellene todos los campos."
+            LabelRegistrarGastosNoRecurrentes.ForeColor = Color.Red
+        Else
+            Dim nuevo_gasto As DataRow = DataSet1.Tables("gasto").NewRow()
+
+            nuevo_gasto("n_factura_gasto") = TextBoxNoRecurrenteFactura.Text
+            nuevo_gasto("detalle_gasto") = TextBoxNoRecurrenteDetalle.Text
+            nuevo_gasto("monto_gasto") = TextBoxNoRecurrenteMonto.Text
+            nuevo_gasto("fecha_gasto") = TextBoxNoRecurrenteFecha.Text
+            nuevo_gasto("empresa_gasto") = ComboBoxNoRecurrenteEmpresa.SelectedIndex
+
+            DataSet1.Tables("gasto").Rows.Add(nuevo_gasto)
+
+            Validate()
+            GastoBindingSource.EndEdit()
+            GastoBindingSource.EndEdit()
+
+            GastoTableAdapter.Update(DataSet1.gasto)
+
+            LabelRegistrarGastosNoRecurrentes.Show()
+            LabelRegistrarGastosNoRecurrentes.Text = "Cliente creado con exito!"
+            LabelRegistrarGastosNoRecurrentes.ForeColor = Color.Green
+
+        End If
+
+
+
+        ''''CONTABILIDAD''''
+
+        'SI EL IVA ESTÁ INCLUÍDO
+        If CheckBoxNoRecurrenteIVA.Checked Then
+            ' ===ACTUALIZAR TABLA CONTABILIDAD I===
+
+            ' 1) ITEM
+            Dim nueva_contabilidad4 As DataRow = DataSet1.Tables("contabilidad").NewRow()
+
+            nueva_contabilidad4("descripcion") = "Pago de " + TextBoxNoRecurrenteDetalle.Text
+            nueva_contabilidad4("deber") = (TextBoxNoRecurrenteMonto.Text / 110) * 100
+            'nueva_contabilidad4("haber") = TextBoxNroFactura.Text
+            nueva_contabilidad4("fecha") = TextBoxNoRecurrenteFecha.Text
+            'nueva_contabilidad4("saldo") = TextBoxNroFactura.Text
+            nueva_contabilidad4("numero_factura") = TextBoxNoRecurrenteFactura.Text
+            nueva_contabilidad4("empresa") = ComboBoxNoRecurrenteEmpresa.SelectedIndex
+
+            DataSet1.Tables("contabilidad").Rows.Add(nueva_contabilidad4)
+
+            Validate()
+            ContabilidadBindingSource.EndEdit()
+            ContabilidadTableAdapter.Update(DataSet1.contabilidad)
+
+            ' 2) IVA
+            Dim nueva_contabilidad5 As DataRow = DataSet1.Tables("contabilidad").NewRow()
+
+            nueva_contabilidad5("descripcion") = "IVA"
+            nueva_contabilidad5("deber") = TextBoxNoRecurrenteMonto.Text - ((TextBoxNoRecurrenteMonto.Text / 110) * 100)
+            'nueva_contabilidad5("haber") = TextBoxNroFactura.Text
+            nueva_contabilidad5("fecha") = TextBoxNoRecurrenteFecha.Text
+            'nueva_contabilidad5("saldo") = TextBoxNroFactura.Text
+            nueva_contabilidad5("numero_factura") = TextBoxNoRecurrenteFactura.Text
+            nueva_contabilidad5("empresa") = ComboBoxNoRecurrenteEmpresa.SelectedIndex
+
+            DataSet1.Tables("contabilidad").Rows.Add(nueva_contabilidad5)
+
+            Validate()
+            ContabilidadBindingSource.EndEdit()
+            ContabilidadTableAdapter.Update(DataSet1.contabilidad)
+
+            ' 3) CAJA
+            Dim nueva_contabilidad6 As DataRow = DataSet1.Tables("contabilidad").NewRow()
+
+            nueva_contabilidad6("descripcion") = "Caja"
+            'nueva_contabilidad6("deber") = 
+            nueva_contabilidad6("haber") = ((TextBoxNoRecurrenteMonto.Text / 110) * 100) + (TextBoxNoRecurrenteMonto.Text - ((TextBoxNoRecurrenteMonto.Text / 110) * 100))
+            nueva_contabilidad6("fecha") = TextBoxNoRecurrenteFecha.Text
+            'nueva_contabilidad6("saldo") = TextBoxNroFactura.Text
+            'nueva_contabilidad6("numero_factura") = TextBoxNroFactura.Text
+            nueva_contabilidad6("empresa") = ComboBoxNoRecurrenteEmpresa.SelectedIndex
+
+            DataSet1.Tables("contabilidad").Rows.Add(nueva_contabilidad6)
+
+            Validate()
+            ContabilidadBindingSource.EndEdit()
+            ContabilidadTableAdapter.Update(DataSet1.contabilidad)
+
+
+            ' ===ACTUALIZAR TABLA CONTABILIDAD II===
+
+            ' 1) ITEM
+            Dim nueva_contabilidad7 As DataRow = DataSet1.Tables("contabilidad2").NewRow()
+
+            nueva_contabilidad7("id_usuario") = datos_loguin.id_usuario
+            nueva_contabilidad7("descripcion_modificacion") = "Gasto"
+            nueva_contabilidad7("fecha_modificacion") = TextBoxNoRecurrenteFecha.Text
+            nueva_contabilidad7("descripcion2") = "Pago de " + TextBoxNoRecurrenteDetalle.Text
+            nueva_contabilidad7("deber2") = (TextBoxNoRecurrenteMonto.Text / 110) * 100
+            'nueva_contabilidad7("haber2") = TextBoxNroFactura.Text
+            nueva_contabilidad7("fecha2") = TextBoxNoRecurrenteFecha.Text
+            'nueva_contabilidad7("saldo2") = TextBoxNroFactura.Text
+            nueva_contabilidad7("numero_factura2") = TextBoxNoRecurrenteFactura.Text
+            nueva_contabilidad7("empresa") = ComboBoxNoRecurrenteEmpresa.SelectedIndex
+
+            DataSet1.Tables("contabilidad2").Rows.Add(nueva_contabilidad7)
+
+            Validate()
+            Contabilidad2BindingSource.EndEdit()
+            Contabilidad2TableAdapter.Update(DataSet1.contabilidad2)
+
+            ' 2) IVA
+            Dim nueva_contabilidad8 As DataRow = DataSet1.Tables("contabilidad2").NewRow()
+
+            nueva_contabilidad8("id_usuario") = datos_loguin.id_usuario
+            nueva_contabilidad8("descripcion_modificacion") = "Gasto"
+            nueva_contabilidad8("fecha_modificacion") = TextBoxNoRecurrenteFecha.Text
+            nueva_contabilidad8("descripcion2") = "IVA"
+            nueva_contabilidad8("deber2") = TextBoxNoRecurrenteMonto.Text - ((TextBoxNoRecurrenteMonto.Text / 110) * 100)
+            'nueva_contabilidad8("haber2") = TextBoxNroFactura.Text
+            nueva_contabilidad8("fecha2") = TextBoxNoRecurrenteFecha.Text
+            'nueva_contabilidad8("saldo2") = TextBoxNroFactura.Text
+            nueva_contabilidad8("numero_factura2") = TextBoxNoRecurrenteFactura.Text
+            nueva_contabilidad8("empresa") = ComboBoxNoRecurrenteEmpresa.SelectedIndex
+
+            DataSet1.Tables("contabilidad2").Rows.Add(nueva_contabilidad8)
+
+            Validate()
+            Contabilidad2BindingSource.EndEdit()
+            Contabilidad2TableAdapter.Update(DataSet1.contabilidad2)
+
+            ' 3) CAJA
+            Dim nueva_contabilidad9 As DataRow = DataSet1.Tables("contabilidad2").NewRow()
+
+            nueva_contabilidad9("id_usuario") = datos_loguin.id_usuario
+            nueva_contabilidad9("descripcion_modificacion") = "Gasto"
+            nueva_contabilidad9("fecha_modificacion") = TextBoxNoRecurrenteFecha.Text
+            nueva_contabilidad9("descripcion2") = "Caja"
+            'nueva_contabilidad9("deber2") = 
+            nueva_contabilidad9("haber2") = ((TextBoxNoRecurrenteMonto.Text / 110) * 100) + (TextBoxNoRecurrenteMonto.Text - ((TextBoxNoRecurrenteMonto.Text / 110) * 100))
+            nueva_contabilidad9("fecha2") = TextBoxNoRecurrenteFecha.Text
+            'nueva_contabilidad9("saldo2") = TextBoxNroFactura.Text
+            'nueva_contabilidad9("numero_factura2") = TextBoxNroFactura.Text
+            nueva_contabilidad9("empresa") = ComboBoxNoRecurrenteEmpresa.SelectedIndex
+
+            DataSet1.Tables("contabilidad2").Rows.Add(nueva_contabilidad9)
+
+            Validate()
+            Contabilidad2BindingSource.EndEdit()
+            Contabilidad2TableAdapter.Update(DataSet1.contabilidad2)
+
+        Else 'SI EL IVA NO ESTÁ INCLUIDO
+            ' ===ACTUALIZAR TABLA CONTABILIDAD I===
+
+            ' 1) ITEM
+            Dim nueva_contabilidad1 As DataRow = DataSet1.Tables("contabilidad").NewRow()
+
+            nueva_contabilidad1("descripcion") = "Pago de " + TextBoxNoRecurrenteDetalle.Text
+            nueva_contabilidad1("deber") = TextBoxNoRecurrenteMonto.Text
+            'nueva_contabilidad1("haber") = TextBoxNroFactura.Text
+            nueva_contabilidad1("fecha") = TextBoxNoRecurrenteFecha.Text
+            'nueva_contabilidad1("saldo") = TextBoxNroFactura.Text
+            nueva_contabilidad1("numero_factura") = TextBoxNoRecurrenteFactura.Text
+            nueva_contabilidad1("empresa") = ComboBoxNoRecurrenteEmpresa.SelectedIndex
+
+            DataSet1.Tables("contabilidad").Rows.Add(nueva_contabilidad1)
+
+            Validate()
+            ContabilidadBindingSource.EndEdit()
+            ContabilidadTableAdapter.Update(DataSet1.contabilidad)
+
+            ' 2) IVA
+            Dim nueva_contabilidad2 As DataRow = DataSet1.Tables("contabilidad").NewRow()
+
+            nueva_contabilidad2("descripcion") = "IVA"
+            nueva_contabilidad2("deber") = TextBoxNoRecurrenteMonto.Text / 10
+            'nueva_contabilidad2("haber") = TextBoxNroFactura.Text
+            nueva_contabilidad2("fecha") = TextBoxNoRecurrenteFecha.Text
+            'nueva_contabilidad2("saldo") = TextBoxNroFactura.Text
+            nueva_contabilidad2("numero_factura") = TextBoxNoRecurrenteFactura.Text
+            nueva_contabilidad2("empresa") = ComboBoxNoRecurrenteEmpresa.SelectedIndex
+
+            DataSet1.Tables("contabilidad").Rows.Add(nueva_contabilidad2)
+
+            Validate()
+            ContabilidadBindingSource.EndEdit()
+            ContabilidadTableAdapter.Update(DataSet1.contabilidad)
+
+            ' 3) CAJA
+            Dim nueva_contabilidad3 As DataRow = DataSet1.Tables("contabilidad").NewRow()
+
+            nueva_contabilidad3("descripcion") = "Caja"
+            'nueva_contabilidad3("deber") = 
+            nueva_contabilidad3("haber") = TextBoxNoRecurrenteMonto.Text + (TextBoxNoRecurrenteMonto.Text / 10)
+            nueva_contabilidad3("fecha") = TextBoxNoRecurrenteFecha.Text
+            'nueva_contabilidad3("saldo") = TextBoxNroFactura.Text
+            'nueva_contabilidad3("numero_factura") = TextBoxNroFactura.Text
+            nueva_contabilidad3("empresa") = ComboBoxNoRecurrenteEmpresa.SelectedIndex
+
+            DataSet1.Tables("contabilidad").Rows.Add(nueva_contabilidad3)
+
+            Validate()
+            ContabilidadBindingSource.EndEdit()
+            ContabilidadTableAdapter.Update(DataSet1.contabilidad)
+
+
+            ' ===ACTUALIZAR TABLA CONTABILIDAD II===
+
+            ' 1) ITEM
+            Dim nueva_contabilidad10 As DataRow = DataSet1.Tables("contabilidad2").NewRow()
+
+            nueva_contabilidad10("id_usuario") = datos_loguin.id_usuario
+            nueva_contabilidad10("descripcion_modificacion") = "Gasto"
+            nueva_contabilidad10("fecha_modificacion") = TextBoxNoRecurrenteFecha.Text
+            nueva_contabilidad10("descripcion2") = "Pago de " + TextBoxNoRecurrenteDetalle.Text
+            nueva_contabilidad10("deber2") = TextBoxNoRecurrenteMonto.Text
+            'nueva_contabilidad10("haber2") = TextBoxNroFactura.Text
+            nueva_contabilidad10("fecha2") = TextBoxNoRecurrenteFecha.Text
+            'nueva_contabilidad10("saldo2") = TextBoxNroFactura.Text
+            nueva_contabilidad10("numero_factura2") = TextBoxNoRecurrenteFactura.Text
+            nueva_contabilidad10("empresa") = ComboBoxNoRecurrenteEmpresa.SelectedIndex
+
+            DataSet1.Tables("contabilidad2").Rows.Add(nueva_contabilidad10)
+
+            Validate()
+            Contabilidad2BindingSource.EndEdit()
+            Contabilidad2TableAdapter.Update(DataSet1.contabilidad2)
+
+            ' 2) IVA
+            Dim nueva_contabilidad11 As DataRow = DataSet1.Tables("contabilidad2").NewRow()
+
+            nueva_contabilidad11("id_usuario") = datos_loguin.id_usuario
+            nueva_contabilidad11("descripcion_modificacion") = "Gasto"
+            nueva_contabilidad11("fecha_modificacion") = TextBoxNoRecurrenteFecha.Text
+            nueva_contabilidad11("descripcion2") = "IVA"
+            nueva_contabilidad11("deber2") = TextBoxNoRecurrenteMonto.Text / 10
+            'nueva_contabilidad11("haber2") = TextBoxNroFactura.Text
+            nueva_contabilidad11("fecha2") = TextBoxNoRecurrenteFecha.Text
+            'nueva_contabilidad11("saldo2") = TextBoxNroFactura.Text
+            nueva_contabilidad11("numero_factura2") = TextBoxNoRecurrenteFactura.Text
+            nueva_contabilidad11("empresa") = ComboBoxNoRecurrenteEmpresa.SelectedIndex
+
+            DataSet1.Tables("contabilidad2").Rows.Add(nueva_contabilidad11)
+
+            Validate()
+            Contabilidad2BindingSource.EndEdit()
+            Contabilidad2TableAdapter.Update(DataSet1.contabilidad2)
+
+            ' 3) CAJA
+            Dim nueva_contabilidad12 As DataRow = DataSet1.Tables("contabilidad2").NewRow()
+
+            nueva_contabilidad12("id_usuario") = datos_loguin.id_usuario
+            nueva_contabilidad12("descripcion_modificacion") = "Gasto"
+            nueva_contabilidad12("fecha_modificacion") = TextBoxNoRecurrenteFecha.Text
+            nueva_contabilidad12("descripcion2") = "Caja"
+            'nueva_contabilidad12("deber2") = 
+            nueva_contabilidad12("haber2") = TextBoxNoRecurrenteMonto.Text + (TextBoxNoRecurrenteMonto.Text / 10)
+            nueva_contabilidad12("fecha2") = TextBoxNoRecurrenteFecha.Text
+            'nueva_contabilidad12("saldo2") = TextBoxNroFactura.Text
+            'nueva_contabilidad12("numero_factura2") = TextBoxNroFactura.Text
+            nueva_contabilidad12("empresa") = ComboBoxNoRecurrenteEmpresa.SelectedIndex
+
+            DataSet1.Tables("contabilidad2").Rows.Add(nueva_contabilidad12)
+
+            Validate()
+            Contabilidad2BindingSource.EndEdit()
+            Contabilidad2TableAdapter.Update(DataSet1.contabilidad2)
+        End If
+
+
+
+    End Sub
+
+    Private Sub TextBoxNoRecurrenteMonto_TextChanged(sender As Object, e As EventArgs) Handles TextBoxNoRecurrenteMonto.TextChanged
+
+    End Sub
+
+    Private Sub TextBoxNoRecurrenteMonto_LostFocus(sender As Object, e As EventArgs) Handles TextBoxNoRecurrenteMonto.LostFocus
+
+        If IsNumeric(TextBoxNoRecurrenteMonto.Text) = False Then
+            LabelRegistrarGastosNoRecurrentes.Show()
+            LabelRegistrarGastosNoRecurrentes.Text = "Ingrese un número"
+            LabelRegistrarGastosNoRecurrentes.ForeColor = Color.Red
+
+            TextBoxNoRecurrenteMonto.Text = ""
+            TextBoxNoRecurrenteMonto.Focus()
+        Else
+            LabelRegistrarGastosNoRecurrentes.Hide()
+        End If
+
+    End Sub
+
+    Private Sub TextBoxNoRecurrenteFecha_TextChanged(sender As Object, e As EventArgs) Handles TextBoxNoRecurrenteFecha.TextChanged
+
+    End Sub
+
+    Private Sub TextBoxNoRecurrenteFecha_LostFocus(sender As Object, e As EventArgs) Handles TextBoxNoRecurrenteFecha.LostFocus
+
+
+        LabelRegistrarGastosNoRecurrentes.Hide()
+        If IsDate(TextBoxNoRecurrenteFecha.Text) = False Then
+            LabelRegistrarGastosNoRecurrentes.Show()
+            LabelRegistrarGastosNoRecurrentes.Text = "Ingrese fecha válida"
+            LabelRegistrarGastosNoRecurrentes.ForeColor = Color.Red
+
+            TextBoxNoRecurrenteFecha.Focus()
+        End If
+
+
+    End Sub
+
+    Private Sub FillBy7ToolStripButton_Click(sender As Object, e As EventArgs)
+        Try
+            Me.Gasto_recurrenteTableAdapter.FillBy7(Me.DataSet1.gasto_recurrente)
+        Catch ex As System.Exception
+            System.Windows.Forms.MessageBox.Show(ex.Message)
+        End Try
+
+    End Sub
+
+    Private Sub ComboBoxModificarMotivo_SelectedIndexChanged_1(sender As Object, e As EventArgs) Handles ComboBoxModificarMotivo.SelectedIndexChanged
+        TextBoxModificarMotivo.Enabled = True
+        TextBoxModificarMonto.Enabled = True
+        ComboBoxModificarEmpresa.Enabled = True
+
+
+        Dim cantidad_gastos_recurrentes As Integer
+        cantidad_gastos_recurrentes = DataSet1.Tables("gasto_recurrente").Rows.Count
+
+        'MsgBox(ComboBoxModificarMotivo.SelectedValue.ToString)
+
+        'ComboBoxModificarMotivo.
+
+        For i As Integer = 0 To (cantidad_gastos_recurrentes - 1)
+
+            If DataSet1.Tables("gasto_recurrente").Rows(i).Item("motivo") = ComboBoxModificarMotivo.SelectedValue Then
+
+                TextBoxModificarMotivo.Text = DataSet1.Tables("gasto_recurrente").Rows(i).Item("motivo")
+                TextBoxModificarMonto.Text = DataSet1.Tables("gasto_recurrente").Rows(i).Item("monto")
+                ComboBoxModificarEmpresa.SelectedIndex = DataSet1.Tables("gasto_recurrente").Rows(i).Item("empresa_gasto_recurrente")
+            End If
+        Next
+
+        'LabelModificarGastoRecurrente.Hide()
+
+        'If ComboBoxModificarMotivo.SelectedIndex <> -1 And TextBoxModificarMonto.Text <> "" And ComboBoxModificarEmpresa.SelectedIndex <> -1 Then
+
+        '    Dim nuevo_gasto_recurrente As DataRow = DataSet1.Tables("gasto_recurrente").NewRow()
+
+        '    Dim cantidad_gasto_recurrente As Integer
+        '    cantidad_gasto_recurrente = DataSet1.Tables("gasto_recurrente").Rows.Count
+
+        '    For i As Integer = 0 To (cantidad_gasto_recurrente - 1)
+        '        If DataSet1.Tables("gasto_recurrente").Rows(i).Item("motivo") = ComboBoxModificarMotivo.SelectedValue Then
+
+        '            DataSet1.Tables("gasto_recurrente").Rows(i).Item("monto") = TextBoxModificarMonto.Text
+        '            DataSet1.Tables("gasto_recurrente").Rows(i).Item("empresa_gasto_recurrente") = ComboBoxModificarEmpresa.SelectedIndex
+
+        '        End If
+
+        '    Next
+
+        '    MsgBox(ComboBoxModificarMotivo.SelectedValue)
+
+        '    Validate()
+        '    Gasto_recurrenteBindingSource.EndEdit()
+        '    Gasto_recurrenteTableAdapter.Update(DataSet1.gasto_recurrente)
+
+        '    LabelModificarGastoRecurrente.Show()
+        '    LabelModificarGastoRecurrente.Text = "Gasto Recurrente Modificado"
+        '    LabelModificarGastoRecurrente.ForeColor = Color.Green
+
+        '    update_cache()
+
+        'Else
+        '    LabelModificarGastoRecurrente.Show()
+        '    LabelModificarGastoRecurrente.Text = "Complete los campos vacíos"
+        '    LabelModificarGastoRecurrente.ForeColor = Color.Red
+        'End If
+
+
+    End Sub
+
+    Private Sub TextBoxCrearMotivo_TextChanged(sender As Object, e As EventArgs) Handles TextBoxCrearMotivo.TextChanged
+
+    End Sub
+
+    Private Sub FillBy8ToolStripButton_Click(sender As Object, e As EventArgs)
+        Try
+            Me.Gasto_recurrenteTableAdapter.FillBy8(Me.DataSet1.gasto_recurrente)
+        Catch ex As System.Exception
+            System.Windows.Forms.MessageBox.Show(ex.Message)
+        End Try
+
+    End Sub
+
+    Private Sub FillBy9ToolStripButton_Click(sender As Object, e As EventArgs)
+        Try
+            Me.Gasto_recurrenteTableAdapter.FillBy9(Me.DataSet1.gasto_recurrente)
+        Catch ex As System.Exception
+            System.Windows.Forms.MessageBox.Show(ex.Message)
+        End Try
+
+    End Sub
+
+    Private Sub FillBy10ToolStripButton_Click(sender As Object, e As EventArgs)
+        Try
+            Me.Gasto_recurrenteTableAdapter.FillBy10(Me.DataSet1.gasto_recurrente)
+        Catch ex As System.Exception
+            System.Windows.Forms.MessageBox.Show(ex.Message)
+        End Try
+
+    End Sub
+
+    Private Sub ButtonCrearGastoRecurrente_Click(sender As Object, e As EventArgs) Handles ButtonCrearGastoRecurrente.Click
+        GroupBoxCrearGastoRecurrente.Show()
+        GroupBoxModificarGastoRecurrente.Hide()
+        GroupBoxRegistrarGastoRecurrente.Hide()
+        GroupBoxRegistrarGastosNoRecurrentes.Hide()
+        DataGridViewGastos.Hide()
+        GroupBoxFiltrar.Hide()
+
+        TextBoxCrearMonto.Text = ""
+        TextBoxCrearMotivo.Text = ""
+        ComboBoxCrearEmpresa.Text = ""
+        LabelCrearGastoRecurrente.Hide()
+    End Sub
+
+    Private Sub ButtonModificarGastoRecurrente_Click(sender As Object, e As EventArgs) Handles ButtonModificarGastoRecurrente.Click
+        GroupBoxCrearGastoRecurrente.Hide()
+        GroupBoxModificarGastoRecurrente.Show()
+        GroupBoxRegistrarGastoRecurrente.Hide()
+        GroupBoxRegistrarGastosNoRecurrentes.Hide()
+        DataGridViewGastos.Hide()
+        GroupBoxFiltrar.Hide()
+
+        ComboBoxModificarMotivo.Text = ""
+        TextBoxModificarMotivo.Text = ""
+        TextBoxModificarMonto.Text = ""
+        ComboBoxModificarEmpresa.Text = ""
+        TextBoxModificarMotivo.Enabled = False
+        TextBoxModificarMonto.Enabled = False
+        ComboBoxModificarEmpresa.Enabled = False
+        LabelModificarGastoRecurrente.hide()
+
+
+
+    End Sub
+
+    Private Sub ButtonRegistrarGastoRecurrente_Click(sender As Object, e As EventArgs) Handles ButtonRegistrarGastoRecurrente.Click
+        GroupBoxCrearGastoRecurrente.Hide()
+        GroupBoxModificarGastoRecurrente.Hide()
+        GroupBoxRegistrarGastoRecurrente.Show()
+        GroupBoxRegistrarGastosNoRecurrentes.Hide()
+        DataGridViewGastos.Hide()
+        GroupBoxFiltrar.Hide()
+
+        TextBoxRegistrarRecurrenteFactura.Text = ""
+        ComboBoxRegistrarRecurrenteDetalle.Text = ""
+        TextBoxRegistrarRecurrenteMonto.Text = ""
+        TextBoxRegistrarRecurrenteFecha.Text = Date.Today
+        ComboBoxRegistrarRecurrenteEmpresa.Text = ""
+        LabelRegistrarGastoRecurrente.Hide()
+    End Sub
+
+    Private Sub ButtonRegistrarGastosNoRecurrentes_Click(sender As Object, e As EventArgs) Handles ButtonRegistrarGastosNoRecurrentes.Click
+        GroupBoxCrearGastoRecurrente.Hide()
+        GroupBoxModificarGastoRecurrente.Hide()
+        GroupBoxRegistrarGastoRecurrente.Hide()
+        GroupBoxRegistrarGastosNoRecurrentes.Show()
+        DataGridViewGastos.Hide()
+        GroupBoxFiltrar.Hide()
+
+        TextBoxNoRecurrenteFactura.Text = ""
+        TextBoxNoRecurrenteDetalle.Text = ""
+        TextBoxNoRecurrenteMonto.Text = ""
+        TextBoxNoRecurrenteFecha.Text = Date.Today
+        ComboBoxNoRecurrenteEmpresa.Text = ""
+        LabelRegistrarGastosNoRecurrentes.Hide()
+    End Sub
+
+    Private Sub ButtonCrearCerrar_Click(sender As Object, e As EventArgs) Handles ButtonCrearCerrar.Click
+        GroupBoxCrearGastoRecurrente.Hide()
+
+    End Sub
+
+    Private Sub ButtonModificarCerrar_Click(sender As Object, e As EventArgs) Handles ButtonModificarCerrar.Click
+        GroupBoxModificarGastoRecurrente.Hide()
+
+    End Sub
+
+    Private Sub ButtonRegistrarRecurrenteCerrar_Click(sender As Object, e As EventArgs) Handles ButtonRegistrarRecurrenteCerrar.Click
+        GroupBoxRegistrarGastoRecurrente.Hide()
+
+    End Sub
+
+    Private Sub ButtonNoRecurrenteCerrar_Click(sender As Object, e As EventArgs) Handles ButtonNoRecurrenteCerrar.Click
+        GroupBoxRegistrarGastosNoRecurrentes.Hide()
+    End Sub
+
+    Private Sub ButtonVerGastosRealizadosMugen_Click(sender As Object, e As EventArgs) Handles ButtonVerGastosRealizadosMugen.Click
+        GroupBoxCrearGastoRecurrente.Hide()
+        GroupBoxModificarGastoRecurrente.Hide()
+        GroupBoxRegistrarGastoRecurrente.Hide()
+        GroupBoxRegistrarGastosNoRecurrentes.Hide()
+        DataGridViewGastos.Show()
+        GroupBoxFiltrar.Show()
+
+        labelquenoseve.Text = "mugen"
+
+
+        DataGridViewGastos.Rows.Clear()
+
+
+        DataGridViewGastos.Rows.Add()
+
+
+
+        Dim i As Integer
+        Dim j As Integer
+        j = 0
+        Dim cant_cont As Integer
+        cant_cont = DataSet1.Tables("gasto").Rows.Count - 1
+        For i = 0 To cant_cont
+
+            If DataSet1.Tables("gasto").Rows(i).Item("empresa_gasto") < 2 Then
+
+                DataGridViewGastos.Item(0, j).Value = DataSet1.Tables("gasto").Rows(i).Item("n_factura_gasto")
+                DataGridViewGastos.Item(1, j).Value = DataSet1.Tables("gasto").Rows(i).Item("detalle_gasto")
+                DataGridViewGastos.Item(2, j).Value = DataSet1.Tables("gasto").Rows(i).Item("monto_gasto")
+                DataGridViewGastos.Item(3, j).Value = DataSet1.Tables("gasto").Rows(i).Item("fecha_gasto")
+
+                j = j + 1
+
+                DataGridViewGastos.Rows.Add()
+
+            End If
+        Next
+
+
+
+
+
+
+    End Sub
+
+    Private Sub ButtonVerGastosRealizadosEliptica_Click(sender As Object, e As EventArgs) Handles ButtonVerGastosRealizadosEliptica.Click
+        GroupBoxCrearGastoRecurrente.Hide()
+        GroupBoxModificarGastoRecurrente.Hide()
+        GroupBoxRegistrarGastoRecurrente.Hide()
+        GroupBoxRegistrarGastosNoRecurrentes.Hide()
+        DataGridViewGastos.Show()
+        GroupBoxFiltrar.Show()
+
+        labelquenoseve.Text = "eliptica"
+
+
+        DataGridViewGastos.Rows.Clear()
+
+
+        DataGridViewGastos.Rows.Add()
+
+
+
+        Dim i As Integer
+        Dim j As Integer
+        j = 0
+        Dim cant_cont As Integer
+        cant_cont = DataSet1.Tables("gasto").Rows.Count - 1
+        For i = 0 To cant_cont
+
+            If DataSet1.Tables("gasto").Rows(i).Item("empresa_gasto") = 2 Then
+
+                DataGridViewGastos.Item(0, j).Value = DataSet1.Tables("gasto").Rows(i).Item("n_factura_gasto")
+                DataGridViewGastos.Item(1, j).Value = DataSet1.Tables("gasto").Rows(i).Item("detalle_gasto")
+                DataGridViewGastos.Item(2, j).Value = DataSet1.Tables("gasto").Rows(i).Item("monto_gasto")
+                DataGridViewGastos.Item(3, j).Value = DataSet1.Tables("gasto").Rows(i).Item("fecha_gasto")
+
+                j = j + 1
+
+                DataGridViewGastos.Rows.Add()
+
+            End If
+        Next
+
+
+
+
+    End Sub
+
+    Private Sub GroupBoxCargarGastos_Enter(sender As Object, e As EventArgs) Handles GroupBoxCargarGastos.Enter
+
+    End Sub
+
+    Private Sub Button20_Click(sender As Object, e As EventArgs) Handles Buttonvertodo.Click
+        GroupBoxCrearGastoRecurrente.Hide()
+        GroupBoxModificarGastoRecurrente.Hide()
+        GroupBoxRegistrarGastoRecurrente.Hide()
+        GroupBoxRegistrarGastosNoRecurrentes.Hide()
+        DataGridViewGastos.Show()
+        GroupBoxFiltrar.Show()
+
+        labelquenoseve.Text = "todos"
+
+
+        DataGridViewGastos.Rows.Clear()
+
+
+        DataGridViewGastos.Rows.Add()
+
+
+
+        Dim i As Integer
+        Dim cant_cont As Integer
+        cant_cont = DataSet1.Tables("gasto").Rows.Count - 1
+        For i = 0 To cant_cont
+
+
+            DataGridViewGastos.Item(0, i).Value = DataSet1.Tables("gasto").Rows(i).Item("n_factura_gasto")
+            DataGridViewGastos.Item(1, i).Value = DataSet1.Tables("gasto").Rows(i).Item("detalle_gasto")
+            DataGridViewGastos.Item(2, i).Value = DataSet1.Tables("gasto").Rows(i).Item("monto_gasto")
+            DataGridViewGastos.Item(3, i).Value = DataSet1.Tables("gasto").Rows(i).Item("fecha_gasto")
+
+            DataGridViewGastos.Rows.Add()
+
+        Next
+
+
+
+
+    End Sub
+
+    Private Sub ComboBoxRegistrarRecurrenteDetalle_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBoxRegistrarRecurrenteDetalle.SelectedIndexChanged
+
+        Dim cantidad_gastos_recurrentes As Integer
+        cantidad_gastos_recurrentes = DataSet1.Tables("gasto_recurrente").Rows.Count
+
+        For i As Integer = 0 To (cantidad_gastos_recurrentes - 1)
+
+            If DataSet1.Tables("gasto_recurrente").Rows(i).Item("motivo") = ComboBoxRegistrarRecurrenteDetalle.text Then
+
+                TextBoxRegistrarRecurrenteMonto.Text = DataSet1.Tables("gasto_recurrente").Rows(i).Item("monto")
+                ComboBoxRegistrarRecurrenteEmpresa.SelectedIndex = DataSet1.Tables("gasto_recurrente").Rows(i).Item("empresa_gasto_recurrente")
+            End If
+        Next
+
+    End Sub
+
+    Private Sub DateTimePicker2_ValueChanged(sender As Object, e As EventArgs) Handles DateTimePicker1gasto.ValueChanged
+
+        DataGridViewGastos.Rows.Clear()
+        DataGridViewGastos.Rows.Add() ''no le gusta
+
+        Dim i As Integer
+        Dim j As Integer
+        j = 0
+        Dim cant_cont As Integer
+        cant_cont = DataSet1.Tables("gasto").Rows.Count - 1
+
+
+
+        If labelquenoseve.Text = "mugen" Then
+            For i = 0 To cant_cont
+                If DataSet1.Tables("gasto").Rows(i).Item("empresa_gasto") < 2 Then
+                    If DataSet1.Tables("gasto").Rows(i).Item("fecha_gasto") >= DateTimePicker1gasto.Value And DataSet1.Tables("gasto").Rows(i).Item("fecha_gasto") <= DateTimePicker2gasto.Value Then
+
+                        DataGridViewGastos.Item(0, j).Value = DataSet1.Tables("gasto").Rows(i).Item("n_factura_gasto")
+                        DataGridViewGastos.Item(1, j).Value = DataSet1.Tables("gasto").Rows(i).Item("detalle_gasto")
+                        DataGridViewGastos.Item(2, j).Value = DataSet1.Tables("gasto").Rows(i).Item("monto_gasto")
+                        DataGridViewGastos.Item(3, j).Value = DataSet1.Tables("gasto").Rows(i).Item("fecha_gasto")
+                        j = j + 1
+                        DataGridViewGastos.Rows.Add()
+                    End If
+                End If
+
+            Next
+
+        ElseIf labelquenoseve.Text = "eliptica" Then
+            For i = 0 To cant_cont
+                If DataSet1.Tables("gasto").Rows(i).Item("empresa_gasto") = 2 Then
+                    If DataSet1.Tables("gasto").Rows(i).Item("fecha_gasto") >= DateTimePicker1gasto.Value And DataSet1.Tables("gasto").Rows(i).Item("fecha_gasto") <= DateTimePicker2gasto.Value Then
+                        DataGridViewGastos.Item(0, j).Value = DataSet1.Tables("gasto").Rows(i).Item("n_factura_gasto")
+                        DataGridViewGastos.Item(1, j).Value = DataSet1.Tables("gasto").Rows(i).Item("detalle_gasto")
+                        DataGridViewGastos.Item(2, j).Value = DataSet1.Tables("gasto").Rows(i).Item("monto_gasto")
+                        DataGridViewGastos.Item(3, j).Value = DataSet1.Tables("gasto").Rows(i).Item("fecha_gasto")
+                        j = j + 1
+                        DataGridViewGastos.Rows.Add()
+                    End If
+                End If
+            Next
+
+        ElseIf labelquenoseve.Text = "todos" Then
+
+            For i = 0 To cant_cont
+                If DataSet1.Tables("gasto").Rows(i).Item("fecha_gasto") >= DateTimePicker1gasto.Value And DataSet1.Tables("gasto").Rows(i).Item("fecha_gasto") <= DateTimePicker2gasto.Value Then
+                    DataGridViewGastos.Item(0, i).Value = DataSet1.Tables("gasto").Rows(i).Item("n_factura_gasto")
+                    DataGridViewGastos.Item(1, i).Value = DataSet1.Tables("gasto").Rows(i).Item("detalle_gasto")
+                    DataGridViewGastos.Item(2, i).Value = DataSet1.Tables("gasto").Rows(i).Item("monto_gasto")
+                    DataGridViewGastos.Item(3, i).Value = DataSet1.Tables("gasto").Rows(i).Item("fecha_gasto")
+                    DataGridViewGastos.Rows.Add()
+                End If
+            Next
+
+        End If
+
+
+    End Sub
+
+    Private Sub DateTimePicker2gasto_ValueChanged(sender As Object, e As EventArgs) Handles DateTimePicker2gasto.ValueChanged
+
+        DataGridViewGastos.Rows.Clear()
+        DataGridViewGastos.Rows.Add()
+
+        Dim i As Integer
+        Dim j As Integer
+        j = 0
+        Dim cant_cont As Integer
+        cant_cont = DataSet1.Tables("gasto").Rows.Count - 1
+
+
+
+        If labelquenoseve.Text = "mugen" Then
+            For i = 0 To cant_cont
+                If DataSet1.Tables("gasto").Rows(i).Item("empresa_gasto") < 2 Then
+                    If DataSet1.Tables("gasto").Rows(i).Item("fecha_gasto") >= DateTimePicker1gasto.Value And DataSet1.Tables("gasto").Rows(i).Item("fecha_gasto") <= DateTimePicker2gasto.Value Then
+
+                        DataGridViewGastos.Item(0, j).Value = DataSet1.Tables("gasto").Rows(i).Item("n_factura_gasto")
+                        DataGridViewGastos.Item(1, j).Value = DataSet1.Tables("gasto").Rows(i).Item("detalle_gasto")
+                        DataGridViewGastos.Item(2, j).Value = DataSet1.Tables("gasto").Rows(i).Item("monto_gasto")
+                        DataGridViewGastos.Item(3, j).Value = DataSet1.Tables("gasto").Rows(i).Item("fecha_gasto")
+                        j = j + 1
+                        DataGridViewGastos.Rows.Add()
+                    End If
+                End If
+
+            Next
+
+        ElseIf labelquenoseve.Text = "eliptica" Then
+            For i = 0 To cant_cont
+                If DataSet1.Tables("gasto").Rows(i).Item("empresa_gasto") = 2 Then
+                    If DataSet1.Tables("gasto").Rows(i).Item("fecha_gasto") >= DateTimePicker1gasto.Value And DataSet1.Tables("gasto").Rows(i).Item("fecha_gasto") <= DateTimePicker2gasto.Value Then
+                        DataGridViewGastos.Item(0, j).Value = DataSet1.Tables("gasto").Rows(i).Item("n_factura_gasto")
+                        DataGridViewGastos.Item(1, j).Value = DataSet1.Tables("gasto").Rows(i).Item("detalle_gasto")
+                        DataGridViewGastos.Item(2, j).Value = DataSet1.Tables("gasto").Rows(i).Item("monto_gasto")
+                        DataGridViewGastos.Item(3, j).Value = DataSet1.Tables("gasto").Rows(i).Item("fecha_gasto")
+                        j = j + 1
+                        DataGridViewGastos.Rows.Add()
+                    End If
+                End If
+            Next
+
+        ElseIf labelquenoseve.Text = "todos" Then
+
+            For i = 0 To cant_cont
+                If DataSet1.Tables("gasto").Rows(i).Item("fecha_gasto") >= DateTimePicker1gasto.Value And DataSet1.Tables("gasto").Rows(i).Item("fecha_gasto") <= DateTimePicker2gasto.Value Then
+                    DataGridViewGastos.Item(0, i).Value = DataSet1.Tables("gasto").Rows(i).Item("n_factura_gasto")
+                    DataGridViewGastos.Item(1, i).Value = DataSet1.Tables("gasto").Rows(i).Item("detalle_gasto")
+                    DataGridViewGastos.Item(2, i).Value = DataSet1.Tables("gasto").Rows(i).Item("monto_gasto")
+                    DataGridViewGastos.Item(3, i).Value = DataSet1.Tables("gasto").Rows(i).Item("fecha_gasto")
+                    DataGridViewGastos.Rows.Add()
+                End If
+            Next
+
+        End If
+
     End Sub
 End Class

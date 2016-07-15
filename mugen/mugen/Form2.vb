@@ -1934,8 +1934,6 @@ Public Class Form2
         view_contable.Rows.Add()
 
 
-
-
         cant_cont = DataSet1.Tables("contabilidad").Rows.Count - 1
 
         If empresa_seleccionada > -1 Then
@@ -1978,16 +1976,73 @@ Public Class Form2
     End Sub
 
     Private Sub Button28_Click(sender As Object, e As EventArgs) Handles Button28.Click
-        Dim desde As String
-        Dim hasta As String
 
-        desde = fecha_desde.Value
-        desde = desde.Substring(0, 10)
+        Dim dataAux As New DataGridView
+        Dim desde, hasta, fecha As Date
+        Dim bandera As Boolean = False
+        desde = fecha_desde.Value.ToShortDateString
+        hasta = fecha_hasta.Value.ToShortDateString
+        'dataAux = view_contable
 
-        hasta = fecha_hasta.Value
-        hasta = hasta.Substring(0, 10)
+        Dim i, j As Integer
+        Dim cant_cont As Integer
 
-        MsgBox("desde " + desde + " hasta " + hasta)
+        cant_cont = view_contable.RowCount - 1
+        j = 0
+
+        dataAux.Columns.Add("Fecha", "Fecha")
+        dataAux.Columns.Add("Descripcion", "Descripcion")
+        dataAux.Columns.Add("Deber", "Deber")
+        dataAux.Columns.Add("Haber", "Haber")
+        dataAux.Columns.Add("Saldo", "Saldo")
+        Try
+        For i = 0 To cant_cont
+
+                fecha = view_contable.Item(0, i).Value
+                ' MsgBox(fecha)
+                ' MsgBox(view_contable.Item(0, i).Value)
+
+                If (fecha >= desde And fecha <= hasta) Then
+
+                    dataAux.Rows.Add()
+                    dataAux.Item(0, j).Value = view_contable.Item(0, i).Value
+                    dataAux.Item(1, j).Value = view_contable.Item(1, i).Value
+                    dataAux.Item(2, j).Value = view_contable.Item(2, i).Value
+                    dataAux.Item(3, j).Value = view_contable.Item(3, i).Value
+                    dataAux.Item(4, j).Value = view_contable.Item(4, i).Value
+                    'MsgBox("holi" + dataAux.Item(0, j).Value
+                    j = j + 1
+                    bandera = True
+                End If
+            Next
+            If bandera Then
+                view_contable.Rows.Clear()
+                cant_cont = dataAux.RowCount - 1
+                MsgBox(cant_cont)
+
+                For i = 0 To cant_cont
+                    view_contable.Rows.Add()
+                    view_contable.Item(0, i).Value = dataAux.Item(0, i).Value
+                    view_contable.Item(1, i).Value = dataAux.Item(1, i).Value
+                    view_contable.Item(2, i).Value = dataAux.Item(2, i).Value
+                    view_contable.Item(3, i).Value = dataAux.Item(3, i).Value
+                    view_contable.Item(4, i).Value = dataAux.Item(4, i).Value
+                Next
+            Else
+                view_contable.Rows.Clear()
+                MsgBox("No existen datos en ese rango de fechas")
+
+            End If
+
+        Catch ex As Exception
+            MsgBox("No se puede filtrar")
+        End Try
+
+
+
+
+
+        'MsgBox("desde " + desde + " hasta " + hasta)
     End Sub
 
     Private Sub Button24NuevoProducto_Click_1(sender As Object, e As EventArgs)

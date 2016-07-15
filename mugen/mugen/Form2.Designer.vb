@@ -34,12 +34,12 @@ Partial Class Form2
         Dim ApellidoLabelA As System.Windows.Forms.Label
         Dim NombreLabelN As System.Windows.Forms.Label
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form2))
-        Dim ChartArea3 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend3 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series3 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim ChartArea4 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend4 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series4 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea2 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend2 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series2 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Me.Ingreso_productoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DataSet1 = New mugen.DataSet1()
         Me.Contabilidad2BindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -5271,16 +5271,16 @@ Partial Class Form2
         '
         'graficoPagados
         '
-        ChartArea3.Name = "ChartArea1"
-        Me.graficoPagados.ChartAreas.Add(ChartArea3)
-        Legend3.Name = "Legend1"
-        Me.graficoPagados.Legends.Add(Legend3)
+        ChartArea1.Name = "ChartArea1"
+        Me.graficoPagados.ChartAreas.Add(ChartArea1)
+        Legend1.Name = "Legend1"
+        Me.graficoPagados.Legends.Add(Legend1)
         Me.graficoPagados.Location = New System.Drawing.Point(850, 140)
         Me.graficoPagados.Name = "graficoPagados"
-        Series3.ChartArea = "ChartArea1"
-        Series3.Legend = "Legend1"
-        Series3.Name = "Series1"
-        Me.graficoPagados.Series.Add(Series3)
+        Series1.ChartArea = "ChartArea1"
+        Series1.Legend = "Legend1"
+        Series1.Name = "Series1"
+        Me.graficoPagados.Series.Add(Series1)
         Me.graficoPagados.Size = New System.Drawing.Size(416, 244)
         Me.graficoPagados.TabIndex = 57
         Me.graficoPagados.Text = "Chart2"
@@ -5288,16 +5288,16 @@ Partial Class Form2
         '
         'graficoTrabajos
         '
-        ChartArea4.Name = "ChartArea1"
-        Me.graficoTrabajos.ChartAreas.Add(ChartArea4)
-        Legend4.Name = "Legend1"
-        Me.graficoTrabajos.Legends.Add(Legend4)
+        ChartArea2.Name = "ChartArea1"
+        Me.graficoTrabajos.ChartAreas.Add(ChartArea2)
+        Legend2.Name = "Legend1"
+        Me.graficoTrabajos.Legends.Add(Legend2)
         Me.graficoTrabajos.Location = New System.Drawing.Point(20, 142)
         Me.graficoTrabajos.Name = "graficoTrabajos"
-        Series4.ChartArea = "ChartArea1"
-        Series4.Legend = "Legend1"
-        Series4.Name = "Series1"
-        Me.graficoTrabajos.Series.Add(Series4)
+        Series2.ChartArea = "ChartArea1"
+        Series2.Legend = "Legend1"
+        Series2.Name = "Series1"
+        Me.graficoTrabajos.Series.Add(Series2)
         Me.graficoTrabajos.Size = New System.Drawing.Size(416, 244)
         Me.graficoTrabajos.TabIndex = 56
         Me.graficoTrabajos.Text = "Chart1"
@@ -5737,7 +5737,7 @@ Partial Class Form2
         Me.DateTimePicker2gasto.Name = "DateTimePicker2gasto"
         Me.DateTimePicker2gasto.Size = New System.Drawing.Size(200, 20)
         Me.DateTimePicker2gasto.TabIndex = 14
-        Me.DateTimePicker2gasto.Value = New Date(2026, 12, 31, 0, 0, 0, 0)
+        Me.DateTimePicker2gasto.Value = New Date(2016, 7, 15, 0, 0, 0, 0)
         '
         'Label111
         '

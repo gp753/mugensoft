@@ -5356,7 +5356,7 @@ Public Class Form2
     Private Sub DateTimePicker2_ValueChanged(sender As Object, e As EventArgs) Handles DateTimePicker1gasto.ValueChanged
 
         DataGridViewGastos.Rows.Clear()
-        DataGridViewGastos.Rows.Add() ''no le gusta
+        'DataGridViewGastos.Rows.Add() ''no le gusta
 
         Dim i As Integer
         Dim j As Integer
@@ -5371,12 +5371,12 @@ Public Class Form2
                 If DataSet1.Tables("gasto").Rows(i).Item("empresa_gasto") < 2 Then
                     If DataSet1.Tables("gasto").Rows(i).Item("fecha_gasto") >= DateTimePicker1gasto.Value And DataSet1.Tables("gasto").Rows(i).Item("fecha_gasto") <= DateTimePicker2gasto.Value Then
 
+                        DataGridViewGastos.Rows.Add()
                         DataGridViewGastos.Item(0, j).Value = DataSet1.Tables("gasto").Rows(i).Item("n_factura_gasto")
                         DataGridViewGastos.Item(1, j).Value = DataSet1.Tables("gasto").Rows(i).Item("detalle_gasto")
                         DataGridViewGastos.Item(2, j).Value = DataSet1.Tables("gasto").Rows(i).Item("monto_gasto")
                         DataGridViewGastos.Item(3, j).Value = DataSet1.Tables("gasto").Rows(i).Item("fecha_gasto")
                         j = j + 1
-                        DataGridViewGastos.Rows.Add()
                     End If
                 End If
 
@@ -5386,12 +5386,12 @@ Public Class Form2
             For i = 0 To cant_cont
                 If DataSet1.Tables("gasto").Rows(i).Item("empresa_gasto") = 2 Then
                     If DataSet1.Tables("gasto").Rows(i).Item("fecha_gasto") >= DateTimePicker1gasto.Value And DataSet1.Tables("gasto").Rows(i).Item("fecha_gasto") <= DateTimePicker2gasto.Value Then
+                        DataGridViewGastos.Rows.Add()
                         DataGridViewGastos.Item(0, j).Value = DataSet1.Tables("gasto").Rows(i).Item("n_factura_gasto")
                         DataGridViewGastos.Item(1, j).Value = DataSet1.Tables("gasto").Rows(i).Item("detalle_gasto")
                         DataGridViewGastos.Item(2, j).Value = DataSet1.Tables("gasto").Rows(i).Item("monto_gasto")
                         DataGridViewGastos.Item(3, j).Value = DataSet1.Tables("gasto").Rows(i).Item("fecha_gasto")
                         j = j + 1
-                        DataGridViewGastos.Rows.Add()
                     End If
                 End If
             Next
@@ -5400,11 +5400,12 @@ Public Class Form2
 
             For i = 0 To cant_cont
                 If DataSet1.Tables("gasto").Rows(i).Item("fecha_gasto") >= DateTimePicker1gasto.Value And DataSet1.Tables("gasto").Rows(i).Item("fecha_gasto") <= DateTimePicker2gasto.Value Then
+
+                    DataGridViewGastos.Rows.Add()
                     DataGridViewGastos.Item(0, i).Value = DataSet1.Tables("gasto").Rows(i).Item("n_factura_gasto")
                     DataGridViewGastos.Item(1, i).Value = DataSet1.Tables("gasto").Rows(i).Item("detalle_gasto")
                     DataGridViewGastos.Item(2, i).Value = DataSet1.Tables("gasto").Rows(i).Item("monto_gasto")
                     DataGridViewGastos.Item(3, i).Value = DataSet1.Tables("gasto").Rows(i).Item("fecha_gasto")
-                    DataGridViewGastos.Rows.Add()
                 End If
             Next
 
@@ -5416,7 +5417,7 @@ Public Class Form2
     Private Sub DateTimePicker2gasto_ValueChanged(sender As Object, e As EventArgs) Handles DateTimePicker2gasto.ValueChanged
 
         DataGridViewGastos.Rows.Clear()
-        DataGridViewGastos.Rows.Add()
+        ''DataGridViewGastos.Rows.Add()
 
         Dim i As Integer
         Dim j As Integer
@@ -5431,12 +5432,12 @@ Public Class Form2
                 If DataSet1.Tables("gasto").Rows(i).Item("empresa_gasto") < 2 Then
                     If DataSet1.Tables("gasto").Rows(i).Item("fecha_gasto") >= DateTimePicker1gasto.Value And DataSet1.Tables("gasto").Rows(i).Item("fecha_gasto") <= DateTimePicker2gasto.Value Then
 
+                        DataGridViewGastos.Rows.Add()
                         DataGridViewGastos.Item(0, j).Value = DataSet1.Tables("gasto").Rows(i).Item("n_factura_gasto")
                         DataGridViewGastos.Item(1, j).Value = DataSet1.Tables("gasto").Rows(i).Item("detalle_gasto")
                         DataGridViewGastos.Item(2, j).Value = DataSet1.Tables("gasto").Rows(i).Item("monto_gasto")
                         DataGridViewGastos.Item(3, j).Value = DataSet1.Tables("gasto").Rows(i).Item("fecha_gasto")
                         j = j + 1
-                        DataGridViewGastos.Rows.Add()
                     End If
                 End If
 
@@ -5446,12 +5447,13 @@ Public Class Form2
             For i = 0 To cant_cont
                 If DataSet1.Tables("gasto").Rows(i).Item("empresa_gasto") = 2 Then
                     If DataSet1.Tables("gasto").Rows(i).Item("fecha_gasto") >= DateTimePicker1gasto.Value And DataSet1.Tables("gasto").Rows(i).Item("fecha_gasto") <= DateTimePicker2gasto.Value Then
+
+                        DataGridViewGastos.Rows.Add()
                         DataGridViewGastos.Item(0, j).Value = DataSet1.Tables("gasto").Rows(i).Item("n_factura_gasto")
                         DataGridViewGastos.Item(1, j).Value = DataSet1.Tables("gasto").Rows(i).Item("detalle_gasto")
                         DataGridViewGastos.Item(2, j).Value = DataSet1.Tables("gasto").Rows(i).Item("monto_gasto")
                         DataGridViewGastos.Item(3, j).Value = DataSet1.Tables("gasto").Rows(i).Item("fecha_gasto")
                         j = j + 1
-                        DataGridViewGastos.Rows.Add()
                     End If
                 End If
             Next
@@ -5460,11 +5462,12 @@ Public Class Form2
 
             For i = 0 To cant_cont
                 If DataSet1.Tables("gasto").Rows(i).Item("fecha_gasto") >= DateTimePicker1gasto.Value And DataSet1.Tables("gasto").Rows(i).Item("fecha_gasto") <= DateTimePicker2gasto.Value Then
+
+                    DataGridViewGastos.Rows.Add()
                     DataGridViewGastos.Item(0, i).Value = DataSet1.Tables("gasto").Rows(i).Item("n_factura_gasto")
                     DataGridViewGastos.Item(1, i).Value = DataSet1.Tables("gasto").Rows(i).Item("detalle_gasto")
                     DataGridViewGastos.Item(2, i).Value = DataSet1.Tables("gasto").Rows(i).Item("monto_gasto")
                     DataGridViewGastos.Item(3, i).Value = DataSet1.Tables("gasto").Rows(i).Item("fecha_gasto")
-                    DataGridViewGastos.Rows.Add()
                 End If
             Next
 

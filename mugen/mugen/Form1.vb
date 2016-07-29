@@ -29,7 +29,7 @@
             If TextBox1.Text = user And TextBox2.Text = pas Then
                 ban_login = 1
                 datos_loguin.id_usuario = DataSet1.Tables("usuario").Rows(i).Item("id_usuario")
-
+                datos_loguin.nivel_usuario = DataSet1.Tables("usuario").Rows(i).Item("nivel")
                 final_user.id = DataSet1.Tables("usuario").Rows(i).Item("id_usuario")
                 final_user.nombre = DataSet1.Tables("usuario").Rows(i).Item("nombre_usuario")
                 final_user.apellido = DataSet1.Tables("usuario").Rows(i).Item("apellido_usuario")
@@ -43,13 +43,13 @@
         If ban_login = 1 Then
             Label3.Text = "Ingreso"
             Label3.ForeColor = Color.Green
-            If final_user.nivel = 1 Then
-                Dim f2 As New Form2
-                Me.Hide()
-                f2.Show()
-            ElseIf final_user.nivel = 2 Then
+            'If final_user.nivel = 1 Then
+            Dim f2 As New Form2
+            Me.Hide()
+            f2.Show()
+            'ElseIf final_user.nivel = 2 Then
 
-            End If
+            'End If
 
         Else
             Label3.Text = "Usuario o Contraseña incorrecto"
@@ -92,6 +92,7 @@
             If TextBox1.Text = user And TextBox2.Text = pas Then
                 ban_login = 1
                 datos_loguin.id_usuario = DataSet1.Tables("usuario").Rows(i).Item("id_usuario")
+                datos_loguin.nivel_usuario = DataSet1.Tables("usuario").Rows(i).Item("nivel")
                 final_user.id = DataSet1.Tables("usuario").Rows(i).Item("id_usuario")
                 final_user.nombre = DataSet1.Tables("usuario").Rows(i).Item("nombre_usuario")
                 final_user.apellido = DataSet1.Tables("usuario").Rows(i).Item("apellido_usuario")
@@ -105,17 +106,26 @@
         If ban_login = 1 Then
             Label3.Text = "Ingreso"
             Label3.ForeColor = Color.Green
+            Dim f2 As New Form2
+            Me.Hide()
             If final_user.nivel = 1 Then
-                Dim f2 As New Form2
-                Me.Hide()
-                f2.Show()
+
+
             ElseIf final_user.nivel = 2 Then
-
+                f2.Button1.Hide()
+                f2.Button3.Hide()
+                f2.Button6.Hide()
+                f2.Button7.Hide()
+            ElseIf final_user.nivel = 3 Then
+                f2.Button1.Location = f2.boton_stock.Location
+                f2.boton_stock.Hide()
+                f2.Button6.Hide()
+                f2.Button7.Hide()
             End If
-
+            f2.Show()
         Else
 
-        End If
+            End If
 
     End Sub
 

@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
 Partial Class Form2
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()>
+    <System.Diagnostics.DebuggerNonUserCode()> _
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class Form2
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()>
+    <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim MailLabel1M As System.Windows.Forms.Label
@@ -34,12 +34,12 @@ Partial Class Form2
         Dim ApellidoLabelA As System.Windows.Forms.Label
         Dim NombreLabelN As System.Windows.Forms.Label
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form2))
-        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim ChartArea2 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend2 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series2 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea9 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend9 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series9 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea10 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend10 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series10 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Me.Ingreso_productoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DataSet1 = New mugen.DataSet1()
         Me.Contabilidad2BindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -165,7 +165,6 @@ Partial Class Form2
         Me.Button5 = New System.Windows.Forms.Button()
         Me.Button4 = New System.Windows.Forms.Button()
         Me.Button3 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.panel_cuentas = New System.Windows.Forms.Panel()
         Me.panel_crear_usuarios = New System.Windows.Forms.Panel()
@@ -263,11 +262,12 @@ Partial Class Form2
         Me.Label26 = New System.Windows.Forms.Label()
         Me.Label25 = New System.Windows.Forms.Label()
         Me.Label24 = New System.Windows.Forms.Label()
-        Me.panel_botones_mugen = New System.Windows.Forms.Panel()
-        Me.boton_stock = New System.Windows.Forms.Button()
         Me.boton_vender = New System.Windows.Forms.Button()
-        Me.boton_servicios = New System.Windows.Forms.Button()
         Me.panel_vender = New System.Windows.Forms.Panel()
+        Me.Button20 = New System.Windows.Forms.Button()
+        Me.bt_imprimir = New System.Windows.Forms.Button()
+        Me.seleccion_caja = New System.Windows.Forms.ComboBox()
+        Me.Label94 = New System.Windows.Forms.Label()
         Me.Button31 = New System.Windows.Forms.Button()
         Me.Button30 = New System.Windows.Forms.Button()
         Me.Button29 = New System.Windows.Forms.Button()
@@ -353,6 +353,8 @@ Partial Class Form2
         Me.btpGenerar = New System.Windows.Forms.Button()
         Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
         Me.panel_contabilidad = New System.Windows.Forms.Panel()
+        Me.seleccionar_empresa = New System.Windows.Forms.ComboBox()
+        Me.Label95 = New System.Windows.Forms.Label()
         Me.Label66 = New System.Windows.Forms.Label()
         Me.Label65 = New System.Windows.Forms.Label()
         Me.fecha_hasta = New System.Windows.Forms.DateTimePicker()
@@ -405,33 +407,6 @@ Partial Class Form2
         Me.error1Ser = New System.Windows.Forms.Label()
         Me.nomSerLabel = New System.Windows.Forms.Label()
         Me.nomSerTxt = New System.Windows.Forms.TextBox()
-        Me.panel_realizar_cobro = New System.Windows.Forms.Panel()
-        Me.Button32 = New System.Windows.Forms.Button()
-        Me.Button33 = New System.Windows.Forms.Button()
-        Me.Button34 = New System.Windows.Forms.Button()
-        Me.TextBox15 = New System.Windows.Forms.TextBox()
-        Me.Label71 = New System.Windows.Forms.Label()
-        Me.Button35 = New System.Windows.Forms.Button()
-        Me.Label73 = New System.Windows.Forms.Label()
-        Me.TextBox18 = New System.Windows.Forms.TextBox()
-        Me.Label74 = New System.Windows.Forms.Label()
-        Me.TextBox19 = New System.Windows.Forms.TextBox()
-        Me.Label75 = New System.Windows.Forms.Label()
-        Me.TextBox20 = New System.Windows.Forms.TextBox()
-        Me.Label76 = New System.Windows.Forms.Label()
-        Me.Button36 = New System.Windows.Forms.Button()
-        Me.DataGridView2 = New System.Windows.Forms.DataGridView()
-        Me.DataGridViewTextBoxColumn61 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn62 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn63 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn64 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn65 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.TextBox21 = New System.Windows.Forms.TextBox()
-        Me.Label77 = New System.Windows.Forms.Label()
-        Me.TextBox23 = New System.Windows.Forms.TextBox()
-        Me.Label78 = New System.Windows.Forms.Label()
-        Me.TextBox24 = New System.Windows.Forms.TextBox()
-        Me.Label79 = New System.Windows.Forms.Label()
         Me.PanelClientes = New System.Windows.Forms.Panel()
         Me.GroupBoxModificarClienteasd = New System.Windows.Forms.GroupBox()
         Me.Label1ModificarCliente = New System.Windows.Forms.Label()
@@ -601,6 +576,7 @@ Partial Class Form2
         Me.UsuarioTableAdapter = New mugen.DataSet1TableAdapters.usuarioTableAdapter()
         Me.Venta_productoTableAdapter = New mugen.DataSet1TableAdapters.venta_productoTableAdapter()
         Me.Venta_servicioTableAdapter = New mugen.DataSet1TableAdapters.venta_servicioTableAdapter()
+        Me.boton_stock = New System.Windows.Forms.Button()
         Me.GroupBoxCargarGastos = New System.Windows.Forms.GroupBox()
         Me.GroupBoxFiltrar = New System.Windows.Forms.GroupBox()
         Me.DateTimePicker1gasto = New System.Windows.Forms.DateTimePicker()
@@ -660,8 +636,8 @@ Partial Class Form2
         Me.TextBoxCrearMonto = New System.Windows.Forms.TextBox()
         Me.TextBoxCrearMotivo = New System.Windows.Forms.TextBox()
         Me.Label96 = New System.Windows.Forms.Label()
-        Me.Label95 = New System.Windows.Forms.Label()
-        Me.Label94 = New System.Windows.Forms.Label()
+        Me.Label71 = New System.Windows.Forms.Label()
+        Me.Label73 = New System.Windows.Forms.Label()
         Me.ButtonVerGastosRealizadosMugen = New System.Windows.Forms.Button()
         Me.ButtonRegistrarGastosNoRecurrentes = New System.Windows.Forms.Button()
         Me.ButtonRegistrarGastoRecurrente = New System.Windows.Forms.Button()
@@ -720,7 +696,6 @@ Partial Class Form2
         Me.GroupBox1.SuspendLayout()
         Me.panel_carga_presupuesto.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
-        Me.panel_botones_mugen.SuspendLayout()
         Me.panel_vender.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelTrabajosPendientes.SuspendLayout()
@@ -734,8 +709,6 @@ Partial Class Form2
         Me.verSerPanel.SuspendLayout()
         Me.editarServicios.SuspendLayout()
         Me.ingresarServicios.SuspendLayout()
-        Me.panel_realizar_cobro.SuspendLayout()
-        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelClientes.SuspendLayout()
         Me.GroupBoxModificarClienteasd.SuspendLayout()
         CType(Me.DataGridMugen, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -928,7 +901,7 @@ Partial Class Form2
         Me.Panel1.Controls.Add(Me.Association_1DataGridView)
         Me.Panel1.Location = New System.Drawing.Point(90, 93)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1379, 715)
+        Me.Panel1.Size = New System.Drawing.Size(1379, 676)
         Me.Panel1.TabIndex = 0
         Me.Panel1.Visible = False
         '
@@ -1671,7 +1644,7 @@ Partial Class Form2
         '
         'Button6
         '
-        Me.Button6.Location = New System.Drawing.Point(177, 12)
+        Me.Button6.Location = New System.Drawing.Point(1013, 12)
         Me.Button6.Name = "Button6"
         Me.Button6.Size = New System.Drawing.Size(161, 23)
         Me.Button6.TabIndex = 20
@@ -1680,7 +1653,7 @@ Partial Class Form2
         '
         'Button5
         '
-        Me.Button5.Location = New System.Drawing.Point(846, 12)
+        Me.Button5.Location = New System.Drawing.Point(8, 12)
         Me.Button5.Name = "Button5"
         Me.Button5.Size = New System.Drawing.Size(161, 23)
         Me.Button5.TabIndex = 19
@@ -1689,7 +1662,7 @@ Partial Class Form2
         '
         'Button4
         '
-        Me.Button4.Location = New System.Drawing.Point(512, 12)
+        Me.Button4.Location = New System.Drawing.Point(178, 12)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(161, 23)
         Me.Button4.TabIndex = 18
@@ -1705,18 +1678,9 @@ Partial Class Form2
         Me.Button3.Text = "Trabajos Pendientes"
         Me.Button3.UseVisualStyleBackColor = True
         '
-        'Button2
-        '
-        Me.Button2.Location = New System.Drawing.Point(344, 12)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(162, 23)
-        Me.Button2.TabIndex = 16
-        Me.Button2.Text = "Realizar Cobro"
-        Me.Button2.UseVisualStyleBackColor = True
-        '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(9, 12)
+        Me.Button1.Location = New System.Drawing.Point(846, 12)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(162, 23)
         Me.Button1.TabIndex = 15
@@ -2622,44 +2586,21 @@ Partial Class Form2
         Me.Label24.TabIndex = 0
         Me.Label24.Text = "Carga de Presupuestos"
         '
-        'panel_botones_mugen
-        '
-        Me.panel_botones_mugen.Controls.Add(Me.boton_stock)
-        Me.panel_botones_mugen.Controls.Add(Me.boton_vender)
-        Me.panel_botones_mugen.Location = New System.Drawing.Point(9, 41)
-        Me.panel_botones_mugen.Name = "panel_botones_mugen"
-        Me.panel_botones_mugen.Size = New System.Drawing.Size(1165, 26)
-        Me.panel_botones_mugen.TabIndex = 24
-        '
-        'boton_stock
-        '
-        Me.boton_stock.Location = New System.Drawing.Point(168, 0)
-        Me.boton_stock.Name = "boton_stock"
-        Me.boton_stock.Size = New System.Drawing.Size(161, 23)
-        Me.boton_stock.TabIndex = 1
-        Me.boton_stock.Text = "Stock"
-        Me.boton_stock.UseVisualStyleBackColor = True
-        '
         'boton_vender
         '
-        Me.boton_vender.Location = New System.Drawing.Point(0, 0)
+        Me.boton_vender.Location = New System.Drawing.Point(345, 12)
         Me.boton_vender.Name = "boton_vender"
         Me.boton_vender.Size = New System.Drawing.Size(162, 23)
         Me.boton_vender.TabIndex = 0
         Me.boton_vender.Text = "Vender"
         Me.boton_vender.UseVisualStyleBackColor = True
         '
-        'boton_servicios
-        '
-        Me.boton_servicios.Location = New System.Drawing.Point(1014, 11)
-        Me.boton_servicios.Name = "boton_servicios"
-        Me.boton_servicios.Size = New System.Drawing.Size(160, 24)
-        Me.boton_servicios.TabIndex = 25
-        Me.boton_servicios.Text = "Servicios"
-        Me.boton_servicios.UseVisualStyleBackColor = True
-        '
         'panel_vender
         '
+        Me.panel_vender.Controls.Add(Me.Button20)
+        Me.panel_vender.Controls.Add(Me.bt_imprimir)
+        Me.panel_vender.Controls.Add(Me.seleccion_caja)
+        Me.panel_vender.Controls.Add(Me.Label94)
         Me.panel_vender.Controls.Add(Me.Button31)
         Me.panel_vender.Controls.Add(Me.Button30)
         Me.panel_vender.Controls.Add(Me.Button29)
@@ -2687,9 +2628,44 @@ Partial Class Form2
         Me.panel_vender.TabIndex = 26
         Me.panel_vender.Visible = False
         '
+        'Button20
+        '
+        Me.Button20.Location = New System.Drawing.Point(29, 455)
+        Me.Button20.Name = "Button20"
+        Me.Button20.Size = New System.Drawing.Size(75, 23)
+        Me.Button20.TabIndex = 24
+        Me.Button20.Text = "Modificar"
+        Me.Button20.UseVisualStyleBackColor = True
+        '
+        'bt_imprimir
+        '
+        Me.bt_imprimir.Location = New System.Drawing.Point(310, 484)
+        Me.bt_imprimir.Name = "bt_imprimir"
+        Me.bt_imprimir.Size = New System.Drawing.Size(75, 23)
+        Me.bt_imprimir.TabIndex = 23
+        Me.bt_imprimir.Text = "Imprimir"
+        Me.bt_imprimir.UseVisualStyleBackColor = True
+        '
+        'seleccion_caja
+        '
+        Me.seleccion_caja.FormattingEnabled = True
+        Me.seleccion_caja.Location = New System.Drawing.Point(131, 386)
+        Me.seleccion_caja.Name = "seleccion_caja"
+        Me.seleccion_caja.Size = New System.Drawing.Size(121, 21)
+        Me.seleccion_caja.TabIndex = 22
+        '
+        'Label94
+        '
+        Me.Label94.AutoSize = True
+        Me.Label94.Location = New System.Drawing.Point(26, 389)
+        Me.Label94.Name = "Label94"
+        Me.Label94.Size = New System.Drawing.Size(87, 13)
+        Me.Label94.TabIndex = 21
+        Me.Label94.Text = "Seleccionar Caja"
+        '
         'Button31
         '
-        Me.Button31.Location = New System.Drawing.Point(392, 482)
+        Me.Button31.Location = New System.Drawing.Point(418, 482)
         Me.Button31.Name = "Button31"
         Me.Button31.Size = New System.Drawing.Size(75, 23)
         Me.Button31.TabIndex = 20
@@ -2699,7 +2675,7 @@ Partial Class Form2
         '
         'Button30
         '
-        Me.Button30.Location = New System.Drawing.Point(475, 481)
+        Me.Button30.Location = New System.Drawing.Point(501, 481)
         Me.Button30.Name = "Button30"
         Me.Button30.Size = New System.Drawing.Size(75, 23)
         Me.Button30.TabIndex = 19
@@ -3471,6 +3447,8 @@ Partial Class Form2
         '
         'panel_contabilidad
         '
+        Me.panel_contabilidad.Controls.Add(Me.seleccionar_empresa)
+        Me.panel_contabilidad.Controls.Add(Me.Label95)
         Me.panel_contabilidad.Controls.Add(Me.Label66)
         Me.panel_contabilidad.Controls.Add(Me.Label65)
         Me.panel_contabilidad.Controls.Add(Me.fecha_hasta)
@@ -3483,6 +3461,24 @@ Partial Class Form2
         Me.panel_contabilidad.Size = New System.Drawing.Size(1318, 520)
         Me.panel_contabilidad.TabIndex = 43
         Me.panel_contabilidad.Visible = False
+        '
+        'seleccionar_empresa
+        '
+        Me.seleccionar_empresa.FormattingEnabled = True
+        Me.seleccionar_empresa.Items.AddRange(New Object() {"Studio", "Libreria", "Eliptica", "Mugen"})
+        Me.seleccionar_empresa.Location = New System.Drawing.Point(104, 19)
+        Me.seleccionar_empresa.Name = "seleccionar_empresa"
+        Me.seleccionar_empresa.Size = New System.Drawing.Size(121, 21)
+        Me.seleccionar_empresa.TabIndex = 10
+        '
+        'Label95
+        '
+        Me.Label95.AutoSize = True
+        Me.Label95.Location = New System.Drawing.Point(48, 24)
+        Me.Label95.Name = "Label95"
+        Me.Label95.Size = New System.Drawing.Size(48, 13)
+        Me.Label95.TabIndex = 9
+        Me.Label95.Text = "Empresa"
         '
         'Label66
         '
@@ -3970,249 +3966,6 @@ Partial Class Form2
         Me.nomSerTxt.Name = "nomSerTxt"
         Me.nomSerTxt.Size = New System.Drawing.Size(295, 20)
         Me.nomSerTxt.TabIndex = 0
-        '
-        'panel_realizar_cobro
-        '
-        Me.panel_realizar_cobro.Controls.Add(Me.Button32)
-        Me.panel_realizar_cobro.Controls.Add(Me.Button33)
-        Me.panel_realizar_cobro.Controls.Add(Me.Button34)
-        Me.panel_realizar_cobro.Controls.Add(Me.TextBox15)
-        Me.panel_realizar_cobro.Controls.Add(Me.Label71)
-        Me.panel_realizar_cobro.Controls.Add(Me.Button35)
-        Me.panel_realizar_cobro.Controls.Add(Me.Label73)
-        Me.panel_realizar_cobro.Controls.Add(Me.TextBox18)
-        Me.panel_realizar_cobro.Controls.Add(Me.Label74)
-        Me.panel_realizar_cobro.Controls.Add(Me.TextBox19)
-        Me.panel_realizar_cobro.Controls.Add(Me.Label75)
-        Me.panel_realizar_cobro.Controls.Add(Me.TextBox20)
-        Me.panel_realizar_cobro.Controls.Add(Me.Label76)
-        Me.panel_realizar_cobro.Controls.Add(Me.Button36)
-        Me.panel_realizar_cobro.Controls.Add(Me.DataGridView2)
-        Me.panel_realizar_cobro.Controls.Add(Me.TextBox21)
-        Me.panel_realizar_cobro.Controls.Add(Me.Label77)
-        Me.panel_realizar_cobro.Controls.Add(Me.TextBox23)
-        Me.panel_realizar_cobro.Controls.Add(Me.Label78)
-        Me.panel_realizar_cobro.Controls.Add(Me.TextBox24)
-        Me.panel_realizar_cobro.Controls.Add(Me.Label79)
-        Me.panel_realizar_cobro.Location = New System.Drawing.Point(679, 69)
-        Me.panel_realizar_cobro.Name = "panel_realizar_cobro"
-        Me.panel_realizar_cobro.Size = New System.Drawing.Size(661, 554)
-        Me.panel_realizar_cobro.TabIndex = 2
-        Me.panel_realizar_cobro.Visible = False
-        '
-        'Button32
-        '
-        Me.Button32.Location = New System.Drawing.Point(381, 506)
-        Me.Button32.Name = "Button32"
-        Me.Button32.Size = New System.Drawing.Size(75, 23)
-        Me.Button32.TabIndex = 41
-        Me.Button32.Text = "Anterior"
-        Me.Button32.UseVisualStyleBackColor = True
-        Me.Button32.Visible = False
-        '
-        'Button33
-        '
-        Me.Button33.Location = New System.Drawing.Point(464, 505)
-        Me.Button33.Name = "Button33"
-        Me.Button33.Size = New System.Drawing.Size(75, 23)
-        Me.Button33.TabIndex = 40
-        Me.Button33.Text = "Siguiente"
-        Me.Button33.UseVisualStyleBackColor = True
-        Me.Button33.Visible = False
-        '
-        'Button34
-        '
-        Me.Button34.Location = New System.Drawing.Point(181, 507)
-        Me.Button34.Name = "Button34"
-        Me.Button34.Size = New System.Drawing.Size(112, 23)
-        Me.Button34.TabIndex = 39
-        Me.Button34.Text = "Buscar por factura"
-        Me.Button34.UseVisualStyleBackColor = True
-        '
-        'TextBox15
-        '
-        Me.TextBox15.Location = New System.Drawing.Point(508, 65)
-        Me.TextBox15.Name = "TextBox15"
-        Me.TextBox15.Size = New System.Drawing.Size(109, 20)
-        Me.TextBox15.TabIndex = 38
-        '
-        'Label71
-        '
-        Me.Label71.AutoSize = True
-        Me.Label71.Location = New System.Drawing.Point(428, 70)
-        Me.Label71.Name = "Label71"
-        Me.Label71.Size = New System.Drawing.Size(66, 13)
-        Me.Label71.TabIndex = 37
-        Me.Label71.Text = "Nro. Factura"
-        '
-        'Button35
-        '
-        Me.Button35.Location = New System.Drawing.Point(99, 507)
-        Me.Button35.Name = "Button35"
-        Me.Button35.Size = New System.Drawing.Size(75, 23)
-        Me.Button35.TabIndex = 36
-        Me.Button35.Text = "Nuevo"
-        Me.Button35.UseVisualStyleBackColor = True
-        '
-        'Label73
-        '
-        Me.Label73.AutoSize = True
-        Me.Label73.Location = New System.Drawing.Point(168, 30)
-        Me.Label73.Name = "Label73"
-        Me.Label73.Size = New System.Drawing.Size(45, 13)
-        Me.Label73.TabIndex = 35
-        Me.Label73.Text = "Label73"
-        '
-        'TextBox18
-        '
-        Me.TextBox18.Location = New System.Drawing.Point(460, 462)
-        Me.TextBox18.Name = "TextBox18"
-        Me.TextBox18.ReadOnly = True
-        Me.TextBox18.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox18.TabIndex = 34
-        Me.TextBox18.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'Label74
-        '
-        Me.Label74.AutoSize = True
-        Me.Label74.Location = New System.Drawing.Point(359, 469)
-        Me.Label74.Name = "Label74"
-        Me.Label74.Size = New System.Drawing.Size(42, 13)
-        Me.Label74.TabIndex = 33
-        Me.Label74.Text = "TOTAL"
-        '
-        'TextBox19
-        '
-        Me.TextBox19.Location = New System.Drawing.Point(460, 426)
-        Me.TextBox19.Name = "TextBox19"
-        Me.TextBox19.ReadOnly = True
-        Me.TextBox19.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox19.TabIndex = 32
-        Me.TextBox19.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'Label75
-        '
-        Me.Label75.AutoSize = True
-        Me.Label75.Location = New System.Drawing.Point(360, 433)
-        Me.Label75.Name = "Label75"
-        Me.Label75.Size = New System.Drawing.Size(24, 13)
-        Me.Label75.TabIndex = 31
-        Me.Label75.Text = "IVA"
-        '
-        'TextBox20
-        '
-        Me.TextBox20.Location = New System.Drawing.Point(460, 387)
-        Me.TextBox20.Name = "TextBox20"
-        Me.TextBox20.ReadOnly = True
-        Me.TextBox20.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.TextBox20.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox20.TabIndex = 30
-        Me.TextBox20.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'Label76
-        '
-        Me.Label76.AutoSize = True
-        Me.Label76.Location = New System.Drawing.Point(360, 395)
-        Me.Label76.Name = "Label76"
-        Me.Label76.Size = New System.Drawing.Size(67, 13)
-        Me.Label76.TabIndex = 29
-        Me.Label76.Text = "SUB TOTAL"
-        '
-        'Button36
-        '
-        Me.Button36.Location = New System.Drawing.Point(18, 507)
-        Me.Button36.Name = "Button36"
-        Me.Button36.Size = New System.Drawing.Size(75, 23)
-        Me.Button36.TabIndex = 28
-        Me.Button36.Text = "Guardar"
-        Me.Button36.UseVisualStyleBackColor = True
-        '
-        'DataGridView2
-        '
-        Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView2.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn61, Me.DataGridViewTextBoxColumn62, Me.DataGridViewTextBoxColumn63, Me.DataGridViewTextBoxColumn64, Me.DataGridViewTextBoxColumn65})
-        Me.DataGridView2.Location = New System.Drawing.Point(18, 157)
-        Me.DataGridView2.Name = "DataGridView2"
-        Me.DataGridView2.Size = New System.Drawing.Size(543, 206)
-        Me.DataGridView2.TabIndex = 27
-        '
-        'DataGridViewTextBoxColumn61
-        '
-        Me.DataGridViewTextBoxColumn61.Frozen = True
-        Me.DataGridViewTextBoxColumn61.HeaderText = "Codigo"
-        Me.DataGridViewTextBoxColumn61.Name = "DataGridViewTextBoxColumn61"
-        '
-        'DataGridViewTextBoxColumn62
-        '
-        Me.DataGridViewTextBoxColumn62.Frozen = True
-        Me.DataGridViewTextBoxColumn62.HeaderText = "Servicio"
-        Me.DataGridViewTextBoxColumn62.Name = "DataGridViewTextBoxColumn62"
-        Me.DataGridViewTextBoxColumn62.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn63
-        '
-        Me.DataGridViewTextBoxColumn63.HeaderText = "P/unid"
-        Me.DataGridViewTextBoxColumn63.Name = "DataGridViewTextBoxColumn63"
-        Me.DataGridViewTextBoxColumn63.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn64
-        '
-        Me.DataGridViewTextBoxColumn64.HeaderText = "Cant"
-        Me.DataGridViewTextBoxColumn64.Name = "DataGridViewTextBoxColumn64"
-        '
-        'DataGridViewTextBoxColumn65
-        '
-        Me.DataGridViewTextBoxColumn65.HeaderText = "Importe"
-        Me.DataGridViewTextBoxColumn65.Name = "DataGridViewTextBoxColumn65"
-        Me.DataGridViewTextBoxColumn65.ReadOnly = True
-        '
-        'TextBox21
-        '
-        Me.TextBox21.Location = New System.Drawing.Point(508, 24)
-        Me.TextBox21.Name = "TextBox21"
-        Me.TextBox21.Size = New System.Drawing.Size(109, 20)
-        Me.TextBox21.TabIndex = 26
-        '
-        'Label77
-        '
-        Me.Label77.AutoSize = True
-        Me.Label77.Location = New System.Drawing.Point(457, 29)
-        Me.Label77.Name = "Label77"
-        Me.Label77.Size = New System.Drawing.Size(37, 13)
-        Me.Label77.TabIndex = 25
-        Me.Label77.Text = "Fecha"
-        '
-        'TextBox23
-        '
-        Me.TextBox23.Location = New System.Drawing.Point(60, 67)
-        Me.TextBox23.Name = "TextBox23"
-        Me.TextBox23.Size = New System.Drawing.Size(335, 20)
-        Me.TextBox23.TabIndex = 24
-        '
-        'Label78
-        '
-        Me.Label78.AutoSize = True
-        Me.Label78.Location = New System.Drawing.Point(15, 72)
-        Me.Label78.Name = "Label78"
-        Me.Label78.Size = New System.Drawing.Size(39, 13)
-        Me.Label78.TabIndex = 23
-        Me.Label78.Text = "Cliente"
-        '
-        'TextBox24
-        '
-        Me.TextBox24.Location = New System.Drawing.Point(51, 27)
-        Me.TextBox24.Name = "TextBox24"
-        Me.TextBox24.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox24.TabIndex = 22
-        '
-        'Label79
-        '
-        Me.Label79.AutoSize = True
-        Me.Label79.Location = New System.Drawing.Point(15, 32)
-        Me.Label79.Name = "Label79"
-        Me.Label79.Size = New System.Drawing.Size(30, 13)
-        Me.Label79.TabIndex = 21
-        Me.Label79.Text = "RUC"
         '
         'PanelClientes
         '
@@ -5271,16 +5024,16 @@ Partial Class Form2
         '
         'graficoPagados
         '
-        ChartArea1.Name = "ChartArea1"
-        Me.graficoPagados.ChartAreas.Add(ChartArea1)
-        Legend1.Name = "Legend1"
-        Me.graficoPagados.Legends.Add(Legend1)
+        ChartArea9.Name = "ChartArea1"
+        Me.graficoPagados.ChartAreas.Add(ChartArea9)
+        Legend9.Name = "Legend1"
+        Me.graficoPagados.Legends.Add(Legend9)
         Me.graficoPagados.Location = New System.Drawing.Point(850, 140)
         Me.graficoPagados.Name = "graficoPagados"
-        Series1.ChartArea = "ChartArea1"
-        Series1.Legend = "Legend1"
-        Series1.Name = "Series1"
-        Me.graficoPagados.Series.Add(Series1)
+        Series9.ChartArea = "ChartArea1"
+        Series9.Legend = "Legend1"
+        Series9.Name = "Series1"
+        Me.graficoPagados.Series.Add(Series9)
         Me.graficoPagados.Size = New System.Drawing.Size(416, 244)
         Me.graficoPagados.TabIndex = 57
         Me.graficoPagados.Text = "Chart2"
@@ -5288,16 +5041,16 @@ Partial Class Form2
         '
         'graficoTrabajos
         '
-        ChartArea2.Name = "ChartArea1"
-        Me.graficoTrabajos.ChartAreas.Add(ChartArea2)
-        Legend2.Name = "Legend1"
-        Me.graficoTrabajos.Legends.Add(Legend2)
+        ChartArea10.Name = "ChartArea1"
+        Me.graficoTrabajos.ChartAreas.Add(ChartArea10)
+        Legend10.Name = "Legend1"
+        Me.graficoTrabajos.Legends.Add(Legend10)
         Me.graficoTrabajos.Location = New System.Drawing.Point(20, 142)
         Me.graficoTrabajos.Name = "graficoTrabajos"
-        Series2.ChartArea = "ChartArea1"
-        Series2.Legend = "Legend1"
-        Series2.Name = "Series1"
-        Me.graficoTrabajos.Series.Add(Series2)
+        Series10.ChartArea = "ChartArea1"
+        Series10.Legend = "Legend1"
+        Series10.Name = "Series1"
+        Me.graficoTrabajos.Series.Add(Series10)
         Me.graficoTrabajos.Size = New System.Drawing.Size(416, 244)
         Me.graficoTrabajos.TabIndex = 56
         Me.graficoTrabajos.Text = "Chart1"
@@ -5675,6 +5428,15 @@ Partial Class Form2
         '
         Me.Venta_servicioTableAdapter.ClearBeforeFill = True
         '
+        'boton_stock
+        '
+        Me.boton_stock.Location = New System.Drawing.Point(513, 12)
+        Me.boton_stock.Name = "boton_stock"
+        Me.boton_stock.Size = New System.Drawing.Size(161, 23)
+        Me.boton_stock.TabIndex = 1
+        Me.boton_stock.Text = "Stock"
+        Me.boton_stock.UseVisualStyleBackColor = True
+        '
         'GroupBoxCargarGastos
         '
         Me.GroupBoxCargarGastos.Controls.Add(Me.GroupBoxFiltrar)
@@ -5690,12 +5452,13 @@ Partial Class Form2
         Me.GroupBoxCargarGastos.Controls.Add(Me.ButtonModificarGastoRecurrente)
         Me.GroupBoxCargarGastos.Controls.Add(Me.ButtonCrearGastoRecurrente)
         Me.GroupBoxCargarGastos.Controls.Add(Me.DataGridViewGastos)
-        Me.GroupBoxCargarGastos.Location = New System.Drawing.Point(8, 73)
+        Me.GroupBoxCargarGastos.Location = New System.Drawing.Point(5, 74)
         Me.GroupBoxCargarGastos.Name = "GroupBoxCargarGastos"
         Me.GroupBoxCargarGastos.Size = New System.Drawing.Size(1333, 656)
-        Me.GroupBoxCargarGastos.TabIndex = 58
+        Me.GroupBoxCargarGastos.TabIndex = 59
         Me.GroupBoxCargarGastos.TabStop = False
         Me.GroupBoxCargarGastos.Text = "Gastos"
+        Me.GroupBoxCargarGastos.Visible = False
         '
         'GroupBoxFiltrar
         '
@@ -6196,8 +5959,8 @@ Partial Class Form2
         Me.GroupBoxCrearGastoRecurrente.Controls.Add(Me.TextBoxCrearMonto)
         Me.GroupBoxCrearGastoRecurrente.Controls.Add(Me.TextBoxCrearMotivo)
         Me.GroupBoxCrearGastoRecurrente.Controls.Add(Me.Label96)
-        Me.GroupBoxCrearGastoRecurrente.Controls.Add(Me.Label95)
-        Me.GroupBoxCrearGastoRecurrente.Controls.Add(Me.Label94)
+        Me.GroupBoxCrearGastoRecurrente.Controls.Add(Me.Label71)
+        Me.GroupBoxCrearGastoRecurrente.Controls.Add(Me.Label73)
         Me.GroupBoxCrearGastoRecurrente.Location = New System.Drawing.Point(148, 39)
         Me.GroupBoxCrearGastoRecurrente.Name = "GroupBoxCrearGastoRecurrente"
         Me.GroupBoxCrearGastoRecurrente.Size = New System.Drawing.Size(292, 364)
@@ -6266,23 +6029,23 @@ Partial Class Form2
         Me.Label96.TabIndex = 2
         Me.Label96.Text = "Empresa:"
         '
-        'Label95
+        'Label71
         '
-        Me.Label95.AutoSize = True
-        Me.Label95.Location = New System.Drawing.Point(64, 128)
-        Me.Label95.Name = "Label95"
-        Me.Label95.Size = New System.Drawing.Size(40, 13)
-        Me.Label95.TabIndex = 1
-        Me.Label95.Text = "Monto:"
+        Me.Label71.AutoSize = True
+        Me.Label71.Location = New System.Drawing.Point(64, 128)
+        Me.Label71.Name = "Label71"
+        Me.Label71.Size = New System.Drawing.Size(40, 13)
+        Me.Label71.TabIndex = 1
+        Me.Label71.Text = "Monto:"
         '
-        'Label94
+        'Label73
         '
-        Me.Label94.AutoSize = True
-        Me.Label94.Location = New System.Drawing.Point(62, 89)
-        Me.Label94.Name = "Label94"
-        Me.Label94.Size = New System.Drawing.Size(42, 13)
-        Me.Label94.TabIndex = 0
-        Me.Label94.Text = "Motivo:"
+        Me.Label73.AutoSize = True
+        Me.Label73.Location = New System.Drawing.Point(62, 89)
+        Me.Label73.Name = "Label73"
+        Me.Label73.Size = New System.Drawing.Size(42, 13)
+        Me.Label73.TabIndex = 0
+        Me.Label73.Text = "Motivo:"
         '
         'ButtonVerGastosRealizadosMugen
         '
@@ -6364,29 +6127,27 @@ Partial Class Form2
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoScroll = True
-        Me.ClientSize = New System.Drawing.Size(1354, 733)
-        Me.Controls.Add(Me.boton_servicios)
-        Me.Controls.Add(Me.panel_botones_mugen)
+        Me.ClientSize = New System.Drawing.Size(1637, 679)
+        Me.Controls.Add(Me.GroupBoxCargarGastos)
+        Me.Controls.Add(Me.boton_stock)
+        Me.Controls.Add(Me.boton_vender)
         Me.Controls.Add(Me.Button7)
         Me.Controls.Add(Me.Button6)
         Me.Controls.Add(Me.Button5)
         Me.Controls.Add(Me.Button4)
         Me.Controls.Add(Me.Button3)
-        Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
-        Me.Controls.Add(Me.GroupBoxCargarGastos)
+        Me.Controls.Add(Me.panel_contabilidad)
+        Me.Controls.Add(Me.resulTrabajos)
+        Me.Controls.Add(Me.GroupBox4Stock)
+        Me.Controls.Add(Me.panel_vender)
+        Me.Controls.Add(Me.panel_cuentas)
+        Me.Controls.Add(Me.panel_carga_presupuesto)
+        Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.PanelClientes)
         Me.Controls.Add(Me.PanelTrabajosPendientes)
         Me.Controls.Add(Me.PanelCargarGastos)
         Me.Controls.Add(Me.panelServicios)
-        Me.Controls.Add(Me.panel_contabilidad)
-        Me.Controls.Add(Me.panel_realizar_cobro)
-        Me.Controls.Add(Me.resulTrabajos)
-        Me.Controls.Add(Me.GroupBox4Stock)
-        Me.Controls.Add(Me.Panel1)
-        Me.Controls.Add(Me.panel_vender)
-        Me.Controls.Add(Me.panel_cuentas)
-        Me.Controls.Add(Me.panel_carga_presupuesto)
         Me.Name = "Form2"
         Me.Text = "Form2"
         CType(Me.Ingreso_productoBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
@@ -6434,7 +6195,6 @@ Partial Class Form2
         Me.panel_carga_presupuesto.PerformLayout()
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox3.PerformLayout()
-        Me.panel_botones_mugen.ResumeLayout(False)
         Me.panel_vender.ResumeLayout(False)
         Me.panel_vender.PerformLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -6456,9 +6216,6 @@ Partial Class Form2
         Me.editarServicios.PerformLayout()
         Me.ingresarServicios.ResumeLayout(False)
         Me.ingresarServicios.PerformLayout()
-        Me.panel_realizar_cobro.ResumeLayout(False)
-        Me.panel_realizar_cobro.PerformLayout()
-        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelClientes.ResumeLayout(False)
         Me.GroupBoxModificarClienteasd.ResumeLayout(False)
         Me.GroupBoxModificarClienteasd.PerformLayout()
@@ -6523,7 +6280,6 @@ Partial Class Form2
     Friend WithEvents Button5 As Button
     Friend WithEvents Button4 As Button
     Friend WithEvents Button3 As Button
-    Friend WithEvents Button2 As Button
     Friend WithEvents Button1 As Button
     Friend WithEvents panel_cuentas As Panel
     Friend WithEvents panel_crear_usuarios As Panel
@@ -6620,10 +6376,7 @@ Partial Class Form2
     Friend WithEvents Label26 As Label
     Friend WithEvents Label25 As Label
     Friend WithEvents Label24 As Label
-    Friend WithEvents panel_botones_mugen As Panel
-    Friend WithEvents boton_stock As Button
     Friend WithEvents boton_vender As Button
-    Friend WithEvents boton_servicios As Button
     Friend WithEvents panel_vender As Panel
     Friend WithEvents TextBox17 As TextBox
     Friend WithEvents label_fecha As Label
@@ -6766,33 +6519,6 @@ Partial Class Form2
     Friend WithEvents Button30 As Button
     Friend WithEvents Button29 As Button
     Friend WithEvents list_clientes As ListBox
-    Friend WithEvents panel_realizar_cobro As Panel
-    Friend WithEvents Button32 As Button
-    Friend WithEvents Button33 As Button
-    Friend WithEvents Button34 As Button
-    Friend WithEvents TextBox15 As TextBox
-    Friend WithEvents Label71 As Label
-    Friend WithEvents Button35 As Button
-    Friend WithEvents Label73 As Label
-    Friend WithEvents TextBox18 As TextBox
-    Friend WithEvents Label74 As Label
-    Friend WithEvents TextBox19 As TextBox
-    Friend WithEvents Label75 As Label
-    Friend WithEvents TextBox20 As TextBox
-    Friend WithEvents Label76 As Label
-    Friend WithEvents Button36 As Button
-    Friend WithEvents DataGridView2 As DataGridView
-    Friend WithEvents TextBox21 As TextBox
-    Friend WithEvents Label77 As Label
-    Friend WithEvents TextBox23 As TextBox
-    Friend WithEvents Label78 As Label
-    Friend WithEvents TextBox24 As TextBox
-    Friend WithEvents Label79 As Label
-    Friend WithEvents DataGridViewTextBoxColumn61 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn62 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn63 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn64 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn65 As DataGridViewTextBoxColumn
     Friend WithEvents PanelClientes As Panel
     Friend WithEvents DataGridMugen As DataGridView
     Friend WithEvents Column7 As DataGridViewTextBoxColumn
@@ -7068,16 +6794,27 @@ Partial Class Form2
     Friend WithEvents UsuarioTableAdapter As DataSet1TableAdapters.usuarioTableAdapter
     Friend WithEvents Venta_productoTableAdapter As DataSet1TableAdapters.venta_productoTableAdapter
     Friend WithEvents Venta_servicioTableAdapter As DataSet1TableAdapters.venta_servicioTableAdapter
+    Friend WithEvents Label94 As Label
+    Friend WithEvents seleccion_caja As ComboBox
+    Friend WithEvents seleccionar_empresa As ComboBox
+    Friend WithEvents Label95 As Label
+    Friend WithEvents bt_imprimir As Button
+    Friend WithEvents Button20 As Button
+    Friend WithEvents boton_stock As Button
     Friend WithEvents GroupBoxCargarGastos As GroupBox
-    Friend WithEvents GroupBoxRegistrarGastoRecurrente As GroupBox
-    Friend WithEvents GroupBoxModificarGastoRecurrente As GroupBox
-    Friend WithEvents GroupBoxCrearGastoRecurrente As GroupBox
-    Friend WithEvents ButtonVerGastosRealizadosMugen As Button
-    Friend WithEvents ButtonRegistrarGastosNoRecurrentes As Button
-    Friend WithEvents ButtonRegistrarGastoRecurrente As Button
-    Friend WithEvents ButtonModificarGastoRecurrente As Button
-    Friend WithEvents ButtonCrearGastoRecurrente As Button
+    Friend WithEvents GroupBoxFiltrar As GroupBox
+    Friend WithEvents DateTimePicker1gasto As DateTimePicker
+    Friend WithEvents labelquenoseve As Label
+    Friend WithEvents DateTimePicker2gasto As DateTimePicker
+    Friend WithEvents Label111 As Label
+    Friend WithEvents Label112 As Label
+    Friend WithEvents Buttonvertodo As Button
+    Friend WithEvents ButtonVerGastosRealizadosEliptica As Button
     Friend WithEvents GroupBoxRegistrarGastosNoRecurrentes As GroupBox
+    Friend WithEvents CheckBoxNoRecurrenteIVA As CheckBox
+    Friend WithEvents TextBoxNoRecurrenteDetalle As TextBox
+    Friend WithEvents LabelRegistrarGastosNoRecurrentes As Label
+    Friend WithEvents ComboBoxNoRecurrenteEmpresa As ComboBox
     Friend WithEvents ButtonNoRecurrenteCerrar As Button
     Friend WithEvents ButtonNoRecurrenteRegistrar As Button
     Friend WithEvents TextBoxNoRecurrenteFecha As TextBox
@@ -7088,6 +6825,11 @@ Partial Class Form2
     Friend WithEvents Label107 As Label
     Friend WithEvents Label108 As Label
     Friend WithEvents Label109 As Label
+    Friend WithEvents GroupBoxRegistrarGastoRecurrente As GroupBox
+    Friend WithEvents CheckBoxRegistrarRecurrenteIVA As CheckBox
+    Friend WithEvents ComboBoxRegistrarRecurrenteDetalle As ComboBox
+    Friend WithEvents LabelRegistrarGastoRecurrente As Label
+    Friend WithEvents ComboBoxRegistrarRecurrenteEmpresa As ComboBox
     Friend WithEvents ButtonRegistrarRecurrenteCerrar As Button
     Friend WithEvents ButtonRegistrarRecurrenteRegistrar As Button
     Friend WithEvents TextBoxRegistrarRecurrenteFecha As TextBox
@@ -7098,45 +6840,36 @@ Partial Class Form2
     Friend WithEvents Label100 As Label
     Friend WithEvents Label101 As Label
     Friend WithEvents Label102 As Label
+    Friend WithEvents GroupBoxModificarGastoRecurrente As GroupBox
+    Friend WithEvents Label110 As Label
+    Friend WithEvents ComboBoxModificarMotivo As ComboBox
+    Friend WithEvents TextBoxModificarMotivo As TextBox
+    Friend WithEvents LabelModificarGastoRecurrente As Label
+    Friend WithEvents ComboBoxModificarEmpresa As ComboBox
     Friend WithEvents ButtonModificarCerrar As Button
     Friend WithEvents ButtonModificarModificar As Button
     Friend WithEvents Label97 As Label
     Friend WithEvents TextBoxModificarMonto As TextBox
     Friend WithEvents Label98 As Label
     Friend WithEvents Label99 As Label
+    Friend WithEvents GroupBoxCrearGastoRecurrente As GroupBox
+    Friend WithEvents ComboBoxCrearEmpresa As ComboBox
+    Friend WithEvents LabelCrearGastoRecurrente As Label
     Friend WithEvents ButtonCrearCerrar As Button
     Friend WithEvents ButtonCrearCrear As Button
     Friend WithEvents TextBoxCrearMonto As TextBox
     Friend WithEvents TextBoxCrearMotivo As TextBox
     Friend WithEvents Label96 As Label
-    Friend WithEvents Label95 As Label
-    Friend WithEvents Label94 As Label
-    Friend WithEvents LabelCrearGastoRecurrente As Label
-    Friend WithEvents ComboBoxCrearEmpresa As ComboBox
-    Friend WithEvents ComboBoxNoRecurrenteEmpresa As ComboBox
-    Friend WithEvents ComboBoxRegistrarRecurrenteEmpresa As ComboBox
-    Friend WithEvents ComboBoxModificarEmpresa As ComboBox
-    Friend WithEvents LabelModificarGastoRecurrente As Label
-    Friend WithEvents LabelRegistrarGastoRecurrente As Label
-    Friend WithEvents ComboBoxRegistrarRecurrenteDetalle As ComboBox
-    Friend WithEvents TextBoxNoRecurrenteDetalle As TextBox
-    Friend WithEvents LabelRegistrarGastosNoRecurrentes As Label
-    Friend WithEvents Label110 As Label
-    Friend WithEvents ComboBoxModificarMotivo As ComboBox
-    Friend WithEvents TextBoxModificarMotivo As TextBox
-    Friend WithEvents ButtonVerGastosRealizadosEliptica As Button
+    Friend WithEvents Label71 As Label
+    Friend WithEvents Label73 As Label
+    Friend WithEvents ButtonVerGastosRealizadosMugen As Button
+    Friend WithEvents ButtonRegistrarGastosNoRecurrentes As Button
+    Friend WithEvents ButtonRegistrarGastoRecurrente As Button
+    Friend WithEvents ButtonModificarGastoRecurrente As Button
+    Friend WithEvents ButtonCrearGastoRecurrente As Button
     Friend WithEvents DataGridViewGastos As DataGridView
     Friend WithEvents Factura As DataGridViewTextBoxColumn
     Friend WithEvents Detalle As DataGridViewTextBoxColumn
     Friend WithEvents Monto As DataGridViewTextBoxColumn
     Friend WithEvents Fecha_gasto As DataGridViewTextBoxColumn
-    Friend WithEvents Buttonvertodo As Button
-    Friend WithEvents CheckBoxNoRecurrenteIVA As CheckBox
-    Friend WithEvents CheckBoxRegistrarRecurrenteIVA As CheckBox
-    Friend WithEvents Label111 As Label
-    Friend WithEvents Label112 As Label
-    Friend WithEvents DateTimePicker2gasto As DateTimePicker
-    Friend WithEvents DateTimePicker1gasto As DateTimePicker
-    Friend WithEvents labelquenoseve As Label
-    Friend WithEvents GroupBoxFiltrar As GroupBox
 End Class

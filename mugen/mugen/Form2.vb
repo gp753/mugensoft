@@ -4288,6 +4288,7 @@ Public Class Form2
 
     Private Sub ButtonModificarModificar_Click(sender As Object, e As EventArgs) Handles ButtonModificarModificar.Click
 
+        update_cache()
         LabelModificarGastoRecurrente.Hide()
 
         If TextBoxModificarMotivo.Text <> "" And TextBoxModificarMonto.Text <> "" And ComboBoxModificarEmpresa.SelectedIndex <> -1 Then
@@ -4423,7 +4424,7 @@ Public Class Form2
             Dim nuevo_gasto As DataRow = DataSet1.Tables("gasto").NewRow()
 
             nuevo_gasto("n_factura_gasto") = TextBoxRegistrarRecurrenteFactura.Text
-            nuevo_gasto("detalle_gasto") = ComboBoxRegistrarRecurrenteDetalle.SelectedIndex
+            nuevo_gasto("detalle_gasto") = ComboBoxRegistrarRecurrenteDetalle.Text
             nuevo_gasto("monto_gasto") = TextBoxRegistrarRecurrenteMonto.Text
             nuevo_gasto("fecha_gasto") = TextBoxRegistrarRecurrenteFecha.Text
             nuevo_gasto("empresa_gasto") = ComboBoxRegistrarRecurrenteEmpresa.SelectedIndex

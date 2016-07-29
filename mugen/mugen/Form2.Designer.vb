@@ -2967,8 +2967,8 @@ Partial Class Form2
         'BindingNavigatorCountItem1
         '
         Me.BindingNavigatorCountItem1.Name = "BindingNavigatorCountItem1"
-        Me.BindingNavigatorCountItem1.Size = New System.Drawing.Size(35, 24)
-        Me.BindingNavigatorCountItem1.Text = "of {0}"
+        Me.BindingNavigatorCountItem1.Size = New System.Drawing.Size(37, 24)
+        Me.BindingNavigatorCountItem1.Text = "de {0}"
         Me.BindingNavigatorCountItem1.ToolTipText = "Total number of items"
         '
         'BindingNavigatorDeleteItem1
@@ -5696,7 +5696,6 @@ Partial Class Form2
         Me.GroupBoxCargarGastos.TabIndex = 58
         Me.GroupBoxCargarGastos.TabStop = False
         Me.GroupBoxCargarGastos.Text = "Gastos"
-        Me.GroupBoxCargarGastos.Visible = False
         '
         'GroupBoxFiltrar
         '
